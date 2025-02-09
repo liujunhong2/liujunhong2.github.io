@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>t2</title>
-    <url>/t2.html</url>
+    <title>Git better</title>
+    <url>/learngit.html</url>
     <content><![CDATA[]]></content>
       <categories>
-        <category>daily</category>
+        <category>Learn</category>
       </categories>
       <tags>
-        <tag>test</tag>
+        <tag>Git</tag>
+        <tag>Better</tag>
       </tags>
   </entry>
   <entry>
@@ -18,8 +19,25 @@
       <categories>
         <category>daily</category>
       </categories>
+  </entry>
+  <entry>
+    <title>Hexo better</title>
+    <url>/learnhexo.html</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>Learn</category>
+      </categories>
       <tags>
-        <tag>Hello World</tag>
+        <tag>Better</tag>
+        <tag>Hexo</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>t2</title>
+    <url>/t2.html</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>daily</category>
+      </categories>
   </entry>
 </search>
