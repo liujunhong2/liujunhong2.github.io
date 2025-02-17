@@ -9,17 +9,6 @@
       </categories>
   </entry>
   <entry>
-    <title>cycle</title>
-    <url>/cycle.html</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>Daily</category>
-      </categories>
-      <tags>
-        <tag>bike</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Git better</title>
     <url>/learngit.html</url>
     <content><![CDATA[]]></content>
@@ -29,6 +18,17 @@
       <tags>
         <tag>Git</tag>
         <tag>Better</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>cycle</title>
+    <url>/cycle.html</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>Daily</category>
+      </categories>
+      <tags>
+        <tag>bike</tag>
       </tags>
   </entry>
   <entry>
