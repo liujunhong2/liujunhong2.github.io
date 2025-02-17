@@ -13,17 +13,6 @@
       </tags>
   </entry>
   <entry>
-    <title>cycle</title>
-    <url>/cycle.html</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>Daily</category>
-      </categories>
-      <tags>
-        <tag>bike</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Hello</title>
     <url>/First-blog.html</url>
     <content><![CDATA[]]></content>
@@ -41,6 +30,17 @@
       <tags>
         <tag>Better</tag>
         <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>cycle</title>
+    <url>/cycle.html</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>Daily</category>
+      </categories>
+      <tags>
+        <tag>bike</tag>
       </tags>
   </entry>
 </search>
