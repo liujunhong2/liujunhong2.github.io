@@ -1,14 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Hello</title>
-    <url>/First-blog.html</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>Daily</category>
-      </categories>
-  </entry>
-  <entry>
     <title>cycle</title>
     <url>/cycle.html</url>
     <content><![CDATA[]]></content>
@@ -30,6 +22,14 @@
         <tag>Git</tag>
         <tag>Better</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>Hello</title>
+    <url>/First-blog.html</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>Daily</category>
+      </categories>
   </entry>
   <entry>
     <title>Hexo better</title>
