@@ -1,15 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>cycle</title>
-    <url>/cycle.html</url>
+    <title>Hello</title>
+    <url>/First-blog.html</url>
     <content><![CDATA[]]></content>
       <categories>
         <category>Daily</category>
       </categories>
-      <tags>
-        <tag>bike</tag>
-      </tags>
   </entry>
   <entry>
     <title>Git better</title>
@@ -24,12 +21,15 @@
       </tags>
   </entry>
   <entry>
-    <title>Hello</title>
-    <url>/First-blog.html</url>
+    <title>cycle</title>
+    <url>/cycle.html</url>
     <content><![CDATA[]]></content>
       <categories>
         <category>Daily</category>
       </categories>
+      <tags>
+        <tag>bike</tag>
+      </tags>
   </entry>
   <entry>
     <title>Hexo better</title>
