@@ -1,5 +1,5 @@
-https://liujunhong2.github.io/cycle.html
 https://liujunhong2.github.io/learngit.html
+https://liujunhong2.github.io/cycle.html
 https://liujunhong2.github.io/about/index.html
 https://liujunhong2.github.io/First-blog.html
 https://liujunhong2.github.io/learnhexo.html
