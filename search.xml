@@ -82,6 +82,102 @@ document.addEventListener("DOMContentLoaded", function () {
       </tags>
   </entry>
   <entry>
+    <title>t3</title>
+    <url>/t3.html</url>
+    <content><![CDATA[<p>test</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>Hexo better</title>
+    <url>/learnhexo.html</url>
+    <content><![CDATA[<h1 id="来时路"><a href="#来时路" class="headerlink" title="来时路"></a>来时路</h1><h2 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h2><h3 id="1：无法初始化"><a href="#1：无法初始化" class="headerlink" title="1：无法初始化"></a>1：无法初始化</h3><p>hexo init （blog）时因为代理无法正常初始化完成，修改代理地址，例：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global http.proxy http://127.0.0.1:7890</span><br><span class="line">git config --global https.proxy http://127.0.0.1:7890</span><br></pre></td></tr></table></figure>
+
+<p>这将允许 Git 通过本地代理进行连接。如果不再需要代理，或者想要清除代理设置，可以使用以下命令：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global --unset http.proxy</span><br><span class="line">git config --global --unset https.proxy</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="2：npm速度慢"><a href="#2：npm速度慢" class="headerlink" title="2：npm速度慢"></a>2：npm速度慢</h3><p><a href="https://npmmirror.com/">淘宝镜像</a></p>
+<p><img src="/learnhexo/taobao1.png" alt="p1"></p>
+<p>之后在npm前加个c!</p>
+<h2 id="常用指令"><a href="#常用指令" class="headerlink" title="常用指令"></a>常用指令</h2><h3 id="建站前"><a href="#建站前" class="headerlink" title="建站前"></a>建站前</h3><p>在gitbase中cd到博客文件夹</p>
+<p>下载hexo框架</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+<hr>
+<p>初始化博客项目（若已经在下一级文件夹中可不加folder）</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo init [folder] </span><br></pre></td></tr></table></figure>
+<hr>
+<p>进入folder</p>
+<p>安装依赖项</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install</span><br></pre></td></tr></table></figure>
+<hr>
+<p>下载部署器</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+<hr>
+<p>之后可随时部署到Github上</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+<h3 id="建站后"><a href="#建站后" class="headerlink" title="建站后"></a>建站后</h3><p>new 新建一篇文章</p>
+<p>-p 自定义文章路径</p>
+<p>-r 如果存在则替换</p>
+<p>-s 文章别名</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo new [layout] &lt;title&gt;</span><br></pre></td></tr></table></figure>
+<hr>
+<p>clean 清除缓存文件 (db.json) 和已生成的静态文件 (public)</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo cl</span><br></pre></td></tr></table></figure>
+<hr>
+<p>generate 生成静态文件</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo g</span><br></pre></td></tr></table></figure>
+<hr>
+<p>publish 发布草稿</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo publish [layout] &lt;filename&gt;</span><br></pre></td></tr></table></figure>
+<hr>
+<p>server 启动服务器</p>
+<p>-p 重设端口</p>
+<p>-s 只使用静态文件</p>
+<p>-l 启用日志</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+<hr>
+<p>deploy 部署网站</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+<hr>
+<p>render 渲染文件<br>-o output destination</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo render &lt;file1&gt; [file2] ...</span><br></pre></td></tr></table></figure>
+<hr>
+<p>migrate 从其他博客系统迁移内容</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo migrate&lt;type&gt;</span><br></pre></td></tr></table></figure>
+<hr>
+<p>list 列出所有路由</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo list &lt;type&gt;</span><br></pre></td></tr></table></figure>
+<hr>
+<p>version 显示版本信息</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo version</span><br></pre></td></tr></table></figure>
+<hr>
+<p>config 列出网站的配置（_config.yml）。 如果指定了 key，则只展示配置中对应 key 的值；如果同时指定了 key 和 value，则将配置中对应的 key 的值修改为 value。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo config [key] [value]</span><br></pre></td></tr></table></figure>
+
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a href="https://dayuzy.com/">资深技术博客</a></p>
+<p><a href="https://blog.csdn.net/cat_bayi/article/details/128725230">CSDN良心教学</a></p>
+<p><a href="https://mp.weixin.qq.com/s/GmTmhpkB0QmoHIL5bmXQGw">小岛码农</a></p>
+<p><a href="https://hexo.io/zh-cn/">官方文档</a></p>
+]]></content>
+      <categories>
+        <category>Learn</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>Better</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello</title>
+    <url>/First-blog.html</url>
+    <content><![CDATA[<p>Hello hexo. Hello blog. Hello world</p>
+]]></content>
+      <categories>
+        <category>Daily</category>
+      </categories>
+  </entry>
+  <entry>
     <title>Git better</title>
     <url>/learngit.html</url>
     <content><![CDATA[<h1 id="Git常用指令"><a href="#Git常用指令" class="headerlink" title="Git常用指令"></a>Git常用指令</h1><ul>
@@ -275,104 +371,8 @@ document.addEventListener("DOMContentLoaded", function () {
         <category>Learn</category>
       </categories>
       <tags>
+        <tag>Better</tag>
         <tag>Git</tag>
-        <tag>Better</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>Hello</title>
-    <url>/First-blog.html</url>
-    <content><![CDATA[<p>Hello hexo. Hello blog. Hello world</p>
-]]></content>
-      <categories>
-        <category>Daily</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Hexo better</title>
-    <url>/learnhexo.html</url>
-    <content><![CDATA[<h1 id="来时路"><a href="#来时路" class="headerlink" title="来时路"></a>来时路</h1><h2 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h2><h3 id="1：无法初始化"><a href="#1：无法初始化" class="headerlink" title="1：无法初始化"></a>1：无法初始化</h3><p>hexo init （blog）时因为代理无法正常初始化完成，修改代理地址，例：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global http.proxy http://127.0.0.1:7890</span><br><span class="line">git config --global https.proxy http://127.0.0.1:7890</span><br></pre></td></tr></table></figure>
-
-<p>这将允许 Git 通过本地代理进行连接。如果不再需要代理，或者想要清除代理设置，可以使用以下命令：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global --unset http.proxy</span><br><span class="line">git config --global --unset https.proxy</span><br></pre></td></tr></table></figure>
-
-
-<h3 id="2：npm速度慢"><a href="#2：npm速度慢" class="headerlink" title="2：npm速度慢"></a>2：npm速度慢</h3><p><a href="https://npmmirror.com/">淘宝镜像</a></p>
-<p><img src="/learnhexo/taobao1.png" alt="p1"></p>
-<p>之后在npm前加个c!</p>
-<h2 id="常用指令"><a href="#常用指令" class="headerlink" title="常用指令"></a>常用指令</h2><h3 id="建站前"><a href="#建站前" class="headerlink" title="建站前"></a>建站前</h3><p>在gitbase中cd到博客文件夹</p>
-<p>下载hexo框架</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
-<hr>
-<p>初始化博客项目（若已经在下一级文件夹中可不加folder）</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo init [folder] </span><br></pre></td></tr></table></figure>
-<hr>
-<p>进入folder</p>
-<p>安装依赖项</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install</span><br></pre></td></tr></table></figure>
-<hr>
-<p>下载部署器</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
-<hr>
-<p>之后可随时部署到Github上</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo d</span><br></pre></td></tr></table></figure>
-<h3 id="建站后"><a href="#建站后" class="headerlink" title="建站后"></a>建站后</h3><p>new 新建一篇文章</p>
-<p>-p 自定义文章路径</p>
-<p>-r 如果存在则替换</p>
-<p>-s 文章别名</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo new [layout] &lt;title&gt;</span><br></pre></td></tr></table></figure>
-<hr>
-<p>clean 清除缓存文件 (db.json) 和已生成的静态文件 (public)</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo cl</span><br></pre></td></tr></table></figure>
-<hr>
-<p>generate 生成静态文件</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo g</span><br></pre></td></tr></table></figure>
-<hr>
-<p>publish 发布草稿</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo publish [layout] &lt;filename&gt;</span><br></pre></td></tr></table></figure>
-<hr>
-<p>server 启动服务器</p>
-<p>-p 重设端口</p>
-<p>-s 只使用静态文件</p>
-<p>-l 启用日志</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure>
-<hr>
-<p>deploy 部署网站</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo d</span><br></pre></td></tr></table></figure>
-<hr>
-<p>render 渲染文件<br>-o output destination</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo render &lt;file1&gt; [file2] ...</span><br></pre></td></tr></table></figure>
-<hr>
-<p>migrate 从其他博客系统迁移内容</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo migrate&lt;type&gt;</span><br></pre></td></tr></table></figure>
-<hr>
-<p>list 列出所有路由</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo list &lt;type&gt;</span><br></pre></td></tr></table></figure>
-<hr>
-<p>version 显示版本信息</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo version</span><br></pre></td></tr></table></figure>
-<hr>
-<p>config 列出网站的配置（_config.yml）。 如果指定了 key，则只展示配置中对应 key 的值；如果同时指定了 key 和 value，则将配置中对应的 key 的值修改为 value。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo config [key] [value]</span><br></pre></td></tr></table></figure>
-
-<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a href="https://dayuzy.com/">资深技术博客</a></p>
-<p><a href="https://blog.csdn.net/cat_bayi/article/details/128725230">CSDN良心教学</a></p>
-<p><a href="https://mp.weixin.qq.com/s/GmTmhpkB0QmoHIL5bmXQGw">小岛码农</a></p>
-<p><a href="https://hexo.io/zh-cn/">官方文档</a></p>
-]]></content>
-      <categories>
-        <category>Learn</category>
-      </categories>
-      <tags>
-        <tag>Better</tag>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>t3</title>
-    <url>/t3.html</url>
-    <content><![CDATA[<p>test</p>
-]]></content>
   </entry>
 </search>
