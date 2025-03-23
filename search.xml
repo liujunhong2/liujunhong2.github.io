@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>cycle</title>
+    <url>/cycle.html</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>Daily</category>
+      </categories>
+      <tags>
+        <tag>bike</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello</title>
+    <url>/First-blog.html</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>Daily</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Git better</title>
+    <url>/learngit.html</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>Learn</category>
+      </categories>
+      <tags>
+        <tag>Git</tag>
+        <tag>Better</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo better</title>
+    <url>/learnhexo.html</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>Learn</category>
+      </categories>
+      <tags>
+        <tag>Better</tag>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+</search>
