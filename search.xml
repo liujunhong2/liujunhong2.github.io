@@ -1,18 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Git better</title>
-    <url>/learngit.html</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>Learn</category>
-      </categories>
-      <tags>
-        <tag>Git</tag>
-        <tag>Better</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Hello</title>
     <url>/First-blog.html</url>
     <content><![CDATA[]]></content>
@@ -29,6 +17,18 @@
       </categories>
       <tags>
         <tag>bike</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Git better</title>
+    <url>/learngit.html</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>Learn</category>
+      </categories>
+      <tags>
+        <tag>Git</tag>
+        <tag>Better</tag>
       </tags>
   </entry>
   <entry>
