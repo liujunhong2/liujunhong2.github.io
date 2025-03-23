@@ -148,10 +148,20 @@
 <p>总价:  <span id="total-price">计算中…</span></p>
 <h2 id="总行程"><a href="#总行程" class="headerlink" title="总行程"></a>总行程</h2><p>2025-3-1之前: <span class="distance" data-distance="147">147 km</span>  </p>
 <p>2025-3-1: <span class="distance" data-distance="150"> 150 km </span></p>
-<p>2025-3-11 <span class="distance" data-distance="40"> 40 km </span>h</p>
+<p>2025-3-11 <span class="distance" data-distance="40"> 40 km </span></p>
+<p>2025-3-15 <span class="distance" data-distance="13"> 13 km </span></p>
+<p>2025-3-18 <span class="distance" data-distance="40"> 40 km </span></p>
 <p>总行程: <span id="total-distance">计算中…</span></p>
 <script>
 document.addEventListener("DOMContentLoaded", function () {
+    // 计算总价格
+    let totalPrice = 0;
+    document.querySelectorAll(".price").forEach(item => {
+        totalPrice += parseFloat(item.getAttribute("data-price"));
+    });
+    document.getElementById("total-price").innerText = totalPrice.toFixed(2) + "￥";
+
+    // 计算总距离
     let totalDistance = 0;
     document.querySelectorAll(".distance").forEach(item => {
         totalDistance += parseFloat(item.getAttribute("data-distance"));
@@ -163,7 +173,7 @@ document.addEventListener("DOMContentLoaded", function () {
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://liujunhong2.github.io/cycle.html" data-id="cm8l0f3fg0003gktj17o82qnq" data-title="cycle" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      <a data-url="https://liujunhong2.github.io/cycle.html" data-id="cm8l1pszn0001zctj1x032fl9" data-title="cycle" class="article-share-link"><span class="fa fa-share">分享</span></a>
       
       
       
@@ -276,7 +286,7 @@ document.addEventListener("DOMContentLoaded", function () {
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://liujunhong2.github.io/learnhexo.html" data-id="cm8l0f3fi0006gktj58ph3ssa" data-title="Hexo better" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      <a data-url="https://liujunhong2.github.io/learnhexo.html" data-id="cm8l1pszs0009zctjf4ki5a6h" data-title="Hexo better" class="article-share-link"><span class="fa fa-share">分享</span></a>
       
       
       
@@ -506,7 +516,7 @@ document.addEventListener("DOMContentLoaded", function () {
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://liujunhong2.github.io/learngit.html" data-id="cm8l0f3fk000jgktjeu9m9q5r" data-title="Git better" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      <a data-url="https://liujunhong2.github.io/learngit.html" data-id="cm8l1pszr0007zctjhoj92119" data-title="Git better" class="article-share-link"><span class="fa fa-share">分享</span></a>
       
       
       
@@ -551,7 +561,7 @@ document.addEventListener("DOMContentLoaded", function () {
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://liujunhong2.github.io/First-blog.html" data-id="cm8l0f3fe0001gktjfh6wav3h" data-title="Hello" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      <a data-url="https://liujunhong2.github.io/First-blog.html" data-id="cm8l1pszp0003zctjd3mk2set" data-title="Hello" class="article-share-link"><span class="fa fa-share">分享</span></a>
       
       
       

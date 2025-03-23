@@ -14,7 +14,7 @@
 <meta property="og:description" content="铁腚行 已备骑行装备 公路车喜德盛RC200 1499￥  入门级公路车， 速度一般（上限不高，毕竟是入门，先练腿，6分），颜值还可以（7分），刹车不太行（4分， 前刹调到能完全夹住轮胎其实能到6分）（满分10分）  护目镜：  匹克日常 39￥   防风沙烈日，实用  手机支架  ROCKBROS洛克兄弟手机支架 29￥   性价比高，质量还可以，颜值也过得去  骑行头盔  GUB M5 Mip">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-02-17T02:53:59.000Z">
-<meta property="article:modified_time" content="2025-03-23T01:48:35.757Z">
+<meta property="article:modified_time" content="2025-03-23T02:34:59.378Z">
 <meta property="article:author" content="jiangshun">
 <meta property="article:tag" content="bike">
 <meta name="twitter:card" content="summary">
@@ -149,10 +149,20 @@
 <p>总价:  <span id="total-price">计算中…</span></p>
 <h2 id="总行程"><a href="#总行程" class="headerlink" title="总行程"></a>总行程</h2><p>2025-3-1之前: <span class="distance" data-distance="147">147 km</span>  </p>
 <p>2025-3-1: <span class="distance" data-distance="150"> 150 km </span></p>
-<p>2025-3-11 <span class="distance" data-distance="40"> 40 km </span>h</p>
+<p>2025-3-11 <span class="distance" data-distance="40"> 40 km </span></p>
+<p>2025-3-15 <span class="distance" data-distance="13"> 13 km </span></p>
+<p>2025-3-18 <span class="distance" data-distance="40"> 40 km </span></p>
 <p>总行程: <span id="total-distance">计算中…</span></p>
 <script>
 document.addEventListener("DOMContentLoaded", function () {
+    // 计算总价格
+    let totalPrice = 0;
+    document.querySelectorAll(".price").forEach(item => {
+        totalPrice += parseFloat(item.getAttribute("data-price"));
+    });
+    document.getElementById("total-price").innerText = totalPrice.toFixed(2) + "￥";
+
+    // 计算总距离
     let totalDistance = 0;
     document.querySelectorAll(".distance").forEach(item => {
         totalDistance += parseFloat(item.getAttribute("data-distance"));
@@ -164,7 +174,7 @@ document.addEventListener("DOMContentLoaded", function () {
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://liujunhong2.github.io/cycle.html" data-id="cm8l0f3fg0003gktj17o82qnq" data-title="cycle" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      <a data-url="https://liujunhong2.github.io/cycle.html" data-id="cm8l1pszn0001zctj1x032fl9" data-title="cycle" class="article-share-link"><span class="fa fa-share">分享</span></a>
       
       
       
