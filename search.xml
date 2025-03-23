@@ -1,15 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Hello</title>
-    <url>/First-blog.html</url>
-    <content><![CDATA[<p>Hello hexo. Hello blog. Hello world</p>
-]]></content>
-      <categories>
-        <category>Daily</category>
-      </categories>
-  </entry>
-  <entry>
     <title>cycle</title>
     <url>/cycle.html</url>
     <content><![CDATA[<h1 id="铁腚行"><a href="#铁腚行" class="headerlink" title="铁腚行"></a>铁腚行</h1><hr>
@@ -287,6 +278,15 @@ document.addEventListener("DOMContentLoaded", function () {
         <tag>Git</tag>
         <tag>Better</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>Hello</title>
+    <url>/First-blog.html</url>
+    <content><![CDATA[<p>Hello hexo. Hello blog. Hello world</p>
+]]></content>
+      <categories>
+        <category>Daily</category>
+      </categories>
   </entry>
   <entry>
     <title>Hexo better</title>
