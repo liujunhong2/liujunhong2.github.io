@@ -388,4 +388,9 @@ document.addEventListener("DOMContentLoaded", function () {
         <tag>Hexo</tag>
       </tags>
   </entry>
+  <entry>
+    <title>t3</title>
+    <url>/t3.html</url>
+    <content><![CDATA[]]></content>
+  </entry>
 </search>
