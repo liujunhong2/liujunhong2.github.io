@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha256-dABdfBfUoC8vJUBOwGVdm8L9qlMWaHTIfXt+7GnZCIo=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"liujunhong2.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.22.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="算法汇总算法Dijkstra12345678910111213141516171819202122232425262728293031323334353637383940#include&lt;bits&#x2F;stdc++.h&gt;using namespace std;int main()&#123;	int n, m, st;	cin &gt;&gt; n &gt;&gt; m &gt;&gt;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="alogrithm">
+<meta property="og:url" content="https://liujunhong2.github.io/algorithm.html">
+<meta property="og:site_name" content="豹子湾2.0">
+<meta property="og:description" content="算法汇总算法Dijkstra12345678910111213141516171819202122232425262728293031323334353637383940#include&lt;bits&#x2F;stdc++.h&gt;using namespace std;int main()&#123;	int n, m, st;	cin &gt;&gt; n &gt;&gt; m &gt;&gt;">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://liujunhong2.github.io/algorithm/ag1.png">
+<meta property="article:published_time" content="2025-03-24T10:29:49.000Z">
+<meta property="article:modified_time" content="2025-03-24T10:33:01.095Z">
+<meta property="article:author" content="jiangshun">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://liujunhong2.github.io/algorithm/ag1.png">
+
+
+<link rel="canonical" href="https://liujunhong2.github.io/algorithm.html">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://liujunhong2.github.io/algorithm.html","path":"algorithm.html","title":"alogrithm"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>alogrithm | 豹子湾2.0</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  
+
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">豹子湾2.0</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">4</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">2</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">5</span></a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AE%97%E6%B3%95%E6%B1%87%E6%80%BB"><span class="nav-number">1.</span> <span class="nav-text">算法汇总</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AE%97%E6%B3%95"><span class="nav-number">1.1.</span> <span class="nav-text">算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Dijkstra"><span class="nav-number">1.1.1.</span> <span class="nav-text">Dijkstra</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%B9%E5%99%A8"><span class="nav-number">1.2.</span> <span class="nav-text">容器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ordered-set"><span class="nav-number">1.2.1.</span> <span class="nav-text">ordered_set</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#tips"><span class="nav-number">1.3.</span> <span class="nav-text">tips</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%87%8D%E8%BD%BD%E8%BF%90%E7%AE%97%E7%AC%A6%E5%8F%B7"><span class="nav-number">1.3.1.</span> <span class="nav-text">重载运算符号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B1%82%E6%9C%80%E5%A4%A7%E7%9A%84%E6%9C%80%E5%B0%8F%E6%88%96%E8%80%85%E6%9C%80%E5%B0%8F%E7%9A%84%E6%9C%80%E5%A4%A7%E9%97%AE%E9%A2%98"><span class="nav-number">1.3.2.</span> <span class="nav-text">求最大的最小或者最小的最大问题</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="jiangshun"
+      src="/images/p1.jpeg">
+  <p class="site-author-name" itemprop="name">jiangshun</p>
+  <div class="site-description" itemprop="description">计算机科学与技术</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/liujunhong2" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;liujunhong2" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="返回顶部">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://liujunhong2.github.io/algorithm.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/p1.jpeg">
+      <meta itemprop="name" content="jiangshun">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="豹子湾2.0">
+      <meta itemprop="description" content="计算机科学与技术">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="alogrithm | 豹子湾2.0">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          alogrithm
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2025-03-24 18:29:49 / 修改时间：18:33:01" itemprop="dateCreated datePublished" datetime="2025-03-24T18:29:49+08:00">2025-03-24</time>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>446</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>2 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1 id="算法汇总"><a href="#算法汇总" class="headerlink" title="算法汇总"></a>算法汇总</h1><h2 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h2><h3 id="Dijkstra"><a href="#Dijkstra" class="headerlink" title="Dijkstra"></a>Dijkstra</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="type">int</span> n, m, st;</span><br><span class="line">	cin &gt;&gt; n &gt;&gt; m &gt;&gt; st;</span><br><span class="line">	<span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">distance</span><span class="params">(n + <span class="number">1</span>, INT_MAX)</span></span>;</span><br><span class="line">	<span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">visited</span><span class="params">(n + <span class="number">1</span>, <span class="literal">false</span>)</span></span>;</span><br><span class="line">	vector&lt;vector&lt;pair&lt;<span class="type">int</span>,<span class="type">int</span>&gt;&gt;&gt; <span class="built_in">g</span>(n + <span class="number">1</span>);</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>, u, v, w; i &lt; m; i ++)&#123;</span><br><span class="line">		cin &gt;&gt; u &gt;&gt; v &gt;&gt; w;</span><br><span class="line">		g[u].<span class="built_in">push_back</span>(&#123;v, w&#125;);</span><br><span class="line">	&#125;</span><br><span class="line">	priority_queue&lt;pair&lt;<span class="type">int</span>,<span class="type">int</span>&gt;,vector&lt;pair&lt;<span class="type">int</span>,<span class="type">int</span>&gt;&gt;,greater&lt;&gt;&gt; q1;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">auto</span> it : g[st])&#123;</span><br><span class="line">		q<span class="number">1.</span><span class="built_in">push</span>(&#123;it.second,it.first&#125;);	</span><br><span class="line">	&#125;</span><br><span class="line">	distance[st] = <span class="number">0</span>;</span><br><span class="line">	pair&lt;<span class="type">int</span>,<span class="type">int</span>&gt; temp;</span><br><span class="line">	<span class="type">int</span> u, w, v;</span><br><span class="line">	<span class="keyword">while</span>(!q<span class="number">1.</span><span class="built_in">empty</span>())&#123;</span><br><span class="line">		temp = q<span class="number">1.</span><span class="built_in">top</span>();</span><br><span class="line">		q<span class="number">1.</span><span class="built_in">pop</span>();</span><br><span class="line">		u = temp.second;</span><br><span class="line">		w = temp.first;</span><br><span class="line">		<span class="keyword">if</span>(visited[u]) <span class="keyword">continue</span>;</span><br><span class="line">		visited[u] = <span class="literal">true</span>;</span><br><span class="line">		distance[u] = w;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">auto</span> it : g[u])&#123;</span><br><span class="line">			v = it.first;</span><br><span class="line">			<span class="keyword">if</span>(!visited[v] &amp;&amp; it.second + distance[u] &lt; distance[v])&#123;</span><br><span class="line">				q<span class="number">1.</span><span class="built_in">push</span>(&#123;it.second + distance[u], v&#125;);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i ++)&#123;</span><br><span class="line">		cout &lt;&lt; distance[i] &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="容器"><a href="#容器" class="headerlink" title="容器"></a>容器</h2><h3 id="ordered-set"><a href="#ordered-set" class="headerlink" title="ordered_set"></a>ordered_set</h3><p><img src="/algorithm/ag1.png" alt="1"></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;ext/pb_ds/assoc_container.hpp&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;ext/pb_ds/tree_policy.hpp&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> __gnu_pbds;</span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> tree&lt;</span><br><span class="line">    <span class="type">int</span>, </span><br><span class="line">    null_type, </span><br><span class="line">    less&lt;<span class="type">int</span>&gt;, </span><br><span class="line">    rb_tree_tag, </span><br><span class="line">    tree_order_statistics_node_update</span><br><span class="line">&gt; ordered_set;</span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ordered_set s;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// ✅ 插入元素（重复元素会被自动忽略）</span></span><br><span class="line">    s.<span class="built_in">insert</span>(<span class="number">5</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// ✅ 删除元素前先检查</span></span><br><span class="line">    <span class="keyword">if</span> (s.<span class="built_in">find</span>(<span class="number">7</span>) != s.<span class="built_in">end</span>()) s.<span class="built_in">erase</span>(<span class="number">7</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// ✅ 获取第 k 小的元素 (0-based)，需先检查集合大小</span></span><br><span class="line">    <span class="keyword">if</span> (s.<span class="built_in">size</span>() &gt; <span class="number">1</span>) &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;The 2nd smallest element is: &quot;</span> &lt;&lt; *s.<span class="built_in">find_by_order</span>(<span class="number">1</span>) &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// ✅ 获取小于 x 的元素数量</span></span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;Number of elements smaller than 10: &quot;</span> &lt;&lt; s.<span class="built_in">order_of_key</span>(<span class="number">10</span>) &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// ✅ 判断某个元素是否存在</span></span><br><span class="line">    <span class="keyword">if</span> (s.<span class="built_in">find</span>(<span class="number">5</span>) != s.<span class="built_in">end</span>()) &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;5 exists in the set\n&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// ✅ 查找某个元素的迭代器</span></span><br><span class="line">    <span class="keyword">auto</span> it = s.<span class="built_in">find</span>(<span class="number">5</span>);</span><br><span class="line">    <span class="keyword">if</span> (it != s.<span class="built_in">end</span>()) &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;5 is found in the set\n&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// ✅ 获取集合大小</span></span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;Size of the set: &quot;</span> &lt;&lt; s.<span class="built_in">size</span>() &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// ✅ 获取最大值与最小值（非空时）</span></span><br><span class="line">    <span class="keyword">if</span> (!s.<span class="built_in">empty</span>()) &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;Minimum element: &quot;</span> &lt;&lt; *s.<span class="built_in">find_by_order</span>(<span class="number">0</span>) &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;Maximum element: &quot;</span> &lt;&lt; *s.<span class="built_in">find_by_order</span>(s.<span class="built_in">size</span>() - <span class="number">1</span>) &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// ✅ 清空集合</span></span><br><span class="line">    s.<span class="built_in">clear</span>();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="tips"><a href="#tips" class="headerlink" title="tips"></a>tips</h2><h3 id="重载运算符号"><a href="#重载运算符号" class="headerlink" title="重载运算符号"></a>重载运算符号</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">my</span>&#123;</span><br><span class="line">    <span class="type">int</span> l, r, index;</span><br><span class="line">    <span class="built_in">my</span>(<span class="type">int</span> a, <span class="type">int</span> b, <span class="type">int</span> c)&#123;</span><br><span class="line">        l = a, r = b, index = c;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">bool</span> <span class="keyword">operator</span> &lt; (<span class="type">const</span> my x) <span class="type">const</span> &#123;  </span><br><span class="line">        	<span class="comment">// 优先队列中比较关系反着来</span></span><br><span class="line">            <span class="keyword">return</span> l &gt; x.l;</span><br><span class="line">    &#125;  </span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="求最大的最小或者最小的最大问题"><a href="#求最大的最小或者最小的最大问题" class="headerlink" title="求最大的最小或者最小的最大问题"></a>求最大的最小或者最小的最大问题</h3><p>大概率是用二分来查询最合适的答案，具体算法看题</p>
+
+<div id="gitalk-container"></div>
+<script src="https://cdn.bootcss.com/blueimp-md5/2.12.0/js/md5.min.js"></script><link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css"><script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+		<script>
+		var gitalkConfig = {"clientID":"Ov23liUz04SGvLF6mUKG","clientSecret":"4a2ca4eae134fca88a77bf039261848a821083e2","repo":"talk_info","owner":"liujunhong2","admin":["liujunhong2"],"distractionFreeMode":false};
+	    gitalkConfig.id = md5(location.pathname);
+		var gitalk = new Gitalk(gitalkConfig);
+	    gitalk.render("gitalk-container");
+	    </script>
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>请我一杯咖啡吧！</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/p2.png" alt="jiangshun 比特币">
+        <span>比特币</span>
+      </div>
+
+  </div>
+</div>
+
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/cycle.html" rel="prev" title="cycle">
+                  <i class="fa fa-angle-left"></i> cycle
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments gitalk-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">jiangshun</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">2k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">7 分钟</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
+
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"liujunhong2","repo":"talk_info","client_id":"Ov23liUz04SGvLF6mUKG","client_secret":"4a2ca4eae134fca88a77bf039261848a821083e2","admin_user":"liujunhong2","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":"zh-CN","labels":"Gitalk","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.min.js","integrity":"sha256-MVK9MGD/XJaGyIghSVrONSnoXoGh3IFxLw0zfvzpxR4="},"path_md5":"1bb6a581ef3c7997b0fdac68ca2ad036"}</script>
+<script src="/js/third-party/comments/gitalk.js" defer></script>
+
+</body>
+</html>
