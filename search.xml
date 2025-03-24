@@ -1,15 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Hello</title>
-    <url>/First-blog.html</url>
-    <content><![CDATA[<p>Hello hexo. Hello blog. Hello world</p>
-]]></content>
-      <categories>
-        <category>Daily</category>
-      </categories>
-  </entry>
-  <entry>
     <title>alogrithm</title>
     <url>/algorithm.html</url>
     <content><![CDATA[<h1 id="算法汇总"><a href="#算法汇总" class="headerlink" title="算法汇总"></a>算法汇总</h1><h2 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h2><h3 id="Dijkstra"><a href="#Dijkstra" class="headerlink" title="Dijkstra"></a>Dijkstra</h3><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="type">int</span> n, m, st;</span><br><span class="line">	cin &gt;&gt; n &gt;&gt; m &gt;&gt; st;</span><br><span class="line">	<span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">distance</span><span class="params">(n + <span class="number">1</span>, INT_MAX)</span></span>;</span><br><span class="line">	<span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">visited</span><span class="params">(n + <span class="number">1</span>, <span class="literal">false</span>)</span></span>;</span><br><span class="line">	vector&lt;vector&lt;pair&lt;<span class="type">int</span>,<span class="type">int</span>&gt;&gt;&gt; <span class="built_in">g</span>(n + <span class="number">1</span>);</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>, u, v, w; i &lt; m; i ++)&#123;</span><br><span class="line">		cin &gt;&gt; u &gt;&gt; v &gt;&gt; w;</span><br><span class="line">		g[u].<span class="built_in">push_back</span>(&#123;v, w&#125;);</span><br><span class="line">	&#125;</span><br><span class="line">	priority_queue&lt;pair&lt;<span class="type">int</span>,<span class="type">int</span>&gt;,vector&lt;pair&lt;<span class="type">int</span>,<span class="type">int</span>&gt;&gt;,greater&lt;&gt;&gt; q1;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">auto</span> it : g[st])&#123;</span><br><span class="line">		q<span class="number">1.</span><span class="built_in">push</span>(&#123;it.second,it.first&#125;);	</span><br><span class="line">	&#125;</span><br><span class="line">	distance[st] = <span class="number">0</span>;</span><br><span class="line">	pair&lt;<span class="type">int</span>,<span class="type">int</span>&gt; temp;</span><br><span class="line">	<span class="type">int</span> u, w, v;</span><br><span class="line">	<span class="keyword">while</span>(!q<span class="number">1.</span><span class="built_in">empty</span>())&#123;</span><br><span class="line">		temp = q<span class="number">1.</span><span class="built_in">top</span>();</span><br><span class="line">		q<span class="number">1.</span><span class="built_in">pop</span>();</span><br><span class="line">		u = temp.second;</span><br><span class="line">		w = temp.first;</span><br><span class="line">		<span class="keyword">if</span>(visited[u]) <span class="keyword">continue</span>;</span><br><span class="line">		visited[u] = <span class="literal">true</span>;</span><br><span class="line">		distance[u] = w;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">auto</span> it : g[u])&#123;</span><br><span class="line">			v = it.first;</span><br><span class="line">			<span class="keyword">if</span>(!visited[v] &amp;&amp; it.second + distance[u] &lt; distance[v])&#123;</span><br><span class="line">				q<span class="number">1.</span><span class="built_in">push</span>(&#123;it.second + distance[u], v&#125;);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i ++)&#123;</span><br><span class="line">		cout &lt;&lt; distance[i] &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -27,86 +18,11 @@
 
 <h3 id="求最大的最小或者最小的最大问题"><a href="#求最大的最小或者最小的最大问题" class="headerlink" title="求最大的最小或者最小的最大问题"></a>求最大的最小或者最小的最大问题</h3><p>大概率是用二分来查询最合适的答案，具体算法看题</p>
 ]]></content>
-  </entry>
-  <entry>
-    <title>cycle</title>
-    <url>/cycle.html</url>
-    <content><![CDATA[<h1 id="铁腚行"><a href="#铁腚行" class="headerlink" title="铁腚行"></a>铁腚行</h1><hr>
-<h2 id="已备骑行装备"><a href="#已备骑行装备" class="headerlink" title="已备骑行装备"></a>已备骑行装备</h2><ol>
-<li>公路车<br>喜德盛RC200 <span class="price" data-price="1499">1499￥</span></li>
-</ol>
-<p>入门级公路车， 速度一般（上限不高，毕竟是入门，先练腿，6分），颜值还可以（7分），刹车不太行（<del>4分</del>， 前刹调到能完全夹住轮胎其实能到6分）（满分10分）</p>
-<ol start="2">
-<li>护目镜：</li>
-</ol>
-<p>匹克日常 <span class="price" data-price="39">39￥</span>  </p>
-<p>防风沙烈日，实用</p>
-<ol start="3">
-<li>手机支架</li>
-</ol>
-<p>ROCKBROS洛克兄弟手机支架 <span class="price" data-price="29">29￥</span>  </p>
-<p>性价比高，质量还可以，颜值也过得去</p>
-<ol start="4">
-<li>骑行头盔</li>
-</ol>
-<p>GUB M5 Mips骑行头盔 <span class="price" data-price="239">239￥</span>  </p>
-<p>不怕一万，就怕万一</p>
-<ol start="5">
-<li>运动手套</li>
-</ol>
-<p>维动 VEIDOORN 半指 <span class="price" data-price="39">39￥</span>  </p>
-<p>防滑、吸汗、减震</p>
-<ol start="6">
-<li>水壶 + 水壶架</li>
-</ol>
-<p>ROCKBROS洛克兄弟户外水壶 + 水壶架 <span class="price" data-price="35">35￥</span>  </p>
-<p>远距离骑行必备</p>
-<ol start="7">
-<li>坐垫</li>
-</ol>
-<p>ROCKBROS洛克兄弟坐垫 <span class="price" data-price="39">39￥</span>  </p>
-<p>我的建议是练腚</p>
-<ol start="8">
-<li>尾灯</li>
-</ol>
-<p>美利达自行车智能感应刹车灯 <span class="price" data-price="30">30￥</span>  </p>
-<p>越亮越好，最好是有急停时高亮的，相当于大大的实习标  </p>
-<ol start="9">
-<li>束裤脚弹力绷带</li>
-</ol>
-<p>三无产品 <span class="price" data-price="3">3￥</span>  </p>
-<p>无专业骑行裤之前的保护措施</p>
-<hr>
-<p>总价:  <span id="total-price">计算中…</span></p>
-<h2 id="总行程"><a href="#总行程" class="headerlink" title="总行程"></a>总行程</h2><p>2025-3-1之前: <span class="distance" data-distance="147">147 km</span>  </p>
-<p>2025-3-1: <span class="distance" data-distance="150"> 150 km </span></p>
-<p>2025-3-11 <span class="distance" data-distance="40"> 40 km </span></p>
-<p>2025-3-15 <span class="distance" data-distance="13"> 13 km </span></p>
-<p>2025-3-18 <span class="distance" data-distance="40"> 40 km </span></p>
-<p>总行程: <span id="total-distance">计算中…</span></p>
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-    // 计算总价格
-    let totalPrice = 0;
-    document.querySelectorAll(".price").forEach(item => {
-        totalPrice += parseFloat(item.getAttribute("data-price"));
-    });
-    document.getElementById("total-price").innerText = totalPrice.toFixed(2) + "￥";
-
-    // 计算总距离
-    let totalDistance = 0;
-    document.querySelectorAll(".distance").forEach(item => {
-        totalDistance += parseFloat(item.getAttribute("data-distance"));
-    });
-    document.getElementById("total-distance").innerText = totalDistance + " km";
-});
-</script>
-]]></content>
       <categories>
-        <category>Daily</category>
+        <category>Learn</category>
       </categories>
       <tags>
-        <tag>bike</tag>
+        <tag>algorithm</tag>
       </tags>
   </entry>
   <entry>
@@ -389,8 +305,93 @@ document.addEventListener("DOMContentLoaded", function () {
       </tags>
   </entry>
   <entry>
-    <title>t3</title>
-    <url>/t3.html</url>
-    <content><![CDATA[]]></content>
+    <title>cycle</title>
+    <url>/cycle.html</url>
+    <content><![CDATA[<h1 id="铁腚行"><a href="#铁腚行" class="headerlink" title="铁腚行"></a>铁腚行</h1><hr>
+<h2 id="已备骑行装备"><a href="#已备骑行装备" class="headerlink" title="已备骑行装备"></a>已备骑行装备</h2><ol>
+<li>公路车<br>喜德盛RC200 <span class="price" data-price="1499">1499￥</span></li>
+</ol>
+<p>入门级公路车， 速度一般（上限不高，毕竟是入门，先练腿，6分），颜值还可以（7分），刹车不太行（<del>4分</del>， 前刹调到能完全夹住轮胎其实能到6分）（满分10分）</p>
+<ol start="2">
+<li>护目镜：</li>
+</ol>
+<p>匹克日常 <span class="price" data-price="39">39￥</span>  </p>
+<p>防风沙烈日，实用</p>
+<ol start="3">
+<li>手机支架</li>
+</ol>
+<p>ROCKBROS洛克兄弟手机支架 <span class="price" data-price="29">29￥</span>  </p>
+<p>性价比高，质量还可以，颜值也过得去</p>
+<ol start="4">
+<li>骑行头盔</li>
+</ol>
+<p>GUB M5 Mips骑行头盔 <span class="price" data-price="239">239￥</span>  </p>
+<p>不怕一万，就怕万一</p>
+<ol start="5">
+<li>运动手套</li>
+</ol>
+<p>维动 VEIDOORN 半指 <span class="price" data-price="39">39￥</span>  </p>
+<p>防滑、吸汗、减震</p>
+<ol start="6">
+<li>水壶 + 水壶架</li>
+</ol>
+<p>ROCKBROS洛克兄弟户外水壶 + 水壶架 <span class="price" data-price="35">35￥</span>  </p>
+<p>远距离骑行必备</p>
+<ol start="7">
+<li>坐垫</li>
+</ol>
+<p>ROCKBROS洛克兄弟坐垫 <span class="price" data-price="39">39￥</span>  </p>
+<p>我的建议是练腚</p>
+<ol start="8">
+<li>尾灯</li>
+</ol>
+<p>美利达自行车智能感应刹车灯 <span class="price" data-price="30">30￥</span>  </p>
+<p>越亮越好，最好是有急停时高亮的，相当于大大的实习标  </p>
+<ol start="9">
+<li>束裤脚弹力绷带</li>
+</ol>
+<p>三无产品 <span class="price" data-price="3">3￥</span>  </p>
+<p>无专业骑行裤之前的保护措施</p>
+<hr>
+<p>总价:  <span id="total-price">计算中…</span></p>
+<h2 id="总行程"><a href="#总行程" class="headerlink" title="总行程"></a>总行程</h2><p>2025-3-1之前: <span class="distance" data-distance="147">147 km</span>  </p>
+<p>2025-3-1: <span class="distance" data-distance="150"> 150 km </span></p>
+<p>2025-3-11 <span class="distance" data-distance="40"> 40 km </span></p>
+<p>2025-3-15 <span class="distance" data-distance="13"> 13 km </span></p>
+<p>2025-3-18 <span class="distance" data-distance="40"> 40 km </span></p>
+<p>总行程: <span id="total-distance">计算中…</span></p>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    // 计算总价格
+    let totalPrice = 0;
+    document.querySelectorAll(".price").forEach(item => {
+        totalPrice += parseFloat(item.getAttribute("data-price"));
+    });
+    document.getElementById("total-price").innerText = totalPrice.toFixed(2) + "￥";
+
+    // 计算总距离
+    let totalDistance = 0;
+    document.querySelectorAll(".distance").forEach(item => {
+        totalDistance += parseFloat(item.getAttribute("data-distance"));
+    });
+    document.getElementById("total-distance").innerText = totalDistance + " km";
+});
+</script>
+]]></content>
+      <categories>
+        <category>Daily</category>
+      </categories>
+      <tags>
+        <tag>bike</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello</title>
+    <url>/First-blog.html</url>
+    <content><![CDATA[<p>Hello hexo. Hello blog. Hello world</p>
+]]></content>
+      <categories>
+        <category>Daily</category>
+      </categories>
   </entry>
 </search>
