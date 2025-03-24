@@ -4,16 +4,7 @@
     <title>Hello</title>
     <url>/First-blog.html</url>
     <content><![CDATA[<p>Hello hexo. Hello blog. Hello world</p>
-
-<div id="gitalk-container"></div>
-<script src="https://cdn.bootcss.com/blueimp-md5/2.12.0/js/md5.min.js"></script><link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css"><script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
-
-		<script>
-		var gitalkConfig = {"clientID":"Ov23liUz04SGvLF6mUKG","clientSecret":"4a2ca4eae134fca88a77bf039261848a821083e2","repo":"talk_info","owner":"liujunhong2","admin":["liujunhong2"],"distractionFreeMode":false};
-	    gitalkConfig.id = md5(location.pathname);
-		var gitalk = new Gitalk(gitalkConfig);
-	    gitalk.render("gitalk-container");
-	    </script>]]></content>
+]]></content>
       <categories>
         <category>Daily</category>
       </categories>
@@ -35,16 +26,7 @@
 
 
 <h3 id="求最大的最小或者最小的最大问题"><a href="#求最大的最小或者最小的最大问题" class="headerlink" title="求最大的最小或者最小的最大问题"></a>求最大的最小或者最小的最大问题</h3><p>大概率是用二分来查询最合适的答案，具体算法看题</p>
-
-<div id="gitalk-container"></div>
-<script src="https://cdn.bootcss.com/blueimp-md5/2.12.0/js/md5.min.js"></script><link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css"><script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
-
-		<script>
-		var gitalkConfig = {"clientID":"Ov23liUz04SGvLF6mUKG","clientSecret":"4a2ca4eae134fca88a77bf039261848a821083e2","repo":"talk_info","owner":"liujunhong2","admin":["liujunhong2"],"distractionFreeMode":false};
-	    gitalkConfig.id = md5(location.pathname);
-		var gitalk = new Gitalk(gitalkConfig);
-	    gitalk.render("gitalk-container");
-	    </script>]]></content>
+]]></content>
   </entry>
   <entry>
     <title>cycle</title>
@@ -119,16 +101,7 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("total-distance").innerText = totalDistance + " km";
 });
 </script>
-
-<div id="gitalk-container"></div>
-<script src="https://cdn.bootcss.com/blueimp-md5/2.12.0/js/md5.min.js"></script><link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css"><script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
-
-		<script>
-		var gitalkConfig = {"clientID":"Ov23liUz04SGvLF6mUKG","clientSecret":"4a2ca4eae134fca88a77bf039261848a821083e2","repo":"talk_info","owner":"liujunhong2","admin":["liujunhong2"],"distractionFreeMode":false};
-	    gitalkConfig.id = md5(location.pathname);
-		var gitalk = new Gitalk(gitalkConfig);
-	    gitalk.render("gitalk-container");
-	    </script>]]></content>
+]]></content>
       <categories>
         <category>Daily</category>
       </categories>
@@ -325,16 +298,7 @@ document.addEventListener("DOMContentLoaded", function () {
 <p>补充</p>
 <p><img src="/learngit/git1.png" alt="git1"></p>
 <h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://liaoxuefeng.com/">廖雪峰</a></p>
-
-<div id="gitalk-container"></div>
-<script src="https://cdn.bootcss.com/blueimp-md5/2.12.0/js/md5.min.js"></script><link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css"><script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
-
-		<script>
-		var gitalkConfig = {"clientID":"Ov23liUz04SGvLF6mUKG","clientSecret":"4a2ca4eae134fca88a77bf039261848a821083e2","repo":"talk_info","owner":"liujunhong2","admin":["liujunhong2"],"distractionFreeMode":false};
-	    gitalkConfig.id = md5(location.pathname);
-		var gitalk = new Gitalk(gitalkConfig);
-	    gitalk.render("gitalk-container");
-	    </script>]]></content>
+]]></content>
       <categories>
         <category>Learn</category>
       </categories>
@@ -415,16 +379,7 @@ document.addEventListener("DOMContentLoaded", function () {
 <p><a href="https://blog.csdn.net/cat_bayi/article/details/128725230">CSDN良心教学</a></p>
 <p><a href="https://mp.weixin.qq.com/s/GmTmhpkB0QmoHIL5bmXQGw">小岛码农</a></p>
 <p><a href="https://hexo.io/zh-cn/">官方文档</a></p>
-
-<div id="gitalk-container"></div>
-<script src="https://cdn.bootcss.com/blueimp-md5/2.12.0/js/md5.min.js"></script><link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css"><script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
-
-		<script>
-		var gitalkConfig = {"clientID":"Ov23liUz04SGvLF6mUKG","clientSecret":"4a2ca4eae134fca88a77bf039261848a821083e2","repo":"talk_info","owner":"liujunhong2","admin":["liujunhong2"],"distractionFreeMode":false};
-	    gitalkConfig.id = md5(location.pathname);
-		var gitalk = new Gitalk(gitalkConfig);
-	    gitalk.render("gitalk-container");
-	    </script>]]></content>
+]]></content>
       <categories>
         <category>Learn</category>
       </categories>
