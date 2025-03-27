@@ -20,7 +20,7 @@
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// --global 参数表示该配置为全局配置，适用于该用户的所有 Git 仓库</span><br><span class="line">git config --global user.name &quot;Your Name&quot;</span><br><span class="line">git config --global user.email &quot;email@example.com&quot;</span><br></pre></td></tr></table></figure>
 
 <p>以下两条指令用于查询当前<code>git</code>绑定的账号信息</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git --global config user.name</span><br><span class="line">git --global config user.email</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config user.name</span><br><span class="line">git config user.email</span><br></pre></td></tr></table></figure>
 
 <p>确认无误之后就进行绑定的最后一步，创建<code>SSH</code>连接，方便本地<code>git</code>能直接对接到<code>Github</code>以进行操作</p>
 <p>在本地生成密钥和公钥</p>
@@ -210,88 +210,6 @@
       </categories>
       <tags>
         <tag>algorithm</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>cycle</title>
-    <url>/cycle.html</url>
-    <content><![CDATA[<h1 id="铁腚行"><a href="#铁腚行" class="headerlink" title="铁腚行"></a>铁腚行</h1><hr>
-<h2 id="已备骑行装备"><a href="#已备骑行装备" class="headerlink" title="已备骑行装备"></a>已备骑行装备</h2><ol>
-<li>公路车<br>喜德盛RC200 <span class="price" data-price="1499">1499￥</span></li>
-</ol>
-<p>入门级公路车， 速度一般（上限不高，毕竟是入门，先练腿，6分），颜值还可以（7分），刹车不太行（<del>4分</del>， 前刹调到能完全夹住轮胎其实能到6分）（满分10分）</p>
-<ol start="2">
-<li>护目镜：</li>
-</ol>
-<p>匹克日常 <span class="price" data-price="39">39￥</span>  </p>
-<p>防风沙烈日，实用</p>
-<ol start="3">
-<li>手机支架</li>
-</ol>
-<p>ROCKBROS洛克兄弟手机支架 <span class="price" data-price="29">29￥</span>  </p>
-<p>性价比高，质量还可以，颜值也过得去</p>
-<ol start="4">
-<li>骑行头盔</li>
-</ol>
-<p>GUB M5 Mips骑行头盔 <span class="price" data-price="239">239￥</span>  </p>
-<p>不怕一万，就怕万一</p>
-<ol start="5">
-<li>运动手套</li>
-</ol>
-<p>维动 VEIDOORN 半指 <span class="price" data-price="39">39￥</span>  </p>
-<p>防滑、吸汗、减震</p>
-<ol start="6">
-<li>水壶 + 水壶架</li>
-</ol>
-<p>ROCKBROS洛克兄弟户外水壶 + 水壶架 <span class="price" data-price="35">35￥</span>  </p>
-<p>远距离骑行必备</p>
-<ol start="7">
-<li>坐垫</li>
-</ol>
-<p>ROCKBROS洛克兄弟坐垫 <span class="price" data-price="39">39￥</span>  </p>
-<p>我的建议是练腚</p>
-<ol start="8">
-<li>尾灯</li>
-</ol>
-<p>美利达自行车智能感应刹车灯 <span class="price" data-price="30">30￥</span>  </p>
-<p>越亮越好，最好是有急停时高亮的，相当于大大的实习标  </p>
-<ol start="9">
-<li>束裤脚弹力绷带</li>
-</ol>
-<p>三无产品 <span class="price" data-price="3">3￥</span>  </p>
-<p>无专业骑行裤之前的保护措施</p>
-<hr>
-<p>总价:  <span id="total-price">计算中…</span></p>
-<h2 id="总行程"><a href="#总行程" class="headerlink" title="总行程"></a>总行程</h2><p>2025-3-1之前: <span class="distance" data-distance="147">147 km</span>  </p>
-<p>2025-3-1: <span class="distance" data-distance="150"> 150 km </span></p>
-<p>2025-3-11 <span class="distance" data-distance="40"> 40 km </span></p>
-<p>2025-3-15 <span class="distance" data-distance="13"> 13 km </span></p>
-<p>2025-3-18 <span class="distance" data-distance="40"> 40 km </span></p>
-<p>2025-3-25 <span class="distance" data-distance="40"> 40 km </span></p>
-<p>总行程: <span id="total-distance">计算中…</span></p>
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-    // 计算总价格
-    let totalPrice = 0;
-    document.querySelectorAll(".price").forEach(item => {
-        totalPrice += parseFloat(item.getAttribute("data-price"));
-    });
-    document.getElementById("total-price").innerText = totalPrice.toFixed(2) + "￥";
-
-    // 计算总距离
-    let totalDistance = 0;
-    document.querySelectorAll(".distance").forEach(item => {
-        totalDistance += parseFloat(item.getAttribute("data-distance"));
-    });
-    document.getElementById("total-distance").innerText = totalDistance + " km";
-});
-</script>
-]]></content>
-      <categories>
-        <category>Daily</category>
-      </categories>
-      <tags>
-        <tag>bike</tag>
       </tags>
   </entry>
   <entry>
@@ -498,6 +416,88 @@ document.addEventListener("DOMContentLoaded", function () {
       <tags>
         <tag>Git</tag>
         <tag>Better</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>cycle</title>
+    <url>/cycle.html</url>
+    <content><![CDATA[<h1 id="铁腚行"><a href="#铁腚行" class="headerlink" title="铁腚行"></a>铁腚行</h1><hr>
+<h2 id="已备骑行装备"><a href="#已备骑行装备" class="headerlink" title="已备骑行装备"></a>已备骑行装备</h2><ol>
+<li>公路车<br>喜德盛RC200 <span class="price" data-price="1499">1499￥</span></li>
+</ol>
+<p>入门级公路车， 速度一般（上限不高，毕竟是入门，先练腿，6分），颜值还可以（7分），刹车不太行（<del>4分</del>， 前刹调到能完全夹住轮胎其实能到6分）（满分10分）</p>
+<ol start="2">
+<li>护目镜：</li>
+</ol>
+<p>匹克日常 <span class="price" data-price="39">39￥</span>  </p>
+<p>防风沙烈日，实用</p>
+<ol start="3">
+<li>手机支架</li>
+</ol>
+<p>ROCKBROS洛克兄弟手机支架 <span class="price" data-price="29">29￥</span>  </p>
+<p>性价比高，质量还可以，颜值也过得去</p>
+<ol start="4">
+<li>骑行头盔</li>
+</ol>
+<p>GUB M5 Mips骑行头盔 <span class="price" data-price="239">239￥</span>  </p>
+<p>不怕一万，就怕万一</p>
+<ol start="5">
+<li>运动手套</li>
+</ol>
+<p>维动 VEIDOORN 半指 <span class="price" data-price="39">39￥</span>  </p>
+<p>防滑、吸汗、减震</p>
+<ol start="6">
+<li>水壶 + 水壶架</li>
+</ol>
+<p>ROCKBROS洛克兄弟户外水壶 + 水壶架 <span class="price" data-price="35">35￥</span>  </p>
+<p>远距离骑行必备</p>
+<ol start="7">
+<li>坐垫</li>
+</ol>
+<p>ROCKBROS洛克兄弟坐垫 <span class="price" data-price="39">39￥</span>  </p>
+<p>我的建议是练腚</p>
+<ol start="8">
+<li>尾灯</li>
+</ol>
+<p>美利达自行车智能感应刹车灯 <span class="price" data-price="30">30￥</span>  </p>
+<p>越亮越好，最好是有急停时高亮的，相当于大大的实习标  </p>
+<ol start="9">
+<li>束裤脚弹力绷带</li>
+</ol>
+<p>三无产品 <span class="price" data-price="3">3￥</span>  </p>
+<p>无专业骑行裤之前的保护措施</p>
+<hr>
+<p>总价:  <span id="total-price">计算中…</span></p>
+<h2 id="总行程"><a href="#总行程" class="headerlink" title="总行程"></a>总行程</h2><p>2025-3-1之前: <span class="distance" data-distance="147">147 km</span>  </p>
+<p>2025-3-1: <span class="distance" data-distance="150"> 150 km </span></p>
+<p>2025-3-11 <span class="distance" data-distance="40"> 40 km </span></p>
+<p>2025-3-15 <span class="distance" data-distance="13"> 13 km </span></p>
+<p>2025-3-18 <span class="distance" data-distance="40"> 40 km </span></p>
+<p>2025-3-25 <span class="distance" data-distance="40"> 40 km </span></p>
+<p>总行程: <span id="total-distance">计算中…</span></p>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    // 计算总价格
+    let totalPrice = 0;
+    document.querySelectorAll(".price").forEach(item => {
+        totalPrice += parseFloat(item.getAttribute("data-price"));
+    });
+    document.getElementById("total-price").innerText = totalPrice.toFixed(2) + "￥";
+
+    // 计算总距离
+    let totalDistance = 0;
+    document.querySelectorAll(".distance").forEach(item => {
+        totalDistance += parseFloat(item.getAttribute("data-distance"));
+    });
+    document.getElementById("total-distance").innerText = totalDistance + " km";
+});
+</script>
+]]></content>
+      <categories>
+        <category>Daily</category>
+      </categories>
+      <tags>
+        <tag>bike</tag>
       </tags>
   </entry>
   <entry>
