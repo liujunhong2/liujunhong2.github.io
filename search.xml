@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Hello</title>
+    <url>/First-blog.html</url>
+    <content><![CDATA[<p>Hello hexo. Hello blog. Hello world</p>
+]]></content>
+      <categories>
+        <category>Daily</category>
+      </categories>
+  </entry>
+  <entry>
     <title>Git_for_Android-Studio</title>
     <url>/Git-for-Android-Studio.html</url>
     <content><![CDATA[<h1 id="熟悉Git"><a href="#熟悉Git" class="headerlink" title="熟悉Git"></a>熟悉Git</h1><p><code>Git</code>是当今最广泛应用且功能强大、灵活的分布式版本控制系统。它的最大优势在于每位开发者本地均拥有完整的版本历史，即使在脱机状态下也能完成大部分操作，这使得多人协作和代码合并变得更加高效和便捷。相比之下，集中式版本控制系统依赖中央服务器，容易受到单点故障的影响。虽然在管理大型二进制文件或某些特殊场景下可能需要辅以其他工具，但 Git 的这些显著优势正是我们学习和使用它的重要原因。</p>
@@ -54,15 +63,6 @@
       <tags>
         <tag>Git</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>Hello</title>
-    <url>/First-blog.html</url>
-    <content><![CDATA[<p>Hello hexo. Hello blog. Hello world</p>
-]]></content>
-      <categories>
-        <category>Daily</category>
-      </categories>
   </entry>
   <entry>
     <title>algorithm</title>
@@ -122,7 +122,9 @@
 
 <h5 id="范围查询范围修改"><a href="#范围查询范围修改" class="headerlink" title="范围查询范围修改"></a>范围查询范围修改</h5><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">2050</span>;</span><br><span class="line"><span class="type">int</span> bit1[N][N];</span><br><span class="line"><span class="type">int</span> bit2[N][N];</span><br><span class="line"><span class="type">int</span> bit3[N][N];</span><br><span class="line"><span class="type">int</span> bit4[N][N];</span><br><span class="line"><span class="type">int</span> n, m;</span><br><span class="line"><span class="type">int</span> a, b, c, d, w;</span><br><span class="line"><span class="type">int</span> v1, v2, v3, v4;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">low</span><span class="params">(<span class="type">int</span> x)</span></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> x &amp; -x;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">add</span><span class="params">(<span class="type">int</span> x, <span class="type">int</span> y, <span class="type">int</span> v)</span></span>&#123;</span><br><span class="line">	v1 = v;</span><br><span class="line">    v2 = x * v;</span><br><span class="line">    v3 = y * v;</span><br><span class="line">    v4 = x * y * v;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i = x; i &lt;= n; i += <span class="built_in">low</span>(i))&#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> j = y; j &lt;= m; j += <span class="built_in">low</span>(j))&#123;</span><br><span class="line">			bit1[i][j] += v1;</span><br><span class="line">			bit2[i][j] += v2;</span><br><span class="line">			bit3[i][j] += v3;</span><br><span class="line">			bit4[i][j] += v4;</span><br><span class="line">		&#125;	</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">get</span><span class="params">(<span class="type">int</span> x, <span class="type">int</span> y)</span></span>&#123;</span><br><span class="line">	<span class="type">int</span> ans = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i = x; i; i -= <span class="built_in">low</span>(i))&#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> j = y; j; j -= <span class="built_in">low</span>(j))&#123;</span><br><span class="line">			ans += (x + <span class="number">1</span>) * (y + <span class="number">1</span>) * bit1[i][j] - (y + <span class="number">1</span>) * bit2[i][j] - (x + <span class="number">1</span>) * bit3[i][j] + bit4[i][j];</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">add</span><span class="params">(<span class="type">int</span> x1, <span class="type">int</span> y1, <span class="type">int</span> x2, <span class="type">int</span> y2, <span class="type">int</span> v)</span></span>&#123;</span><br><span class="line">	<span class="built_in">add</span>(x1, y1, v);</span><br><span class="line">	<span class="built_in">add</span>(x2 + <span class="number">1</span>, y2 + <span class="number">1</span>, v);</span><br><span class="line">	<span class="built_in">add</span>(x1, y2 + <span class="number">1</span>, - v);</span><br><span class="line">	<span class="built_in">add</span>(x2 + <span class="number">1</span>, y1, - v);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">get</span><span class="params">(<span class="type">int</span> x1, <span class="type">int</span> y1, <span class="type">int</span> x2, <span class="type">int</span> y2)</span></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="built_in">get</span>(x2, y2) + <span class="built_in">get</span>(x1 - <span class="number">1</span>, y1 - <span class="number">1</span>) - <span class="built_in">get</span>(x1 - <span class="number">1</span>, y2) - <span class="built_in">get</span>(x2, y1 - <span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">(<span class="type">char</span> C)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(C == <span class="string">&#x27;L&#x27;</span>)&#123;</span><br><span class="line">		cin &gt;&gt; a &gt;&gt; b &gt;&gt; c &gt;&gt; d &gt;&gt; w;</span><br><span class="line">		<span class="built_in">add</span>(a, b, c, d, w);</span><br><span class="line">	&#125;<span class="keyword">else</span> <span class="keyword">if</span>(C != <span class="string">&#x27;X&#x27;</span>)&#123;</span><br><span class="line">		cin &gt;&gt; a &gt;&gt; b &gt;&gt; c &gt;&gt; d;</span><br><span class="line">		cout &lt;&lt; <span class="built_in">get</span>(a, b, c, d) &lt;&lt; <span class="string">&quot;\n&quot;</span>;</span><br><span class="line">	&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">		cin &gt;&gt; n &gt;&gt; m;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">signed</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ios::<span class="built_in">sync_with_stdio</span>(<span class="literal">false</span>);</span><br><span class="line">    cin.<span class="built_in">tie</span>(<span class="literal">nullptr</span>);</span><br><span class="line">    <span class="type">char</span> C;</span><br><span class="line">    <span class="keyword">while</span> (cin &gt;&gt; C) &#123;</span><br><span class="line">        <span class="built_in">solve</span>(C);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="股票dp"><a href="#股票dp" class="headerlink" title="股票dp"></a>股票dp</h3><h2 id="容器"><a href="#容器" class="headerlink" title="容器"></a>容器</h2><h3 id="ordered-set"><a href="#ordered-set" class="headerlink" title="ordered_set"></a>ordered_set</h3><p>解释各个部分的作用</p>
+
+
+<h2 id="容器"><a href="#容器" class="headerlink" title="容器"></a>容器</h2><h3 id="ordered-set"><a href="#ordered-set" class="headerlink" title="ordered_set"></a>ordered_set</h3><p>解释各个部分的作用</p>
 <table>
 <thead>
 <tr>
@@ -197,8 +199,7 @@
 <h2 id="tips"><a href="#tips" class="headerlink" title="tips"></a>tips</h2><h3 id="重载运算符号"><a href="#重载运算符号" class="headerlink" title="重载运算符号"></a>重载运算符号</h3><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">my</span>&#123;</span><br><span class="line">    <span class="type">int</span> l, r, index;</span><br><span class="line">    <span class="built_in">my</span>(<span class="type">int</span> a, <span class="type">int</span> b, <span class="type">int</span> c)&#123;</span><br><span class="line">        l = a, r = b, index = c;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">bool</span> <span class="keyword">operator</span> &lt; (<span class="type">const</span> my x) <span class="type">const</span> &#123;  </span><br><span class="line">        	<span class="comment">// 优先队列中比较关系反着来</span></span><br><span class="line">            <span class="keyword">return</span> l &gt; x.l;</span><br><span class="line">    &#125;  </span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
 <h3 id="求最大的最小或者最小的最大问题"><a href="#求最大的最小或者最小的最大问题" class="headerlink" title="求最大的最小或者最小的最大问题"></a>求最大的最小或者最小的最大问题</h3><p>大概率是用二分来查询最合适的答案，具体算法看题</p>
-<h3 id="圆周率"><a href="#圆周率" class="headerlink" title="圆周率"></a>圆周率</h3><p>$$<br>\pi<br>$$</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="type">const</span> <span class="type">double</span> pi	 =	<span class="built_in">acos</span>(<span class="number">-1</span>);</span><br></pre></td></tr></table></figure>
+<h3 id="圆周率-960"><a href="#圆周率-960" class="headerlink" title="圆周率&#960;"></a>圆周率&#960;</h3><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="type">const</span> <span class="type">double</span> pi	 =	<span class="built_in">acos</span>(<span class="number">-1</span>);</span><br></pre></td></tr></table></figure>
 
 
 
