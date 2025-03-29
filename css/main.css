@@ -1378,7 +1378,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #9c5ca2;
+    background: #7a67bb;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -2555,6 +2555,9 @@ ul.breadcrumb li:last-child {
   .gt-container .gt-header-textarea {
     background-color: var(--card-bg-color) !important;
   }
+}
+.utterances {
+  max-width: unset;
 }
 .search-active {
   overflow: hidden;
