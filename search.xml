@@ -554,10 +554,9 @@ document.addEventListener("DOMContentLoaded", function () {
     <title>Hexo better</title>
     <url>/learnhexo.html</url>
     <content><![CDATA[<p>Hexo自用指令</p>
-<!--nore-->
+<span id="more"></span>
 <h1 id="来时路"><a href="#来时路" class="headerlink" title="来时路"></a>来时路</h1><h2 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h2><h3 id="1：无法初始化"><a href="#1：无法初始化" class="headerlink" title="1：无法初始化"></a>1：无法初始化</h3><p>hexo init （blog）时因为代理无法正常初始化完成，修改代理地址，例：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global http.proxy http://127.0.0.1:7890</span><br><span class="line">git config --global https.proxy http://127.0.0.1:7890</span><br></pre></td></tr></table></figure>
-<span id="more"></span>
 <p>这将允许 Git 通过本地代理进行连接。如果不再需要代理，或者想要清除代理设置，可以使用以下命令：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global --unset http.proxy</span><br><span class="line">git config --global --unset https.proxy</span><br></pre></td></tr></table></figure>
 
