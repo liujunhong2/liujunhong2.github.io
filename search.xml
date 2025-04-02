@@ -492,11 +492,13 @@
     <url>/cycle.html</url>
     <content><![CDATA[<p>骑行小记</p>
 <span id="more"></span>
-<h1 id="铁腚行"><a href="#铁腚行" class="headerlink" title="铁腚行"></a>铁腚行</h1><hr>
-<h2 id="已备骑行装备"><a href="#已备骑行装备" class="headerlink" title="已备骑行装备"></a>已备骑行装备</h2><ol>
+<h1 id="铁腚行"><a href="#铁腚行" class="headerlink" title="铁腚行"></a>铁腚行</h1><h2 id="已备骑行装备"><a href="#已备骑行装备" class="headerlink" title="已备骑行装备"></a>已备骑行装备</h2><ol>
 <li>公路车<br>喜德盛RC200 <span class="price" data-price="1499">1499￥</span></li>
 </ol>
-<p>入门级公路车， 速度一般（上限不高，毕竟是入门，先练腿，6分），颜值还可以（7分），刹车不太行（<del>4分</del>， 前刹调到能完全夹住轮胎其实能到6分）（满分10分）<br>2. 护目镜：</p>
+<p>入门级公路车， 速度一般（上限不高，毕竟是入门，先练腿，6分），颜值还可以（7分），刹车不太行（<del>4分</del>， 前刹调到能完全夹住轮胎其实能到6分）（满分10分）</p>
+<ol start="2">
+<li>护目镜：</li>
+</ol>
 <p>匹克日常 <span class="price" data-price="39">39￥</span>  </p>
 <p>防风沙烈日，实用</p>
 <ol start="3">
@@ -529,11 +531,6 @@
 </ol>
 <p>美利达自行车智能感应刹车灯 <span class="price" data-price="30">30￥</span>  </p>
 <p>越亮越好，最好是有急停时高亮的，相当于大大的实习标  </p>
-<ol start="9">
-<li>束裤脚弹力绷带</li>
-</ol>
-<p>三无产品 <span class="price" data-price="3">3￥</span>  </p>
-<p>无专业骑行裤之前的保护措施</p>
 <hr>
 <p>总价:  <span id="total-price">计算中…</span></p>
 <h2 id="总行程"><a href="#总行程" class="headerlink" title="总行程"></a>总行程</h2><p>2025-3-1之前: <span class="distance" data-distance="147">147 km</span>  </p>
@@ -542,6 +539,7 @@
 <p>2025-3-15 <span class="distance" data-distance="13"> 13 km </span></p>
 <p>2025-3-18 <span class="distance" data-distance="40"> 40 km </span></p>
 <p>2025-3-25 <span class="distance" data-distance="40"> 40 km </span></p>
+<p>2025-4-2 <span class="distance" data-distance="40"> 40 km </span></p>
 <p>总行程: <span id="total-distance">计算中…</span></p>
 <script>
 document.addEventListener("DOMContentLoaded", function () {
