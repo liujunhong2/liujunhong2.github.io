@@ -393,7 +393,7 @@
 
 <h3 id="全排列"><a href="#全排列" class="headerlink" title="全排列"></a>全排列</h3><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">std::string s = <span class="string">&quot;aba&quot;</span>; </span><br><span class="line"><span class="keyword">do</span>&#123;</span><br><span class="line">    std::cout &lt;&lt; s &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">&#125;<span class="keyword">while</span> (std::<span class="built_in">next_permutation</span>(s.<span class="built_in">begin</span>(), s.<span class="built_in">end</span>()));</span><br><span class="line">std::cout &lt;&lt; s &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br></pre></td></tr></table></figure>
 
-<h3 id="求二维平面上的三角形面积"><a href="#求二维平面上的三角形面积" class="headerlink" title="求二维平面上的三角形面积"></a>求二维平面上的三角形面积</h3><h4 id="给定三个顶点"><a href="#给定三个顶点" class="headerlink" title="给定三个顶点"></a>给定三个顶点</h4><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">S = <span class="built_in">abs</span>(x1 * (y2 - y3) + x2 * (y3 - y1) + x3 * (y1 - y2)) / <span class="number">2</span>;</span><br><span class="line"><span class="comment">// or</span></span><br><span class="line">S = <span class="built_in">abs</span>((x2 - x1) * (y3 - y1) - (x3 - x1) * (y2 - y1)) / <span class="number">2</span>;</span><br></pre></td></tr></table></figure>
+<h3 id="求二维平面上的三角形面积"><a href="#求二维平面上的三角形面积" class="headerlink" title="求二维平面上的三角形面积"></a>求二维平面上的三角形面积</h3><h4 id="给定三个顶点"><a href="#给定三个顶点" class="headerlink" title="给定三个顶点"></a>给定三个顶点</h4><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">S = <span class="built_in">abs</span>(x1 * (y2 - y3) + x2 * (y3 - y1) + x3 * (y1 - y2)) / <span class="number">2</span>;</span><br><span class="line"><span class="comment">// or</span></span><br><span class="line">S = <span class="built_in">abs</span>((x2 - x1) * (y3 - y1) - (x3 - x1) * (y2 - y1)) / <span class="number">2</span>;</span><br><span class="line"><span class="comment">// 两个参数相较于三个参数，有如下优势，可以取一个坐标为基准（2坐标与1坐标，3坐标与1坐标，每个参数都进行了一次碰面），进行点与点之间的逻辑处理，如判断处坐标异或值</span></span><br></pre></td></tr></table></figure>
 
 <h4 id="给定三条边"><a href="#给定三条边" class="headerlink" title="给定三条边"></a>给定三条边</h4><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">p = (a + b + c) / <span class="number">2</span>;</span><br><span class="line">S = <span class="built_in">sqrt</span>(p * (p -a ) * (p - b) * (p - c));</span><br></pre></td></tr></table></figure>
 
@@ -650,8 +650,8 @@ document.addEventListener("DOMContentLoaded", function () {
         <category>Learn</category>
       </categories>
       <tags>
-        <tag>Hexo</tag>
         <tag>Better</tag>
+        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
