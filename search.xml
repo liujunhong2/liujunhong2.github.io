@@ -557,6 +557,7 @@
 <p>2025-3-18 <span class="distance" data-distance="40"> 40 km </span></p>
 <p>2025-3-25 <span class="distance" data-distance="40"> 40 km </span></p>
 <p>2025-4-2 <span class="distance" data-distance="40"> 40 km </span></p>
+<p>2025-4-8 <span class="distance" data-distance="40"> 40 km </span></p>
 <p>总行程: <span id="total-distance">计算中…</span></p>
 <script>
 document.addEventListener("DOMContentLoaded", function () {
