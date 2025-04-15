@@ -557,6 +557,7 @@
 <p>2025-03-25 <span class="distance" data-distance="40"> 40 km </span></p>
 <p>2025-04-02 <span class="distance" data-distance="40"> 40 km </span></p>
 <p>2025-04-08 <span class="distance" data-distance="40"> 40 km </span></p>
+<p>2025-04-15 <span class="distance" data-distance="40"> 40 km </span></p>
 <p>总行程: <span id="total-distance">计算中…</span></p>
 <script>
 document.addEventListener("DOMContentLoaded", function () {
@@ -665,8 +666,8 @@ document.addEventListener("DOMContentLoaded", function () {
         <category>Learn</category>
       </categories>
       <tags>
-        <tag>Better</tag>
         <tag>Hexo</tag>
+        <tag>Better</tag>
       </tags>
   </entry>
   <entry>
