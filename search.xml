@@ -1,453 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Hello</title>
-    <url>/First-blog.html</url>
-    <content><![CDATA[<p>Hello hexo. Hello blog. Hello world</p>
-<span id="more"></span>]]></content>
-      <categories>
-        <category>Daily</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Git_for_Android-Studio</title>
-    <url>/Git-for-Android-Studio.html</url>
-    <content><![CDATA[<p>安卓开发连接Git的小测试</p>
-<span id="more"></span>
-<h1 id="熟悉Git"><a href="#熟悉Git" class="headerlink" title="熟悉Git"></a>熟悉Git</h1><p><code>Git</code>是当今最广泛应用且功能强大、灵活的分布式版本控制系统。它的最大优势在于每位开发者本地均拥有完整的版本历史，即使在脱机状态下也能完成大部分操作，这使得多人协作和代码合并变得更加高效和便捷。相比之下，集中式版本控制系统依赖中央服务器，容易受到单点故障的影响。虽然在管理大型二进制文件或某些特殊场景下可能需要辅以其他工具，但 Git 的这些显著优势正是我们学习和使用它的重要原因。</p>
-<!--more-->
-
-<h1 id="配置Git"><a href="#配置Git" class="headerlink" title="配置Git"></a>配置Git</h1><p>先下载Git，之后的命令可以在任何bash中运行</p>
-<p><code>Github</code>基于web的版本控制界面，也就是可以在上面部署项目，是使用<code>git</code>的一大利器，我们要把<code>Android Studio</code>上的项目进行<code>git</code>管理，首先需要创建一个<code>Github</code>账号（能进行版本控制的不止有<code>Github</code>, 还有<code>Gitee</code>等等）。</p>
-<p>进行git账号的配置，以告诉<code>git</code>是谁在对<code>git</code>进行操作以及以后<code>git</code>的操作对象。</p>
-<p>以下两条指令的参数填之前在<code>Github</code>注册的账号信息</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// --global 参数表示该配置为全局配置，适用于该用户的所有 Git 仓库</span><br><span class="line">git config --global user.name &quot;Your Name&quot;</span><br><span class="line">git config --global user.email &quot;email@example.com&quot;</span><br></pre></td></tr></table></figure>
-
-<p>以下两条指令用于查询当前<code>git</code>绑定的账号信息</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config user.name</span><br><span class="line">git config user.email</span><br></pre></td></tr></table></figure>
-
-<p>确认无误之后就进行绑定的最后一步，创建<code>SSH</code>连接，方便本地<code>git</code>能直接对接到<code>Github</code>以进行操作</p>
-<p>在本地生成密钥和公钥</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;xxx@xxx.com&quot;</span><br></pre></td></tr></table></figure>
-
-<p>获取生成的公钥（<code>id_rsa.pub</code>）后在<code>Github</code>上创建<code>SSHKey</code>（不太熟悉的可以在网上搜<code>Github SSH配置</code>, 也可以直接看我找好的教程 <a href="https://blog.csdn.net/weixin_42310154/article/details/118340458">配置SSH教程</a>， 会了一次之后就熟悉了）</p>
-<p>验证是否成功</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure>
-
-
-
-<p>准备工作全部完整，接下来几条简单就令就能轻松完成项目和仓库的绑定</p>
-<p>从现在开始的指令在Android Studio中的终端运行<img src="/Git-for-Android-Studio/git1.png" alt="git1"></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git init</span><br></pre></td></tr></table></figure>
-
-<p>在<code>Github</code>中创建一个仓库（<code>repository</code>），命名随意，复制其SSH（注意与之前的SSH做区分）</p>
-<p>添加远程库（也就是将这个新创建的仓库作为<code>git</code>版本管理的存储库）</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git remote add origin &lt;刚才让复制的SSH&gt;</span><br></pre></td></tr></table></figure>
-
-<p>推送前先将更改（部署<code>git</code>前的所有代码）添加到暂存区并且提交更改</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m &#x27;init git for Android Studio&#x27;</span><br></pre></td></tr></table></figure>
-
-<p>然后进行第一次推送</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git push -u origin main</span><br></pre></td></tr></table></figure>
-
-<p>之后每次进行修改后运行<code>git push</code>即可完成推送</p>
-<p>现在可去刚刚创建的仓库里看看是否有一堆文件上传了，这些文件就是一个版本，之后的每次push都会产生一个新版本，版本可以进行各种操作，如分支管理、版本回退、合并等。</p>
-<h1 id="管理Git"><a href="#管理Git" class="headerlink" title="管理Git"></a>管理Git</h1><p>之后正常的版本管理就非常轻松了，<code>git</code>是用来方便管理的，没有那么复杂，是一个非常好用的工具，因此需要掌握一些常见的指令和原理。</p>
-<p>可参见大佬的博客<a href="https://liaoxuefeng.com/books/git/introduction/index.html">廖雪峰</a>和我做的一些速记<a href="https://baoziwan.icu/learngit.html">小站</a></p>
-<p>最后，给该项目创建一个<code>README</code>文件，用于介绍这个项目或者说仓库</p>
-<p>可直接在<code>Github</code>的仓库下点击<code>Add a README</code>快速创建，也可在本地创建一个<code>README.md</code>文件后进行编辑再<code>git push</code>上<code>Github</code></p>
-<p><img src="/Git-for-Android-Studio/gi2.png" alt="gi2"></p>
-<p>结果示例</p>
-<p><img src="/Git-for-Android-Studio/git3.png" alt="git3"></p>
-<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://liaoxuefeng.com/books/git/introduction/index.html">廖雪峰</a><br><a href="https://blog.csdn.net/weixin_42310154/article/details/118340458">配置SSH教程</a><br><a href="https://baoziwan.icu/learngit.html">自家小站</a></p>
-]]></content>
-      <categories>
-        <category>Learn</category>
-      </categories>
-      <tags>
-        <tag>Git</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>cycle</title>
-    <url>/cycle.html</url>
-    <content><![CDATA[<p>骑行小记</p>
-<span id="more"></span>
-<h1 id="铁腚行"><a href="#铁腚行" class="headerlink" title="铁腚行"></a>铁腚行</h1><h2 id="已备骑行装备"><a href="#已备骑行装备" class="headerlink" title="已备骑行装备"></a>已备骑行装备</h2><ol>
-<li>公路车<br>喜德盛RC200 <span class="price" data-price="1499">1499￥</span></li>
-</ol>
-<p>入门级公路车， 速度一般（上限不高，毕竟是入门，先练腿，6分），颜值还可以（7分），刹车不太行（<del>4分</del>， 前刹调到能完全夹住轮胎其实能到6分）（满分10分）</p>
-<p><img src="/cycle/init1.png" alt="init1"></p>
-<ol start="2">
-<li>护目镜：</li>
-</ol>
-<p>匹克日常 <span class="price" data-price="39">39￥</span>  </p>
-<p>防风沙烈日，实用</p>
-<ol start="3">
-<li>手机支架</li>
-</ol>
-<p>ROCKBROS洛克兄弟手机支架 <span class="price" data-price="29">29￥</span>  </p>
-<p>性价比高，质量还可以，颜值也过得去</p>
-<ol start="4">
-<li>骑行头盔</li>
-</ol>
-<p>GUB M5 Mips骑行头盔 <span class="price" data-price="239">239￥</span>  </p>
-<p>不怕一万，就怕万一</p>
-<ol start="5">
-<li>运动手套</li>
-</ol>
-<p>维动 VEIDOORN 半指 <span class="price" data-price="39">39￥</span>  </p>
-<p>防滑、吸汗、减震</p>
-<ol start="6">
-<li>水壶 + 水壶架</li>
-</ol>
-<p>ROCKBROS洛克兄弟户外水壶 + 水壶架 <span class="price" data-price="35">35￥</span>  </p>
-<p>远距离骑行必备</p>
-<ol start="7">
-<li>坐垫</li>
-</ol>
-<p>ROCKBROS洛克兄弟坐垫 <span class="price" data-price="39">39￥</span>  </p>
-<p>我的建议是练腚</p>
-<ol start="8">
-<li>尾灯</li>
-</ol>
-<p>美利达自行车智能感应刹车灯 <span class="price" data-price="30">30￥</span>  </p>
-<p>越亮越好，最好是有急停时高亮的，相当于大大的实习标  </p>
-<hr>
-<p>总价:  <span id="total-price">计算中…</span></p>
-<h2 id="总行程"><a href="#总行程" class="headerlink" title="总行程"></a>总行程</h2><p>2025-03-01之前 <span class="distance" data-distance="147">147 km</span>  </p>
-<p>2025-03-01 <span class="distance" data-distance="150"> 150 km </span><br><img src="/cycle/lvdao1.png" alt="lvdao1"></p>
-<p>2025-03-11 <span class="distance" data-distance="40"> 40 km </span><br><img src="/cycle/shouan1.jpg" alt="shouan1"></p>
-<p>2025-03-15 <span class="distance" data-distance="13"> 13 km </span></p>
-<p>2025-03-18 <span class="distance" data-distance="40"> 40 km </span><br><img src="/cycle/shouan2.jpg" alt="shouan2"></p>
-<p>2025-03-25 <span class="distance" data-distance="40"> 40 km </span><br><img src="/cycle/shouan3.jpg" alt="shouan3"></p>
-<p>2025-04-02 <span class="distance" data-distance="40"> 40 km </span><br><img src="/cycle/shouan4.jpg" alt="shouan4"></p>
-<p>2025-04-08 <span class="distance" data-distance="40"> 40 km </span><br><img src="/cycle/shouan5.jpg" alt="shouan5"></p>
-<p>2025-04-15 <span class="distance" data-distance="40"> 40 km </span><br><img src="/cycle/shouan6.jpg" alt="shouan6"></p>
-<p>2025-04-22 <span class="distance" data-distance="40"> 40 km </span><br><img src="/cycle/shouan7.jpg" alt="shouan7"></p>
-<p>总行程: <span id="total-distance">计算中…</span></p>
-<h2 id="车车"><a href="#车车" class="headerlink" title="车车"></a>车车</h2><p>2025-04-21第一次扎胎，永远不要碾过被别人扫成一堆的落叶，里面藏有生命的余韵<br><img src="/cycle/cy1.jpg" alt="2"></p>
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-    // 计算总价格
-    let totalPrice = 0;
-    document.querySelectorAll(".price").forEach(item => {
-        totalPrice += parseFloat(item.getAttribute("data-price"));
-    });
-    document.getElementById("total-price").innerText = totalPrice.toFixed(2) + "￥";
-
-    // 计算总距离
-    let totalDistance = 0;
-    document.querySelectorAll(".distance").forEach(item => {
-        totalDistance += parseFloat(item.getAttribute("data-distance"));
-    });
-    document.getElementById("total-distance").innerText = totalDistance + " km";
-});
-</script>
-]]></content>
-      <categories>
-        <category>Daily</category>
-      </categories>
-      <tags>
-        <tag>bike</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Git better</title>
-    <url>/learngit.html</url>
-    <content><![CDATA[<p>Git自用指令</p>
-<span id="more"></span>
-<h1 id="Git常用指令"><a href="#Git常用指令" class="headerlink" title="Git常用指令"></a>Git常用指令</h1><ul>
-<li>自报家门</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global user.name &quot;Your Name&quot;</span><br><span class="line">git config --global user.email &quot;email@example.com&quot;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>查询家门</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config user.name</span><br><span class="line">git config user.email</span><br></pre></td></tr></table></figure>
-<!--more-->
-<hr>
-<p>创建SSH连接</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 在本地生成密钥和公钥</span><br><span class="line">ssh-keygen -t rsa -C &quot;xxx@xxx.com&quot;</span><br><span class="line"></span><br><span class="line">获取公钥（id_rsa.pub）后在Github上创建SSHKey</span><br><span class="line"></span><br><span class="line">验证是否成功</span><br><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure>
-
-<hr>
-<ul>
-<li>pwd 用于显示当前目录</li>
-</ul>
-<p><code>$ pwd</code></p>
-<hr>
-<ul>
-<li>init 把当前目录变成Git可以管理的仓库</li>
-</ul>
-<p><code>$ git init</code></p>
-<hr>
-<ul>
-<li>la -ah 用于查看隐藏的.git目录</li>
-</ul>
-<p><code>$ ls -ah</code></p>
-<hr>
-<ul>
-<li>add 把文件添加到仓库</li>
-</ul>
-<p><code>$ git add &lt;file&gt;</code></p>
-<hr>
-<ul>
-<li>commit 把文件提交到仓库</li>
-</ul>
-<p><code>$ git commit -m &lt;message&gt;</code></p>
-<hr>
-<ul>
-<li>status 查看库状态</li>
-</ul>
-<p><code>$ git status</code></p>
-<hr>
-<ul>
-<li>dif 查看修改内容</li>
-</ul>
-<p><code>$ git diff &lt;file&gt;</code></p>
-<hr>
-<ul>
-<li>log 查看历史记录</li>
-</ul>
-<p><code>$ git log</code><br><code>$ git log --pretty=oneline</code></p>
-<ul>
-<li>reflog 查看每一次命令</li>
-</ul>
-<p><code>$ git reflog</code></p>
-<hr>
-<ul>
-<li>reset 版本回退</li>
-</ul>
-<p>–hard会回退到上个版本的已提交状态，而–soft会回退到上个版本的未提交状态，–mixed会回退到上个版本已添加但未提交的状态.</p>
-<p><code>$ git reset --hard HEAD~&lt;num&gt;</code><br><code>$ git reset --hard &lt;version&gt;</code></p>
-<hr>
-<ul>
-<li>cat 查看内容</li>
-</ul>
-<p><code>$ cat &lt;file&gt;</code></p>
-<hr>
-<ul>
-<li>撤销工作区修改</li>
-</ul>
-<p><code>$ git checkout -- &lt;file&gt;</code></p>
-<ul>
-<li>撤销暂存区修改</li>
-</ul>
-<p><code>$ git reset HEAD &lt;file&gt;</code></p>
-<hr>
-<ul>
-<li>删除文件</li>
-</ul>
-<p><code>$ git rm &lt;file&gt;</code></p>
-<hr>
-<ul>
-<li>添加远程库</li>
-</ul>
-<p><code>$ git remote add origin git@github.com:&lt;yourname&gt;/learngit.git</code></p>
-<ul>
-<li>推送</li>
-</ul>
-<p><code>$ git push -u origin master</code></p>
-<ul>
-<li>本地做了提交后</li>
-</ul>
-<p><code>$ git push origin master</code></p>
-<ul>
-<li>查看远程库信息</li>
-</ul>
-<p><code>$ git remote -v</code></p>
-<ul>
-<li>删除远程库</li>
-</ul>
-<p><code>$ git remote rm &lt;name&gt;</code></p>
-<hr>
-<ul>
-<li>克隆</li>
-</ul>
-<p><code>$ git clone git@github.com:&lt;name&gt;/gitskills.git</code></p>
-<hr>
-<ul>
-<li>创建并切换至新分支</li>
-</ul>
-<p><code>$ git checkout -b &lt;name&gt;</code><br><code>$ git switch -c &lt;name&gt;</code> </p>
-<p>等同于</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git branch dev</span><br><span class="line">$ git checkout dev</span><br></pre></td></tr></table></figure>
-
-<p>或</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git branch dev</span><br><span class="line">$ git switch master</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>查看分支</li>
-</ul>
-<p><code>$ git branch</code></p>
-<ul>
-<li>合并分支</li>
-</ul>
-<p><code>$ git merge &lt;name&gt;</code></p>
-<ul>
-<li>删除分支</li>
-</ul>
-<p><code>$ git branch -d &lt;name&gt;</code></p>
-<ul>
-<li>强制删除</li>
-</ul>
-<p><code>$ git branch -D &lt;name&gt;</code></p>
-<ul>
-<li><code>--no-ff</code>方式的<code>git merge</code></li>
-</ul>
-<p><code>$ git merge --no-ff -m &quot;merge with no-ff&quot; &lt;name&gt;</code></p>
-<ul>
-<li>stash储藏工作现场</li>
-</ul>
-<p><code>$ git stash</code></p>
-<ul>
-<li>查看</li>
-</ul>
-<p><code>$ git stash list</code></p>
-<ul>
-<li>恢复现场</li>
-</ul>
-<p>恢复并删除</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git stash apply</span><br><span class="line">$ git stash drop</span><br></pre></td></tr></table></figure>
-<p>或<br><code>$ git stash pop</code></p>
-<ul>
-<li>复制修改</li>
-</ul>
-<p><code>$ git cherry-pick &lt;version&gt;</code></p>
-<ul>
-<li>推送冲突后抓取文件到本地合并</li>
-</ul>
-<p><code>$ git pull</code></p>
-<ul>
-<li>变基</li>
-</ul>
-<p><code>$ git rebase</code></p>
-<hr>
-<ul>
-<li>打标签</li>
-</ul>
-<p><code>$ git tag &lt;tag&gt;</code><br><code>$ git tag &lt;tag&gt; &lt;version&gt;</code></p>
-<p>还可以创建带有说明的标签，用-a指定标签名，-m指定说明文字：</p>
-<p><code>$ git tag -a &lt;tag&gt; -m &quot;info&quot; &lt;version&gt;</code></p>
-<ul>
-<li>查看标签</li>
-</ul>
-<p><code>$ git tag</code></p>
-<ul>
-<li>查看标签内容</li>
-</ul>
-<p><code>$ git show &lt;tag&gt;</code></p>
-<ul>
-<li>删除标签</li>
-</ul>
-<p><code>$ git tag -d &lt;tag&gt;</code></p>
-<ul>
-<li>推送标签</li>
-</ul>
-<p><code>$ git push origin &lt;tag&gt;</code><br><code>$ git push origin --tags</code></p>
-<ul>
-<li>删除远程标签</li>
-</ul>
-<p>先删除本地再：<br><code>$ git push origin :refs/tags/&lt;tag&gt;</code></p>
-<p>补充</p>
-<p><img src="/learngit/git1.png" alt="git1"></p>
-<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://liaoxuefeng.com/">廖雪峰</a></p>
-]]></content>
-      <categories>
-        <category>Learn</category>
-      </categories>
-      <tags>
-        <tag>Git</tag>
-        <tag>Better</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo better</title>
-    <url>/learnhexo.html</url>
-    <content><![CDATA[<p>Hexo自用指令</p>
-<span id="more"></span>
-<h1 id="来时路"><a href="#来时路" class="headerlink" title="来时路"></a>来时路</h1><h2 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h2><h3 id="1：无法初始化"><a href="#1：无法初始化" class="headerlink" title="1：无法初始化"></a>1：无法初始化</h3><p>hexo init （blog）时因为代理无法正常初始化完成，修改代理地址，例：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global http.proxy http://127.0.0.1:7890</span><br><span class="line">git config --global https.proxy http://127.0.0.1:7890</span><br></pre></td></tr></table></figure>
-<p>这将允许 Git 通过本地代理进行连接。如果不再需要代理，或者想要清除代理设置，可以使用以下命令：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global --unset http.proxy</span><br><span class="line">git config --global --unset https.proxy</span><br></pre></td></tr></table></figure>
-
-
-<h3 id="2：npm速度慢"><a href="#2：npm速度慢" class="headerlink" title="2：npm速度慢"></a>2：npm速度慢</h3><p><a href="https://npmmirror.com/">淘宝镜像</a></p>
-<p><img src="/learnhexo/taobao1.png" alt="p1"></p>
-<p>之后在npm前加个c!</p>
-<h2 id="常用指令"><a href="#常用指令" class="headerlink" title="常用指令"></a>常用指令</h2><h3 id="建站前"><a href="#建站前" class="headerlink" title="建站前"></a>建站前</h3><p>在gitbase中cd到博客文件夹</p>
-<p>下载hexo框架</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
-<hr>
-<p>初始化博客项目（若已经在下一级文件夹中可不加folder）</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo init [folder] </span><br></pre></td></tr></table></figure>
-<hr>
-<p>进入folder</p>
-<p>安装依赖项</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install</span><br></pre></td></tr></table></figure>
-<hr>
-<p>下载部署器</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
-<hr>
-<p>之后可随时部署到Github上</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo d</span><br></pre></td></tr></table></figure>
-<h3 id="建站后"><a href="#建站后" class="headerlink" title="建站后"></a>建站后</h3><p>new 新建一篇文章</p>
-<p>-p 自定义文章路径</p>
-<p>-r 如果存在则替换</p>
-<p>-s 文章别名</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo new [layout] &lt;title&gt;</span><br></pre></td></tr></table></figure>
-<hr>
-<p>clean 清除缓存文件 (db.json) 和已生成的静态文件 (public)</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo cl</span><br></pre></td></tr></table></figure>
-<hr>
-<p>generate 生成静态文件</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo g</span><br></pre></td></tr></table></figure>
-<hr>
-<p>publish 发布草稿</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo publish [layout] &lt;filename&gt;</span><br></pre></td></tr></table></figure>
-<hr>
-<p>server 启动服务器</p>
-<p>-p 重设端口</p>
-<p>-s 只使用静态文件</p>
-<p>-l 启用日志</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure>
-<hr>
-<p>deploy 部署网站</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo d</span><br></pre></td></tr></table></figure>
-<hr>
-<p>render 渲染文件<br>-o output destination</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo render &lt;file1&gt; [file2] ...</span><br></pre></td></tr></table></figure>
-<hr>
-<p>migrate 从其他博客系统迁移内容</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo migrate&lt;type&gt;</span><br></pre></td></tr></table></figure>
-<hr>
-<p>list 列出所有路由</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo list &lt;type&gt;</span><br></pre></td></tr></table></figure>
-<hr>
-<p>version 显示版本信息</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo version</span><br></pre></td></tr></table></figure>
-<hr>
-<p>config 列出网站的配置（_config.yml）。 如果指定了 key，则只展示配置中对应 key 的值；如果同时指定了 key 和 value，则将配置中对应的 key 的值修改为 value。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo config [key] [value]</span><br></pre></td></tr></table></figure>
-
-<p>查看已经安装的插件</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm ls --depth=0</span><br></pre></td></tr></table></figure>
-
-
-<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a href="https://dayuzy.com/">资深技术博客</a></p>
-<p><a href="https://blog.csdn.net/cat_bayi/article/details/128725230">CSDN良心教学</a></p>
-<p><a href="https://mp.weixin.qq.com/s/GmTmhpkB0QmoHIL5bmXQGw">小岛码农</a></p>
-<p><a href="https://hexo.io/zh-cn/">官方文档</a></p>
-]]></content>
-      <categories>
-        <category>Learn</category>
-      </categories>
-      <tags>
-        <tag>Better</tag>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>algorithm</title>
     <url>/algorithm.html</url>
     <content><![CDATA[<p>算法板子</p>
@@ -551,6 +104,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
 <h4 id="离散化"><a href="#离散化" class="headerlink" title="离散化"></a>离散化</h4><p>离散化之后要注意间隙，如覆盖问题，要在离散化之后的两个差值不为一i的数据中间添加一个数</p>
 <h4 id="区间最值和历史最值"><a href="#区间最值和历史最值" class="headerlink" title="区间最值和历史最值"></a>区间最值和历史最值</h4><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">// https://www.luogu.com.cn/problem/P6242</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="meta">#<span class="keyword">define</span> int long long</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> fr first</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> sc second</span></span><br><span class="line"><span class="function"><span class="type">signed</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    ios::<span class="built_in">sync_with_stdio</span>(<span class="literal">false</span>);</span><br><span class="line">    cin.<span class="built_in">tie</span>(<span class="literal">nullptr</span>);</span><br><span class="line">    <span class="type">int</span> t = <span class="number">1</span>;</span><br><span class="line">    <span class="comment">// cin &gt;&gt; t;</span></span><br><span class="line">    <span class="keyword">while</span>(t--)&#123;</span><br><span class="line">        <span class="type">int</span> n, m;</span><br><span class="line">        cin &gt;&gt; n &gt;&gt; m;</span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">max1</span><span class="params">(n&lt;&lt;<span class="number">2</span>)</span>,    <span class="comment">// 区间当前最大值</span></span></span><br><span class="line"><span class="function">                    <span class="title">sec</span><span class="params">(n&lt;&lt;<span class="number">2</span>)</span>,     <span class="comment">// 区间严格次大值</span></span></span><br><span class="line"><span class="function">                    <span class="title">cnt</span><span class="params">(n&lt;&lt;<span class="number">2</span>)</span>,     <span class="comment">// 区间等于最大值的元素个数</span></span></span><br><span class="line"><span class="function">                    <span class="title">sum</span><span class="params">(n&lt;&lt;<span class="number">2</span>)</span>,     <span class="comment">// 区间元素和</span></span></span><br><span class="line"><span class="function">                    <span class="title">his</span><span class="params">(n&lt;&lt;<span class="number">2</span>)</span>,     <span class="comment">// 区间历史最大值（曾经出现过的最大值）</span></span></span><br><span class="line"><span class="function">                    <span class="title">add1</span><span class="params">(n&lt;&lt;<span class="number">2</span>)</span>,    <span class="comment">// 懒标记 A：对“当前最大值元素”做加法</span></span></span><br><span class="line"><span class="function">                    <span class="title">add2</span><span class="params">(n&lt;&lt;<span class="number">2</span>)</span>,    <span class="comment">// 懒标记 B：对“非最大值元素”做加法</span></span></span><br><span class="line"><span class="function">                    <span class="title">adds1</span><span class="params">(n&lt;&lt;<span class="number">2</span>)</span>,   <span class="comment">// 历史最大值懒标记 A</span></span></span><br><span class="line"><span class="function">                    <span class="title">adds2</span><span class="params">(n&lt;&lt;<span class="number">2</span>)</span></span>;   <span class="comment">// 历史最大值懒标记 B</span></span><br><span class="line">        <span class="keyword">auto</span> up = [&amp;](<span class="type">int</span> i)&#123;</span><br><span class="line">            sum[i] = sum[i&lt;&lt;<span class="number">1</span>] + sum[i&lt;&lt;<span class="number">1</span>|<span class="number">1</span>];</span><br><span class="line">            his[i] = <span class="built_in">max</span>(his[i&lt;&lt;<span class="number">1</span>], his[i&lt;&lt;<span class="number">1</span>|<span class="number">1</span>]);</span><br><span class="line">            max1[i] = <span class="built_in">max</span>(max1[i&lt;&lt;<span class="number">1</span>], max1[i&lt;&lt;<span class="number">1</span>|<span class="number">1</span>]);</span><br><span class="line">            <span class="comment">// 合并 cnt 与 sec</span></span><br><span class="line">            <span class="keyword">if</span>(max1[i&lt;&lt;<span class="number">1</span>] == max1[i&lt;&lt;<span class="number">1</span>|<span class="number">1</span>])&#123;</span><br><span class="line">                cnt[i] = cnt[i&lt;&lt;<span class="number">1</span>] + cnt[i&lt;&lt;<span class="number">1</span>|<span class="number">1</span>];</span><br><span class="line">                sec[i] = <span class="built_in">max</span>(sec[i&lt;&lt;<span class="number">1</span>], sec[i&lt;&lt;<span class="number">1</span>|<span class="number">1</span>]);</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span>(max1[i&lt;&lt;<span class="number">1</span>] &gt; max1[i&lt;&lt;<span class="number">1</span>|<span class="number">1</span>])&#123;</span><br><span class="line">                cnt[i] = cnt[i&lt;&lt;<span class="number">1</span>];</span><br><span class="line">                sec[i] = <span class="built_in">max</span>(sec[i&lt;&lt;<span class="number">1</span>], max1[i&lt;&lt;<span class="number">1</span>|<span class="number">1</span>]);</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                cnt[i] = cnt[i&lt;&lt;<span class="number">1</span>|<span class="number">1</span>];</span><br><span class="line">                sec[i] = <span class="built_in">max</span>(sec[i&lt;&lt;<span class="number">1</span>|<span class="number">1</span>], max1[i&lt;&lt;<span class="number">1</span>]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line">        <span class="keyword">auto</span> build = [&amp;](<span class="keyword">auto</span>&amp;&amp; self, <span class="type">int</span> i, <span class="type">int</span> l, <span class="type">int</span> r) -&gt; <span class="type">void</span> &#123;</span><br><span class="line">            <span class="keyword">if</span>(l == r)&#123;</span><br><span class="line">                <span class="type">int</span> x;</span><br><span class="line">                cin &gt;&gt; x;</span><br><span class="line">                max1[i] = sum[i] = his[i] = x;  <span class="comment">// 当前值、区间和值、历史最大均为 x</span></span><br><span class="line">                cnt[i] = <span class="number">1</span>;                     <span class="comment">// 只有一个元素</span></span><br><span class="line">                sec[i] = LLONG_MIN / <span class="number">2</span>;         <span class="comment">// 次大值设为 -INF（用很小的数）</span></span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="type">int</span> mid = (l + r) &gt;&gt; <span class="number">1</span>;</span><br><span class="line">                <span class="built_in">self</span>(self, i&lt;&lt;<span class="number">1</span>, l, mid);</span><br><span class="line">                <span class="built_in">self</span>(self, i&lt;&lt;<span class="number">1</span>|<span class="number">1</span>, mid+<span class="number">1</span>, r);</span><br><span class="line">                <span class="built_in">up</span>(i);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// 懒标记初始为 0</span></span><br><span class="line">            add1[i] = add2[i] = adds1[i] = adds2[i] = <span class="number">0</span>;</span><br><span class="line">        &#125;;</span><br><span class="line">        <span class="built_in">build</span>(build, <span class="number">1</span>, <span class="number">1</span>, n);</span><br><span class="line">        <span class="comment">// 核心懒标记下发函数</span></span><br><span class="line">        <span class="comment">// val1: 加到“当前最大值元素”上的增量</span></span><br><span class="line">        <span class="comment">// val2: 加到“非最大值元素”上的增量</span></span><br><span class="line">        <span class="comment">// val3/val4: 用于更新历史最大值的增量</span></span><br><span class="line">        <span class="comment">// len: 本区间长度</span></span><br><span class="line">        <span class="keyword">auto</span> lazy = [&amp;](<span class="type">int</span> i, <span class="type">int</span> val1, <span class="type">int</span> val2, <span class="type">int</span> val3, <span class="type">int</span> val4, <span class="type">int</span> len)&#123;</span><br><span class="line">            <span class="comment">// 更新历史最大值</span></span><br><span class="line">            his[i] = <span class="built_in">max</span>(his[i], max1[i] + val3);</span><br><span class="line">            <span class="comment">// 更新子树的历史懒标记</span></span><br><span class="line">            adds1[i] = <span class="built_in">max</span>(adds1[i], add1[i] + val3);</span><br><span class="line">            adds2[i] = <span class="built_in">max</span>(adds2[i], add2[i] + val4);</span><br><span class="line">            <span class="comment">// 区间和更新</span></span><br><span class="line">            sum[i] += val1 * cnt[i] + val2 * (len - cnt[i]);</span><br><span class="line">            <span class="comment">// 更新“当前最大值”与“非最大值”懒标记</span></span><br><span class="line">            add1[i] += val1;</span><br><span class="line">            add2[i] += val2;</span><br><span class="line">            <span class="comment">// 更新当前最大值</span></span><br><span class="line">            max1[i] += val1;</span><br><span class="line">            <span class="comment">// 次大值也需加 val2（若不存在则保持 -INF）</span></span><br><span class="line">            <span class="keyword">if</span>(sec[i] &gt; LLONG_MIN/<span class="number">2</span>) sec[i] += val2;</span><br><span class="line">        &#125;;</span><br><span class="line">        <span class="comment">// 下推函数：将 i 节点的懒标记传递给左右子节点</span></span><br><span class="line">        <span class="keyword">auto</span> down = [&amp;](<span class="type">int</span> i, <span class="type">int</span> lenL, <span class="type">int</span> lenR)&#123;</span><br><span class="line">            <span class="comment">// 左右子节点新的“当前最大”值</span></span><br><span class="line">            <span class="type">int</span> tL = max1[i&lt;&lt;<span class="number">1</span>], tR = max1[i&lt;&lt;<span class="number">1</span>|<span class="number">1</span>];</span><br><span class="line">            <span class="comment">// 父节点最高值</span></span><br><span class="line">            <span class="type">int</span> mx = <span class="built_in">max</span>(max1[i&lt;&lt;<span class="number">1</span>], max1[i&lt;&lt;<span class="number">1</span>|<span class="number">1</span>]);</span><br><span class="line">            <span class="comment">// 左子树</span></span><br><span class="line">            <span class="keyword">if</span>(tL == mx)&#123;</span><br><span class="line">                <span class="comment">// 左子树中有父区间最大值元素</span></span><br><span class="line">                <span class="built_in">lazy</span>(i&lt;&lt;<span class="number">1</span>, add1[i], add2[i], adds1[i], adds2[i], lenL);</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="comment">// 左子树中只有“非最大值”元素</span></span><br><span class="line">                <span class="built_in">lazy</span>(i&lt;&lt;<span class="number">1</span>, add2[i], add2[i], adds2[i], adds2[i], lenL);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// 右子树（同理）</span></span><br><span class="line">            <span class="keyword">if</span>(tR == mx)&#123;</span><br><span class="line">                <span class="built_in">lazy</span>(i&lt;&lt;<span class="number">1</span>|<span class="number">1</span>, add1[i], add2[i], adds1[i], adds2[i], lenR);</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="built_in">lazy</span>(i&lt;&lt;<span class="number">1</span>|<span class="number">1</span>, add2[i], add2[i], adds2[i], adds2[i], lenR);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// 清空父节点懒标记</span></span><br><span class="line">            add1[i] = add2[i] = adds1[i] = adds2[i] = <span class="number">0</span>;</span><br><span class="line">        &#125;;</span><br><span class="line">        <span class="comment">// 区间加法 [bl,br] 全加 val</span></span><br><span class="line">        <span class="keyword">auto</span> addRange = [&amp;](<span class="keyword">auto</span>&amp;&amp; self, <span class="type">int</span> i, <span class="type">int</span> bl, <span class="type">int</span> br, <span class="type">int</span> val, <span class="type">int</span> l, <span class="type">int</span> r) -&gt; <span class="type">void</span> &#123;</span><br><span class="line">            <span class="keyword">if</span>(bl &lt;= l &amp;&amp; r &lt;= br)&#123;</span><br><span class="line">                <span class="comment">// 统一打懒标记，val1=val2=val3=val4=val</span></span><br><span class="line">                <span class="built_in">lazy</span>(i, val, val, val, val, r-l+<span class="number">1</span>);</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="type">int</span> mid = (l + r) &gt;&gt; <span class="number">1</span>;</span><br><span class="line">                <span class="built_in">down</span>(i, mid-l+<span class="number">1</span>, r-mid);</span><br><span class="line">                <span class="keyword">if</span>(bl &lt;= mid)      <span class="built_in">self</span>(self, i&lt;&lt;<span class="number">1</span>, bl, br, val, l, mid);</span><br><span class="line">                <span class="keyword">if</span>(br &gt; mid)       <span class="built_in">self</span>(self, i&lt;&lt;<span class="number">1</span>|<span class="number">1</span>, bl, br, val, mid+<span class="number">1</span>, r);</span><br><span class="line">                <span class="built_in">up</span>(i);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line">        <span class="comment">// 区间 chmin：把区间内所有大于 val 的值降到 val</span></span><br><span class="line">        <span class="keyword">auto</span> chminRange = [&amp;](<span class="keyword">auto</span>&amp;&amp; self, <span class="type">int</span> i, <span class="type">int</span> bl, <span class="type">int</span> br, <span class="type">int</span> val, <span class="type">int</span> l, <span class="type">int</span> r) -&gt; <span class="type">void</span> &#123;</span><br><span class="line">            <span class="keyword">if</span>(max1[i] &lt;= val) <span class="keyword">return</span>;  <span class="comment">// 本区间最大值已 ≤ val，无需操作</span></span><br><span class="line">            <span class="keyword">if</span>(bl &lt;= l &amp;&amp; r &lt;= br &amp;&amp; sec[i] &lt; val)&#123;</span><br><span class="line">                <span class="comment">// 全区间最大值都大于 val，且次大值 &lt; val</span></span><br><span class="line">                <span class="comment">// 只需把“最大值元素”降到 val</span></span><br><span class="line">                <span class="built_in">lazy</span>(i, val-max1[i], <span class="number">0</span>, val-max1[i], <span class="number">0</span>, r-l+<span class="number">1</span>);</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="type">int</span> mid = (l + r) &gt;&gt; <span class="number">1</span>;</span><br><span class="line">                <span class="built_in">down</span>(i, mid-l+<span class="number">1</span>, r-mid);</span><br><span class="line">                <span class="keyword">if</span>(bl &lt;= mid)      <span class="built_in">self</span>(self, i&lt;&lt;<span class="number">1</span>, bl, br, val, l, mid);</span><br><span class="line">                <span class="keyword">if</span>(br &gt; mid)       <span class="built_in">self</span>(self, i&lt;&lt;<span class="number">1</span>|<span class="number">1</span>, bl, br, val, mid+<span class="number">1</span>, r);</span><br><span class="line">                <span class="built_in">up</span>(i);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line">        <span class="comment">// 区间求和</span></span><br><span class="line">        <span class="keyword">auto</span> querySum = [&amp;](<span class="keyword">auto</span>&amp;&amp; self, <span class="type">int</span> i, <span class="type">int</span> bl, <span class="type">int</span> br, <span class="type">int</span> l, <span class="type">int</span> r) -&gt; <span class="type">int</span> &#123;</span><br><span class="line">            <span class="keyword">if</span>(bl &lt;= l &amp;&amp; r &lt;= br)&#123;</span><br><span class="line">                <span class="keyword">return</span> sum[i];</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="type">int</span> mid = (l + r) &gt;&gt; <span class="number">1</span>;</span><br><span class="line">                <span class="built_in">down</span>(i, mid-l+<span class="number">1</span>, r-mid);</span><br><span class="line">                <span class="type">int</span> res = <span class="number">0</span>;</span><br><span class="line">                <span class="keyword">if</span>(bl &lt;= mid)    res += <span class="built_in">self</span>(self, i&lt;&lt;<span class="number">1</span>, bl, br, l, mid);</span><br><span class="line">                <span class="keyword">if</span>(br &gt; mid)     res += <span class="built_in">self</span>(self, i&lt;&lt;<span class="number">1</span>|<span class="number">1</span>, bl, br, mid+<span class="number">1</span>, r);</span><br><span class="line">                <span class="keyword">return</span> res;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line">        <span class="comment">// 区间最大值</span></span><br><span class="line">        <span class="keyword">auto</span> queryMax = [&amp;](<span class="keyword">auto</span>&amp;&amp; self, <span class="type">int</span> i, <span class="type">int</span> bl, <span class="type">int</span> br, <span class="type">int</span> l, <span class="type">int</span> r) -&gt; <span class="type">int</span> &#123;</span><br><span class="line">            <span class="keyword">if</span>(bl &lt;= l &amp;&amp; r &lt;= br)&#123;</span><br><span class="line">                <span class="keyword">return</span> max1[i];</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="type">int</span> mid = (l + r) &gt;&gt; <span class="number">1</span>;</span><br><span class="line">                <span class="built_in">down</span>(i, mid-l+<span class="number">1</span>, r-mid);</span><br><span class="line">                <span class="type">int</span> res = LLONG_MIN/<span class="number">2</span>;</span><br><span class="line">                <span class="keyword">if</span>(bl &lt;= mid)    res = <span class="built_in">max</span>(res, <span class="built_in">self</span>(self, i&lt;&lt;<span class="number">1</span>, bl, br, l, mid));</span><br><span class="line">                <span class="keyword">if</span>(br &gt; mid)     res = <span class="built_in">max</span>(res, <span class="built_in">self</span>(self, i&lt;&lt;<span class="number">1</span>|<span class="number">1</span>, bl, br, mid+<span class="number">1</span>, r));</span><br><span class="line">                <span class="keyword">return</span> res;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line">        <span class="comment">// 区间历史最大值</span></span><br><span class="line">        <span class="keyword">auto</span> queryHis = [&amp;](<span class="keyword">auto</span>&amp;&amp; self, <span class="type">int</span> i, <span class="type">int</span> bl, <span class="type">int</span> br, <span class="type">int</span> l, <span class="type">int</span> r) -&gt; <span class="type">int</span> &#123;</span><br><span class="line">            <span class="keyword">if</span>(bl &lt;= l &amp;&amp; r &lt;= br)&#123;</span><br><span class="line">                <span class="keyword">return</span> his[i];</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="type">int</span> mid = (l + r) &gt;&gt; <span class="number">1</span>;</span><br><span class="line">                <span class="built_in">down</span>(i, mid-l+<span class="number">1</span>, r-mid);</span><br><span class="line">                <span class="type">int</span> res = LLONG_MIN/<span class="number">2</span>;</span><br><span class="line">                <span class="keyword">if</span>(bl &lt;= mid)    res = <span class="built_in">max</span>(res, <span class="built_in">self</span>(self, i&lt;&lt;<span class="number">1</span>, bl, br, l, mid));</span><br><span class="line">                <span class="keyword">if</span>(br &gt; mid)     res = <span class="built_in">max</span>(res, <span class="built_in">self</span>(self, i&lt;&lt;<span class="number">1</span>|<span class="number">1</span>, bl, br, mid+<span class="number">1</span>, r));</span><br><span class="line">                <span class="keyword">return</span> res;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line">        <span class="comment">// 处理 m 次操作</span></span><br><span class="line">        <span class="keyword">while</span>(m--)&#123;</span><br><span class="line">            <span class="type">int</span> op, l, r;</span><br><span class="line">            cin &gt;&gt; op &gt;&gt; l &gt;&gt; r;</span><br><span class="line">            <span class="keyword">if</span>(op == <span class="number">1</span>)&#123;</span><br><span class="line">                <span class="type">int</span> x; cin &gt;&gt; x;</span><br><span class="line">                <span class="built_in">addRange</span>(addRange, <span class="number">1</span>, l, r, x, <span class="number">1</span>, n);</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span>(op == <span class="number">2</span>)&#123;</span><br><span class="line">                <span class="type">int</span> x; cin &gt;&gt; x;</span><br><span class="line">                <span class="built_in">chminRange</span>(chminRange, <span class="number">1</span>, l, r, x, <span class="number">1</span>, n);</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span>(op == <span class="number">3</span>)&#123;</span><br><span class="line">                cout &lt;&lt; <span class="built_in">querySum</span>(querySum, <span class="number">1</span>, l, r, <span class="number">1</span>, n) &lt;&lt; <span class="string">&quot;\n&quot;</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span>(op == <span class="number">4</span>)&#123;</span><br><span class="line">                cout &lt;&lt; <span class="built_in">queryMax</span>(queryMax, <span class="number">1</span>, l, r, <span class="number">1</span>, n) &lt;&lt; <span class="string">&quot;\n&quot;</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span>(op == <span class="number">5</span>)&#123;</span><br><span class="line">                cout &lt;&lt; <span class="built_in">queryHis</span>(queryHis, <span class="number">1</span>, l, r, <span class="number">1</span>, n) &lt;&lt; <span class="string">&quot;\n&quot;</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="结合摩尔投票"><a href="#结合摩尔投票" class="headerlink" title="结合摩尔投票"></a>结合摩尔投票</h4><h5 id="经典摩尔投票，求数组中出现次数大于-frac-n-2-d-数"><a href="#经典摩尔投票，求数组中出现次数大于-frac-n-2-d-数" class="headerlink" title="经典摩尔投票，求数组中出现次数大于$\frac{n}{2}$d 数"></a>经典摩尔投票，求数组中出现次数大于$\frac{n}{2}$d 数</h5><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">majorityElement</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">  		<span class="type">int</span> now = <span class="number">-1</span>, cnt = <span class="number">0</span>;</span><br><span class="line">  		<span class="keyword">for</span>(<span class="keyword">auto</span> x : nums)&#123;</span><br><span class="line">  			<span class="keyword">if</span>(!cnt)&#123;</span><br><span class="line">  				now = x;</span><br><span class="line">  				cnt = <span class="number">1</span>;</span><br><span class="line">  			&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">  				<span class="keyword">if</span>(now == x)&#123;</span><br><span class="line">  					cnt ++;</span><br><span class="line">  				&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">  					cnt --;</span><br><span class="line">  				&#125;</span><br><span class="line">  			&#125;</span><br><span class="line">  		&#125;</span><br><span class="line">  		<span class="keyword">return</span> now;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h5 id="结合线段树求区间海王数"><a href="#结合线段树求区间海王数" class="headerlink" title="结合线段树求区间海王数"></a>结合线段树求区间海王数</h5><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> fr first</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> sc second</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MajorityChecker</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	vector&lt;<span class="type">int</span>&gt; val, cnt, v1;</span><br><span class="line">	vector&lt;pair&lt;<span class="type">int</span>,<span class="type">int</span>&gt;&gt; v2;</span><br><span class="line">	<span class="type">int</span> n;</span><br><span class="line">	<span class="function"><span class="type">void</span> <span class="title">up</span><span class="params">(<span class="type">int</span> i)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">if</span>(!cnt[i &lt;&lt; <span class="number">1</span>] &amp;&amp; !cnt[i &lt;&lt; <span class="number">1</span> | <span class="number">1</span>])&#123;</span><br><span class="line">			cnt[i] = <span class="number">0</span>;</span><br><span class="line">		&#125;<span class="keyword">else</span> <span class="keyword">if</span>(!cnt[i &lt;&lt; <span class="number">1</span>])&#123;</span><br><span class="line">			cnt[i] = cnt[i &lt;&lt; <span class="number">1</span> | <span class="number">1</span>];</span><br><span class="line">			val[i] = val[i &lt;&lt; <span class="number">1</span> | <span class="number">1</span>];</span><br><span class="line">		&#125;<span class="keyword">else</span> <span class="keyword">if</span>(!cnt[i &lt;&lt; <span class="number">1</span> | <span class="number">1</span>])&#123;</span><br><span class="line">			cnt[i] = cnt[i &lt;&lt; <span class="number">1</span>];</span><br><span class="line">			val[i] = val[i &lt;&lt; <span class="number">1</span>];</span><br><span class="line">		&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">			<span class="keyword">if</span>(val[i &lt;&lt; <span class="number">1</span>] == val[i &lt;&lt; <span class="number">1</span> | <span class="number">1</span>])&#123;</span><br><span class="line">				val[i] = val[i &lt;&lt; <span class="number">1</span>];</span><br><span class="line">				cnt[i] = cnt[i &lt;&lt; <span class="number">1</span>] + cnt[i &lt;&lt; <span class="number">1</span> | <span class="number">1</span>];</span><br><span class="line">			&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">				<span class="keyword">if</span>(cnt[i &lt;&lt; <span class="number">1</span>] &gt;= cnt[i &lt;&lt; <span class="number">1</span>| <span class="number">1</span>])&#123;</span><br><span class="line">					val[i] = val[i &lt;&lt; <span class="number">1</span>];</span><br><span class="line">					cnt[i] = cnt[i &lt;&lt; <span class="number">1</span>] - cnt[i &lt;&lt; <span class="number">1</span> | <span class="number">1</span>];</span><br><span class="line">				&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">					val[i] = val[i &lt;&lt; <span class="number">1</span> | <span class="number">1</span>];</span><br><span class="line">					cnt[i] = cnt[i &lt;&lt; <span class="number">1</span> | <span class="number">1</span>] - cnt[i &lt;&lt; <span class="number">1</span>];</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="type">void</span> <span class="title">build</span><span class="params">(<span class="type">int</span> i, <span class="type">int</span> l, <span class="type">int</span> r)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">if</span>(l == r)&#123;</span><br><span class="line">			cnt[i] = <span class="number">1</span>;</span><br><span class="line">			val[i] = v1[l];</span><br><span class="line">		&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">			<span class="type">int</span> mid = (l + r) &gt;&gt; <span class="number">1</span>;</span><br><span class="line">			<span class="built_in">build</span>(i &lt;&lt; <span class="number">1</span>, l, mid);</span><br><span class="line">			<span class="built_in">build</span>(i &lt;&lt; <span class="number">1</span> | <span class="number">1</span>, mid + <span class="number">1</span>, r);</span><br><span class="line">			<span class="built_in">up</span>(i);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function">pair&lt;<span class="type">int</span>,<span class="type">int</span>&gt; <span class="title">get</span><span class="params">(<span class="type">int</span> i, <span class="type">int</span> bl, <span class="type">int</span> br, <span class="type">int</span> l, <span class="type">int</span> r)</span></span>&#123;</span><br><span class="line">		<span class="keyword">if</span>(l == r)&#123;</span><br><span class="line">			<span class="keyword">return</span> &#123;val[i], cnt[i]&#125;;</span><br><span class="line">		&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">			<span class="type">int</span> mid = (l + r) &gt;&gt; <span class="number">1</span>;</span><br><span class="line">			pair&lt;<span class="type">int</span>,<span class="type">int</span>&gt; left = &#123;<span class="number">0</span>, <span class="number">0</span>&#125;, right = &#123;<span class="number">0</span>, <span class="number">0</span>&#125;, ans;</span><br><span class="line">			<span class="keyword">if</span>(bl &lt;= mid)&#123;</span><br><span class="line">				left = <span class="built_in">get</span>(i &lt;&lt; <span class="number">1</span>, bl, br, l, mid);</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">if</span>(br &gt; mid)&#123;</span><br><span class="line">				right = <span class="built_in">get</span>(i &lt;&lt; <span class="number">1</span> | <span class="number">1</span>, bl, br, mid + <span class="number">1</span>, r);</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">if</span>(!left.sc &amp;&amp; !right.sc)&#123;</span><br><span class="line">				ans.sc = <span class="number">0</span>;</span><br><span class="line">			&#125;<span class="keyword">else</span> <span class="keyword">if</span>(!left.sc)&#123;</span><br><span class="line">				ans.fr = right.fr;</span><br><span class="line">				ans.sc = right.sc;</span><br><span class="line">			&#125;<span class="keyword">else</span> <span class="keyword">if</span>(!right.sc)&#123;</span><br><span class="line">				ans.fr = left.fr;</span><br><span class="line">				ans.sc = left.sc;</span><br><span class="line">			&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">				<span class="keyword">if</span>(left.fr == right.fr)&#123;</span><br><span class="line">					ans.fr = left.fr;</span><br><span class="line">					ans.sc = left.sc + right.sc;</span><br><span class="line">				&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">					<span class="keyword">if</span>(left.sc &gt;= right.sc)&#123;</span><br><span class="line">						ans.fr = left.fr;</span><br><span class="line">						ans.sc = left.sc - right.sc;</span><br><span class="line">					&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">						ans.fr = right.fr;</span><br><span class="line">						ans.sc = right.sc - left.sc;</span><br><span class="line">					&#125;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">return</span> ans;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="type">int</span> <span class="title">find</span><span class="params">(<span class="type">int</span> x, <span class="type">int</span> in)</span> </span>&#123;</span><br><span class="line">		<span class="type">int</span> l = <span class="number">0</span>, r = n - <span class="number">1</span>;</span><br><span class="line">		<span class="type">int</span> mid, ans = <span class="number">-1</span>;</span><br><span class="line">		<span class="keyword">while</span>(l &lt;= r)&#123;</span><br><span class="line">			mid = (l + r) &gt;&gt; <span class="number">1</span>;</span><br><span class="line">			<span class="keyword">if</span>(v2[mid].fr &gt; x)&#123;</span><br><span class="line">				r = mid - <span class="number">1</span>;</span><br><span class="line">			&#125;<span class="keyword">else</span> <span class="keyword">if</span>(v2[mid].fr &lt; x)&#123;</span><br><span class="line">				l = mid + <span class="number">1</span>;</span><br><span class="line">			&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">				ans = mid;</span><br><span class="line">				<span class="keyword">if</span>(v2[mid].sc &lt;= in)&#123;</span><br><span class="line">					l = mid + <span class="number">1</span>;</span><br><span class="line">				&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">					r = mid - <span class="number">1</span>;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> ans;</span><br><span class="line">	&#125;;</span><br><span class="line">    <span class="built_in">MajorityChecker</span>(vector&lt;<span class="type">int</span>&gt;&amp; arr) &#123;</span><br><span class="line">    	v1.<span class="built_in">push_back</span>(<span class="number">0</span>);</span><br><span class="line">    	<span class="keyword">for</span>(<span class="keyword">auto</span> x : arr)&#123;</span><br><span class="line">    		v1.<span class="built_in">push_back</span>(x);</span><br><span class="line">    	&#125;</span><br><span class="line">     	n = arr.<span class="built_in">size</span>();</span><br><span class="line">     	val.<span class="built_in">resize</span>(n &lt;&lt; <span class="number">2</span>);</span><br><span class="line">     	cnt.<span class="built_in">resize</span>(n &lt;&lt; <span class="number">2</span>); </span><br><span class="line">     	<span class="built_in">build</span>(<span class="number">1</span>, <span class="number">1</span>, n);</span><br><span class="line">     	<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i ++)&#123;</span><br><span class="line">     		v2.<span class="built_in">push_back</span>(&#123;v1[i], i&#125;);</span><br><span class="line">     	&#125;</span><br><span class="line">     	<span class="built_in">sort</span>(v2.<span class="built_in">begin</span>(), v2.<span class="built_in">end</span>(), [](pair&lt;<span class="type">int</span>,<span class="type">int</span>&gt; a, pair&lt;<span class="type">int</span>,<span class="type">int</span>&gt; b)&#123;</span><br><span class="line">     		<span class="keyword">if</span>(a.fr == b.fr)&#123;</span><br><span class="line">     			<span class="keyword">return</span> a.sc &lt; b.sc;</span><br><span class="line">     		&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">     			<span class="keyword">return</span> a.fr &lt; b.fr;</span><br><span class="line">     		&#125;</span><br><span class="line">     	&#125;);</span><br><span class="line">        <span class="comment">// for(int i = 0; i &lt; n; i ++)&#123;</span></span><br><span class="line">        <span class="comment">//     cout &lt;&lt; v2[i].fr &lt;&lt; &quot; &quot; &lt;&lt; v2[i].sc &lt;&lt; &quot;\n&quot;;</span></span><br><span class="line">        <span class="comment">// &#125;</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">query</span><span class="params">(<span class="type">int</span> left, <span class="type">int</span> right, <span class="type">int</span> threshold)</span> </span>&#123;</span><br><span class="line">    	left ++, right ++;</span><br><span class="line">    	pair&lt;<span class="type">int</span>,<span class="type">int</span>&gt; temp = <span class="built_in">get</span>(<span class="number">1</span>, left, right, <span class="number">1</span>, n);</span><br><span class="line">    	<span class="keyword">if</span>(temp.sc == <span class="number">0</span>)&#123;</span><br><span class="line">    		<span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    	&#125;</span><br><span class="line">        cout &lt;&lt; temp.fr &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">    	<span class="type">int</span> l = <span class="built_in">find</span>(temp.fr, left), r = <span class="built_in">find</span>(temp.fr, right);</span><br><span class="line">        <span class="comment">// cout &lt;&lt; &quot;L; &quot; &lt;&lt;  left &lt;&lt; &quot; R: &quot; &lt;&lt; right &lt;&lt; &quot; l1: &quot; &lt;&lt; l &lt;&lt; &quot; r1: &quot; &lt;&lt; r &lt;&lt; &quot;\n&quot;; </span></span><br><span class="line">    	<span class="keyword">return</span> (r - l + <span class="number">1</span>) &gt;= threshold ? temp.fr : <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h5 id="求一个数组中某一个区间出现了某个数的次数"><a href="#求一个数组中某一个区间出现了某个数的次数" class="headerlink" title="求一个数组中某一个区间出现了某个数的次数"></a>求一个数组中某一个区间出现了某个数的次数</h5><p>参考上面摩尔投票结合线段树的例子，将一个数组按照数的大小和出现顺序升序排序，然后用不同逻辑的二分查找得到相对位置</p>
+<h3 id="扫描线"><a href="#扫描线" class="headerlink" title="扫描线"></a>扫描线</h3><p>利用扫描思想平移某一个轴时，加工另一个轴的信息来一边扫过去就能解决问题</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">// https://www.luogu.com.cn/problem/P5490</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="meta">#<span class="keyword">define</span> int long long</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> fr first</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> sc second</span></span><br><span class="line"><span class="function"><span class="type">signed</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	cin.<span class="built_in">tie</span>(<span class="number">0</span>) -&gt; ios::<span class="built_in">sync_with_stdio</span>(<span class="number">0</span>);</span><br><span class="line">	<span class="type">int</span> t = <span class="number">1</span>;</span><br><span class="line">	<span class="comment">// cin &gt;&gt; t;</span></span><br><span class="line">	<span class="keyword">while</span>(t --)&#123;</span><br><span class="line">		<span class="type">int</span> n;</span><br><span class="line">		cin &gt;&gt; n;</span><br><span class="line">		vector&lt;<span class="type">int</span>&gt; v2 = &#123;<span class="number">-2</span>&#125;;</span><br><span class="line">		vector&lt;array&lt;<span class="type">int</span>, 4&gt;&gt; v1;</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i ++)&#123;</span><br><span class="line">			<span class="type">int</span> x1, y1, x2, y2;</span><br><span class="line">			cin &gt;&gt; x1 &gt;&gt; y1 &gt;&gt; x2 &gt;&gt; y2;</span><br><span class="line">			v2.<span class="built_in">push_back</span>(y1);</span><br><span class="line">			v2.<span class="built_in">push_back</span>(y2);</span><br><span class="line">			v1.<span class="built_in">push_back</span>(&#123;x1, y1, y2, <span class="number">1</span>&#125;);</span><br><span class="line">			v1.<span class="built_in">push_back</span>(&#123;x2, y1, y2, <span class="number">-1</span>&#125;);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="built_in">sort</span>(v2.<span class="built_in">begin</span>() + <span class="number">1</span>, v2.<span class="built_in">end</span>());</span><br><span class="line">		<span class="type">int</span> m = <span class="number">1</span>;</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">2</span>; i &lt; v2.<span class="built_in">size</span>(); i ++)&#123;</span><br><span class="line">			<span class="keyword">if</span>(v2[i] != v2[m])&#123;</span><br><span class="line">				v2[++ m] = v2[i];</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		v2.<span class="built_in">push_back</span>(v2[m]);</span><br><span class="line">		<span class="keyword">auto</span> find = [&amp;](<span class="type">int</span> x) -&gt; <span class="type">int</span> &#123;</span><br><span class="line">			<span class="type">int</span> l = <span class="number">1</span>, r = m;</span><br><span class="line">			<span class="type">int</span> mid, ans = <span class="number">-1</span>;</span><br><span class="line">			<span class="keyword">while</span>(l &lt;= r)&#123;</span><br><span class="line">				mid = (l + r) &gt;&gt; <span class="number">1</span>;</span><br><span class="line">				<span class="keyword">if</span>(v2[mid] &gt;= x)&#123;</span><br><span class="line">					ans = mid;</span><br><span class="line">					r = mid - <span class="number">1</span>;</span><br><span class="line">				&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">					l = mid + <span class="number">1</span>;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">return</span> ans;</span><br><span class="line">		&#125;;</span><br><span class="line">		<span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">sum1</span><span class="params">(m &lt;&lt; <span class="number">4</span>)</span>, <span class="title">cnt1</span><span class="params">(m &lt;&lt; <span class="number">4</span>)</span>, <span class="title">cover</span><span class="params">(m &lt;&lt; <span class="number">4</span>)</span></span>;</span><br><span class="line">		<span class="keyword">auto</span> build = [&amp;](<span class="keyword">auto</span> &amp;&amp; f, <span class="type">int</span> i, <span class="type">int</span> l, <span class="type">int</span> r) -&gt; <span class="type">void</span> &#123;</span><br><span class="line">			<span class="keyword">if</span>(l &lt; r)&#123;</span><br><span class="line">				<span class="type">int</span> mid = (l + r) &gt;&gt; <span class="number">1</span>;</span><br><span class="line">				<span class="built_in">f</span>(f, i &lt;&lt; <span class="number">1</span>, l, mid);</span><br><span class="line">				<span class="built_in">f</span>(f, i &lt;&lt; <span class="number">1</span> | <span class="number">1</span>, mid + <span class="number">1</span>, r);</span><br><span class="line">			&#125;</span><br><span class="line">			cover[i] = v2[r + <span class="number">1</span>] - v2[l];</span><br><span class="line">			sum1[i] = cnt1[i] = <span class="number">0</span>;</span><br><span class="line">		&#125;;</span><br><span class="line">		<span class="built_in">build</span>(build, <span class="number">1</span>, <span class="number">1</span>, m);</span><br><span class="line">		<span class="keyword">auto</span> up = [&amp;](<span class="type">int</span> i) &#123;</span><br><span class="line">			<span class="keyword">if</span>(cnt1[i] &gt; <span class="number">0</span>)&#123;</span><br><span class="line">				sum1[i] = cover[i]; </span><br><span class="line">			&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">				sum1[i] = sum1[i &lt;&lt; <span class="number">1</span>] + sum1[i &lt;&lt; <span class="number">1</span> | <span class="number">1</span>];</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;;</span><br><span class="line">		<span class="keyword">auto</span> set = [&amp;](<span class="keyword">auto</span> &amp;&amp; f, <span class="type">int</span> i, <span class="type">int</span> bl, <span class="type">int</span> br, <span class="type">int</span> val, <span class="type">int</span> l, <span class="type">int</span> r) -&gt; <span class="type">void</span> &#123;</span><br><span class="line">			<span class="keyword">if</span>(bl &lt;= l &amp;&amp; br &gt;= r)&#123;</span><br><span class="line">				cnt1[i] += val;</span><br><span class="line">			&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">				<span class="type">int</span> mid = (l + r) &gt;&gt; <span class="number">1</span>;</span><br><span class="line">				<span class="keyword">if</span>(bl &lt;= mid)&#123;</span><br><span class="line">					<span class="built_in">f</span>(f, i &lt;&lt; <span class="number">1</span>, bl, br, val, l, mid);</span><br><span class="line">				&#125;</span><br><span class="line">				<span class="keyword">if</span>(br &gt; mid)&#123;</span><br><span class="line">					<span class="built_in">f</span>(f, i &lt;&lt; <span class="number">1</span> | <span class="number">1</span>, bl, br, val, mid + <span class="number">1</span>, r);</span><br><span class="line">				&#125;     </span><br><span class="line">			&#125;</span><br><span class="line">			<span class="built_in">up</span>(i);</span><br><span class="line">		&#125;;</span><br><span class="line">		<span class="built_in">sort</span>(v1.<span class="built_in">begin</span>(), v1.<span class="built_in">end</span>());</span><br><span class="line">		<span class="type">int</span> last = <span class="number">0</span>, ans = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; n &lt;&lt; <span class="number">1</span>; i ++)&#123;</span><br><span class="line">			<span class="type">int</span> now = v1[i][<span class="number">0</span>];</span><br><span class="line">			ans += sum1[<span class="number">1</span>] * (now - last);</span><br><span class="line">			<span class="comment">// cout &lt;&lt; sum1[1] &lt;&lt; &quot; &quot; &lt;&lt; now &lt;&lt; &quot; &quot; &lt;&lt; last &lt;&lt; &quot;\n&quot;;</span></span><br><span class="line">			last = now;</span><br><span class="line">			<span class="built_in">set</span>(set, <span class="number">1</span>, <span class="built_in">find</span>(v1[i][<span class="number">1</span>]), <span class="built_in">find</span>(v1[i][<span class="number">2</span>]) - <span class="number">1</span>, v1[i][<span class="number">3</span>], <span class="number">1</span>, m);</span><br><span class="line">		&#125;</span><br><span class="line">		cout &lt;&lt; ans &lt;&lt; <span class="string">&quot;\n&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h3 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h3><h4 id="归并分治"><a href="#归并分治" class="headerlink" title="归并分治"></a>归并分治</h4><p>分而治之</p>
 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="meta">#<span class="keyword">define</span> M 500</span></span><br><span class="line"><span class="type">int</span> a1[M];</span><br><span class="line"><span class="type">int</span> temp[M];</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">merge</span><span class="params">(<span class="type">int</span> l,<span class="type">int</span> m,<span class="type">int</span> r)</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> i=l;</span><br><span class="line">    <span class="type">int</span> j=m+<span class="number">1</span>;</span><br><span class="line">    <span class="type">int</span> mark=l;</span><br><span class="line">    <span class="keyword">while</span>(i&lt;=m &amp;&amp; j&lt;=r) a1[mark++]=temp[i]&lt;temp[j]?temp[i++]:temp[j++];</span><br><span class="line">    <span class="keyword">while</span>(i&lt;=m) a1[mark++]=temp[i++];</span><br><span class="line">    <span class="keyword">while</span>(j&lt;=r) a1[mark++]=temp[j++];</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> k=l;k&lt;=r;k++) temp[k]=a1[k];</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">guibing</span><span class="params">(<span class="type">int</span> l,<span class="type">int</span> r)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(l&gt;=r) <span class="keyword">return</span> ;</span><br><span class="line">	<span class="type">int</span> m=(l+r)/<span class="number">2</span>;</span><br><span class="line">	<span class="built_in">guibing</span>(l,m);</span><br><span class="line">	<span class="built_in">guibing</span>(m+<span class="number">1</span>,r);</span><br><span class="line">	<span class="built_in">merge</span>(l,m,r);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> n;</span><br><span class="line">    cin&gt;&gt;n;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">        cin&gt;&gt;a1[i];</span><br><span class="line">        temp[i]=a1[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">guibing</span>(<span class="number">0</span>,n<span class="number">-1</span>);</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;i++) cout&lt;&lt;a1[i]&lt;&lt;<span class="string">&quot; &quot;</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -892,5 +453,452 @@ document.addEventListener("DOMContentLoaded", function () {
       <tags>
         <tag>algorithm</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>Git_for_Android-Studio</title>
+    <url>/Git-for-Android-Studio.html</url>
+    <content><![CDATA[<p>安卓开发连接Git的小测试</p>
+<span id="more"></span>
+<h1 id="熟悉Git"><a href="#熟悉Git" class="headerlink" title="熟悉Git"></a>熟悉Git</h1><p><code>Git</code>是当今最广泛应用且功能强大、灵活的分布式版本控制系统。它的最大优势在于每位开发者本地均拥有完整的版本历史，即使在脱机状态下也能完成大部分操作，这使得多人协作和代码合并变得更加高效和便捷。相比之下，集中式版本控制系统依赖中央服务器，容易受到单点故障的影响。虽然在管理大型二进制文件或某些特殊场景下可能需要辅以其他工具，但 Git 的这些显著优势正是我们学习和使用它的重要原因。</p>
+<!--more-->
+
+<h1 id="配置Git"><a href="#配置Git" class="headerlink" title="配置Git"></a>配置Git</h1><p>先下载Git，之后的命令可以在任何bash中运行</p>
+<p><code>Github</code>基于web的版本控制界面，也就是可以在上面部署项目，是使用<code>git</code>的一大利器，我们要把<code>Android Studio</code>上的项目进行<code>git</code>管理，首先需要创建一个<code>Github</code>账号（能进行版本控制的不止有<code>Github</code>, 还有<code>Gitee</code>等等）。</p>
+<p>进行git账号的配置，以告诉<code>git</code>是谁在对<code>git</code>进行操作以及以后<code>git</code>的操作对象。</p>
+<p>以下两条指令的参数填之前在<code>Github</code>注册的账号信息</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// --global 参数表示该配置为全局配置，适用于该用户的所有 Git 仓库</span><br><span class="line">git config --global user.name &quot;Your Name&quot;</span><br><span class="line">git config --global user.email &quot;email@example.com&quot;</span><br></pre></td></tr></table></figure>
+
+<p>以下两条指令用于查询当前<code>git</code>绑定的账号信息</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config user.name</span><br><span class="line">git config user.email</span><br></pre></td></tr></table></figure>
+
+<p>确认无误之后就进行绑定的最后一步，创建<code>SSH</code>连接，方便本地<code>git</code>能直接对接到<code>Github</code>以进行操作</p>
+<p>在本地生成密钥和公钥</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;xxx@xxx.com&quot;</span><br></pre></td></tr></table></figure>
+
+<p>获取生成的公钥（<code>id_rsa.pub</code>）后在<code>Github</code>上创建<code>SSHKey</code>（不太熟悉的可以在网上搜<code>Github SSH配置</code>, 也可以直接看我找好的教程 <a href="https://blog.csdn.net/weixin_42310154/article/details/118340458">配置SSH教程</a>， 会了一次之后就熟悉了）</p>
+<p>验证是否成功</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure>
+
+
+
+<p>准备工作全部完整，接下来几条简单就令就能轻松完成项目和仓库的绑定</p>
+<p>从现在开始的指令在Android Studio中的终端运行<img src="/Git-for-Android-Studio/git1.png" alt="git1"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git init</span><br></pre></td></tr></table></figure>
+
+<p>在<code>Github</code>中创建一个仓库（<code>repository</code>），命名随意，复制其SSH（注意与之前的SSH做区分）</p>
+<p>添加远程库（也就是将这个新创建的仓库作为<code>git</code>版本管理的存储库）</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git remote add origin &lt;刚才让复制的SSH&gt;</span><br></pre></td></tr></table></figure>
+
+<p>推送前先将更改（部署<code>git</code>前的所有代码）添加到暂存区并且提交更改</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m &#x27;init git for Android Studio&#x27;</span><br></pre></td></tr></table></figure>
+
+<p>然后进行第一次推送</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git push -u origin main</span><br></pre></td></tr></table></figure>
+
+<p>之后每次进行修改后运行<code>git push</code>即可完成推送</p>
+<p>现在可去刚刚创建的仓库里看看是否有一堆文件上传了，这些文件就是一个版本，之后的每次push都会产生一个新版本，版本可以进行各种操作，如分支管理、版本回退、合并等。</p>
+<h1 id="管理Git"><a href="#管理Git" class="headerlink" title="管理Git"></a>管理Git</h1><p>之后正常的版本管理就非常轻松了，<code>git</code>是用来方便管理的，没有那么复杂，是一个非常好用的工具，因此需要掌握一些常见的指令和原理。</p>
+<p>可参见大佬的博客<a href="https://liaoxuefeng.com/books/git/introduction/index.html">廖雪峰</a>和我做的一些速记<a href="https://baoziwan.icu/learngit.html">小站</a></p>
+<p>最后，给该项目创建一个<code>README</code>文件，用于介绍这个项目或者说仓库</p>
+<p>可直接在<code>Github</code>的仓库下点击<code>Add a README</code>快速创建，也可在本地创建一个<code>README.md</code>文件后进行编辑再<code>git push</code>上<code>Github</code></p>
+<p><img src="/Git-for-Android-Studio/gi2.png" alt="gi2"></p>
+<p>结果示例</p>
+<p><img src="/Git-for-Android-Studio/git3.png" alt="git3"></p>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://liaoxuefeng.com/books/git/introduction/index.html">廖雪峰</a><br><a href="https://blog.csdn.net/weixin_42310154/article/details/118340458">配置SSH教程</a><br><a href="https://baoziwan.icu/learngit.html">自家小站</a></p>
+]]></content>
+      <categories>
+        <category>Learn</category>
+      </categories>
+      <tags>
+        <tag>Git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>cycle</title>
+    <url>/cycle.html</url>
+    <content><![CDATA[<p>骑行小记</p>
+<span id="more"></span>
+<h1 id="铁腚行"><a href="#铁腚行" class="headerlink" title="铁腚行"></a>铁腚行</h1><h2 id="已备骑行装备"><a href="#已备骑行装备" class="headerlink" title="已备骑行装备"></a>已备骑行装备</h2><ol>
+<li>公路车<br>喜德盛RC200 <span class="price" data-price="1499">1499￥</span></li>
+</ol>
+<p>入门级公路车， 速度一般（上限不高，毕竟是入门，先练腿，6分），颜值还可以（7分），刹车不太行（<del>4分</del>， 前刹调到能完全夹住轮胎其实能到6分）（满分10分）</p>
+<p><img src="/cycle/init1.png" alt="init1"></p>
+<ol start="2">
+<li>护目镜：</li>
+</ol>
+<p>匹克日常 <span class="price" data-price="39">39￥</span>  </p>
+<p>防风沙烈日，实用</p>
+<ol start="3">
+<li>手机支架</li>
+</ol>
+<p>ROCKBROS洛克兄弟手机支架 <span class="price" data-price="29">29￥</span>  </p>
+<p>性价比高，质量还可以，颜值也过得去</p>
+<ol start="4">
+<li>骑行头盔</li>
+</ol>
+<p>GUB M5 Mips骑行头盔 <span class="price" data-price="239">239￥</span>  </p>
+<p>不怕一万，就怕万一</p>
+<ol start="5">
+<li>运动手套</li>
+</ol>
+<p>维动 VEIDOORN 半指 <span class="price" data-price="39">39￥</span>  </p>
+<p>防滑、吸汗、减震</p>
+<ol start="6">
+<li>水壶 + 水壶架</li>
+</ol>
+<p>ROCKBROS洛克兄弟户外水壶 + 水壶架 <span class="price" data-price="35">35￥</span>  </p>
+<p>远距离骑行必备</p>
+<ol start="7">
+<li>坐垫</li>
+</ol>
+<p>ROCKBROS洛克兄弟坐垫 <span class="price" data-price="39">39￥</span>  </p>
+<p>我的建议是练腚</p>
+<ol start="8">
+<li>尾灯</li>
+</ol>
+<p>美利达自行车智能感应刹车灯 <span class="price" data-price="30">30￥</span>  </p>
+<p>越亮越好，最好是有急停时高亮的，相当于大大的实习标  </p>
+<hr>
+<p>总价:  <span id="total-price">计算中…</span></p>
+<h2 id="总行程"><a href="#总行程" class="headerlink" title="总行程"></a>总行程</h2><p>2025-03-01之前 <span class="distance" data-distance="147">147 km</span>  </p>
+<p>2025-03-01 <span class="distance" data-distance="150"> 150 km </span><br><img src="/cycle/lvdao1.png" alt="lvdao1"></p>
+<p>2025-03-11 <span class="distance" data-distance="40"> 40 km </span><br><img src="/cycle/shouan1.jpg" alt="shouan1"></p>
+<p>2025-03-15 <span class="distance" data-distance="13"> 13 km </span></p>
+<p>2025-03-18 <span class="distance" data-distance="40"> 40 km </span><br><img src="/cycle/shouan2.jpg" alt="shouan2"></p>
+<p>2025-03-25 <span class="distance" data-distance="40"> 40 km </span><br><img src="/cycle/shouan3.jpg" alt="shouan3"></p>
+<p>2025-04-02 <span class="distance" data-distance="40"> 40 km </span><br><img src="/cycle/shouan4.jpg" alt="shouan4"></p>
+<p>2025-04-08 <span class="distance" data-distance="40"> 40 km </span><br><img src="/cycle/shouan5.jpg" alt="shouan5"></p>
+<p>2025-04-15 <span class="distance" data-distance="40"> 40 km </span><br><img src="/cycle/shouan6.jpg" alt="shouan6"></p>
+<p>2025-04-22 <span class="distance" data-distance="40"> 40 km </span><br><img src="/cycle/shouan7.jpg" alt="shouan7"></p>
+<p>总行程: <span id="total-distance">计算中…</span></p>
+<h2 id="车车"><a href="#车车" class="headerlink" title="车车"></a>车车</h2><p>2025-04-21第一次扎胎，永远不要碾过被别人扫成一堆的落叶，里面藏有生命的余韵<br><img src="/cycle/cy1.jpg" alt="2"></p>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    // 计算总价格
+    let totalPrice = 0;
+    document.querySelectorAll(".price").forEach(item => {
+        totalPrice += parseFloat(item.getAttribute("data-price"));
+    });
+    document.getElementById("total-price").innerText = totalPrice.toFixed(2) + "￥";
+
+    // 计算总距离
+    let totalDistance = 0;
+    document.querySelectorAll(".distance").forEach(item => {
+        totalDistance += parseFloat(item.getAttribute("data-distance"));
+    });
+    document.getElementById("total-distance").innerText = totalDistance + " km";
+});
+</script>
+]]></content>
+      <categories>
+        <category>Daily</category>
+      </categories>
+      <tags>
+        <tag>bike</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo better</title>
+    <url>/learnhexo.html</url>
+    <content><![CDATA[<p>Hexo自用指令</p>
+<span id="more"></span>
+<h1 id="来时路"><a href="#来时路" class="headerlink" title="来时路"></a>来时路</h1><h2 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h2><h3 id="1：无法初始化"><a href="#1：无法初始化" class="headerlink" title="1：无法初始化"></a>1：无法初始化</h3><p>hexo init （blog）时因为代理无法正常初始化完成，修改代理地址，例：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global http.proxy http://127.0.0.1:7890</span><br><span class="line">git config --global https.proxy http://127.0.0.1:7890</span><br></pre></td></tr></table></figure>
+<p>这将允许 Git 通过本地代理进行连接。如果不再需要代理，或者想要清除代理设置，可以使用以下命令：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global --unset http.proxy</span><br><span class="line">git config --global --unset https.proxy</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="2：npm速度慢"><a href="#2：npm速度慢" class="headerlink" title="2：npm速度慢"></a>2：npm速度慢</h3><p><a href="https://npmmirror.com/">淘宝镜像</a></p>
+<p><img src="/learnhexo/taobao1.png" alt="p1"></p>
+<p>之后在npm前加个c!</p>
+<h2 id="常用指令"><a href="#常用指令" class="headerlink" title="常用指令"></a>常用指令</h2><h3 id="建站前"><a href="#建站前" class="headerlink" title="建站前"></a>建站前</h3><p>在gitbase中cd到博客文件夹</p>
+<p>下载hexo框架</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+<hr>
+<p>初始化博客项目（若已经在下一级文件夹中可不加folder）</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo init [folder] </span><br></pre></td></tr></table></figure>
+<hr>
+<p>进入folder</p>
+<p>安装依赖项</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install</span><br></pre></td></tr></table></figure>
+<hr>
+<p>下载部署器</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+<hr>
+<p>之后可随时部署到Github上</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+<h3 id="建站后"><a href="#建站后" class="headerlink" title="建站后"></a>建站后</h3><p>new 新建一篇文章</p>
+<p>-p 自定义文章路径</p>
+<p>-r 如果存在则替换</p>
+<p>-s 文章别名</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo new [layout] &lt;title&gt;</span><br></pre></td></tr></table></figure>
+<hr>
+<p>clean 清除缓存文件 (db.json) 和已生成的静态文件 (public)</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo cl</span><br></pre></td></tr></table></figure>
+<hr>
+<p>generate 生成静态文件</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo g</span><br></pre></td></tr></table></figure>
+<hr>
+<p>publish 发布草稿</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo publish [layout] &lt;filename&gt;</span><br></pre></td></tr></table></figure>
+<hr>
+<p>server 启动服务器</p>
+<p>-p 重设端口</p>
+<p>-s 只使用静态文件</p>
+<p>-l 启用日志</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+<hr>
+<p>deploy 部署网站</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+<hr>
+<p>render 渲染文件<br>-o output destination</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo render &lt;file1&gt; [file2] ...</span><br></pre></td></tr></table></figure>
+<hr>
+<p>migrate 从其他博客系统迁移内容</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo migrate&lt;type&gt;</span><br></pre></td></tr></table></figure>
+<hr>
+<p>list 列出所有路由</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo list &lt;type&gt;</span><br></pre></td></tr></table></figure>
+<hr>
+<p>version 显示版本信息</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo version</span><br></pre></td></tr></table></figure>
+<hr>
+<p>config 列出网站的配置（_config.yml）。 如果指定了 key，则只展示配置中对应 key 的值；如果同时指定了 key 和 value，则将配置中对应的 key 的值修改为 value。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo config [key] [value]</span><br></pre></td></tr></table></figure>
+
+<p>查看已经安装的插件</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm ls --depth=0</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a href="https://dayuzy.com/">资深技术博客</a></p>
+<p><a href="https://blog.csdn.net/cat_bayi/article/details/128725230">CSDN良心教学</a></p>
+<p><a href="https://mp.weixin.qq.com/s/GmTmhpkB0QmoHIL5bmXQGw">小岛码农</a></p>
+<p><a href="https://hexo.io/zh-cn/">官方文档</a></p>
+]]></content>
+      <categories>
+        <category>Learn</category>
+      </categories>
+      <tags>
+        <tag>Better</tag>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Git better</title>
+    <url>/learngit.html</url>
+    <content><![CDATA[<p>Git自用指令</p>
+<span id="more"></span>
+<h1 id="Git常用指令"><a href="#Git常用指令" class="headerlink" title="Git常用指令"></a>Git常用指令</h1><ul>
+<li>自报家门</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global user.name &quot;Your Name&quot;</span><br><span class="line">git config --global user.email &quot;email@example.com&quot;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>查询家门</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config user.name</span><br><span class="line">git config user.email</span><br></pre></td></tr></table></figure>
+<!--more-->
+<hr>
+<p>创建SSH连接</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 在本地生成密钥和公钥</span><br><span class="line">ssh-keygen -t rsa -C &quot;xxx@xxx.com&quot;</span><br><span class="line"></span><br><span class="line">获取公钥（id_rsa.pub）后在Github上创建SSHKey</span><br><span class="line"></span><br><span class="line">验证是否成功</span><br><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure>
+
+<hr>
+<ul>
+<li>pwd 用于显示当前目录</li>
+</ul>
+<p><code>$ pwd</code></p>
+<hr>
+<ul>
+<li>init 把当前目录变成Git可以管理的仓库</li>
+</ul>
+<p><code>$ git init</code></p>
+<hr>
+<ul>
+<li>la -ah 用于查看隐藏的.git目录</li>
+</ul>
+<p><code>$ ls -ah</code></p>
+<hr>
+<ul>
+<li>add 把文件添加到仓库</li>
+</ul>
+<p><code>$ git add &lt;file&gt;</code></p>
+<hr>
+<ul>
+<li>commit 把文件提交到仓库</li>
+</ul>
+<p><code>$ git commit -m &lt;message&gt;</code></p>
+<hr>
+<ul>
+<li>status 查看库状态</li>
+</ul>
+<p><code>$ git status</code></p>
+<hr>
+<ul>
+<li>dif 查看修改内容</li>
+</ul>
+<p><code>$ git diff &lt;file&gt;</code></p>
+<hr>
+<ul>
+<li>log 查看历史记录</li>
+</ul>
+<p><code>$ git log</code><br><code>$ git log --pretty=oneline</code></p>
+<ul>
+<li>reflog 查看每一次命令</li>
+</ul>
+<p><code>$ git reflog</code></p>
+<hr>
+<ul>
+<li>reset 版本回退</li>
+</ul>
+<p>–hard会回退到上个版本的已提交状态，而–soft会回退到上个版本的未提交状态，–mixed会回退到上个版本已添加但未提交的状态.</p>
+<p><code>$ git reset --hard HEAD~&lt;num&gt;</code><br><code>$ git reset --hard &lt;version&gt;</code></p>
+<hr>
+<ul>
+<li>cat 查看内容</li>
+</ul>
+<p><code>$ cat &lt;file&gt;</code></p>
+<hr>
+<ul>
+<li>撤销工作区修改</li>
+</ul>
+<p><code>$ git checkout -- &lt;file&gt;</code></p>
+<ul>
+<li>撤销暂存区修改</li>
+</ul>
+<p><code>$ git reset HEAD &lt;file&gt;</code></p>
+<hr>
+<ul>
+<li>删除文件</li>
+</ul>
+<p><code>$ git rm &lt;file&gt;</code></p>
+<hr>
+<ul>
+<li>添加远程库</li>
+</ul>
+<p><code>$ git remote add origin git@github.com:&lt;yourname&gt;/learngit.git</code></p>
+<ul>
+<li>推送</li>
+</ul>
+<p><code>$ git push -u origin master</code></p>
+<ul>
+<li>本地做了提交后</li>
+</ul>
+<p><code>$ git push origin master</code></p>
+<ul>
+<li>查看远程库信息</li>
+</ul>
+<p><code>$ git remote -v</code></p>
+<ul>
+<li>删除远程库</li>
+</ul>
+<p><code>$ git remote rm &lt;name&gt;</code></p>
+<hr>
+<ul>
+<li>克隆</li>
+</ul>
+<p><code>$ git clone git@github.com:&lt;name&gt;/gitskills.git</code></p>
+<hr>
+<ul>
+<li>创建并切换至新分支</li>
+</ul>
+<p><code>$ git checkout -b &lt;name&gt;</code><br><code>$ git switch -c &lt;name&gt;</code> </p>
+<p>等同于</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git branch dev</span><br><span class="line">$ git checkout dev</span><br></pre></td></tr></table></figure>
+
+<p>或</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git branch dev</span><br><span class="line">$ git switch master</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>查看分支</li>
+</ul>
+<p><code>$ git branch</code></p>
+<ul>
+<li>合并分支</li>
+</ul>
+<p><code>$ git merge &lt;name&gt;</code></p>
+<ul>
+<li>删除分支</li>
+</ul>
+<p><code>$ git branch -d &lt;name&gt;</code></p>
+<ul>
+<li>强制删除</li>
+</ul>
+<p><code>$ git branch -D &lt;name&gt;</code></p>
+<ul>
+<li><code>--no-ff</code>方式的<code>git merge</code></li>
+</ul>
+<p><code>$ git merge --no-ff -m &quot;merge with no-ff&quot; &lt;name&gt;</code></p>
+<ul>
+<li>stash储藏工作现场</li>
+</ul>
+<p><code>$ git stash</code></p>
+<ul>
+<li>查看</li>
+</ul>
+<p><code>$ git stash list</code></p>
+<ul>
+<li>恢复现场</li>
+</ul>
+<p>恢复并删除</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git stash apply</span><br><span class="line">$ git stash drop</span><br></pre></td></tr></table></figure>
+<p>或<br><code>$ git stash pop</code></p>
+<ul>
+<li>复制修改</li>
+</ul>
+<p><code>$ git cherry-pick &lt;version&gt;</code></p>
+<ul>
+<li>推送冲突后抓取文件到本地合并</li>
+</ul>
+<p><code>$ git pull</code></p>
+<ul>
+<li>变基</li>
+</ul>
+<p><code>$ git rebase</code></p>
+<hr>
+<ul>
+<li>打标签</li>
+</ul>
+<p><code>$ git tag &lt;tag&gt;</code><br><code>$ git tag &lt;tag&gt; &lt;version&gt;</code></p>
+<p>还可以创建带有说明的标签，用-a指定标签名，-m指定说明文字：</p>
+<p><code>$ git tag -a &lt;tag&gt; -m &quot;info&quot; &lt;version&gt;</code></p>
+<ul>
+<li>查看标签</li>
+</ul>
+<p><code>$ git tag</code></p>
+<ul>
+<li>查看标签内容</li>
+</ul>
+<p><code>$ git show &lt;tag&gt;</code></p>
+<ul>
+<li>删除标签</li>
+</ul>
+<p><code>$ git tag -d &lt;tag&gt;</code></p>
+<ul>
+<li>推送标签</li>
+</ul>
+<p><code>$ git push origin &lt;tag&gt;</code><br><code>$ git push origin --tags</code></p>
+<ul>
+<li>删除远程标签</li>
+</ul>
+<p>先删除本地再：<br><code>$ git push origin :refs/tags/&lt;tag&gt;</code></p>
+<p>补充</p>
+<p><img src="/learngit/git1.png" alt="git1"></p>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://liaoxuefeng.com/">廖雪峰</a></p>
+]]></content>
+      <categories>
+        <category>Learn</category>
+      </categories>
+      <tags>
+        <tag>Git</tag>
+        <tag>Better</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello</title>
+    <url>/First-blog.html</url>
+    <content><![CDATA[<p>Hello hexo. Hello blog. Hello world</p>
+<span id="more"></span>]]></content>
+      <categories>
+        <category>Daily</category>
+      </categories>
   </entry>
 </search>
