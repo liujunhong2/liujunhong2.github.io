@@ -338,44 +338,31 @@ window.MathJax = {
     
     
     
-    <div class="post-body" itemprop="articleBody"><p>安卓开发连接Git的小测试</p>
-<span id="more"></span>
+    <div class="post-body" itemprop="articleBody"><p>安卓开发连接Git的小测试<br><span id="more"></span></p>
 <h1 id="熟悉Git"><a href="#熟悉Git" class="headerlink" title="熟悉Git"></a>熟悉Git</h1><p><code>Git</code>是当今最广泛应用且功能强大、灵活的分布式版本控制系统。它的最大优势在于每位开发者本地均拥有完整的版本历史，即使在脱机状态下也能完成大部分操作，这使得多人协作和代码合并变得更加高效和便捷。相比之下，集中式版本控制系统依赖中央服务器，容易受到单点故障的影响。虽然在管理大型二进制文件或某些特殊场景下可能需要辅以其他工具，但 Git 的这些显著优势正是我们学习和使用它的重要原因。</p>
 <!--more-->
-
 <h1 id="配置Git"><a href="#配置Git" class="headerlink" title="配置Git"></a>配置Git</h1><p>先下载Git，之后的命令可以在任何bash中运行</p>
 <p><code>Github</code>基于web的版本控制界面，也就是可以在上面部署项目，是使用<code>git</code>的一大利器，我们要把<code>Android Studio</code>上的项目进行<code>git</code>管理，首先需要创建一个<code>Github</code>账号（能进行版本控制的不止有<code>Github</code>, 还有<code>Gitee</code>等等）。</p>
 <p>进行git账号的配置，以告诉<code>git</code>是谁在对<code>git</code>进行操作以及以后<code>git</code>的操作对象。</p>
 <p>以下两条指令的参数填之前在<code>Github</code>注册的账号信息</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">// --global 参数表示该配置为全局配置，适用于该用户的所有 Git 仓库</span><br><span class="line">git config --global user.name &quot;Your Name&quot;</span><br><span class="line">git config --global user.email &quot;email@example.com&quot;</span><br></pre></td></tr></table></figure>
-
 <p>以下两条指令用于查询当前<code>git</code>绑定的账号信息</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config user.name</span><br><span class="line">git config user.email</span><br></pre></td></tr></table></figure>
-
 <p>确认无误之后就进行绑定的最后一步，创建<code>SSH</code>连接，方便本地<code>git</code>能直接对接到<code>Github</code>以进行操作</p>
 <p>在本地生成密钥和公钥</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;xxx@xxx.com&quot;</span><br></pre></td></tr></table></figure>
-
 <p>获取生成的公钥（<code>id_rsa.pub</code>）后在<code>Github</code>上创建<code>SSHKey</code>（不太熟悉的可以在网上搜<code>Github SSH配置</code>, 也可以直接看我找好的教程 <a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_42310154/article/details/118340458">配置SSH教程</a>， 会了一次之后就熟悉了）</p>
 <p>验证是否成功</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure>
-
-
-
 <p>准备工作全部完整，接下来几条简单就令就能轻松完成项目和仓库的绑定</p>
-<p>从现在开始的指令在Android Studio中的终端运行<img src="/Git-for-Android-Studio/git1.png" alt="git1"></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br></pre></td></tr></table></figure>
-
+<p>从现在开始的指令在Android Studio中的终端运行<img src="/Git-for-Android-Studio/git1.png" alt="git1"><br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br></pre></td></tr></table></figure></p>
 <p>在<code>Github</code>中创建一个仓库（<code>repository</code>），命名随意，复制其SSH（注意与之前的SSH做区分）</p>
 <p>添加远程库（也就是将这个新创建的仓库作为<code>git</code>版本管理的存储库）</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote add origin &lt;刚才让复制的SSH&gt;</span><br></pre></td></tr></table></figure>
-
 <p>推送前先将更改（部署<code>git</code>前的所有代码）添加到暂存区并且提交更改</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m &#x27;init git for Android Studio&#x27;</span><br></pre></td></tr></table></figure>
-
 <p>然后进行第一次推送</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push -u origin main</span><br></pre></td></tr></table></figure>
-
 <p>之后每次进行修改后运行<code>git push</code>即可完成推送</p>
 <p>现在可去刚刚创建的仓库里看看是否有一堆文件上传了，这些文件就是一个版本，之后的每次push都会产生一个新版本，版本可以进行各种操作，如分支管理、版本回退、合并等。</p>
 <h1 id="管理Git"><a href="#管理Git" class="headerlink" title="管理Git"></a>管理Git</h1><p>之后正常的版本管理就非常轻松了，<code>git</code>是用来方便管理的，没有那么复杂，是一个非常好用的工具，因此需要掌握一些常见的指令和原理。</p>
@@ -459,7 +446,7 @@ window.MathJax = {
       <i class="fa fa-coffee"></i>
     </span>
       <span>站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">1:33</span>
+    <span title="站点阅读时长">1:34</span>
   </span>
 </div>
 <div class="busuanzi-count">
