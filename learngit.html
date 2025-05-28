@@ -184,7 +184,7 @@ window.MathJax = {
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Git%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4"><span class="nav-number">1.</span> <span class="nav-text">Git常用指令</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">1.1.</span> <span class="nav-text"></span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="nav-number">2.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Git%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4"><span class="nav-number">1.</span> <span class="nav-text">Git常用指令</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="nav-number">2.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -337,7 +337,8 @@ window.MathJax = {
     
     
     
-    <div class="post-body" itemprop="articleBody"><p>Git自用指令<br><span id="more"></span></p>
+    <div class="post-body" itemprop="articleBody"><p>Git自用指令</p>
+<span id="more"></span>
 <h1 id="Git常用指令"><a href="#Git常用指令" class="headerlink" title="Git常用指令"></a>Git常用指令</h1><ul>
 <li>自报家门</li>
 </ul>
@@ -346,10 +347,14 @@ window.MathJax = {
 <li>查询家门</li>
 </ul>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config user.name</span><br><span class="line">git config user.email</span><br></pre></td></tr></table></figure>
-<h2 id><a href="#" class="headerlink" title></a><!--more--></h2><p>创建SSH连接<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># 在本地生成密钥和公钥</span><br><span class="line">ssh-keygen -t rsa -C &quot;xxx@xxx.com&quot;</span><br><span class="line"></span><br><span class="line">获取公钥（id_rsa.pub）后在Github上创建SSHKey</span><br><span class="line"></span><br><span class="line">验证是否成功</span><br><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure></p>
+<!--more-->
+<hr>
+<p>创建SSH连接</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># 在本地生成密钥和公钥</span><br><span class="line">ssh-keygen -t rsa -C &quot;xxx@xxx.com&quot;</span><br><span class="line"></span><br><span class="line">获取公钥（id_rsa.pub）后在Github上创建SSHKey</span><br><span class="line"></span><br><span class="line">验证是否成功</span><br><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure>
+
 <hr>
 <ul>
-<li>pwd 用于显示当前目录  </li>
+<li>pwd 用于显示当前目录</li>
 </ul>
 <p><code>$ pwd</code></p>
 <hr>
@@ -395,7 +400,7 @@ window.MathJax = {
 <ul>
 <li>reset 版本回退</li>
 </ul>
-<p>—hard会回退到上个版本的已提交状态，而—soft会回退到上个版本的未提交状态，—mixed会回退到上个版本已添加但未提交的状态.</p>
+<p>–hard会回退到上个版本的已提交状态，而–soft会回退到上个版本的未提交状态，–mixed会回退到上个版本已添加但未提交的状态.</p>
 <p><code>$ git reset --hard HEAD~&lt;num&gt;</code><br><code>$ git reset --hard &lt;version&gt;</code></p>
 <hr>
 <ul>
@@ -449,8 +454,10 @@ window.MathJax = {
 <p><code>$ git checkout -b &lt;name&gt;</code><br><code>$ git switch -c &lt;name&gt;</code> </p>
 <p>等同于</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git branch dev</span><br><span class="line">$ git checkout dev</span><br></pre></td></tr></table></figure>
+
 <p>或</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git branch dev</span><br><span class="line">$ git switch master</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li>查看分支</li>
 </ul>
@@ -482,7 +489,9 @@ window.MathJax = {
 <ul>
 <li>恢复现场</li>
 </ul>
-<p>恢复并删除<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git stash apply</span><br><span class="line">$ git stash drop</span><br></pre></td></tr></table></figure><br>或<br><code>$ git stash pop</code></p>
+<p>恢复并删除</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git stash apply</span><br><span class="line">$ git stash drop</span><br></pre></td></tr></table></figure>
+<p>或<br><code>$ git stash pop</code></p>
 <ul>
 <li>复制修改</li>
 </ul>
