@@ -603,18 +603,17 @@
 <p><img src="/cycle/beefnoodle1.png" alt="beefnoodle1"></p>
 <p>2025-5-29 <span class="distance" data-distance="40"> 40 km<br><img src="/cycle/shouan10.jpg" alt="shouan10"></span></p>
 <p>2025-5-30 <span class="distance" data-distance="40"> 40 km<br><img src="/cycle/shouan11.jpg" alt="shouan11"></span></p>
+<p>2024-6-5 <span class="distance" data-distance="50"> 50 km<br>解锁新路线：北林<br><img src="/cycle/shouan12_2.png" alt="shouan12_2"><br><img src="/cycle/shouan12_3.png" alt="shouan12_3"><br><img src="/cycle/shouan12_1.png" alt="shouan12_1"></span></p>
 <p>总行程: <span id="total-distance">计算中…</span></p>
 <h2 id="车"><a href="#车" class="headerlink" title="车"></a>车</h2><p>2025-04-21第一次扎胎，永远不要碾过被别人扫成一堆的落叶，里面藏有生命的余韵<br><img src="/cycle/cy1.jpg" alt="2"></p>
 <script>
 document.addEventListener("DOMContentLoaded", function () {
-    // 计算总价格
     let totalPrice = 0;
     document.querySelectorAll(".price").forEach(item => {
         totalPrice += parseFloat(item.getAttribute("data-price"));
     });
     document.getElementById("total-price").innerText = totalPrice.toFixed(2) + "￥";
 
-    // 计算总距离
     let totalDistance = 0;
     document.querySelectorAll(".distance").forEach(item => {
         totalDistance += parseFloat(item.getAttribute("data-distance"));
