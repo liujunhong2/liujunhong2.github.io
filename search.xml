@@ -1,6 +1,386 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Hello</title>
+    <url>/First-blog.html</url>
+    <content><![CDATA[<p>Hello hexo. Hello blog. Hello world</p>
+<span id="more"></span>]]></content>
+      <categories>
+        <category>Daily</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Git_for_Android-Studio</title>
+    <url>/Git-for-Android-Studio.html</url>
+    <content><![CDATA[<p>安卓开发连接Git的小测试</p>
+<span id="more"></span>
+<h1 id="熟悉Git"><a href="#熟悉Git" class="headerlink" title="熟悉Git"></a>熟悉Git</h1><p><code>Git</code>是当今最广泛应用且功能强大、灵活的分布式版本控制系统。它的最大优势在于每位开发者本地均拥有完整的版本历史，即使在脱机状态下也能完成大部分操作，这使得多人协作和代码合并变得更加高效和便捷。相比之下，集中式版本控制系统依赖中央服务器，容易受到单点故障的影响。虽然在管理大型二进制文件或某些特殊场景下可能需要辅以其他工具，但 Git 的这些显著优势正是我们学习和使用它的重要原因。</p>
+<!--more-->
+
+<h1 id="配置Git"><a href="#配置Git" class="headerlink" title="配置Git"></a>配置Git</h1><p>先下载Git，之后的命令可以在任何bash中运行</p>
+<p><code>Github</code>基于web的版本控制界面，也就是可以在上面部署项目，是使用<code>git</code>的一大利器，我们要把<code>Android Studio</code>上的项目进行<code>git</code>管理，首先需要创建一个<code>Github</code>账号（能进行版本控制的不止有<code>Github</code>, 还有<code>Gitee</code>等等）。</p>
+<p>进行git账号的配置，以告诉<code>git</code>是谁在对<code>git</code>进行操作以及以后<code>git</code>的操作对象。</p>
+<p>以下两条指令的参数填之前在<code>Github</code>注册的账号信息</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// --global 参数表示该配置为全局配置，适用于该用户的所有 Git 仓库</span><br><span class="line">git config --global user.name &quot;Your Name&quot;</span><br><span class="line">git config --global user.email &quot;email@example.com&quot;</span><br></pre></td></tr></table></figure>
+
+<p>以下两条指令用于查询当前<code>git</code>绑定的账号信息</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config user.name</span><br><span class="line">git config user.email</span><br></pre></td></tr></table></figure>
+
+<p>确认无误之后就进行绑定的最后一步，创建<code>SSH</code>连接，方便本地<code>git</code>能直接对接到<code>Github</code>以进行操作</p>
+<p>在本地生成密钥和公钥</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;xxx@xxx.com&quot;</span><br></pre></td></tr></table></figure>
+
+<p>获取生成的公钥（<code>id_rsa.pub</code>）后在<code>Github</code>上创建<code>SSHKey</code>（不太熟悉的可以在网上搜<code>Github SSH配置</code>, 也可以直接看我找好的教程 <a href="https://blog.csdn.net/weixin_42310154/article/details/118340458">配置SSH教程</a>， 会了一次之后就熟悉了）</p>
+<p>验证是否成功</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure>
+
+
+
+<p>准备工作全部完整，接下来几条简单就令就能轻松完成项目和仓库的绑定</p>
+<p>从现在开始的指令在Android Studio中的终端运行<img src="/Git-for-Android-Studio/git1.png" alt="git1"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git init</span><br></pre></td></tr></table></figure>
+
+<p>在<code>Github</code>中创建一个仓库（<code>repository</code>），命名随意，复制其SSH（注意与之前的SSH做区分）</p>
+<p>添加远程库（也就是将这个新创建的仓库作为<code>git</code>版本管理的存储库）</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git remote add origin &lt;刚才让复制的SSH&gt;</span><br></pre></td></tr></table></figure>
+
+<p>推送前先将更改（部署<code>git</code>前的所有代码）添加到暂存区并且提交更改</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m &#x27;init git for Android Studio&#x27;</span><br></pre></td></tr></table></figure>
+
+<p>然后进行第一次推送</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git push -u origin main</span><br></pre></td></tr></table></figure>
+
+<p>之后每次进行修改后运行<code>git push</code>即可完成推送</p>
+<p>现在可去刚刚创建的仓库里看看是否有一堆文件上传了，这些文件就是一个版本，之后的每次push都会产生一个新版本，版本可以进行各种操作，如分支管理、版本回退、合并等。</p>
+<h1 id="管理Git"><a href="#管理Git" class="headerlink" title="管理Git"></a>管理Git</h1><p>之后正常的版本管理就非常轻松了，<code>git</code>是用来方便管理的，没有那么复杂，是一个非常好用的工具，因此需要掌握一些常见的指令和原理。</p>
+<p>可参见大佬的博客<a href="https://liaoxuefeng.com/books/git/introduction/index.html">廖雪峰</a>和我做的一些速记<a href="https://baoziwan.icu/learngit.html">小站</a></p>
+<p>最后，给该项目创建一个<code>README</code>文件，用于介绍这个项目或者说仓库</p>
+<p>可直接在<code>Github</code>的仓库下点击<code>Add a README</code>快速创建，也可在本地创建一个<code>README.md</code>文件后进行编辑再<code>git push</code>上<code>Github</code></p>
+<p><img src="/Git-for-Android-Studio/gi2.png" alt="gi2"></p>
+<p>结果示例</p>
+<p><img src="/Git-for-Android-Studio/git3.png" alt="git3"></p>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://liaoxuefeng.com/books/git/introduction/index.html">廖雪峰</a><br><a href="https://blog.csdn.net/weixin_42310154/article/details/118340458">配置SSH教程</a><br><a href="https://baoziwan.icu/learngit.html">自家小站</a></p>
+]]></content>
+      <categories>
+        <category>Learn</category>
+      </categories>
+      <tags>
+        <tag>Git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>cycle</title>
+    <url>/cycle.html</url>
+    <content><![CDATA[<p>骑行小记</p>
+<span id="more"></span>
+
+<h1 id="铁腚行"><a href="#铁腚行" class="headerlink" title="铁腚行"></a>铁腚行</h1><h2 id="已备骑行装备"><a href="#已备骑行装备" class="headerlink" title="已备骑行装备"></a>已备骑行装备</h2><ol>
+<li>公路车<br>喜德盛RC200 <span class="price" data-price="1499">1499￥</span></li>
+</ol>
+<p>入门级公路车， 速度一般（上限不高，毕竟是入门，先练腿，6分），颜值还可以（7分），刹车不太行（<del>4分</del>， 前刹调到能完全夹住轮胎其实能到6分）（满分10分）</p>
+<p><img src="/cycle/init1.png" alt="init1"></p>
+<ol start="2">
+<li>护目镜：</li>
+</ol>
+<p>匹克日常 <span class="price" data-price="39">39￥</span></p>
+<p>防风沙烈日，实用</p>
+<ol start="3">
+<li>手机支架</li>
+</ol>
+<p>ROCKBROS洛克兄弟手机支架 <span class="price" data-price="29">29￥</span></p>
+<p>性价比高，质量还可以，颜值也过得去</p>
+<ol start="4">
+<li>骑行头盔</li>
+</ol>
+<p>GUB M5 Mips骑行头盔 <span class="price" data-price="239">239￥</span></p>
+<p>不怕一万，就怕万一</p>
+<ol start="5">
+<li>运动手套</li>
+</ol>
+<p>维动 VEIDOORN 半指 <span class="price" data-price="39">39￥</span></p>
+<p>防滑、吸汗、减震</p>
+<ol start="6">
+<li>水壶 + 水壶架</li>
+</ol>
+<p>ROCKBROS洛克兄弟户外水壶 + 水壶架 <span class="price" data-price="35">35￥</span></p>
+<p>远距离骑行必备</p>
+<ol start="7">
+<li>坐垫</li>
+</ol>
+<p>ROCKBROS洛克兄弟坐垫 <span class="price" data-price="39">39￥</span></p>
+<p>我的建议是练腚</p>
+<ol start="8">
+<li>尾灯</li>
+</ol>
+<p>美利达自行车智能感应刹车灯 <span class="price" data-price="30">30￥</span></p>
+<p>越亮越好，最好是有急停时高亮的，相当于大大的实习标</p>
+<hr>
+<p>总价:  <span id="total-price">计算中…</span></p>
+<h2 id="总行程"><a href="#总行程" class="headerlink" title="总行程"></a>总行程</h2><p>2025-03-01之前 <span class="distance" data-distance="147">147 km</span></p>
+<p>2025-03-01 <span class="distance" data-distance="150"> 150 km<br><img src="/cycle/lvdao1.png" alt="lvdao1"></span></p>
+<p>2025-03-11 <span class="distance" data-distance="40"> 40 km<br><img src="/cycle/shouan1.jpg" alt="shouan1"></span></p>
+<p>2025-03-15 <span class="distance" data-distance="13"> 13 km </span></p>
+<p>2025-03-18 <span class="distance" data-distance="40"> 40 km<br><img src="/cycle/shouan2.jpg" alt="shouan2"></span></p>
+<p>2025-03-25 <span class="distance" data-distance="40"> 40 km<br><img src="/cycle/shouan3.jpg" alt="shouan3"></span></p>
+<p>2025-04-02 <span class="distance" data-distance="40"> 40 km<br><img src="/cycle/shouan4.jpg" alt="shouan4"></span></p>
+<p>2025-04-08 <span class="distance" data-distance="40"> 40 km<br><img src="/cycle/shouan5.jpg" alt="shouan5"></span></p>
+<p>2025-04-15 <span class="distance" data-distance="40"> 40 km<br><img src="/cycle/shouan6.jpg" alt="shouan6"></span></p>
+<p>2025-04-22 <span class="distance" data-distance="40"> 40 km<br><img src="/cycle/shouan7.jpg" alt="shouan7"></span></p>
+<p>2025-5-24 <span class="distance" data-distance="40"> 40 km<br>第一次夜骑，没有前灯只有尾灯，骑的还是乡镇路，伸手不见五指的我完成了pb<br><img src="/cycle/shouan8.jpg" alt="shouan8"></span></p>
+<p>2025-5-27 <span class="distance" data-distance="40"> 40 km<br><img src="/cycle/shouan9.jpg" alt="shouan9"><br>咕噜咕噜牛肉面</span></p>
+<div style="text-align: center;">
+  <video style="max-width: 90%;" controls>
+    <source src="cycle/beef2.mp4" type="video/mp4">
+    您的浏览器不支持 video 标签。
+  </video>
+</div>
+
+<p><img src="/cycle/beefnoodle1.png" alt="beefnoodle1"></p>
+<p>2025-5-29 <span class="distance" data-distance="40"> 40 km<br><img src="/cycle/shouan10.jpg" alt="shouan10"></span></p>
+<p>2025-5-30 <span class="distance" data-distance="40"> 40 km<br><img src="/cycle/shouan11.jpg" alt="shouan11"></span></p>
+<p>2025-6-5 <span class="distance" data-distance="50"> 50 km<br>解锁新路线：北林<br><img src="/cycle/shouan12_2.png" alt="shouan12_2"><br><img src="/cycle/shouan12_3.png" alt="shouan12_3"><br><img src="/cycle/shouan12_1.png" alt="shouan12_1"></span></p>
+<p>2025-6-25 <span class="distance" data-distance="40"> 40 km</span></p>
+<p>解放的期末，久违的骑行</p>
+<p><img src="/cycle/shouan13.png" alt="shouan13"></p>
+<p>2025-6-28 <span class="distance" data-distance="40"> 40km</span></p>
+<p>最累的一集，感觉期末状态没恢复过来</p>
+<p><img src="/cycle/shouan14.png" alt="shouan14"></p>
+<p>总行程: <span id="total-distance">计算中…</span></p>
+<h2 id="车"><a href="#车" class="headerlink" title="车"></a>车</h2><p>2025-04-21 第一次扎胎，永远不要碾过被别人扫成一堆的落叶，里面藏有生命的余韵<br><img src="/cycle/cy1.jpg" alt="2"></p>
+<p>2025-6-29 第一次拆车并装车，一定要经常松动一些关键部位的螺丝，不然生锈了会卡死，拆下来的前轮要放在飞盘的另一侧，轮轴差不多对准放竖杯架的地方。<br><img src="/cycle/offcar1.png" alt="offcar"></p>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    let totalPrice = 0;
+    document.querySelectorAll(".price").forEach(item => {
+        totalPrice += parseFloat(item.getAttribute("data-price"));
+    });
+    document.getElementById("total-price").innerText = totalPrice.toFixed(2) + "￥";
+
+    let totalDistance = 0;
+    document.querySelectorAll(".distance").forEach(item => {
+        totalDistance += parseFloat(item.getAttribute("data-distance"));
+    });
+    document.getElementById("total-distance").innerText = totalDistance + " km";
+});
+</script>
+]]></content>
+      <categories>
+        <category>Daily</category>
+      </categories>
+      <tags>
+        <tag>bike</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Git better</title>
+    <url>/learngit.html</url>
+    <content><![CDATA[<p>Git自用指令</p>
+<span id="more"></span>
+<h1 id="Git常用指令"><a href="#Git常用指令" class="headerlink" title="Git常用指令"></a>Git常用指令</h1><ul>
+<li>自报家门</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global user.name &quot;Your Name&quot;</span><br><span class="line">git config --global user.email &quot;email@example.com&quot;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>查询家门</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config user.name</span><br><span class="line">git config user.email</span><br></pre></td></tr></table></figure>
+<!--more-->
+<hr>
+<p>创建SSH连接</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 在本地生成密钥和公钥</span><br><span class="line">ssh-keygen -t rsa -C &quot;xxx@xxx.com&quot;</span><br><span class="line"></span><br><span class="line">获取公钥（id_rsa.pub）后在Github上创建SSHKey</span><br><span class="line"></span><br><span class="line">验证是否成功</span><br><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure>
+
+<hr>
+<ul>
+<li>pwd 用于显示当前目录</li>
+</ul>
+<p><code>$ pwd</code></p>
+<hr>
+<ul>
+<li>init 把当前目录变成Git可以管理的仓库</li>
+</ul>
+<p><code>$ git init</code></p>
+<hr>
+<ul>
+<li>la -ah 用于查看隐藏的.git目录</li>
+</ul>
+<p><code>$ ls -ah</code></p>
+<hr>
+<ul>
+<li>add 把文件添加到仓库</li>
+</ul>
+<p><code>$ git add &lt;file&gt;</code></p>
+<hr>
+<ul>
+<li>commit 把文件提交到仓库</li>
+</ul>
+<p><code>$ git commit -m &lt;message&gt;</code></p>
+<hr>
+<ul>
+<li>status 查看库状态</li>
+</ul>
+<p><code>$ git status</code></p>
+<hr>
+<ul>
+<li>dif 查看修改内容</li>
+</ul>
+<p><code>$ git diff &lt;file&gt;</code></p>
+<hr>
+<ul>
+<li>log 查看历史记录</li>
+</ul>
+<p><code>$ git log</code><br><code>$ git log --pretty=oneline</code></p>
+<ul>
+<li>reflog 查看每一次命令</li>
+</ul>
+<p><code>$ git reflog</code></p>
+<hr>
+<ul>
+<li>reset 版本回退</li>
+</ul>
+<p>–hard会回退到上个版本的已提交状态，而–soft会回退到上个版本的未提交状态，–mixed会回退到上个版本已添加但未提交的状态.</p>
+<p><code>$ git reset --hard HEAD~&lt;num&gt;</code><br><code>$ git reset --hard &lt;version&gt;</code></p>
+<hr>
+<ul>
+<li>cat 查看内容</li>
+</ul>
+<p><code>$ cat &lt;file&gt;</code></p>
+<hr>
+<ul>
+<li>撤销工作区修改</li>
+</ul>
+<p><code>$ git checkout -- &lt;file&gt;</code></p>
+<ul>
+<li>撤销暂存区修改</li>
+</ul>
+<p><code>$ git reset HEAD &lt;file&gt;</code></p>
+<hr>
+<ul>
+<li>删除文件</li>
+</ul>
+<p><code>$ git rm &lt;file&gt;</code></p>
+<hr>
+<ul>
+<li>添加远程库</li>
+</ul>
+<p><code>$ git remote add origin git@github.com:&lt;yourname&gt;/learngit.git</code></p>
+<ul>
+<li>推送</li>
+</ul>
+<p><code>$ git push -u origin master</code></p>
+<ul>
+<li>本地做了提交后</li>
+</ul>
+<p><code>$ git push origin master</code></p>
+<ul>
+<li>查看远程库信息</li>
+</ul>
+<p><code>$ git remote -v</code></p>
+<ul>
+<li>删除远程库</li>
+</ul>
+<p><code>$ git remote rm &lt;name&gt;</code></p>
+<hr>
+<ul>
+<li>克隆</li>
+</ul>
+<p><code>$ git clone git@github.com:&lt;name&gt;/gitskills.git</code></p>
+<hr>
+<ul>
+<li>创建并切换至新分支</li>
+</ul>
+<p><code>$ git checkout -b &lt;name&gt;</code><br><code>$ git switch -c &lt;name&gt;</code> </p>
+<p>等同于</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git branch dev</span><br><span class="line">$ git checkout dev</span><br></pre></td></tr></table></figure>
+
+<p>或</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git branch dev</span><br><span class="line">$ git switch master</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>查看分支</li>
+</ul>
+<p><code>$ git branch</code></p>
+<ul>
+<li>合并分支</li>
+</ul>
+<p><code>$ git merge &lt;name&gt;</code></p>
+<ul>
+<li>删除分支</li>
+</ul>
+<p><code>$ git branch -d &lt;name&gt;</code></p>
+<ul>
+<li>强制删除</li>
+</ul>
+<p><code>$ git branch -D &lt;name&gt;</code></p>
+<ul>
+<li><code>--no-ff</code>方式的<code>git merge</code></li>
+</ul>
+<p><code>$ git merge --no-ff -m &quot;merge with no-ff&quot; &lt;name&gt;</code></p>
+<ul>
+<li>stash储藏工作现场</li>
+</ul>
+<p><code>$ git stash</code></p>
+<ul>
+<li>查看</li>
+</ul>
+<p><code>$ git stash list</code></p>
+<ul>
+<li>恢复现场</li>
+</ul>
+<p>恢复并删除</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git stash apply</span><br><span class="line">$ git stash drop</span><br></pre></td></tr></table></figure>
+<p>或<br><code>$ git stash pop</code></p>
+<ul>
+<li>复制修改</li>
+</ul>
+<p><code>$ git cherry-pick &lt;version&gt;</code></p>
+<ul>
+<li>推送冲突后抓取文件到本地合并</li>
+</ul>
+<p><code>$ git pull</code></p>
+<ul>
+<li>变基</li>
+</ul>
+<p><code>$ git rebase</code></p>
+<hr>
+<ul>
+<li>打标签</li>
+</ul>
+<p><code>$ git tag &lt;tag&gt;</code><br><code>$ git tag &lt;tag&gt; &lt;version&gt;</code></p>
+<p>还可以创建带有说明的标签，用-a指定标签名，-m指定说明文字：</p>
+<p><code>$ git tag -a &lt;tag&gt; -m &quot;info&quot; &lt;version&gt;</code></p>
+<ul>
+<li>查看标签</li>
+</ul>
+<p><code>$ git tag</code></p>
+<ul>
+<li>查看标签内容</li>
+</ul>
+<p><code>$ git show &lt;tag&gt;</code></p>
+<ul>
+<li>删除标签</li>
+</ul>
+<p><code>$ git tag -d &lt;tag&gt;</code></p>
+<ul>
+<li>推送标签</li>
+</ul>
+<p><code>$ git push origin &lt;tag&gt;</code><br><code>$ git push origin --tags</code></p>
+<ul>
+<li>删除远程标签</li>
+</ul>
+<p>先删除本地再：<br><code>$ git push origin :refs/tags/&lt;tag&gt;</code></p>
+<p>补充</p>
+<p><img src="/learngit/git1.png" alt="git1"></p>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://liaoxuefeng.com/">廖雪峰</a></p>
+]]></content>
+      <categories>
+        <category>Learn</category>
+      </categories>
+      <tags>
+        <tag>Git</tag>
+        <tag>Better</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>algorithm</title>
     <url>/algorithm.html</url>
     <content><![CDATA[<p>算法板子</p>
@@ -478,164 +858,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Git_for_Android-Studio</title>
-    <url>/Git-for-Android-Studio.html</url>
-    <content><![CDATA[<p>安卓开发连接Git的小测试</p>
-<span id="more"></span>
-<h1 id="熟悉Git"><a href="#熟悉Git" class="headerlink" title="熟悉Git"></a>熟悉Git</h1><p><code>Git</code>是当今最广泛应用且功能强大、灵活的分布式版本控制系统。它的最大优势在于每位开发者本地均拥有完整的版本历史，即使在脱机状态下也能完成大部分操作，这使得多人协作和代码合并变得更加高效和便捷。相比之下，集中式版本控制系统依赖中央服务器，容易受到单点故障的影响。虽然在管理大型二进制文件或某些特殊场景下可能需要辅以其他工具，但 Git 的这些显著优势正是我们学习和使用它的重要原因。</p>
-<!--more-->
-
-<h1 id="配置Git"><a href="#配置Git" class="headerlink" title="配置Git"></a>配置Git</h1><p>先下载Git，之后的命令可以在任何bash中运行</p>
-<p><code>Github</code>基于web的版本控制界面，也就是可以在上面部署项目，是使用<code>git</code>的一大利器，我们要把<code>Android Studio</code>上的项目进行<code>git</code>管理，首先需要创建一个<code>Github</code>账号（能进行版本控制的不止有<code>Github</code>, 还有<code>Gitee</code>等等）。</p>
-<p>进行git账号的配置，以告诉<code>git</code>是谁在对<code>git</code>进行操作以及以后<code>git</code>的操作对象。</p>
-<p>以下两条指令的参数填之前在<code>Github</code>注册的账号信息</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// --global 参数表示该配置为全局配置，适用于该用户的所有 Git 仓库</span><br><span class="line">git config --global user.name &quot;Your Name&quot;</span><br><span class="line">git config --global user.email &quot;email@example.com&quot;</span><br></pre></td></tr></table></figure>
-
-<p>以下两条指令用于查询当前<code>git</code>绑定的账号信息</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config user.name</span><br><span class="line">git config user.email</span><br></pre></td></tr></table></figure>
-
-<p>确认无误之后就进行绑定的最后一步，创建<code>SSH</code>连接，方便本地<code>git</code>能直接对接到<code>Github</code>以进行操作</p>
-<p>在本地生成密钥和公钥</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;xxx@xxx.com&quot;</span><br></pre></td></tr></table></figure>
-
-<p>获取生成的公钥（<code>id_rsa.pub</code>）后在<code>Github</code>上创建<code>SSHKey</code>（不太熟悉的可以在网上搜<code>Github SSH配置</code>, 也可以直接看我找好的教程 <a href="https://blog.csdn.net/weixin_42310154/article/details/118340458">配置SSH教程</a>， 会了一次之后就熟悉了）</p>
-<p>验证是否成功</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure>
-
-
-
-<p>准备工作全部完整，接下来几条简单就令就能轻松完成项目和仓库的绑定</p>
-<p>从现在开始的指令在Android Studio中的终端运行<img src="/Git-for-Android-Studio/git1.png" alt="git1"></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git init</span><br></pre></td></tr></table></figure>
-
-<p>在<code>Github</code>中创建一个仓库（<code>repository</code>），命名随意，复制其SSH（注意与之前的SSH做区分）</p>
-<p>添加远程库（也就是将这个新创建的仓库作为<code>git</code>版本管理的存储库）</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git remote add origin &lt;刚才让复制的SSH&gt;</span><br></pre></td></tr></table></figure>
-
-<p>推送前先将更改（部署<code>git</code>前的所有代码）添加到暂存区并且提交更改</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m &#x27;init git for Android Studio&#x27;</span><br></pre></td></tr></table></figure>
-
-<p>然后进行第一次推送</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git push -u origin main</span><br></pre></td></tr></table></figure>
-
-<p>之后每次进行修改后运行<code>git push</code>即可完成推送</p>
-<p>现在可去刚刚创建的仓库里看看是否有一堆文件上传了，这些文件就是一个版本，之后的每次push都会产生一个新版本，版本可以进行各种操作，如分支管理、版本回退、合并等。</p>
-<h1 id="管理Git"><a href="#管理Git" class="headerlink" title="管理Git"></a>管理Git</h1><p>之后正常的版本管理就非常轻松了，<code>git</code>是用来方便管理的，没有那么复杂，是一个非常好用的工具，因此需要掌握一些常见的指令和原理。</p>
-<p>可参见大佬的博客<a href="https://liaoxuefeng.com/books/git/introduction/index.html">廖雪峰</a>和我做的一些速记<a href="https://baoziwan.icu/learngit.html">小站</a></p>
-<p>最后，给该项目创建一个<code>README</code>文件，用于介绍这个项目或者说仓库</p>
-<p>可直接在<code>Github</code>的仓库下点击<code>Add a README</code>快速创建，也可在本地创建一个<code>README.md</code>文件后进行编辑再<code>git push</code>上<code>Github</code></p>
-<p><img src="/Git-for-Android-Studio/gi2.png" alt="gi2"></p>
-<p>结果示例</p>
-<p><img src="/Git-for-Android-Studio/git3.png" alt="git3"></p>
-<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://liaoxuefeng.com/books/git/introduction/index.html">廖雪峰</a><br><a href="https://blog.csdn.net/weixin_42310154/article/details/118340458">配置SSH教程</a><br><a href="https://baoziwan.icu/learngit.html">自家小站</a></p>
-]]></content>
-      <categories>
-        <category>Learn</category>
-      </categories>
-      <tags>
-        <tag>Git</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>cycle</title>
-    <url>/cycle.html</url>
-    <content><![CDATA[<p>骑行小记</p>
-<span id="more"></span>
-
-<h1 id="铁腚行"><a href="#铁腚行" class="headerlink" title="铁腚行"></a>铁腚行</h1><h2 id="已备骑行装备"><a href="#已备骑行装备" class="headerlink" title="已备骑行装备"></a>已备骑行装备</h2><ol>
-<li>公路车<br>喜德盛RC200 <span class="price" data-price="1499">1499￥</span></li>
-</ol>
-<p>入门级公路车， 速度一般（上限不高，毕竟是入门，先练腿，6分），颜值还可以（7分），刹车不太行（<del>4分</del>， 前刹调到能完全夹住轮胎其实能到6分）（满分10分）</p>
-<p><img src="/cycle/init1.png" alt="init1"></p>
-<ol start="2">
-<li>护目镜：</li>
-</ol>
-<p>匹克日常 <span class="price" data-price="39">39￥</span></p>
-<p>防风沙烈日，实用</p>
-<ol start="3">
-<li>手机支架</li>
-</ol>
-<p>ROCKBROS洛克兄弟手机支架 <span class="price" data-price="29">29￥</span></p>
-<p>性价比高，质量还可以，颜值也过得去</p>
-<ol start="4">
-<li>骑行头盔</li>
-</ol>
-<p>GUB M5 Mips骑行头盔 <span class="price" data-price="239">239￥</span></p>
-<p>不怕一万，就怕万一</p>
-<ol start="5">
-<li>运动手套</li>
-</ol>
-<p>维动 VEIDOORN 半指 <span class="price" data-price="39">39￥</span></p>
-<p>防滑、吸汗、减震</p>
-<ol start="6">
-<li>水壶 + 水壶架</li>
-</ol>
-<p>ROCKBROS洛克兄弟户外水壶 + 水壶架 <span class="price" data-price="35">35￥</span></p>
-<p>远距离骑行必备</p>
-<ol start="7">
-<li>坐垫</li>
-</ol>
-<p>ROCKBROS洛克兄弟坐垫 <span class="price" data-price="39">39￥</span></p>
-<p>我的建议是练腚</p>
-<ol start="8">
-<li>尾灯</li>
-</ol>
-<p>美利达自行车智能感应刹车灯 <span class="price" data-price="30">30￥</span></p>
-<p>越亮越好，最好是有急停时高亮的，相当于大大的实习标</p>
-<hr>
-<p>总价:  <span id="total-price">计算中…</span></p>
-<h2 id="总行程"><a href="#总行程" class="headerlink" title="总行程"></a>总行程</h2><p>2025-03-01之前 <span class="distance" data-distance="147">147 km</span></p>
-<p>2025-03-01 <span class="distance" data-distance="150"> 150 km<br><img src="/cycle/lvdao1.png" alt="lvdao1"></span></p>
-<p>2025-03-11 <span class="distance" data-distance="40"> 40 km<br><img src="/cycle/shouan1.jpg" alt="shouan1"></span></p>
-<p>2025-03-15 <span class="distance" data-distance="13"> 13 km </span></p>
-<p>2025-03-18 <span class="distance" data-distance="40"> 40 km<br><img src="/cycle/shouan2.jpg" alt="shouan2"></span></p>
-<p>2025-03-25 <span class="distance" data-distance="40"> 40 km<br><img src="/cycle/shouan3.jpg" alt="shouan3"></span></p>
-<p>2025-04-02 <span class="distance" data-distance="40"> 40 km<br><img src="/cycle/shouan4.jpg" alt="shouan4"></span></p>
-<p>2025-04-08 <span class="distance" data-distance="40"> 40 km<br><img src="/cycle/shouan5.jpg" alt="shouan5"></span></p>
-<p>2025-04-15 <span class="distance" data-distance="40"> 40 km<br><img src="/cycle/shouan6.jpg" alt="shouan6"></span></p>
-<p>2025-04-22 <span class="distance" data-distance="40"> 40 km<br><img src="/cycle/shouan7.jpg" alt="shouan7"></span></p>
-<p>2025-5-24 <span class="distance" data-distance="40"> 40 km<br>第一次夜骑，没有前灯只有尾灯，骑的还是乡镇路，伸手不见五指的我完成了pb<br><img src="/cycle/shouan8.jpg" alt="shouan8"></span></p>
-<p>2025-5-27 <span class="distance" data-distance="40"> 40 km<br><img src="/cycle/shouan9.jpg" alt="shouan9"><br>咕噜咕噜牛肉面</span></p>
-<div style="text-align: center;">
-  <video style="max-width: 90%;" controls>
-    <source src="cycle/beef2.mp4" type="video/mp4">
-    您的浏览器不支持 video 标签。
-  </video>
-</div>
-
-<p><img src="/cycle/beefnoodle1.png" alt="beefnoodle1"></p>
-<p>2025-5-29 <span class="distance" data-distance="40"> 40 km<br><img src="/cycle/shouan10.jpg" alt="shouan10"></span></p>
-<p>2025-5-30 <span class="distance" data-distance="40"> 40 km<br><img src="/cycle/shouan11.jpg" alt="shouan11"></span></p>
-<p>2025-6-5 <span class="distance" data-distance="50"> 50 km<br>解锁新路线：北林<br><img src="/cycle/shouan12_2.png" alt="shouan12_2"><br><img src="/cycle/shouan12_3.png" alt="shouan12_3"><br><img src="/cycle/shouan12_1.png" alt="shouan12_1"></span></p>
-<p>2025-6-25 <span class="distance" data-distance="40"> 40 km</span></p>
-<p>解放的期末，久违的骑行</p>
-<p><img src="/cycle/shouan13.png" alt="shouan13"></p>
-<p>总行程: <span id="total-distance">计算中…</span></p>
-<h2 id="车"><a href="#车" class="headerlink" title="车"></a>车</h2><p>2025-04-21第一次扎胎，永远不要碾过被别人扫成一堆的落叶，里面藏有生命的余韵<br><img src="/cycle/cy1.jpg" alt="2"></p>
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-    let totalPrice = 0;
-    document.querySelectorAll(".price").forEach(item => {
-        totalPrice += parseFloat(item.getAttribute("data-price"));
-    });
-    document.getElementById("total-price").innerText = totalPrice.toFixed(2) + "￥";
-
-    let totalDistance = 0;
-    document.querySelectorAll(".distance").forEach(item => {
-        totalDistance += parseFloat(item.getAttribute("data-distance"));
-    });
-    document.getElementById("total-distance").innerText = totalDistance + " km";
-});
-</script>
-]]></content>
-      <categories>
-        <category>Daily</category>
-      </categories>
-      <tags>
-        <tag>bike</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Hexo better</title>
     <url>/learnhexo.html</url>
     <content><![CDATA[<p>Hexo自用指令</p>
@@ -722,221 +944,21 @@ document.addEventListener("DOMContentLoaded", function () {
       </tags>
   </entry>
   <entry>
-    <title>Git better</title>
-    <url>/learngit.html</url>
-    <content><![CDATA[<p>Git自用指令</p>
+    <title>贴身保镖</title>
+    <url>/%E8%B4%B4%E8%BA%AB%E4%BF%9D%E9%95%96.html</url>
+    <content><![CDATA[<p>贴身保镖</p>
 <span id="more"></span>
-<h1 id="Git常用指令"><a href="#Git常用指令" class="headerlink" title="Git常用指令"></a>Git常用指令</h1><ul>
-<li>自报家门</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global user.name &quot;Your Name&quot;</span><br><span class="line">git config --global user.email &quot;email@example.com&quot;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>查询家门</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config user.name</span><br><span class="line">git config user.email</span><br></pre></td></tr></table></figure>
-<!--more-->
-<hr>
-<p>创建SSH连接</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 在本地生成密钥和公钥</span><br><span class="line">ssh-keygen -t rsa -C &quot;xxx@xxx.com&quot;</span><br><span class="line"></span><br><span class="line">获取公钥（id_rsa.pub）后在Github上创建SSHKey</span><br><span class="line"></span><br><span class="line">验证是否成功</span><br><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure>
-
-<hr>
-<ul>
-<li>pwd 用于显示当前目录</li>
-</ul>
-<p><code>$ pwd</code></p>
-<hr>
-<ul>
-<li>init 把当前目录变成Git可以管理的仓库</li>
-</ul>
-<p><code>$ git init</code></p>
-<hr>
-<ul>
-<li>la -ah 用于查看隐藏的.git目录</li>
-</ul>
-<p><code>$ ls -ah</code></p>
-<hr>
-<ul>
-<li>add 把文件添加到仓库</li>
-</ul>
-<p><code>$ git add &lt;file&gt;</code></p>
-<hr>
-<ul>
-<li>commit 把文件提交到仓库</li>
-</ul>
-<p><code>$ git commit -m &lt;message&gt;</code></p>
-<hr>
-<ul>
-<li>status 查看库状态</li>
-</ul>
-<p><code>$ git status</code></p>
-<hr>
-<ul>
-<li>dif 查看修改内容</li>
-</ul>
-<p><code>$ git diff &lt;file&gt;</code></p>
-<hr>
-<ul>
-<li>log 查看历史记录</li>
-</ul>
-<p><code>$ git log</code><br><code>$ git log --pretty=oneline</code></p>
-<ul>
-<li>reflog 查看每一次命令</li>
-</ul>
-<p><code>$ git reflog</code></p>
-<hr>
-<ul>
-<li>reset 版本回退</li>
-</ul>
-<p>–hard会回退到上个版本的已提交状态，而–soft会回退到上个版本的未提交状态，–mixed会回退到上个版本已添加但未提交的状态.</p>
-<p><code>$ git reset --hard HEAD~&lt;num&gt;</code><br><code>$ git reset --hard &lt;version&gt;</code></p>
-<hr>
-<ul>
-<li>cat 查看内容</li>
-</ul>
-<p><code>$ cat &lt;file&gt;</code></p>
-<hr>
-<ul>
-<li>撤销工作区修改</li>
-</ul>
-<p><code>$ git checkout -- &lt;file&gt;</code></p>
-<ul>
-<li>撤销暂存区修改</li>
-</ul>
-<p><code>$ git reset HEAD &lt;file&gt;</code></p>
-<hr>
-<ul>
-<li>删除文件</li>
-</ul>
-<p><code>$ git rm &lt;file&gt;</code></p>
-<hr>
-<ul>
-<li>添加远程库</li>
-</ul>
-<p><code>$ git remote add origin git@github.com:&lt;yourname&gt;/learngit.git</code></p>
-<ul>
-<li>推送</li>
-</ul>
-<p><code>$ git push -u origin master</code></p>
-<ul>
-<li>本地做了提交后</li>
-</ul>
-<p><code>$ git push origin master</code></p>
-<ul>
-<li>查看远程库信息</li>
-</ul>
-<p><code>$ git remote -v</code></p>
-<ul>
-<li>删除远程库</li>
-</ul>
-<p><code>$ git remote rm &lt;name&gt;</code></p>
-<hr>
-<ul>
-<li>克隆</li>
-</ul>
-<p><code>$ git clone git@github.com:&lt;name&gt;/gitskills.git</code></p>
-<hr>
-<ul>
-<li>创建并切换至新分支</li>
-</ul>
-<p><code>$ git checkout -b &lt;name&gt;</code><br><code>$ git switch -c &lt;name&gt;</code> </p>
-<p>等同于</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git branch dev</span><br><span class="line">$ git checkout dev</span><br></pre></td></tr></table></figure>
-
-<p>或</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git branch dev</span><br><span class="line">$ git switch master</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>查看分支</li>
-</ul>
-<p><code>$ git branch</code></p>
-<ul>
-<li>合并分支</li>
-</ul>
-<p><code>$ git merge &lt;name&gt;</code></p>
-<ul>
-<li>删除分支</li>
-</ul>
-<p><code>$ git branch -d &lt;name&gt;</code></p>
-<ul>
-<li>强制删除</li>
-</ul>
-<p><code>$ git branch -D &lt;name&gt;</code></p>
-<ul>
-<li><code>--no-ff</code>方式的<code>git merge</code></li>
-</ul>
-<p><code>$ git merge --no-ff -m &quot;merge with no-ff&quot; &lt;name&gt;</code></p>
-<ul>
-<li>stash储藏工作现场</li>
-</ul>
-<p><code>$ git stash</code></p>
-<ul>
-<li>查看</li>
-</ul>
-<p><code>$ git stash list</code></p>
-<ul>
-<li>恢复现场</li>
-</ul>
-<p>恢复并删除</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git stash apply</span><br><span class="line">$ git stash drop</span><br></pre></td></tr></table></figure>
-<p>或<br><code>$ git stash pop</code></p>
-<ul>
-<li>复制修改</li>
-</ul>
-<p><code>$ git cherry-pick &lt;version&gt;</code></p>
-<ul>
-<li>推送冲突后抓取文件到本地合并</li>
-</ul>
-<p><code>$ git pull</code></p>
-<ul>
-<li>变基</li>
-</ul>
-<p><code>$ git rebase</code></p>
-<hr>
-<ul>
-<li>打标签</li>
-</ul>
-<p><code>$ git tag &lt;tag&gt;</code><br><code>$ git tag &lt;tag&gt; &lt;version&gt;</code></p>
-<p>还可以创建带有说明的标签，用-a指定标签名，-m指定说明文字：</p>
-<p><code>$ git tag -a &lt;tag&gt; -m &quot;info&quot; &lt;version&gt;</code></p>
-<ul>
-<li>查看标签</li>
-</ul>
-<p><code>$ git tag</code></p>
-<ul>
-<li>查看标签内容</li>
-</ul>
-<p><code>$ git show &lt;tag&gt;</code></p>
-<ul>
-<li>删除标签</li>
-</ul>
-<p><code>$ git tag -d &lt;tag&gt;</code></p>
-<ul>
-<li>推送标签</li>
-</ul>
-<p><code>$ git push origin &lt;tag&gt;</code><br><code>$ git push origin --tags</code></p>
-<ul>
-<li>删除远程标签</li>
-</ul>
-<p>先删除本地再：<br><code>$ git push origin :refs/tags/&lt;tag&gt;</code></p>
-<p>补充</p>
-<p><img src="/learngit/git1.png" alt="git1"></p>
-<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://liaoxuefeng.com/">廖雪峰</a></p>
+<p>本文的主角大卫-邦德，一名军人、一名警察、一位丈夫、一位父亲，在剧中一开始就展示了异于常人的洞察力与共情力，以及应对突发情况的专业素养，我深深地被这一位柔情硬汉打动。然而，这样一位可以说是通情达理的人，居然和妻子处于分居状态，这也让我对邦德的身世经历充满了好奇，他看起来孤独，忧郁，甚至还有抑郁症，其实这并不与其外在的沉着形象冲突，他的外在其实也是真实的他自己，因为有时候我们宁愿真实地面对他人，也不愿坦白对待自己。大卫邦德的故事也是一名贴身保镖的故事，因为他的英勇举动震惊全英，各界都高度关注这样一位能够说服自杀炸弹携带者以保护全列车人的警察，尤其是政府高层，因此，他被授予了一项特殊的任务，成为内务大臣的贴身保镖，而真正的大卫邦德，开始逐渐浮现。</p>
+<p>最讨厌内务大臣的人反而成为了内务大臣身边最亲近的人。大卫邦德与内务大臣有瓜葛吗，当然，谁都不会无缘无故讨厌一个素不相识的人，前面提到大卫邦德是一名军人，没错，他曾是一名军人，被派往阿富汗参加非正义的战争，也因此大卫邦德失去了很多位亲密的兄弟，自己也差点殒命，最重要的是大卫邦德患上了创伤后应激障碍，而这些军人有一个共同的敌人，那就是那些视他们生命如自己权力牺牲品的、不愿意亲自留一滴血的冷血的势力的政客。而与内务大臣相遇的前期，她不出意外的体现了出了所有令大卫邦德和他战友所讨厌的特征，并且当大卫邦德亲自问她所作言论是否属实时，内务大臣却说为了大局她必须有所抉择，这彻底激怒了大卫邦德。大卫邦德有无数次想亲自了解这位不知悔改的政客，但是却又出于职业道德无数次拯救内务大臣，甚至在一场暗杀中，大卫也“杀死”了身为战友的杀手，而那名自杀的战友，在某种意义上，将未完成的使命又加重在大卫邦德身上。</p>
+<p>也许是一次次的生死与共，又或者是孤独灵魂的相遇，内务大臣和大卫邦德在劫后余生时，用身体抚慰惊魂。起初我只是认为内务大臣为了让大卫邦德全心全意的保护自己于是上演了美人计，同时也认为大卫邦德为了更靠近内务大臣配合了这场演出，但内务大臣对大卫邦德的孩子们的帮助，以及大卫邦德虽帮助自己的直属上司切确内务大臣的情报却装作一无所获，还有内务大臣在演讲时被炸弹袭击殒命后大卫邦德的愤怒，都向我传达出一个讯号，那就是，他们在某种意义上被连接在了一起，是那种亦敌亦友的耐人寻味，因为大卫邦德还爱着自己的分居妻子，且我也很难接受这种极端情形下的爱情，因此我认为这不算得上是爱情，而是更倾向于前文所说的相互抚慰，因为他们一个处于PTSD的笼罩，一个站在政界的风口浪尖，两人因为不同的原因，随时都有可能失去生命。</p>
+<p>在内务大臣死后，整个剧集只剩下快节奏的追凶，打斗与推理反转，这也是看的最爽的一部分，然我近乎忘记了外界时间的流逝，但能回忆起来的所剩无几。</p>
+<p>在忘掉之前，我必须首先提及我影响最深刻的几个角色，又或者说，剧集中对每个人物几乎都有两面塑造，这也是我们最能引起共鸣的地方，每个人是善也是恶，有冲动也有冷静，我看到了每个角色的独有魅力，警察、伴侣、同事、朋友、上级、上级之上级。而大卫邦德之所患了PTSD还能继续当警察甚至是贴身保镖，是因为他对别人隐瞒了病情，只有最亲近的人，也就是战友和妻子知道，而当最后大卫邦德放下了乔装的坚强，向心理医生袒露自己的脆弱后，我们依旧能够被重归于好的大卫邦德和其妻子薇琪的幸福一家所温暖。是啊，原来接受治疗，打开心扉就能回归正常生活，就剩感受最平凡的快乐，但是，有些时候，难的不是治疗，而是接受治疗，难的不是现状，而是接受现状，我想，不向朋友掩盖，不对家人伪装，真实的表达自己，表达诉求，不要害怕窘迫，懂你的人不会让你难堪，所谓懂你的人无需多言，不懂的人何必多言，接受你真实向世界表达后的所有结果。</p>
 ]]></content>
-      <categories>
-        <category>Learn</category>
-      </categories>
-      <tags>
-        <tag>Git</tag>
-        <tag>Better</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hello</title>
-    <url>/First-blog.html</url>
-    <content><![CDATA[<p>Hello hexo. Hello blog. Hello world</p>
-<span id="more"></span>]]></content>
       <categories>
         <category>Daily</category>
       </categories>
+      <tags>
+        <tag>剧</tag>
+      </tags>
   </entry>
 </search>
