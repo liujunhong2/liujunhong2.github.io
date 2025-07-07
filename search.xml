@@ -757,8 +757,8 @@ document.addEventListener("DOMContentLoaded", function () {
         <category>Learn</category>
       </categories>
       <tags>
-        <tag>Hexo</tag>
         <tag>Better</tag>
+        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
