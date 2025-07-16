@@ -647,7 +647,7 @@
 <p>2025-07-07 <span class="distance" data-distance="25"> 25 km</span></p>
 <p>回家了，绕城</p>
 <p><img src="/cycle/dianjiang1.png" alt="dianjiang1"></p>
-<p>2025-07-15 &lt;span class&#x3D;’’distance data-distance&#x3D;’20’&gt; 20 km</p>
+<p>2025-07-15 <span class="distance" data-distance="20"> 20 km</span></p>
 <blockquote>
 <p><strong>总行程</strong>: <span id="total-distance"> 计算中…</span></p>
 </blockquote>
