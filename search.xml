@@ -496,8 +496,8 @@
 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    vector&lt;<span class="type">int</span>&gt; v = &#123;<span class="number">-1</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">4</span>, <span class="number">7</span>, <span class="number">15</span>, <span class="number">34</span>&#125;;</span><br><span class="line">    <span class="built_in">sort</span>(v.<span class="built_in">begin</span>() + <span class="number">1</span>, v.<span class="built_in">end</span>());</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> pos1 = <span class="built_in">lower_bound</span>(v.<span class="built_in">begin</span>() + <span class="number">1</span>, v.<span class="built_in">end</span>(), <span class="number">7</span>) - v.<span class="built_in">begin</span>();</span><br><span class="line">    <span class="type">int</span> pos2 = <span class="built_in">upper_bound</span>(v.<span class="built_in">begin</span>() + <span class="number">1</span>, v.<span class="built_in">end</span>(), <span class="number">7</span>) - v.<span class="built_in">begin</span>();</span><br><span class="line">    cout &lt;&lt; pos1 &lt;&lt; <span class="string">&quot; &quot;</span> &lt;&lt; v[pos1] &lt;&lt; endl;</span><br><span class="line">    cout &lt;&lt; pos2 &lt;&lt; <span class="string">&quot; &quot;</span> &lt;&lt; v[pos2] &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">sort</span>(v.<span class="built_in">begin</span>() + <span class="number">1</span>, v.<span class="built_in">end</span>(), <span class="built_in">greater</span>&lt;<span class="type">int</span>&gt;());</span><br><span class="line">    <span class="type">int</span> pos3 = <span class="built_in">lower_bound</span>(v.<span class="built_in">begin</span>() + <span class="number">1</span>, v.<span class="built_in">end</span>(), <span class="number">7</span>, <span class="built_in">greater</span>&lt;<span class="type">int</span>&gt;()) - v.<span class="built_in">begin</span>();</span><br><span class="line">    <span class="type">int</span> pos4 = <span class="built_in">upper_bound</span>(v.<span class="built_in">begin</span>() + <span class="number">1</span>, v.<span class="built_in">end</span>(), <span class="number">7</span>, <span class="built_in">greater</span>&lt;<span class="type">int</span>&gt;()) - v.<span class="built_in">begin</span>();</span><br><span class="line">    cout &lt;&lt; pos3 &lt;&lt; <span class="string">&quot; &quot;</span> &lt;&lt; v[pos3] &lt;&lt; endl;</span><br><span class="line">    cout &lt;&lt; pos4 &lt;&lt; <span class="string">&quot; &quot;</span> &lt;&lt; v[pos4] &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h3 id="折尺定理"><a href="#折尺定理" class="headerlink" title="折尺定理"></a>折尺定理</h3><p>一堆有各自长度($a_{1},a_{2},a_{3} \dots$)木棍能否连接在两个点上，取决于是否$L_{\min}\le D\le L_{\max}$,其中，$L_{\max} &#x3D; \sum_{i &#x3D; 1}^{n}a_{i} $ ,$L_{\min} &#x3D; max(0, 2 * a_{\max} - L_{\max})$，D为两点间距离</p>
-<h3 id="两两绝对值求和"><a href="#两两绝对值求和" class="headerlink" title="两两绝对值求和"></a>两两绝对值求和</h3><p>当你把一组数排序后，对所有「两两差的绝对值之和」$\sum_{0\le p&lt;q\le n} |a_q - a_p|$有一个经典结论：</p>
-<p>$ \sum_{0\le p&lt;q\le n} (a_q - a_p)  &#x3D; \sum_{k&#x3D;0}^n a_k \bigl(\underbrace{k}<em>{\text{比它小的数对}} - \underbrace{(n-k)}</em>{\text{比它大的数对}}\bigr).$</p>
+<h3 id="两两绝对值求和"><a href="#两两绝对值求和" class="headerlink" title="两两绝对值求和"></a>两两绝对值求和</h3><p>当你把一组数排序后，对所有「两两差的绝对值之和」$\sum_{0\le p&lt;q\le n} |a_q - a_p|$ 有一个经典结论：</p>
+<p>$\sum_{0 \le p &lt; q \le n} (a_q - a_p)&#x3D; \sum_{k&#x3D;0}^n a_k (k - (n-k))$</p>
 <p>这是因为：</p>
 <ul>
 <li><p>对于固定的$a_k$，它作为“右端” $q_{q}$ 的时候，会和前面所有 k 个更小的数 $a_0,\dots,a_{k-1}$ 相减，累计贡献</p>
@@ -515,8 +515,7 @@
 <p><a href="https://github.com/algorithmzuo/algorithm-journey">左程云</a></p>
 <p><a href="https://blog.csdn.net/duiwangxiaomi/article/details/104288351">三角形面积</a></p>
 <p><a href="https://blog.csdn.net/qq_40160605/article/details/80150252">lower_bound &amp; upper_bound</a></p>
-<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
-</script>]]></content>
+]]></content>
       <categories>
         <category>Learn</category>
       </categories>
@@ -649,6 +648,7 @@
 <p><img src="/cycle/dianjiang1.png" alt="dianjiang1"></p>
 <p>2025-07-15 <span class="distance" data-distance="20"> 20 km</span></p>
 <p>2025-07-17 <span class="distance" data-distance="20"> 20 km</span></p>
+<p>2025-07-18 <span class="distance" data-distance="15"> 15 km</span></p>
 <blockquote>
 <p><strong>总行程</strong>: <span id="total-distance"> 计算中…</span></p>
 </blockquote>
