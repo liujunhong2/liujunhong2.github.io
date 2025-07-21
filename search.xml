@@ -511,10 +511,14 @@
 </li>
 </ul>
 <p>注意这里不需要再写绝对值了，因为排序保证了“后者减前者”总是非负的。</p>
+<h3 id="ASCII-Table"><a href="#ASCII-Table" class="headerlink" title="ASCII Table"></a>ASCII Table</h3><p><img src="/algorithm/ASCII_Table.png" alt="ASCII_Table"></p>
+<h3 id="优先级"><a href="#优先级" class="headerlink" title="优先级"></a>优先级</h3><p><img src="/algorithm/priority.jpg" alt="priority"></p>
+<h3 id="规模"><a href="#规模" class="headerlink" title="规模"></a>规模</h3><p><img src="/algorithm/%E8%A7%84%E6%A8%A1.png" alt="guimo"></p>
 <h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://blog.csdn.net/tengfei461807914/article/details/52203202">字符串 CSDN</a></p>
 <p><a href="https://github.com/algorithmzuo/algorithm-journey">左程云</a></p>
 <p><a href="https://blog.csdn.net/duiwangxiaomi/article/details/104288351">三角形面积</a></p>
 <p><a href="https://blog.csdn.net/qq_40160605/article/details/80150252">lower_bound &amp; upper_bound</a></p>
+<p><a href="https://c-cpp.com/cpp">C++ 参考手册</a></p>
 ]]></content>
       <categories>
         <category>Learn</category>
