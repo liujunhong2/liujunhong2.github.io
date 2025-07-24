@@ -653,6 +653,7 @@
 <p>2025-07-15 <span class="distance" data-distance="20"> 20 km</span></p>
 <p>2025-07-17 <span class="distance" data-distance="20"> 20 km</span></p>
 <p>2025-07-18 <span class="distance" data-distance="15"> 15 km</span></p>
+<p>2025-07-24 <span class="distance" data-distance="20"> 20 km</span></p>
 <blockquote>
 <p><strong>总行程</strong>: <span id="total-distance"> 计算中…</span></p>
 </blockquote>
