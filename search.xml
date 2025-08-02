@@ -520,6 +520,33 @@
 <h3 id="ASCII-Table"><a href="#ASCII-Table" class="headerlink" title="ASCII Table"></a>ASCII Table</h3><p><img src="/algorithm/ASCII_Table.png" alt="ASCII_Table"></p>
 <h3 id="优先级"><a href="#优先级" class="headerlink" title="优先级"></a>优先级</h3><p><img src="/algorithm/priority.jpg" alt="priority"></p>
 <h3 id="规模"><a href="#规模" class="headerlink" title="规模"></a>规模</h3><p><img src="/algorithm/%E8%A7%84%E6%A8%A1.png" alt="guimo"></p>
+<h3 id="隔板法（Stars-and-Bars）"><a href="#隔板法（Stars-and-Bars）" class="headerlink" title="隔板法（Stars and Bars）"></a>隔板法（Stars and Bars）</h3><p><strong>无界非负整数组合</strong></p>
+<ul>
+<li>题型：求非负整数解   $x_1+\cdots+x_k&#x3D;N$ 的方案数</li>
+<li>答案：$\binom{N+k-1}{k-1}$</li>
+<li>含义：把 N 个「星星」放入 kk个「盒子」，盒子间用 k−1道隔板分隔。</li>
+</ul>
+<p><strong>单调序列差分</strong></p>
+<p>非增&#x2F;非减序列（$a_1 \ge a_2 \ge \dots \ge a_k \ge 0$）可转为差分$d_i &#x3D; a_i - a_{i - 1}$,再用隔板法算$\sum di &#x3D; a_k - a_1$</p>
+<h3 id="普通生成函数（OGF）"><a href="#普通生成函数（OGF）" class="headerlink" title="普通生成函数（OGF）"></a>普通生成函数（OGF）</h3><p>定义</p>
+<ul>
+<li>给定序列 ${a_n}$，其 OGF 为<br>  $$<br>  A(t)&#x3D;\sum_{n\ge0}a_n,t^n.<br>  $$</li>
+</ul>
+<p>乘法对应「独立事件的卷积」</p>
+<ul>
+<li>若要把两类结构独立拼接，总方案数的序列是两生成函数相乘：<br>  $$<br>  A(t)\times B(t);\Longrightarrow;  [t^n]\bigl(A(t)B(t)\bigr);&#x3D;;\sum_{i+j&#x3D;n}a_i,b_j.<br>  $$</li>
+</ul>
+<p>幂运算</p>
+<ul>
+<li>$A(t)^k$ 表示独立选取 k 份相同结构并联。</li>
+</ul>
+<h3 id="广义二项式与系数提取"><a href="#广义二项式与系数提取" class="headerlink" title="广义二项式与系数提取"></a>广义二项式与系数提取</h3><p><strong>广义二项式定理</strong><br>$$<br>(1 - t)^{-\alpha}  &#x3D; \sum_{n&#x3D;0}^\infty      \binom{\alpha+n-1}{n},t^n, \quad \binom{\alpha+n-1}{n} &#x3D; \frac{\alpha(\alpha+1)\cdots(\alpha+n-1)}{n!}.<br>$$<br><strong>系数提取</strong></p>
+<ul>
+<li><p>对于已知闭式 G(t)，常用：</p>
+<p>  $[t^n],G(t) \quad\text{或}\quad  \text{前缀和 }\sum_{i&#x3D;0}^n [t^i]G(t).$</p>
+</li>
+</ul>
+<p><strong>累加恒等式</strong><br>$$<br>\sum_{i&#x3D;0}^m \binom{i+r}{r}  &#x3D; \binom{m+r+1}{r+1},  \quad  \sum_{i&#x3D;0}^m \binom{r}{i}  &#x3D; \binom{r}{0}+\cdots+\binom{r}{m}.<br>$$</p>
 <h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://blog.csdn.net/tengfei461807914/article/details/52203202">字符串 CSDN</a></p>
 <p><a href="https://github.com/algorithmzuo/algorithm-journey">左程云</a></p>
 <p><a href="https://blog.csdn.net/duiwangxiaomi/article/details/104288351">三角形面积</a></p>
@@ -527,6 +554,7 @@
 <p><a href="https://c-cpp.com/cpp">C++ 参考手册</a></p>
 <p><a href="https://en.wikipedia.org/wiki/ASCII">ASCII WIKI</a></p>
 <p><a href="https://blog.csdn.net/weixin_43983431/article/details/107432456">判断点与直线的位置关系</a></p>
+<p><a href="https://zh.wikipedia.org/wiki/%E6%AF%8D%E5%87%BD%E6%95%B0">母函数</a></p>
 ]]></content>
       <categories>
         <category>Learn</category>
