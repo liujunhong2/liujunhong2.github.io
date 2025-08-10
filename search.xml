@@ -705,6 +705,8 @@
 <p>2025-07-30 <span class="distance" data-distance="110"> 100 km<br>最艰难的一集，接近四十度的天气暴晒八小时（不会再顶着高温征战绿道了，差点没活着回来）</span></p>
 <p>2025-08-02 <span class="distance" data-distance="40"> 40 km</span></p>
 <p>2025-08-03 <span class="distance" data-distance="40"> 40 km<br>双排<br><img src="/cycle/shouan15.png" alt="shouan15"></span></p>
+<p>2025-08-06 <span class="distance" data-distance="40"> 40 km</span></p>
+<p>2025-08-09 <span class="distance" data-distance="40"> 40 km</span></p>
 <blockquote>
 <p><strong>总行程</strong>: <span id="total-distance"> 计算中…</span></p>
 </blockquote>
@@ -819,8 +821,8 @@ document.addEventListener("DOMContentLoaded", function () {
         <category>Learn</category>
       </categories>
       <tags>
-        <tag>Hexo</tag>
         <tag>Better</tag>
+        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -1028,8 +1030,8 @@ document.addEventListener("DOMContentLoaded", function () {
         <category>Learn</category>
       </categories>
       <tags>
-        <tag>Better</tag>
         <tag>Git</tag>
+        <tag>Better</tag>
       </tags>
   </entry>
 </search>
