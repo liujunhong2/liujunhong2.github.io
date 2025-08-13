@@ -652,9 +652,9 @@
 </ol>
 <p>美利达智能感应刹车灯 <span class="price" data-price="30"> 30 ￥</span></p>
 <ol start="9">
-<li>电解质</li>
+<li>能量</li>
 </ol>
-<p>诺特兰德电解质 <span class="price" data-price="25"> 25 ￥</span></p>
+<p>电解质粉 （长期）</p>
 <hr>
 <blockquote>
 <p><strong>总价</strong>:  <span id="total-price">计算中…</span></p>
@@ -737,6 +737,7 @@
 <blockquote>
 <p>一个月后顺利装车返校…</p>
 </blockquote>
+<p>2025-08-13 洗车，上油</p>
 <script>
 document.addEventListener("DOMContentLoaded", function () {
     let totalPrice = 0;
@@ -842,8 +843,8 @@ document.addEventListener("DOMContentLoaded", function () {
         <category>Learn</category>
       </categories>
       <tags>
-        <tag>Better</tag>
         <tag>Hexo</tag>
+        <tag>Better</tag>
       </tags>
   </entry>
   <entry>
@@ -1051,8 +1052,8 @@ document.addEventListener("DOMContentLoaded", function () {
         <category>Learn</category>
       </categories>
       <tags>
-        <tag>Git</tag>
         <tag>Better</tag>
+        <tag>Git</tag>
       </tags>
   </entry>
 </search>
