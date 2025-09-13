@@ -885,6 +885,7 @@
 <p>2025-08-29 <span class="distance" data-distance="40"> 40 km<br>雨骑的魅力在于，越骑越冷…</span></p>
 <p>2025-08-31 <span class="distance" data-distance="40"> 40 km</span></p>
 <p>2025-09-09 <span class="distance" data-distance="40"> 40 km</span></p>
+<p>2025-09-13 <span class="distance" data-distance="40"> 40 km</span></p>
 <blockquote>
 <p><strong>总行程</strong>: <span id="total-distance"> 计算中…</span></p>
 </blockquote>
@@ -1000,8 +1001,8 @@ document.addEventListener("DOMContentLoaded", function () {
         <category>Learn</category>
       </categories>
       <tags>
-        <tag>Better</tag>
         <tag>Hexo</tag>
+        <tag>Better</tag>
       </tags>
   </entry>
   <entry>
@@ -1209,8 +1210,8 @@ document.addEventListener("DOMContentLoaded", function () {
         <category>Learn</category>
       </categories>
       <tags>
-        <tag>Git</tag>
         <tag>Better</tag>
+        <tag>Git</tag>
       </tags>
   </entry>
 </search>
