@@ -786,7 +786,7 @@
 
 <p><strong>验证</strong>：<code>java -version</code>、<code>echo $JAVA_HOME</code> 正常</p>
 <h2 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h2><h3 id="如何将用户加入sudoers："><a href="#如何将用户加入sudoers：" class="headerlink" title="如何将用户加入sudoers："></a>如何将用户加入sudoers：</h3><blockquote>
-<p>先<code>su -</code>进root，再<code>visudo</code>进去，添加<code>Uername = ALL(ALL:ALL) ALL</code></p>
+<p>先<code>su -</code>进root，再<code>visudo</code>进去，添加<code>Username = ALL(ALL:ALL) ALL</code></p>
 </blockquote>
 <h3 id="如何固定IP"><a href="#如何固定IP" class="headerlink" title="如何固定IP"></a>如何固定IP</h3><p>固定IP参考<a href="https://www.cnblogs.com/Ai-Hen-Jiao-zhi/p/11339867.html">博客园</a></p>
 <h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://www.cnblogs.com/Ai-Hen-Jiao-zhi/p/11339867.html">debian固定IP</a></p>
