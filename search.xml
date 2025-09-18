@@ -746,6 +746,62 @@
       </tags>
   </entry>
   <entry>
+    <title>zsh/oh_my_zsh</title>
+    <url>/zsh-oh-my-zsh.html</url>
+    <content><![CDATA[<h1 id="zsh-oh-my-zsh配置-debian13"><a href="#zsh-oh-my-zsh配置-debian13" class="headerlink" title="zsh&#x2F;oh_my_zsh配置(debian13)"></a>zsh&#x2F;oh_my_zsh配置(debian13)</h1><span id="more"></span>
+
+<p>如果bash的脚本开头是以!#&#x2F;bin&#x2F;bash的话，在zsh下完全兼容bash,其余的我就不知道鸟  </p>
+<blockquote>
+<p> 注意以下所有指令均在debian系下运行  </p>
+</blockquote>
+<h1 id="zsh"><a href="#zsh" class="headerlink" title="zsh"></a>zsh</h1><p>查看shell</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">echo $SHELL</span><br></pre></td></tr></table></figure>
+
+<p>安装zsh</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt update</span><br><span class="line">sudo apt install zsh</span><br></pre></td></tr></table></figure>
+
+<p>设置默认shell</p>
+<ul>
+<li>为sudo用户设置</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo chsh -s /bin/zsh</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>为特定用户</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo chsh -s /bin/zsh &lt;username&gt;</span><br><span class="line"># &lt;username&gt; 替换为实际用户名</span><br></pre></td></tr></table></figure>
+
+<h1 id="oh-my-zsh"><a href="#oh-my-zsh" class="headerlink" title="oh_my_zsh"></a>oh_my_zsh</h1><p>安装git</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt update</span><br><span class="line">sudo apt install git</span><br></pre></td></tr></table></figure>
+
+<p>自动安装</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sh -c &quot;$(wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)&quot;</span><br></pre></td></tr></table></figure>
+
+<p>也可以手动自行去github上克隆安装，然后将配置cp到自己的.zshrc上</p>
+<ul>
+<li><h3 id="进阶"><a href="#进阶" class="headerlink" title="进阶"></a>进阶</h3></li>
+</ul>
+<p>功能介绍：优雅主题、自动补全、语法高亮、esc两次等于添加sudo</p>
+<p><strong>主题</strong></p>
+<p>祖传powerlevel10k，</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git clone --depth=1 https://gitee.com/romkatv/powerlevel10k.git $&#123;ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom&#125;/themes/powerlevel10k</span><br></pre></td></tr></table></figure>
+
+<p>在.zshrc中配置<code>ZSH_THEME=&quot;powerlevel10k/powerlevel10k&quot;</code></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.</span></span><br><span class="line"><span class="comment"># Initialization code that may require console input (password prompts, [y/n]</span></span><br><span class="line"><span class="comment"># confirmations, etc.) must go above this block; everything else may go below.</span></span><br><span class="line"><span class="keyword">if</span> [[ -r <span class="string">&quot;<span class="variable">$&#123;XDG_CACHE_HOME:-<span class="variable">$HOME</span>/.cache&#125;</span>/p10k-instant-prompt-<span class="variable">$&#123;(%):-%n&#125;</span>.zsh&quot;</span> ]]; <span class="keyword">then</span></span><br><span class="line">  <span class="built_in">source</span> <span class="string">&quot;<span class="variable">$&#123;XDG_CACHE_HOME:-<span class="variable">$HOME</span>/.cache&#125;</span>/p10k-instant-prompt-<span class="variable">$&#123;(%):-%n&#125;</span>.zsh&quot;</span></span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># If you come from bash you might have to change your $PATH.</span></span><br><span class="line"><span class="comment"># export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Path to your Oh My Zsh installation.</span></span><br><span class="line"><span class="built_in">export</span> ZSH=<span class="string">&quot;<span class="variable">$HOME</span>/.oh-my-zsh&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Set name of the theme to load --- if set to &quot;random&quot;, it will</span></span><br><span class="line"><span class="comment"># load a random theme each time Oh My Zsh is loaded, in which case,</span></span><br><span class="line"><span class="comment"># to know which specific one was loaded, run: echo $RANDOM_THEME</span></span><br><span class="line"><span class="comment"># See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes</span></span><br><span class="line"><span class="comment"># ZSH_THEME=&quot;robbyrussell&quot;</span></span><br><span class="line">ZSH_THEME=<span class="string">&quot;powerlevel10k/powerlevel10k&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>plus</strong></p>
+<p>找到plugin再添加如下配置（还可以自己补充，不过以下三条足以）</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># Which plugins would you like to load?</span><br><span class="line"># Standard plugins can be found in $ZSH/plugins/</span><br><span class="line"># Custom plugins may be added to $ZSH_CUSTOM/plugins/</span><br><span class="line"># Example format: plugins=(rails git textmate ruby lighthouse)</span><br><span class="line"># Add wisely, as too many plugins slow down shell startup.</span><br><span class="line">plugins=(</span><br><span class="line">        git</span><br><span class="line">        sudo</span><br><span class="line">        zsh-syntax-highlighting</span><br><span class="line">        zsh-autosuggestions</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p>最后记得<code>source .zshrc</code>，然后会进入主题的配置界面，非常简单的交互<br><img src="/zsh-oh-my-zsh/p1.png"><br>最终效果，简约，补全（根据最近历史记录），时间显示，按两次esc可以直接sudo</p>
+<blockquote>
+<p>熟练后在新设备上五分钟不到就OK</p>
+</blockquote>
+<h1 id="参考教程"><a href="#参考教程" class="headerlink" title="参考教程"></a>参考教程</h1><p><a href="https://ohmyz.sh/">oh_my_zsh官网</a></p>
+<p><a href="https://sysin.org/blog/linux-zsh/">sysin</a></p>
+<p><a href="https://www.zhihu.com/question/33277508">知乎_theme_</a></p>
+]]></content>
+  </entry>
+  <entry>
     <title>Linux分布式集群</title>
     <url>/Linux%E5%88%86%E5%B8%83%E5%BC%8F%E9%9B%86%E7%BE%A4.html</url>
     <content><![CDATA[<h1 id="Linux分布式集群搭建"><a href="#Linux分布式集群搭建" class="headerlink" title="Linux分布式集群搭建"></a>Linux分布式集群搭建</h1><p>目前已经完成linxu层面的集群基础（网络&#x2F;主机名&#x2F;SSH&#x2F;时钟&#x2F;统一用户&#x2F;JDK），为后续的Hadoop部署奠定基础。</p>
