@@ -1401,7 +1401,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #d0a1ff;
+    background: #8f1cd5;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -2953,4 +2953,180 @@ header.header {
   .pagination {
     margin-bottom: 10px;
   }
+}
+.post-body {
+  font-size: 16px;
+  line-height: 1.8em;
+  letter-spacing: 0.1em;
+}
+.post-body pre,
+.post-body code {
+  font-size: 14px;
+  font-family: Roboto, 'Courier New', Consolas, Inconsolata, Courier, monospace;
+  margin: auto 5px;
+}
+.post-body code {
+  white-space: pre-wrap;
+  border-radius: 2px;
+  display: inline;
+}
+.post-body pre {
+  font-size: 15px;
+  line-height: 1.4em;
+  display: block !important;
+}
+.post-body pre code {
+  white-space: pre;
+  overflow: auto;
+  border-radius: 3px;
+  padding: 1px 1px;
+  display: block !important;
+}
+.post-body strong,
+.post-body b {
+  color: #bf360c;
+}
+.post-body em,
+.post-body i {
+  color: #009688;
+}
+.post-body hr {
+  border: 1px solid #bf360c;
+  margin: 1.5em auto;
+}
+.post-body p {
+  margin: 1.5em 5px !important;
+}
+.post-body table,
+.post-body pre,
+.post-body dl,
+.post-body blockquote,
+.post-body q,
+.post-body ul,
+.post-body ol {
+  margin: 10px 5px;
+}
+.post-body ul,
+.post-body ol {
+  padding-left: 15px;
+}
+.post-body li {
+  margin: 10px;
+}
+.post-body li p {
+  margin: 10px 0 !important;
+}
+.post-body ul ul,
+.post-body ul ol,
+.post-body ol ul,
+.post-body ol ol {
+  margin: 0;
+  padding-left: 10px;
+}
+.post-body ul {
+  list-style-type: circle;
+}
+.post-body dl {
+  padding: 0;
+}
+.post-body dl dt {
+  font-size: 1em;
+  font-weight: bold;
+  font-style: italic;
+}
+.post-body dl dd {
+  margin: 0 0 10px;
+  padding: 0 10px;
+}
+.post-body blockquote,
+.post-body q {
+  border-left: 2px solid #009688;
+  padding: 0 10px;
+  color: #777;
+  quotes: none;
+  margin-left: 1em;
+}
+.post-body blockquote::before,
+.post-body blockquote::after,
+.post-body q::before,
+.post-body q::after {
+  content: none;
+}
+.post-body h1,
+.post-body h2,
+.post-body h3,
+.post-body h4,
+.post-body h5,
+.post-body h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-style: bold !important;
+  color: #009688 !important;
+  text-align: left !important;
+  margin: 30px 0 15px !important;
+  padding: 0.5em 1em !important;
+}
+.post-body h1 {
+  font-size: 34px !important;
+  border-bottom: 2px solid #ddd !important;
+}
+.post-body h2 {
+  font-size: 28px !important;
+  border-bottom: 1px solid #eee !important;
+}
+.post-body h3 {
+  font-size: 24px !important;
+  font-weight: 600 !important;
+}
+.post-body h4 {
+  font-size: 20px;
+  font-weight: 600;
+}
+.post-body h5 {
+  font-size: 18px !important;
+  font-weight: 600 !important;
+  color: #555 !important;
+}
+/* 六级标题 */
+.post-body h6 {
+  font-size: 16px !important;
+  font-weight: 600 !important;
+  color: #777 !important;
+}
+.post-body table {
+  padding: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
+  font-size: 1em;
+  font: inherit;
+  border: 0;
+  margin: 0 auto;
+}
+.post-body tbody {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+.post-body table tr {
+  border: 0;
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+  margin: 0;
+  padding: 0;
+}
+.post-body table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+.post-body table tr th,
+.post-body table tr td {
+  font-size: 16px;
+  border: 1px solid #ccc;
+  margin: 0;
+  padding: 5px 10px;
+}
+.post-body table tr th {
+  font-weight: bold;
+  color: #eee;
+  border: 1px solid #009688;
+  background-color: #009688;
 }
