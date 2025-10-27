@@ -29,7 +29,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://liujunhong2.github.io/zsh-oh-my-zsh/p1.png">
 <meta property="article:published_time" content="2025-09-18T08:35:19.000Z">
-<meta property="article:modified_time" content="2025-10-06T09:38:44.961Z">
+<meta property="article:modified_time" content="2025-10-27T09:32:42.508Z">
 <meta property="article:author" content="jiangshun">
 <meta property="article:tag" content="Linux">
 <meta property="article:tag" content="zsh&#x2F;oh_my_zsh">
@@ -184,7 +184,7 @@ window.MathJax = {
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#zsh-oh-my-zsh%E9%85%8D%E7%BD%AE-debian13"><span class="nav-number">1.</span> <span class="nav-text">zsh&#x2F;oh_my_zsh配置(debian13)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#zsh"><span class="nav-number">2.</span> <span class="nav-text">zsh</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#oh-my-zsh"><span class="nav-number">3.</span> <span class="nav-text">oh_my_zsh</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%9B%E9%98%B6"><span class="nav-number">3.0.1.</span> <span class="nav-text">进阶</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B"><span class="nav-number">4.</span> <span class="nav-text">参考教程</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#zsh-oh-my-zsh%E9%85%8D%E7%BD%AE-debian-ubuntu"><span class="nav-number">1.</span> <span class="nav-text">zsh&#x2F;oh_my_zsh配置(debian&#x2F;ubuntu)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#zsh"><span class="nav-number">2.</span> <span class="nav-text">zsh</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#oh-my-zsh"><span class="nav-number">3.</span> <span class="nav-text">oh_my_zsh</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%9B%E9%98%B6"><span class="nav-number">3.0.1.</span> <span class="nav-text">进阶</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B"><span class="nav-number">4.</span> <span class="nav-text">参考教程</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -300,7 +300,7 @@ window.MathJax = {
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-10-06 17:38:44" itemprop="dateModified" datetime="2025-10-06T17:38:44+08:00">2025-10-06</time>
+      <time title="修改时间：2025-10-27 17:32:42" itemprop="dateModified" datetime="2025-10-27T17:32:42+08:00">2025-10-27</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -326,7 +326,7 @@ window.MathJax = {
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>592</span>
+      <span>557</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -346,33 +346,39 @@ window.MathJax = {
     <div class="post-body" itemprop="articleBody"><p>zsh&#x2F;oh_my_zsh配置</p>
 <span id="more"></span>
 
-<h1 id="zsh-oh-my-zsh配置-debian13"><a href="#zsh-oh-my-zsh配置-debian13" class="headerlink" title="zsh&#x2F;oh_my_zsh配置(debian13)"></a>zsh&#x2F;oh_my_zsh配置(debian13)</h1><p>如果bash的脚本开头是以!#&#x2F;bin&#x2F;bash的话，在zsh下完全兼容bash,其余的我就不知道鸟  </p>
+<h1 id="zsh-oh-my-zsh配置-debian-ubuntu"><a href="#zsh-oh-my-zsh配置-debian-ubuntu" class="headerlink" title="zsh&#x2F;oh_my_zsh配置(debian&#x2F;ubuntu)"></a>zsh&#x2F;oh_my_zsh配置(debian&#x2F;ubuntu)</h1><p>如果bash的脚本开头是以!#&#x2F;bin&#x2F;bash的话，在zsh下完全兼容bash,其余的我就不知道鸟  </p>
 <blockquote>
 <p> 注意以下所有指令均在debian系下运行  </p>
 </blockquote>
 <h1 id="zsh"><a href="#zsh" class="headerlink" title="zsh"></a>zsh</h1><p>查看shell</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo $SHELL</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo $SHELL</span><br></pre></td></tr></table></figure>
 
 <p>安装zsh</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt update</span><br><span class="line">sudo apt install zsh</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt update</span><br><span class="line">sudo apt install zsh</span><br></pre></td></tr></table></figure>
 
 <p>设置默认shell</p>
 <ul>
 <li>为sudo用户设置</li>
 </ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo chsh -s /bin/zsh</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo chsh -s /bin/zsh</span><br></pre></td></tr></table></figure>
 
+<blockquote>
+<p>以上指令不能正常运行时可以试试以下指令</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo chsh -s $(which zsh)</span><br></pre></td></tr></table></figure></blockquote>
 <ul>
 <li>为特定用户</li>
 </ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo chsh -s /bin/zsh &lt;username&gt;</span><br><span class="line"># &lt;username&gt; 替换为实际用户名</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo chsh -s /bin/zsh &lt;username&gt;</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">&lt;username&gt; 替换为实际用户名</span></span><br></pre></td></tr></table></figure>
 
 <h1 id="oh-my-zsh"><a href="#oh-my-zsh" class="headerlink" title="oh_my_zsh"></a>oh_my_zsh</h1><p>安装git</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt update</span><br><span class="line">sudo apt install git</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt update</span><br><span class="line">sudo apt install git</span><br></pre></td></tr></table></figure>
 
 <p>自动安装</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sh -c &quot;$(wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)&quot;</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sh -c &quot;$(wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)&quot;</span><br></pre></td></tr></table></figure>
 
+<blockquote>
+<p>网络不好时可尝试</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sh -c &quot;$(curl -fsSL https://gitee.com/leok77s/ohmyzsh-gitee/raw/main/install.gitee.sh)&quot;</span><br></pre></td></tr></table></figure></blockquote>
 <p>也可以手动自行去github上克隆安装，然后将配置cp到自己的.zshrc上</p>
 <ul>
 <li><h3 id="进阶"><a href="#进阶" class="headerlink" title="进阶"></a>进阶</h3></li>
@@ -380,22 +386,22 @@ window.MathJax = {
 <p>功能介绍：优雅主题、自动补全、语法高亮、esc两次等于添加sudo</p>
 <p><strong>主题</strong></p>
 <p>祖传powerlevel10k，</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone --depth=1 https://gitee.com/romkatv/powerlevel10k.git $&#123;ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom&#125;/themes/powerlevel10k</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone --depth=1 https://gitee.com/romkatv/powerlevel10k.git $&#123;ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom&#125;/themes/powerlevel10k</span><br></pre></td></tr></table></figure>
 
 <p>在<code>~/.zshrc</code>中配置<code>ZSH_THEME=&quot;powerlevel10k/powerlevel10k&quot;</code></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.</span></span><br><span class="line"><span class="comment"># Initialization code that may require console input (password prompts, [y/n]</span></span><br><span class="line"><span class="comment"># confirmations, etc.) must go above this block; everything else may go below.</span></span><br><span class="line"><span class="keyword">if</span> [[ -r <span class="string">&quot;<span class="variable">$&#123;XDG_CACHE_HOME:-<span class="variable">$HOME</span>/.cache&#125;</span>/p10k-instant-prompt-<span class="variable">$&#123;(%):-%n&#125;</span>.zsh&quot;</span> ]]; <span class="keyword">then</span></span><br><span class="line">  <span class="built_in">source</span> <span class="string">&quot;<span class="variable">$&#123;XDG_CACHE_HOME:-<span class="variable">$HOME</span>/.cache&#125;</span>/p10k-instant-prompt-<span class="variable">$&#123;(%):-%n&#125;</span>.zsh&quot;</span></span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># If you come from bash you might have to change your $PATH.</span></span><br><span class="line"><span class="comment"># export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Path to your Oh My Zsh installation.</span></span><br><span class="line"><span class="built_in">export</span> ZSH=<span class="string">&quot;<span class="variable">$HOME</span>/.oh-my-zsh&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Set name of the theme to load --- if set to &quot;random&quot;, it will</span></span><br><span class="line"><span class="comment"># load a random theme each time Oh My Zsh is loaded, in which case,</span></span><br><span class="line"><span class="comment"># to know which specific one was loaded, run: echo $RANDOM_THEME</span></span><br><span class="line"><span class="comment"># See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes</span></span><br><span class="line"><span class="comment"># ZSH_THEME=&quot;robbyrussell&quot;</span></span><br><span class="line">ZSH_THEME=<span class="string">&quot;powerlevel10k/powerlevel10k&quot;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Set name of the theme to load --- <span class="keyword">if</span> <span class="built_in">set</span> to <span class="string">&quot;random&quot;</span>, it will</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">load a random theme each time Oh My Zsh is loaded, <span class="keyword">in</span> <span class="built_in">which</span> <span class="keyword">case</span>,</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">to know <span class="built_in">which</span> specific one was loaded, run: <span class="built_in">echo</span> <span class="variable">$RANDOM_THEME</span></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">ZSH_THEME=<span class="string">&quot;robbyrussell&quot;</span></span></span><br><span class="line">ZSH_THEME=&quot;powerlevel10k/powerlevel10k&quot;</span><br></pre></td></tr></table></figure>
 
 <p><code>source .zshrc</code>一下</p>
 <p><strong>plus</strong></p>
 <p>找到plugin再添加如下配置（还可以自己补充，不过以下三条足以）</p>
 <p><strong>zsh-autosuggestion:</strong>:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone --depth=1 https://github.com/zsh-users/zsh-autosuggestions.git $&#123;ZSH_CUSTOM:-$&#123;ZSH:-~/.oh-my-zsh&#125;/custom&#125;/plugins/zsh-autosuggestions</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone --depth=1 https://github.com/zsh-users/zsh-autosuggestions.git $&#123;ZSH_CUSTOM:-$&#123;ZSH:-~/.oh-my-zsh&#125;/custom&#125;/plugins/zsh-autosuggestions</span><br></pre></td></tr></table></figure>
 
 <p><strong>zsh-syntax-highlighting</strong>:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone --depth=1 https://github.com/zsh-users/zsh-syntax-highlighting.git $&#123;ZSH_CUSTOM:-~/.oh-my-zsh/custom&#125;/plugins/zsh-syntax-highlighting</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone --depth=1 https://github.com/zsh-users/zsh-syntax-highlighting.git $&#123;ZSH_CUSTOM:-~/.oh-my-zsh/custom&#125;/plugins/zsh-syntax-highlighting</span><br></pre></td></tr></table></figure>
 
 <p>编辑<code>~/.zshrc</code></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"># Which plugins would you like to load?</span><br><span class="line"># Standard plugins can be found in $ZSH/plugins/</span><br><span class="line"># Custom plugins may be added to $ZSH_CUSTOM/plugins/</span><br><span class="line"># Example format: plugins=(rails git textmate ruby lighthouse)</span><br><span class="line"># Add wisely, as too many plugins slow down shell startup.</span><br><span class="line">plugins=(</span><br><span class="line">        git</span><br><span class="line">        sudo</span><br><span class="line">        zsh-syntax-highlighting</span><br><span class="line">        zsh-autosuggestions</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Which plugins would you like to load?</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Standard plugins can be found <span class="keyword">in</span> <span class="variable">$ZSH</span>/plugins/</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Custom plugins may be added to <span class="variable">$ZSH_CUSTOM</span>/plugins/</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Example format: plugins=(rails git textmate ruby lighthouse)</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Add wisely, as too many plugins slow down shell startup.</span></span><br><span class="line">plugins=(</span><br><span class="line">        git</span><br><span class="line">        sudo</span><br><span class="line">        zsh-syntax-highlighting</span><br><span class="line">        zsh-autosuggestions</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
 <p>最后记得<code>source .zshrc</code>，然后会进入主题的配置界面，非常简单的交互<br><img src="/zsh-oh-my-zsh/p1.png"><br>最终效果，简约，补全（根据最近历史记录)，时间显示，按两次esc可以直接sudo</p>
 <blockquote>
 <p>熟练后在新设备上五分钟不到就OK，如果你发现怎么都没办法把zsh调成默认shell，不妨试一下重启，血压飙升！</p>
