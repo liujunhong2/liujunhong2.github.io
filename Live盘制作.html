@@ -20,24 +20,29 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"liujunhong2.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":true,"version":"8.22.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":"ture","style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
 
-    <meta name="description" content="个人博客">
-<meta property="og:type" content="website">
-<meta property="og:title" content="豹子湾2.0">
-<meta property="og:url" content="https://liujunhong2.github.io/archives/2025/index.html">
+    <meta name="description" content="两步极简制作Live盘">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Live盘制作">
+<meta property="og:url" content="https://liujunhong2.github.io/Live%E7%9B%98%E5%88%B6%E4%BD%9C.html">
 <meta property="og:site_name" content="豹子湾2.0">
-<meta property="og:description" content="个人博客">
+<meta property="og:description" content="两步极简制作Live盘">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://liujunhong2.github.io/Live%E7%9B%98%E5%88%B6%E4%BD%9C/ISO1.png">
+<meta property="article:published_time" content="2025-11-28T11:19:33.000Z">
+<meta property="article:modified_time" content="2025-11-28T11:32:15.450Z">
 <meta property="article:author" content="jiangshun">
+<meta property="article:tag" content="Linux">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://liujunhong2.github.io/Live%E7%9B%98%E5%88%B6%E4%BD%9C/ISO1.png">
 
 
-<link rel="canonical" href="https://liujunhong2.github.io/archives/2025/">
+<link rel="canonical" href="https://liujunhong2.github.io/Live%E7%9B%98%E5%88%B6%E4%BD%9C.html">
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"zh-CN","comments":"","permalink":"","path":"archives/2025/index.html","title":""}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://liujunhong2.github.io/Live%E7%9B%98%E5%88%B6%E4%BD%9C.html","path":"Live盘制作.html","title":"Live盘制作"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>归档 | 豹子湾2.0</title>
+<title>Live盘制作 | 豹子湾2.0</title>
   
 
 
@@ -112,7 +117,7 @@ window.MathJax = {
 
     <a href="/" class="brand" rel="start">
       <i class="logo-line"></i>
-      <h1 class="site-title">豹子湾2.0</h1>
+      <p class="site-title">豹子湾2.0</p>
       <i class="logo-line"></i>
     </a>
   </div>
@@ -165,7 +170,7 @@ window.MathJax = {
   
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -178,6 +183,7 @@ window.MathJax = {
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Live%E7%9B%98%E5%88%B6%E4%BD%9C"><span class="nav-number">1.</span> <span class="nav-text">Live盘制作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#ISO%E9%95%9C%E5%83%8F"><span class="nav-number">1.1.</span> <span class="nav-text">ISO镜像</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#U%E7%9B%98"><span class="nav-number">1.2.</span> <span class="nav-text">U盘</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A1%AE%E5%AE%9AU%E7%9B%98%E8%AE%BE%E5%A4%87%E5%90%8D"><span class="nav-number">1.2.1.</span> <span class="nav-text">确定U盘设备名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8D%B8%E8%BD%BD-U-%E7%9B%98%E5%88%86%E5%8C%BA"><span class="nav-number">1.2.2.</span> <span class="nav-text">卸载 U 盘分区</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8-dd-%E7%83%A7%E5%BD%95"><span class="nav-number">1.2.3.</span> <span class="nav-text">使用 dd 烧录</span></a></li></ol></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -246,229 +252,186 @@ window.MathJax = {
 
     </div>
 
-    <div class="main-inner archive posts-collapse">
+    <div class="main-inner post posts-expand">
 
 
   
-  
-  
-  <div class="post-block">
-    <div class="post-content">
-      <div class="collection-title">
-        <span class="collection-header">嗯..! 目前共计 10 篇日志。 继续努力。</span>
-      </div>
 
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://liujunhong2.github.io/Live%E7%9B%98%E5%88%B6%E4%BD%9C.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/p1.jpeg">
+      <meta itemprop="name" content="jiangshun">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="豹子湾2.0">
+      <meta itemprop="description" content="个人博客">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Live盘制作 | 豹子湾2.0">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Live盘制作
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
       
-    <div class="collection-year">
-      <span class="collection-header">2025<span class="collection-year-count">10</span></span>
+
+      <time title="创建时间：2025-11-28 19:19:33 / 修改时间：19:32:15" itemprop="dateCreated datePublished" datetime="2025-11-28T19:19:33+08:00">2025-11-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Learn/" itemprop="url" rel="index"><span itemprop="name">Learn</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>401</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1 id="Live盘制作"><a href="#Live盘制作" class="headerlink" title="Live盘制作"></a>Live盘制作</h1><p>一个带有操作系统的U盘就叫做live盘，此盘可用于修复主机，重装系统等。</p>
+<p>其在Linux环境下的制作也是非常简单的，只用两个步骤：</p>
+<ul>
+<li><p><em>挑选合适的ISO镜像</em></p>
+</li>
+<li><p><em>将其烧录至U盘</em></p>
+</li>
+</ul>
+<h2 id="ISO镜像"><a href="#ISO镜像" class="headerlink" title="ISO镜像"></a>ISO镜像</h2><p>这里我下载的是<a target="_blank" rel="noopener" href="https://www.debian.org/CD/live/">debian-live-13.2.0-amd64-kde.iso</a>，可选择自己喜欢的系统和版本。</p>
+<p><a href="%E4%B8%8B%E8%BD%BD%E8%BF%9E%E6%8E%A5">下载连接</a>.</p>
+<h2 id="U盘"><a href="#U盘" class="headerlink" title="U盘"></a>U盘</h2><p>准备一个内存大于ISO镜像的U盘，插入电脑。</p>
+<blockquote>
+<p>⚠️ 操作前请务必确认 <strong>U 盘设备名</strong>，否则会把错误的磁盘覆盖！</p>
+</blockquote>
+<h3 id="确定U盘设备名"><a href="#确定U盘设备名" class="headerlink" title="确定U盘设备名"></a>确定U盘设备名</h3><p>插入 U 盘后执行：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lsblk</span><br></pre></td></tr></table></figure>
+<p><img src="/Live%E7%9B%98%E5%88%B6%E4%BD%9C/ISO1.png"></p>
+<p>你会看到类似：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">NAME        MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS</span><br><span class="line">sda           8:0    1  58.6G  0 disk  # ← 这通常是你的 U 盘</span><br><span class="line">├─sda1        8:1    1   3.9G  0 part </span><br><span class="line">└─sda2        8:2    1   3.2M  0 part </span><br><span class="line">nvme1n1     259:0    0 238.5G  0 disk </span><br><span class="line">├─nvme1n1p1 259:1    0   100M  0 part </span><br><span class="line">├─nvme1n1p2 259:2    0    16M  0 part </span><br><span class="line">├─nvme1n1p3 259:3    0     3G  0 part </span><br><span class="line">├─nvme1n1p4 259:4    0   608M  0 part </span><br><span class="line">├─nvme1n1p5 259:5    0   488M  0 part /boot</span><br><span class="line">└─nvme1n1p6 259:6    0 149.5G  0 part /</span><br><span class="line">nvme0n1     259:7    0 476.9G  0 disk </span><br><span class="line">├─nvme0n1p1 259:8    0   260M  0 part /boot/efi</span><br><span class="line">├─nvme0n1p2 259:9    0    16M  0 part </span><br><span class="line">├─nvme0n1p3 259:10   0   200G  0 part </span><br><span class="line">├─nvme0n1p4 259:11   0 274.7G  0 part </span><br><span class="line">└─nvme0n1p5 259:12   0     2G  0 part</span><br></pre></td></tr></table></figure>
+
+<h3 id="卸载-U-盘分区"><a href="#卸载-U-盘分区" class="headerlink" title="卸载 U 盘分区"></a>卸载 U 盘分区</h3><p>如果系统自动挂载了 U 盘，先卸载：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo umount /dev/sda*</span><br></pre></td></tr></table></figure>
+
+<h3 id="使用-dd-烧录"><a href="#使用-dd-烧录" class="headerlink" title="使用 dd 烧录"></a>使用 dd 烧录</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo dd if=你的镜像.iso of=/dev/sda bs=4M status=progress oflag=sync</span><br></pre></td></tr></table></figure>
+
+<p>参数:</p>
+<ul>
+<li><code>if=</code> 输入文件（你的 ISO）</li>
+<li><code>of=</code> 输出设备（整个磁盘，不要写成 sdb1）</li>
+<li><code>bs=4M</code> 加快写入速度</li>
+<li><code>status=progress</code> 显示进度</li>
+<li><code>oflag=sync</code> 确保数据实时写入</li>
+</ul>
+<p>烧录完成后即可使用。</p>
+
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2025-11-28T19:19:33+08:00"
-              content="2025-11-28">
-          11-28
-        </time>
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>请我一杯咖啡吧！</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/p2.png" alt="jiangshun 比特币">
+        <span>比特币</span>
       </div>
 
-      <div class="post-title">
-          <a class="post-title-link" href="/Live%E7%9B%98%E5%88%B6%E4%BD%9C.html" itemprop="url">
-            <span itemprop="name">Live盘制作</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2025-11-11T10:55:03+08:00"
-              content="2025-11-11">
-          11-11
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/DES%E5%92%8CIDEA%E7%9A%84CPP%E5%AE%9E%E7%8E%B0.html" itemprop="url">
-            <span itemprop="name">DES和IDEA的CPP实现</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2025-09-18T16:35:19+08:00"
-              content="2025-09-18">
-          09-18
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/zsh-oh-my-zsh.html" itemprop="url">
-            <span itemprop="name">zsh/oh_my_zsh</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2025-09-17T13:56:18+08:00"
-              content="2025-09-17">
-          09-17
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/Linux%E5%88%86%E5%B8%83%E5%BC%8F%E9%9B%86%E7%BE%A4.html" itemprop="url">
-            <span itemprop="name">Linux分布式集群</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2025-06-29T00:00:00+08:00"
-              content="2025-06-29">
-          06-29
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/Bodyguard.html" itemprop="url">
-            <span itemprop="name">Bodyguard</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2025-03-27T20:17:28+08:00"
-              content="2025-03-27">
-          03-27
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/Git-for-Android-Studio.html" itemprop="url">
-            <span itemprop="name">Git_for_Android-Studio</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2025-03-24T18:29:49+08:00"
-              content="2025-03-24">
-          03-24
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/algorithm.html" itemprop="url">
-            <span itemprop="name">algorithm</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2025-02-17T10:53:59+08:00"
-              content="2025-02-17">
-          02-17
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/cycle.html" itemprop="url">
-            <span itemprop="name">cycle</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2025-02-09T15:46:24+08:00"
-              content="2025-02-09">
-          02-09
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/learnhexo.html" itemprop="url">
-            <span itemprop="name">Hexo better</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2025-02-09T15:46:11+08:00"
-              content="2025-02-09">
-          02-09
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/learngit.html" itemprop="url">
-            <span itemprop="name">Git better</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-
-    </div>
   </div>
-  
-  
-  
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>jiangshun
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://liujunhong2.github.io/Live%E7%9B%98%E5%88%B6%E4%BD%9C.html" title="Live盘制作">https://liujunhong2.github.io/Live盘制作.html</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/Linux/" rel="tag"># Linux</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/DES%E5%92%8CIDEA%E7%9A%84CPP%E5%AE%9E%E7%8E%B0.html" rel="prev" title="DES和IDEA的CPP实现">
+                  <i class="fa fa-angle-left"></i> DES和IDEA的CPP实现
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
 
 </div>
   </main>
