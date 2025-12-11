@@ -1170,6 +1170,188 @@
       </tags>
   </entry>
   <entry>
+    <title>Kernel</title>
+    <url>/Kernel.html</url>
+    <content><![CDATA[<h1 id="更换Kernel"><a href="#更换Kernel" class="headerlink" title="更换Kernel"></a>更换Kernel</h1><p>当boot空间不足时，我们不得不删除多余的备用linux核。</p>
+<h2 id="删除多余kernel"><a href="#删除多余kernel" class="headerlink" title="删除多余kernel"></a>删除多余kernel</h2><p>确认当前内核</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">uname</span> -r</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>我的结果为</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">6.12.57+deb13-amd64</span><br></pre></td></tr></table></figure></blockquote>
+<p>列出所有已安装的内核包</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">dpkg --list | grep linux-image</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>我的结果为</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ii  linux-image-6.12.48+deb13-amd64                     6.12.48-1                            amd64        Linux 6.12 <span class="keyword">for</span> 64-bit PCs (signed)</span><br><span class="line">ii  linux-image-6.12.57+deb13-amd64                     6.12.57-1                            amd64        Linux 6.12 <span class="keyword">for</span> 64-bit PCs (signed)</span><br><span class="line">ii  linux-image-amd64                                   6.12.57-1                            amd64        Linux <span class="keyword">for</span> 64-bit PCs (meta-package)</span><br></pre></td></tr></table></figure></blockquote>
+<p>这个时候我就要删除6.12.48</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt remove linux-image-6.12.48+deb13-amd64 </span><br></pre></td></tr></table></figure>
+
+<p>清理残留</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt autoremove --purge</span><br></pre></td></tr></table></figure>
+
+<p>检查&#x2F;boot空间</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">df</span> -h /boot</span><br></pre></td></tr></table></figure>
+
+<h2 id="换核"><a href="#换核" class="headerlink" title="换核"></a>换核</h2><p>直接update+upgrade两件套</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt update</span><br><span class="line">sudo apt upgrade</span><br></pre></td></tr></table></figure>
+
+<p>下好了新的内核后，记得更新gtub</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo update-grub2</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Learn</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>Kernel</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>TexLive_VScode</title>
+    <url>/TexLive-VScode.html</url>
+    <content><![CDATA[<h1 id="Texlive-in-Vscode"><a href="#Texlive-in-Vscode" class="headerlink" title="Texlive in Vscode"></a>Texlive in Vscode</h1><h1 id="Texlive"><a href="#Texlive" class="headerlink" title="Texlive"></a>Texlive</h1><p>使用 TeX Live 官方安装脚本</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">wget https://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz</span><br></pre></td></tr></table></figure>
+
+<p>解压</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo zcat &lt; install-tl-unx.tar.gz | sudo tar xf -</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>ls的结果<br><strong>install-tl-20251209</strong>  install-tl-unx.tar.gz</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cd install-tl-20251209</span><br></pre></td></tr></table></figure></blockquote>
+<p>进入解压目录后执行安装脚本</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo perl ./install-tl --no-interaction</span><br></pre></td></tr></table></figure>
+
+<p>….a few moments later</p>
+<p>配置环境变量</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vim ~/.zshrc</span><br><span class="line"><span class="comment"># 根据自己的shell来</span></span><br></pre></td></tr></table></figure>
+
+<p>加入以下内容（注意一下年份的匹配）</p>
+<blockquote>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># LaTeX</span></span><br><span class="line"><span class="built_in">export</span> MANPATH=<span class="variable">$&#123;MANPATH&#125;</span>:/usr/local/texlive/2025/texmf-dist/doc/man</span><br><span class="line"><span class="built_in">export</span> INFOPATH=<span class="variable">$&#123;INFOPATH&#125;</span>:/usr/local/texlive/2025/texmf-dist/doc/info</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$&#123;PATH&#125;</span>:/usr/local/texlive/2025/bin/x86_64-linux</span><br></pre></td></tr></table></figure></blockquote>
+<p>验证安装</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">tex --version</span><br><span class="line">latex --version</span><br></pre></td></tr></table></figure>
+
+<p>再安装Perl模块（后边格式化代码时需要用到）</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt update &amp;&amp; sudo apt install cpanminus</span><br><span class="line">sudo cpanm YAML::Tiny</span><br><span class="line">sudo cpanm File::HomeDir</span><br><span class="line">sudo cpanm Unicode::GCString</span><br><span class="line">sudo cpanm Log::Log4perl</span><br><span class="line">sudo cpanm Log::Dispatch</span><br></pre></td></tr></table></figure>
+
+<p>安装tex-fmt</p>
+<p>用官方脚本装rustup</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt update</span><br><span class="line">sudo apt install -y curl build-essential pkg-config libssl-dev</span><br><span class="line">curl --proto <span class="string">&#x27;=https&#x27;</span> --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y</span><br></pre></td></tr></table></figure>
+
+<p>在当前终端把环境加载进来</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">source</span> <span class="string">&quot;<span class="variable">$HOME</span>/.cargo/env&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>切换到stable并更新</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">rustup update stable</span><br><span class="line">rustup default stable</span><br></pre></td></tr></table></figure>
+
+<p>配置crates镜像</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> -p <span class="string">&quot;<span class="variable">$HOME</span>/.cargo&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">cat</span> &gt; <span class="string">&quot;<span class="variable">$HOME</span>/.cargo/config.toml&quot;</span> &lt;&lt; <span class="string">&#x27;EOF&#x27;</span></span><br><span class="line">[source.crates-io]</span><br><span class="line">replace-with = <span class="string">&#x27;hustmirror&#x27;</span></span><br><span class="line"></span><br><span class="line">[source.hustmirror]</span><br><span class="line">registry = <span class="string">&quot;sparse+https://mirrors.hust.edu.cn/crates.io-index/&quot;</span></span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
+
+<p>安装tex-fmt</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cargo install tex-fmt</span><br></pre></td></tr></table></figure>
+
+<p>配置环境</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;export PATH=&quot;$HOME/.cargo/bin:$PATH&quot;&#x27;</span> &gt;&gt; ~/.zshrc</span><br><span class="line"><span class="built_in">source</span> ~/.zshrc</span><br></pre></td></tr></table></figure>
+
+<h1 id="VScode"><a href="#VScode" class="headerlink" title="VScode"></a>VScode</h1><p>下载以下两个插件</p>
+<p><img src="/TexLive-VScode/latex.png" alt="cahjian"></p>
+<p>在setting的json中加入以下配置</p>
+<p><img src="/TexLive-VScode/latex2.png"></p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="attr">&quot;files.autoSave&quot;</span><span class="punctuation">:</span> <span class="string">&quot;afterDelay&quot;</span><span class="punctuation">,</span> <span class="comment">// 自动保存</span></span><br><span class="line"><span class="attr">&quot;editor.formatOnPaste&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span> <span class="comment">// 粘贴后自动格式化</span></span><br><span class="line"><span class="attr">&quot;editor.formatOnType&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span> <span class="comment">// 键入后自动格式化</span></span><br><span class="line"><span class="attr">&quot;editor.formatOnSave&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span> <span class="comment">// 保存时自动格式化</span></span><br><span class="line"><span class="comment">// LaTeX</span></span><br><span class="line"><span class="attr">&quot;latex-workshop.latex.recipes&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">  <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;xelatex&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;tools&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">      <span class="string">&quot;xelatex&quot;</span></span><br><span class="line">    <span class="punctuation">]</span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;pdflatex&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;tools&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">      <span class="string">&quot;pdflatex&quot;</span></span><br><span class="line">    <span class="punctuation">]</span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;latexmk&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;tools&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">      <span class="string">&quot;latexmk&quot;</span></span><br><span class="line">    <span class="punctuation">]</span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;xelatex -&gt; bibtex -&gt; xelatex*2&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;tools&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">      <span class="string">&quot;xelatex&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="string">&quot;bibtex&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="string">&quot;xelatex&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="string">&quot;xelatex&quot;</span></span><br><span class="line">    <span class="punctuation">]</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line"><span class="attr">&quot;latex-workshop.latex.tools&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">  <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;latexmk&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;command&quot;</span><span class="punctuation">:</span> <span class="string">&quot;latexmk&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;args&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">      <span class="string">&quot;--shell-escape&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="string">&quot;-synctex=1&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="string">&quot;-interaction=nonstopmode&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="string">&quot;-file-line-error&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="string">&quot;-pdf&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="string">&quot;%DOC%&quot;</span></span><br><span class="line">    <span class="punctuation">]</span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;xelatex&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;command&quot;</span><span class="punctuation">:</span> <span class="string">&quot;xelatex&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;args&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">      <span class="string">&quot;--shell-escape&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="string">&quot;-synctex=1&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="string">&quot;-interaction=nonstopmode&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="string">&quot;-file-line-error&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="string">&quot;%DOC%&quot;</span></span><br><span class="line">    <span class="punctuation">]</span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;pdflatex&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;command&quot;</span><span class="punctuation">:</span> <span class="string">&quot;pdflatex&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;args&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">      <span class="string">&quot;--shell-escape&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="string">&quot;-synctex=1&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="string">&quot;-interaction=nonstopmode&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="string">&quot;-file-line-error&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="string">&quot;%DOC%&quot;</span></span><br><span class="line">    <span class="punctuation">]</span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;bibtex&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;command&quot;</span><span class="punctuation">:</span> <span class="string">&quot;bibtex&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;args&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">      <span class="string">&quot;%DOCFILE%&quot;</span></span><br><span class="line">    <span class="punctuation">]</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line"><span class="attr">&quot;latex-workshop.latex.clean.fileTypes&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">  <span class="string">&quot;*.acn&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="string">&quot;*.acr&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="string">&quot;*.alg&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="string">&quot;*.aux&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="string">&quot;*.bbl&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="string">&quot;*.blg&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="string">&quot;*.fdb_latexmk&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="string">&quot;*.fls&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="string">&quot;*.glg&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="string">&quot;*.glo&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="string">&quot;*.gls&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="string">&quot;*.idx&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="string">&quot;*.ind&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="string">&quot;*.ist&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="string">&quot;*.lof&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="string">&quot;*.log&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="string">&quot;*.lot&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="string">&quot;*.nav&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="string">&quot;*.out&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="string">&quot;*.pdfsync&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="string">&quot;*.pre&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="string">&quot;*.rubbercache&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="string">&quot;*.snm&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="string">&quot;*.synctex&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="string">&quot;*.synctex(busy)&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="string">&quot;*.synctex.gz&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="string">&quot;*.synctex.gz(busy)&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="string">&quot;*.toc&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="string">&quot;*.vrb&quot;</span></span><br><span class="line"><span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line"><span class="comment">// 清理上述后缀名的文件</span></span><br><span class="line"><span class="attr">&quot;latex-workshop.latex.clean.method&quot;</span><span class="punctuation">:</span> <span class="string">&quot;glob&quot;</span><span class="punctuation">,</span></span><br><span class="line"><span class="comment">// 语法检查</span></span><br><span class="line"><span class="attr">&quot;latex.linter.enabled&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">false</span></span><span class="punctuation">,</span></span><br><span class="line"><span class="comment">// tex文件浏览器，可选项为&quot;none&quot; &quot;browser&quot; &quot;tab&quot; &quot;external&quot;</span></span><br><span class="line"><span class="attr">&quot;latex-workshop.view.pdf.viewer&quot;</span><span class="punctuation">:</span> <span class="string">&quot;tab&quot;</span><span class="punctuation">,</span></span><br><span class="line"><span class="comment">// 自动编译tex文件</span></span><br><span class="line"><span class="attr">&quot;latex-workshop.latex.autoBuild.run&quot;</span><span class="punctuation">:</span> <span class="string">&quot;onSave&quot;</span><span class="punctuation">,</span></span><br><span class="line"><span class="comment">// 显示内容菜单：（1）编译文件；（2）定位游标</span></span><br><span class="line"><span class="attr">&quot;latex-workshop.showContextMenu&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span></span><br><span class="line"><span class="comment">// 显示错误</span></span><br><span class="line"><span class="attr">&quot;latex-workshop.message.error.show&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span></span><br><span class="line"><span class="comment">// 显示警告</span></span><br><span class="line"><span class="attr">&quot;latex-workshop.message.warning.show&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span></span><br><span class="line"><span class="comment">// 从使用的包中自动补全命令和环境</span></span><br><span class="line"><span class="attr">&quot;latex-workshop.intellisense.package.enabled&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span></span><br><span class="line"><span class="comment">// 清除辅助文件</span></span><br><span class="line"><span class="attr">&quot;latex-workshop.latex.autoClean.run&quot;</span><span class="punctuation">:</span> <span class="string">&quot;never&quot;</span><span class="punctuation">,</span></span><br><span class="line"><span class="comment">// 设置vscode编译tex文档时的默认编译链</span></span><br><span class="line"><span class="attr">&quot;latex-workshop.latex.recipe.default&quot;</span><span class="punctuation">:</span> <span class="string">&quot;lastUsed&quot;</span><span class="punctuation">,</span></span><br><span class="line"><span class="comment">// 用于反向同步的内部查看器的键绑定。ctrl/cmd + 点击（默认）或双击</span></span><br><span class="line"><span class="attr">&quot;latex-workshop.view.pdf.internal.synctex.keybinding&quot;</span><span class="punctuation">:</span> <span class="string">&quot;double-click&quot;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>随便在一个.tex文件中右键，然后点击<code>使用格式化文档</code>，然后选择Latex Workhop</p>
+<p>编译记得点击</p>
+<p><img src="/TexLive-VScode/latex3.png"></p>
+<blockquote>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2></blockquote>
+<p><a href="https://blog.csdn.net/M0rtzz/article/details/136026129">VScode config</a>.</p>
+<p><a href="https://blog.csdn.net/rear_queue/article/details/131126256">Texlive</a>.</p>
+]]></content>
+      <categories>
+        <category>— Learn</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>Latex</tag>
+        <tag>VScode</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Anoconda_setup</title>
+    <url>/Anoconda-setup.html</url>
+    <content><![CDATA[<h1 id="Anaconda"><a href="#Anaconda" class="headerlink" title="Anaconda"></a>Anaconda</h1><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>下载一个合适版本的安装脚本</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">curl -O https://repo.anaconda.com/archive/Anaconda3-2024.06-1-Linux-x86_64.sh</span><br></pre></td></tr></table></figure>
+
+<p>执行安装脚本</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">bash Anaconda3-2024.06-1-Linux-x86_64.sh</span><br></pre></td></tr></table></figure>
+
+<p>按 Enter 键查看许可协议，按q结束快速结束内容，最后输入 yes同意协议，然后按 Enter 接受默认安装位置<code>/home/&lt;USER&gt;/anaconda3</code> 。</p>
+<p>最后会问你要不要每次启动都默认激活conda环境</p>
+<blockquote>
+<p>Do you wish to update your shell profile to automatically initialize conda?<br>This will activate conda on startup and change the command prompt when activated.<br>If you’d prefer that conda’s base environment not be activated on startup,<br>   run the following command when conda is activated:</p>
+<p>conda config –set auto_activate_base false</p>
+<p>You can undo this by running <code>conda init --reverse $SHELL</code>? [yes|no]<br>[no] &gt;&gt;&gt;</p>
+</blockquote>
+<p>我的选择是默认的no(Enter)</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">conda config --set auto_activate_base false</span><br></pre></td></tr></table></figure>
+
+<p>随之而来的是自己完成初始化</p>
+<blockquote>
+<p>You have chosen to not have conda modify your shell scripts at all.<br>To activate conda’s base environment in your current shell session:</p>
+<p><strong>eval “$(&#x2F;home&#x2F;<username>&#x2F;anaconda3&#x2F;bin&#x2F;conda shell.YOUR_SHELL_NAME hook)”</username></strong></p>
+<p>To install conda’s shell functions for easier access, first activate, then:</p>
+<p><strong>conda init</strong></p>
+<p>Thank you for installing Anaconda3!</p>
+</blockquote>
+<p>例：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">eval &quot;$(/home/user1/anaconda3/bin/conda shell.zsh hook)</span><br></pre></td></tr></table></figure>
+
+<p>最后init</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">conda init &lt;zsh&gt;</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">zsh是我自己的shell,默认的是bash</span></span><br></pre></td></tr></table></figure>
+
+<p>测试</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">conda -V</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>conda 24.5.0</p>
+</blockquote>
+<p>完成！</p>
+<h2 id="换源"><a href="#换源" class="headerlink" title="换源"></a>换源</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vim ~/.condarc</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>写入如下内容：</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">channels:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge/</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">defaults</span></span><br><span class="line"></span><br><span class="line"><span class="attr">default_channels:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/r</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/msys2</span></span><br><span class="line"></span><br><span class="line"><span class="attr">custom_channels:</span></span><br><span class="line">  <span class="attr">conda-forge:</span> <span class="string">https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span></span><br><span class="line">  <span class="attr">msys2:</span> <span class="string">https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span></span><br><span class="line"></span><br><span class="line"><span class="attr">show_channel_urls:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure></blockquote>
+<p>保存后退出并执行</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">conda clean -i</span><br></pre></td></tr></table></figure>
+
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>检查虚拟环境</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">conda env list</span><br></pre></td></tr></table></figure>
+
+<p>创建虚拟环境</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">有环境包时</span></span><br><span class="line">conda env create -f env_name.yml</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">普通</span></span><br><span class="line">conda create -n env_name python=3.6</span><br></pre></td></tr></table></figure>
+
+<p>激活</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">conda activate env_name</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">取消激活当前环境可</span></span><br><span class="line">onda deactivate</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">conda install anaconda-clean</span><br><span class="line">anaconda-clean</span><br><span class="line">rm -rf anaconda3</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">最后删掉 .bashrc 中的 conda</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2></blockquote>
+<p><a href="https://www.cnblogs.com/moonout/p/18334292">博客园</a>.</p>
+]]></content>
+      <categories>
+        <category>Learn</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>Anaconda</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Live盘制作</title>
     <url>/Live%E7%9B%98%E5%88%B6%E4%BD%9C.html</url>
     <content><![CDATA[<h1 id="Live盘制作"><a href="#Live盘制作" class="headerlink" title="Live盘制作"></a>Live盘制作</h1><p>一个带有操作系统的U盘就叫做live盘，此盘可用于修复主机，重装系统等。</p>
@@ -1225,6 +1407,7 @@
       </categories>
       <tags>
         <tag>Linux</tag>
+        <tag>Live盘</tag>
       </tags>
   </entry>
   <entry>
