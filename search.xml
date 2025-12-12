@@ -1255,6 +1255,9 @@
 <p>配置环境</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;export PATH=&quot;$HOME/.cargo/bin:$PATH&quot;&#x27;</span> &gt;&gt; ~/.zshrc</span><br><span class="line"><span class="built_in">source</span> ~/.zshrc</span><br></pre></td></tr></table></figure>
 
+<blockquote>
+<p>补充一些扩展</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt update</span><br><span class="line">sudo apt install texlive-xetex texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended</span><br></pre></td></tr></table></figure></blockquote>
 <h1 id="VScode"><a href="#VScode" class="headerlink" title="VScode"></a>VScode</h1><p>下载以下两个插件</p>
 <p><img src="/TexLive-VScode/latex.png" alt="cahjian"></p>
 <p>在setting的json中加入以下配置</p>
@@ -1279,7 +1282,7 @@
       </tags>
   </entry>
   <entry>
-    <title>Anoconda_setup</title>
+    <title>Anoconda</title>
     <url>/Anoconda-setup.html</url>
     <content><![CDATA[<h1 id="Anaconda"><a href="#Anaconda" class="headerlink" title="Anaconda"></a>Anaconda</h1><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>下载一个合适版本的安装脚本</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">curl -O https://repo.anaconda.com/archive/Anaconda3-2024.06-1-Linux-x86_64.sh</span><br></pre></td></tr></table></figure>
@@ -1333,7 +1336,7 @@
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">有环境包时</span></span><br><span class="line">conda env create -f env_name.yml</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">普通</span></span><br><span class="line">conda create -n env_name python=3.6</span><br></pre></td></tr></table></figure>
 
 <p>激活</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">conda activate env_name</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">取消激活当前环境可</span></span><br><span class="line">onda deactivate</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">conda activate env_name</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">取消激活当前环境可</span></span><br><span class="line">conda deactivate</span><br></pre></td></tr></table></figure>
 
 
 
