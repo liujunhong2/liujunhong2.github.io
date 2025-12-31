@@ -344,28 +344,24 @@ window.MathJax = {
     <div class="post-body" itemprop="articleBody"><h1 id="更换Kernel"><a href="#更换Kernel" class="headerlink" title="更换Kernel"></a>更换Kernel</h1><p>当boot空间不足时，我们不得不删除多余的备用linux核。</p>
 <h2 id="删除多余kernel"><a href="#删除多余kernel" class="headerlink" title="删除多余kernel"></a>删除多余kernel</h2><p>确认当前内核</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">uname</span> -r</span><br></pre></td></tr></table></figure>
-
 <blockquote>
 <p>我的结果为</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">6.12.57+deb13-amd64</span><br></pre></td></tr></table></figure></blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">6.12.57+deb13-amd64</span><br></pre></td></tr></table></figure>
+</blockquote>
 <p>列出所有已安装的内核包</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dpkg --list | grep linux-image</span><br></pre></td></tr></table></figure>
-
 <blockquote>
 <p>我的结果为</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ii  linux-image-6.12.48+deb13-amd64                     6.12.48-1                            amd64        Linux 6.12 <span class="keyword">for</span> 64-bit PCs (signed)</span><br><span class="line">ii  linux-image-6.12.57+deb13-amd64                     6.12.57-1                            amd64        Linux 6.12 <span class="keyword">for</span> 64-bit PCs (signed)</span><br><span class="line">ii  linux-image-amd64                                   6.12.57-1                            amd64        Linux <span class="keyword">for</span> 64-bit PCs (meta-package)</span><br></pre></td></tr></table></figure></blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ii  linux-image-6.12.48+deb13-amd64                     6.12.48-1                            amd64        Linux 6.12 <span class="keyword">for</span> 64-bit PCs (signed)</span><br><span class="line">ii  linux-image-6.12.57+deb13-amd64                     6.12.57-1                            amd64        Linux 6.12 <span class="keyword">for</span> 64-bit PCs (signed)</span><br><span class="line">ii  linux-image-amd64                                   6.12.57-1                            amd64        Linux <span class="keyword">for</span> 64-bit PCs (meta-package)</span><br></pre></td></tr></table></figure>
+</blockquote>
 <p>这个时候我就要删除6.12.48</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt remove linux-image-6.12.48+deb13-amd64 </span><br></pre></td></tr></table></figure>
-
 <p>清理残留</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt autoremove --purge</span><br></pre></td></tr></table></figure>
-
-<p>检查&#x2F;boot空间</p>
+<p>检查/boot空间</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">df</span> -h /boot</span><br></pre></td></tr></table></figure>
-
 <h2 id="换核"><a href="#换核" class="headerlink" title="换核"></a>换核</h2><p>直接update+upgrade两件套</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt update</span><br><span class="line">sudo apt upgrade</span><br></pre></td></tr></table></figure>
-
 <p>下好了新的内核后，记得更新gtub</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo update-grub2</span><br></pre></td></tr></table></figure>
 

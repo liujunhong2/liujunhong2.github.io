@@ -352,22 +352,19 @@ window.MathJax = {
 </li>
 </ul>
 <h2 id="ISO镜像"><a href="#ISO镜像" class="headerlink" title="ISO镜像"></a>ISO镜像</h2><p>这里我下载的是<a target="_blank" rel="noopener" href="https://www.debian.org/CD/live/">debian-live-13.2.0-amd64-kde.iso</a>，可选择自己喜欢的系统和版本。</p>
-<p><a href="%E4%B8%8B%E8%BD%BD%E8%BF%9E%E6%8E%A5">下载连接</a>.</p>
+<p><a href="下载连接">下载连接</a>.</p>
 <h2 id="U盘"><a href="#U盘" class="headerlink" title="U盘"></a>U盘</h2><p>准备一个内存大于ISO镜像的U盘，插入电脑。</p>
 <blockquote>
 <p>⚠️ 操作前请务必确认 <strong>U 盘设备名</strong>，否则会把错误的磁盘覆盖！</p>
 </blockquote>
 <h3 id="确定U盘设备名"><a href="#确定U盘设备名" class="headerlink" title="确定U盘设备名"></a>确定U盘设备名</h3><p>插入 U 盘后执行：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lsblk</span><br></pre></td></tr></table></figure>
-<p><img src="/Live%E7%9B%98%E5%88%B6%E4%BD%9C/ISO1.png"></p>
+<p><img src="/Live%E7%9B%98%E5%88%B6%E4%BD%9C/ISO1.png" alt></p>
 <p>你会看到类似：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">NAME        MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS</span><br><span class="line">sda           8:0    1  58.6G  0 disk  # ← 这通常是你的 U 盘</span><br><span class="line">├─sda1        8:1    1   3.9G  0 part </span><br><span class="line">└─sda2        8:2    1   3.2M  0 part </span><br><span class="line">nvme1n1     259:0    0 238.5G  0 disk </span><br><span class="line">├─nvme1n1p1 259:1    0   100M  0 part </span><br><span class="line">├─nvme1n1p2 259:2    0    16M  0 part </span><br><span class="line">├─nvme1n1p3 259:3    0     3G  0 part </span><br><span class="line">├─nvme1n1p4 259:4    0   608M  0 part </span><br><span class="line">├─nvme1n1p5 259:5    0   488M  0 part /boot</span><br><span class="line">└─nvme1n1p6 259:6    0 149.5G  0 part /</span><br><span class="line">nvme0n1     259:7    0 476.9G  0 disk </span><br><span class="line">├─nvme0n1p1 259:8    0   260M  0 part /boot/efi</span><br><span class="line">├─nvme0n1p2 259:9    0    16M  0 part </span><br><span class="line">├─nvme0n1p3 259:10   0   200G  0 part </span><br><span class="line">├─nvme0n1p4 259:11   0 274.7G  0 part </span><br><span class="line">└─nvme0n1p5 259:12   0     2G  0 part</span><br></pre></td></tr></table></figure>
-
 <h3 id="卸载-U-盘分区"><a href="#卸载-U-盘分区" class="headerlink" title="卸载 U 盘分区"></a>卸载 U 盘分区</h3><p>如果系统自动挂载了 U 盘，先卸载：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo umount /dev/sda*</span><br></pre></td></tr></table></figure>
-
 <h3 id="使用-dd-烧录"><a href="#使用-dd-烧录" class="headerlink" title="使用 dd 烧录"></a>使用 dd 烧录</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo dd if=你的镜像.iso of=/dev/sda bs=4M status=progress oflag=sync</span><br></pre></td></tr></table></figure>
-
 <p>参数:</p>
 <ul>
 <li><code>if=</code> 输入文件（你的 ISO）</li>
@@ -382,14 +379,10 @@ window.MathJax = {
 <p> 在取消挂载情景下进行操作。</p>
 </blockquote>
 <h2 id="清空分区表（恢复为全新裸盘）"><a href="#清空分区表（恢复为全新裸盘）" class="headerlink" title="清空分区表（恢复为全新裸盘）"></a>清空分区表（恢复为全新裸盘）</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo wipefs -a /dev/sda</span><br><span class="line">sudo dd if=/dev/zero of=/dev/sda bs=1M count=10</span><br></pre></td></tr></table></figure>
-
 <h2 id="用-fdisk-重建分区"><a href="#用-fdisk-重建分区" class="headerlink" title="用 fdisk 重建分区"></a>用 fdisk 重建分区</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo fdisk /dev/sda</span><br></pre></td></tr></table></figure>
-
 <p>进入后按：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">g     创建全新的 GPT 分区表</span><br><span class="line">n     创建分区</span><br><span class="line">回车  默认分区号</span><br><span class="line">回车  默认起始</span><br><span class="line">回车  默认结束</span><br><span class="line">w     保存并退出</span><br></pre></td></tr></table></figure>
-
 <h2 id="格式化为-FAT32"><a href="#格式化为-FAT32" class="headerlink" title="格式化为 FAT32"></a>格式化为 FAT32</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo mkfs.vfat -F 32 /dev/sda1</span><br></pre></td></tr></table></figure>
-
 
     </div>
 
