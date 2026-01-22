@@ -1346,18 +1346,41 @@
 <p>保存后退出并执行</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">conda clean -i</span><br></pre></td></tr></table></figure>
 
-<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>检查虚拟环境</p>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><ul>
+<li>检查虚拟环境</li>
+</ul>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">conda env list</span><br></pre></td></tr></table></figure>
 
-<p>创建虚拟环境</p>
+<ul>
+<li>创建虚拟环境</li>
+</ul>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">有环境包时</span></span><br><span class="line">conda env create -f env_name.yml</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">普通</span></span><br><span class="line">conda create -n env_name python=3.6</span><br></pre></td></tr></table></figure>
 
-<p>激活</p>
+<ul>
+<li>激活</li>
+</ul>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">conda activate env_name</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">取消激活当前环境可</span></span><br><span class="line">conda deactivate</span><br></pre></td></tr></table></figure>
 
-<p>删除虚拟环境</p>
+<ul>
+<li>删除虚拟环境</li>
+</ul>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">conda remove -n env_name --all</span><br></pre></td></tr></table></figure>
 
+<ul>
+<li>导出当前conda环境：</li>
+</ul>
+<p>先激活你要导出的环境</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">conda activate 你的环境名</span><br></pre></td></tr></table></figure>
+
+<p>再导出到 yml 文件</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">conda env export &gt; environment.yml</span><br></pre></td></tr></table></figure>
+
+<p>导出后会在当前目录生成 environment.yml</p>
+<p>复现时：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">conda env create -f environment.yml</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">以下指令用于修改优先级</span></span><br><span class="line">conda config --set channel_priority flexible</span><br></pre></td></tr></table></figure></blockquote>
 <h2 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">conda install anaconda-clean</span><br><span class="line">anaconda-clean</span><br><span class="line">rm -rf anaconda3</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">最后删掉 .bashrc 中的 conda</span></span><br></pre></td></tr></table></figure>
 
 <blockquote>
