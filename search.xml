@@ -1299,7 +1299,7 @@
       </tags>
   </entry>
   <entry>
-    <title>Anoconda</title>
+    <title>Anaconda</title>
     <url>/Anoconda-setup.html</url>
     <content><![CDATA[<h1 id="Anaconda"><a href="#Anaconda" class="headerlink" title="Anaconda"></a>Anaconda</h1><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>下载一个合适版本的安装脚本</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">curl -O https://repo.anaconda.com/archive/Anaconda3-2024.06-1-Linux-x86_64.sh</span><br></pre></td></tr></table></figure>
@@ -1307,10 +1307,10 @@
 <p>执行安装脚本</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">bash Anaconda3-2024.06-1-Linux-x86_64.sh</span><br></pre></td></tr></table></figure>
 
-<p>按 Enter 键查看许可协议，按q结束快速结束内容，最后输入 yes同意协议，然后按 Enter 接受默认安装位置<code>/home/&lt;USER&gt;/anaconda3</code> 。</p>
+<p>按 Enter 键查看许可协议，按q结束快速结束内容，最后输入 yes同意协议，然后按 Enter 接受默认安装位置 <code>/home/&lt;USER&gt;/anaconda3</code> 。</p>
 <p>最后会问你要不要每次启动都默认激活conda环境</p>
 <blockquote>
-<p>Do you wish to update your shell profile to automatically initialize conda?<br>This will activate conda on startup and change the command prompt when activated.<br>If you’d prefer that conda’s base environment not be activated on startup,<br>   run the following command when conda is activated:</p>
+<p>Do you wish to update your shell profile to automatically initialize conda?<br>This will activate conda on startup and change the command prompt when activated.<br>If you’d prefer that conda’s base environment not be activated on startup,<br>run the following command when conda is activated:</p>
 <p>conda config –set auto_activate_base false</p>
 <p>You can undo this by running <code>conda init --reverse $SHELL</code>? [yes|no]<br>[no] &gt;&gt;&gt;</p>
 </blockquote>
@@ -1320,7 +1320,7 @@
 <p>随之而来的是自己完成初始化</p>
 <blockquote>
 <p>You have chosen to not have conda modify your shell scripts at all.<br>To activate conda’s base environment in your current shell session:</p>
-<p><strong>eval “$(&#x2F;home&#x2F;<username>&#x2F;anaconda3&#x2F;bin&#x2F;conda shell.YOUR_SHELL_NAME hook)”</username></strong></p>
+<p><strong>eval “$(&#x2F;home&#x2F;<code>&lt;username&gt;</code>&#x2F;anaconda3&#x2F;bin&#x2F;conda shell.YOUR_SHELL_NAME hook)”</strong></p>
 <p>To install conda’s shell functions for easier access, first activate, then:</p>
 <p><strong>conda init</strong></p>
 <p>Thank you for installing Anaconda3!</p>
@@ -1357,8 +1357,6 @@
 
 <p>删除虚拟环境</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">conda remove -n env_name --all</span><br></pre></td></tr></table></figure>
-
-
 
 <h2 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">conda install anaconda-clean</span><br><span class="line">anaconda-clean</span><br><span class="line">rm -rf anaconda3</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">最后删掉 .bashrc 中的 conda</span></span><br></pre></td></tr></table></figure>
 
