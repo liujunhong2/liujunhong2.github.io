@@ -344,40 +344,34 @@ window.MathJax = {
     <div class="post-body" itemprop="articleBody"><h1 id="更换Kernel"><a href="#更换Kernel" class="headerlink" title="更换Kernel"></a>更换Kernel</h1><p>当boot空间不足时，我们不得不删除多余的备用linux核。</p>
 <h2 id="删除多余kernel"><a href="#删除多余kernel" class="headerlink" title="删除多余kernel"></a>删除多余kernel</h2><p>确认当前内核</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">uname</span> -r</span><br></pre></td></tr></table></figure>
-
 <blockquote>
 <p>我的结果为</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">6.12.57+deb13-amd64</span><br></pre></td></tr></table></figure></blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">6.12.57+deb13-amd64</span><br></pre></td></tr></table></figure>
+</blockquote>
 <p>列出所有已安装的内核包</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dpkg --list | grep linux-image</span><br></pre></td></tr></table></figure>
-
 <blockquote>
 <p>我的结果为</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ii  linux-image-6.12.48+deb13-amd64                     6.12.48-1                            amd64        Linux 6.12 <span class="keyword">for</span> 64-bit PCs (signed)</span><br><span class="line">ii  linux-image-6.12.57+deb13-amd64                     6.12.57-1                            amd64        Linux 6.12 <span class="keyword">for</span> 64-bit PCs (signed)</span><br><span class="line">ii  linux-image-amd64                                   6.12.57-1                            amd64        Linux <span class="keyword">for</span> 64-bit PCs (meta-package)</span><br></pre></td></tr></table></figure></blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ii  linux-image-6.12.48+deb13-amd64                     6.12.48-1                            amd64        Linux 6.12 <span class="keyword">for</span> 64-bit PCs (signed)</span><br><span class="line">ii  linux-image-6.12.57+deb13-amd64                     6.12.57-1                            amd64        Linux 6.12 <span class="keyword">for</span> 64-bit PCs (signed)</span><br><span class="line">ii  linux-image-amd64                                   6.12.57-1                            amd64        Linux <span class="keyword">for</span> 64-bit PCs (meta-package)</span><br></pre></td></tr></table></figure>
+</blockquote>
 <p>这个时候我就要删除6.12.48</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt remove linux-image-6.12.48+deb13-amd64 </span><br></pre></td></tr></table></figure>
-
 <blockquote>
 <p>补更，当我运行<code>sudo apt remove linux-image-6.12.48+deb13-amd64</code>时发生<strong>报错</strong></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">将要安装的依赖：                               </span><br><span class="line">  linux-image-6.12.48+deb13-amd64-unsigned</span><br><span class="line"></span><br><span class="line">建议安装：</span><br><span class="line">  firmware-linux-free  linux-doc-6.12  debian-kernel-handbook</span><br><span class="line"></span><br><span class="line">【将要卸载】：</span><br><span class="line">  linux-image-6.12.48+deb13-amd64</span><br><span class="line"></span><br><span class="line">摘要：</span><br><span class="line">  升级：0，安装：1，卸载：1，不升级：158</span><br><span class="line">  下载大小：107 MB</span><br><span class="line">  所需的空间：2,048 B / 61.7 GB 可用</span><br><span class="line">  └─ 在 /boot 中：157 MB / 139 MB 可用</span><br><span class="line"></span><br><span class="line">警告： 在 /boot 中，所需的空间超出了可用空间：157 MB &gt; 139 MB，安装可能失败</span><br><span class="line">仍然继续吗？ [y/N] N</span><br><span class="line">中止。</span><br></pre></td></tr></table></figure>
-
-<p>这时我换一个包管理器dpkg，输入指令<code>sudo dpkg -r linux-image-6.12.48+deb13-amd64 </code>，依旧<strong>报错</strong></p>
+<p>这时我换一个包管理器dpkg，输入指令<code>sudo dpkg -r linux-image-6.12.48+deb13-amd64</code>，依旧<strong>报错</strong></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">dpkg: 依赖问题阻止了卸载 linux-image-6.12.48+deb13-amd64 的操作：</span><br><span class="line"> linux-headers-6.12.48+deb13-amd64 依赖于 linux-image-6.12.48+deb13-amd64 (= 6.12.48-1) | linux-image-6.12.48+deb13-amd64-unsigned (= 6.12.48-1)；然而：</span><br><span class="line">  即将删除 linux-image-6.12.48+deb13-amd64。</span><br><span class="line">  未安装软件包 linux-image-6.12.48+deb13-amd64-unsigned。</span><br><span class="line"></span><br><span class="line">dpkg: 处理软件包 linux-image-6.12.48+deb13-amd64 (--remove)时出错：</span><br><span class="line"> 依赖问题 - 不会执行卸载</span><br><span class="line">在处理时有错误发生：</span><br><span class="line"> linux-image-6.12.48+deb13-amd64</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
 <p>这表明需要先<strong>删除headers</strong>，6.12.48 的 headers 还在，它“抱着” image 不肯放手</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo dpkg -r linux-headers-6.12.48+deb13-amd64</span><br><span class="line">sudo dpkg -r linux-image-6.12.48+deb13-amd64</span><br></pre></td></tr></table></figure></blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo dpkg -r linux-headers-6.12.48+deb13-amd64</span><br><span class="line">sudo dpkg -r linux-image-6.12.48+deb13-amd64</span><br></pre></td></tr></table></figure>
+</blockquote>
 <p>清理残留</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt autoremove --purge</span><br></pre></td></tr></table></figure>
-
-<p>检查&#x2F;boot空间</p>
+<p>检查/boot空间</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">df</span> -h /boot</span><br></pre></td></tr></table></figure>
-
 <h2 id="换核"><a href="#换核" class="headerlink" title="换核"></a>换核</h2><p>直接update+upgrade两件套</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt update</span><br><span class="line">sudo apt upgrade</span><br></pre></td></tr></table></figure>
-
 <p>下好了新的内核后，记得更新gtub</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo update-grub2</span><br></pre></td></tr></table></figure>
-
 <h2 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h2><p>关于内核删除的顺序，或许应该先删除headers，但是为什么之前我直接删除image时能够正常运行？</p>
 <p> 查阅资料后得到一个不确定的答案：只有当 <code>linux-headers-旧版本</code> 不再依赖 <code>linux-image-旧版本</code> 时，才能直接删除 image； 否则，必须先删 headers。</p>
 <p>而之前能够直接删除image可能有两种情形：</p>
