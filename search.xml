@@ -1402,6 +1402,164 @@ CSDN</a></p>
       </tags>
   </entry>
   <entry>
+    <title>Solfware</title>
+    <url>/Solfware.html</url>
+    <content><![CDATA[<h1 id="soft-engineering">Soft Engineering</h1>
+<p>There are several lessons to be learned from how Microsoft builds
+software products.</p>
+<h2 id="frequent-synchronizations-and-periodic-stabilizations">Frequent
+Synchronizations and Periodic Stabilizations</h2>
+<p>The main idea is <strong>synch-and-stabilize</strong>:“Continually
+synchronize what people are doing as individuals and as members of
+parallel teams, and periodically stabilize the product in increments as
+a project proceeds, rather than once at the end of a project.”</p>
+<p>Microsoft follow a process that iterates among design, building
+components, and testing and also overlaps these phases and contains more
+interactions with customers during development.</p>
+<h2 id="strategies-and-principles">Strategies and Principles</h2>
+<p>Microsoft has two strategies for defining products as well as
+developing processes and sets of principles that seem critical to making
+the sync-and-stabilize style of product development.</p>
+<p>Microsoft teams begin the process of product development by creating
+a “vision statement” defining the goals for a new product and orders the
+user activities that need to be supported by the product features.</p>
+<p>The project managers then divide the product and the project into
+parts (features and small feature teams) and divide the project schedule
+into three or four milestone junctures (sequential subprojects)
+representing completion points for major portions of the product.</p>
+<h2 id="defining-products-and-development-processes">Defining Products
+and Development Processes</h2>
+<p>To define products and organize the development process, leading
+Microsoft product groups follow a strategy we describe as <strong>“focus
+creativity by evolving features and ‘fixing’ resources.”</strong> Teams
+implement this strategy through five specific principles:</p>
+<ul>
+<li><p>Divide large projects into multiple milestone cycles with buffer
+time (20%–50% of total project time) and no separate product maintenance
+group.</p></li>
+<li><p>Use a “vision statement” and outline feature specifications to
+guide projects.</p></li>
+<li><p>Base feature selection and priority order on user activities and
+data.</p></li>
+<li><p>Evolve a modular and horizontal design architecture, mirroring
+the product structure in the project structure.</p></li>
+<li><p>Control by individual commitments to small tasks and “fixed”
+project resources.</p></li>
+</ul>
+<h2 id="developing-and-shipping-products">Developing and Shipping
+Products</h2>
+<p>To manage the process of developing and shipping products, Microsoft
+follows another strategy we describe as <strong>“do everything in
+parallel with frequent synchronization.”</strong> Teams implement this
+strategy by following another set of five principles:</p>
+<ul>
+<li>Work in parallel teams but “synch up” and debug daily.</li>
+<li>Always have a product you can ship, with versions for every major
+platform and market.</li>
+<li>Speak a “common language” on a single development site.</li>
+<li>Continuously test the product as you build it.</li>
+<li>Use metric data to determine milestone completion and product
+release.</li>
+</ul>
+<p>Large-scale projects are simpler to schedule and manage if they
+proceed with clearly defined functional groups, sequential phases, and
+precise rules and controls.</p>
+<p>A common site and common language and tools help teams communicate,
+debate design ideas, and resolve problems face to face.</p>
+<blockquote>
+<p>Synch-and-stabilize vs. sequential development</p>
+<table>
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Synch-and-Stablize (Microsoft)</th>
+<th>Sequntial Development</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Product development and testing done in parallel</td>
+<td>Separate phases done in sequence</td>
+</tr>
+<tr class="even">
+<td>Vision statement and evolving specification</td>
+<td>Complete “frozen” specification and detailed design before building
+the product</td>
+</tr>
+<tr class="odd">
+<td>Features prioritized and built in 3 or 4 milestone subprojects</td>
+<td>Trying to build all pieces of a product simultaneously</td>
+</tr>
+<tr class="even">
+<td>Frequent synchronizations (daily builds) and intermediate
+stabilizations (milestones)</td>
+<td>One late and large integration and system test phase at the
+project’s end</td>
+</tr>
+<tr class="odd">
+<td>“Fixed” release and ship dates and multiple release cycles</td>
+<td>Aiming for feature and product “perfection” in each project
+cycle</td>
+</tr>
+<tr class="even">
+<td>Customer feedback continuous in the development process</td>
+<td>Feedback primarily after development as inputs for future
+projects</td>
+</tr>
+<tr class="odd">
+<td>Product and process design so large teams work like small teams</td>
+<td>Working primarily as a large group of individuals in a separate
+functional department</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<h1 id="cn">CN</h1>
+<p>Microsoft builds software 的核心方法是
+“Synch-and-Stabilize（同步并稳定）”。也就是：小团队并行开发、频繁同步代码、分阶段稳定产品，而不是等到最后一次性集成和测试。</p>
+<p>微软的软件开发有几个关键点：</p>
+<ol type="1">
+<li>先定方向，但不过度把需求“锁死” 微软会先写一个 <strong>vision
+statement</strong>，说明产品目标和用户最需要的功能；然后再写功能规格说明，但不会一开始就把所有细节彻底定死。开发过程中，功能集合还会持续调整，文章提到规格里的功能甚至可能变化
+<strong>30% 以上</strong>。</li>
+<li>把大项目拆成多个里程碑（milestones）
+一个大产品不会一次做完，而是拆成 <strong>3 到 4
+个阶段性子项目</strong>。每个里程碑都要经历：开发、集成、测试、修
+bug、稳定版本。这样团队能逐步推进，而不是把所有风险留到最后。文章中的图示还说明，每个
+milestone 通常持续 <strong>2 到 4 个月</strong>。</li>
+<li>用小型功能团队并行工作
+微软试图把“大团队做大产品”变成“很多小团队协作做大产品”。每个 feature
+team 通常由 <strong>1 名 program manager、3–8 名开发、3–8
+名测试人员</strong>组成。这样既保留灵活性，也便于快速推进。</li>
+<li>每天同步（daily build）
+开发者先在自己的私有代码副本上完成功能和测试，再把代码提交到主版本。随后由专门人员每天生成一次完整
+build，重新编译整个产品，并运行自动化回归测试。
+这意味着：<strong>问题不是等到项目末期才暴露，而是几乎每天都会被发现。</strong>
+如果谁提交的代码破坏了 build，就要立刻修复。</li>
+<li>持续测试，而不是最后才测试
+测试人员和开发并行工作，微软还会在开发过程中做内部测试、外部 beta
+测试、可用性实验，甚至请真实用户试用原型。测试不是项目尾声的单独阶段，而是贯穿整个开发过程。</li>
+<li>定期“稳定”产品 每完成一个
+milestone，团队都会集中修复大部分错误，让产品进入一个相对稳定的状态。这样团队始终清楚：哪些功能已经完成，产品离发布还有多远。</li>
+<li>用数据决定是否进入下一阶段或发布 微软会跟踪 bug
+数据，比如新发现多少、修复多少、仍然活跃多少。文章第 6 页的图表就展示了
+bug 统计如何配合 daily build
+来判断项目状态。也就是说，推进项目不是凭感觉，而是看指标。</li>
+<li>追求“足够好并可发布”，而不是一开始追求完美
+文章强调，微软的策略不是等产品“完美”再推出，而是尽快做出可工作的版本，边开发边改进，后续通过升级不断演进功能。这很适合变化快、竞争激烈的软件市场。</li>
+</ol>
+]]></content>
+      <categories>
+        <category>SE</category>
+      </categories>
+      <tags>
+        <tag>microsoft</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Multimocal_Fusion</title>
     <url>/Multimocal-Fusion.html</url>
     <content><![CDATA[<h2 id="主流融合方法">主流融合方法</h2>
@@ -2907,68 +3065,6 @@ X₃）或重组，为下一轮输入。</li>
       </categories>
       <tags>
         <tag>something</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Git_for_Android-Studio</title>
-    <url>/Git-for-Android-Studio.html</url>
-    <content><![CDATA[<!--more-->
-<h1 id="熟悉git">熟悉Git</h1>
-<p><code>Git</code>是当今最广泛应用且功能强大、灵活的分布式版本控制系统。它的最大优势在于每位开发者本地均拥有完整的版本历史，即使在脱机状态下也能完成大部分操作，这使得多人协作和代码合并变得更加高效和便捷。相比之下，集中式版本控制系统依赖中央服务器，容易受到单点故障的影响。虽然在管理大型二进制文件或某些特殊场景下可能需要辅以其他工具，但
-Git 的这些显著优势正是我们学习和使用它的重要原因。</p>
-<!--more-->
-<h1 id="配置git">配置Git</h1>
-<p>先下载Git，之后的命令可以在任何bash中运行</p>
-<p><code>Github</code>基于web的版本控制界面，也就是可以在上面部署项目，是使用<code>git</code>的一大利器，我们要把<code>Android Studio</code>上的项目进行<code>git</code>管理，首先需要创建一个<code>Github</code>账号（能进行版本控制的不止有<code>Github</code>,
-还有<code>Gitee</code>等等）。</p>
-<p>进行git账号的配置，以告诉<code>git</code>是谁在对<code>git</code>进行操作以及以后<code>git</code>的操作对象。</p>
-<p>以下两条指令的参数填之前在<code>Github</code>注册的账号信息</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// --global 参数表示该配置为全局配置，适用于该用户的所有 Git 仓库</span><br><span class="line">git config --global user.name &quot;Your Name&quot;</span><br><span class="line">git config --global user.email &quot;email@example.com&quot;</span><br></pre></td></tr></table></figure>
-<p>以下两条指令用于查询当前<code>git</code>绑定的账号信息</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config user.name</span><br><span class="line">git config user.email</span><br></pre></td></tr></table></figure>
-<p>确认无误之后就进行绑定的最后一步，创建<code>SSH</code>连接，方便本地<code>git</code>能直接对接到<code>Github</code>以进行操作</p>
-<p>在本地生成密钥和公钥</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;xxx@xxx.com&quot;</span><br></pre></td></tr></table></figure>
-<p>获取生成的公钥（<code>id_rsa.pub</code>）后在<code>Github</code>上创建<code>SSHKey</code>（不太熟悉的可以在网上搜<code>Github SSH配置</code>,
-也可以直接看我找好的教程 <a href="https://blog.csdn.net/weixin_42310154/article/details/118340458">配置SSH教程</a>，
-会了一次之后就熟悉了）</p>
-<p>验证是否成功</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure>
-<p>准备工作全部完整，接下来几条简单就令就能轻松完成项目和仓库的绑定</p>
-<p>从现在开始的指令在Android Studio中的终端运行<img src="/Git-for-Android-Studio/git1.png" alt="git1"> <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git init</span><br></pre></td></tr></table></figure></p>
-<p>在<code>Github</code>中创建一个仓库（<code>repository</code>），命名随意，复制其SSH（注意与之前的SSH做区分）</p>
-<p>添加远程库（也就是将这个新创建的仓库作为<code>git</code>版本管理的存储库）</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git remote add origin &lt;刚才让复制的SSH&gt;</span><br></pre></td></tr></table></figure>
-<p>推送前先将更改（部署<code>git</code>前的所有代码）添加到暂存区并且提交更改</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m &#x27;init git for Android Studio&#x27;</span><br></pre></td></tr></table></figure>
-<p>然后进行第一次推送</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git push -u origin main</span><br></pre></td></tr></table></figure>
-<p>之后每次进行修改后运行<code>git push</code>即可完成推送</p>
-<p>现在可去刚刚创建的仓库里看看是否有一堆文件上传了，这些文件就是一个版本，之后的每次push都会产生一个新版本，版本可以进行各种操作，如分支管理、版本回退、合并等。</p>
-<h1 id="管理git">管理Git</h1>
-<p>之后正常的版本管理就非常轻松了，<code>git</code>是用来方便管理的，没有那么复杂，是一个非常好用的工具，因此需要掌握一些常见的指令和原理。</p>
-<p>可参见大佬的博客<a href="https://liaoxuefeng.com/books/git/introduction/index.html">廖雪峰</a>和我做的一些速记<a href="https://baoziwan.icu/learngit.html">小站</a></p>
-<p>最后，给该项目创建一个<code>README</code>文件，用于介绍这个项目或者说仓库</p>
-<p>可直接在<code>Github</code>的仓库下点击<code>Add a README</code>快速创建，也可在本地创建一个<code>README.md</code>文件后进行编辑再<code>git push</code>上<code>Github</code></p>
-<figure>
-<img src="/Git-for-Android-Studio/gi2.png" alt="gi2">
-<figcaption aria-hidden="true">gi2</figcaption>
-</figure>
-<p>结果示例</p>
-<figure>
-<img src="/Git-for-Android-Studio/git3.png" alt="git3">
-<figcaption aria-hidden="true">git3</figcaption>
-</figure>
-<h1 id="参考资料">参考资料</h1>
-<p><a href="https://liaoxuefeng.com/books/git/introduction/index.html">廖雪峰</a>
-<a href="https://blog.csdn.net/weixin_42310154/article/details/118340458">配置SSH教程</a>
-<a href="https://baoziwan.icu/learngit.html">自家小站</a></p>
-]]></content>
-      <categories>
-        <category>Learn</category>
-      </categories>
-      <tags>
-        <tag>Git</tag>
       </tags>
   </entry>
   <entry>
