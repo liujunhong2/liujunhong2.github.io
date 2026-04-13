@@ -132,7 +132,7 @@ window.MathJax = {
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">16</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">4</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">14</span></a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">17</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">4</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">15</span></a></li>
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
         </a>
@@ -183,7 +183,7 @@ window.MathJax = {
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#git%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4"><span class="nav-number">1.</span> <span class="nav-text">Git常用指令</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="nav-number">2.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Git%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4"><span class="nav-number">1.</span> <span class="nav-text">Git常用指令</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="nav-number">2.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -198,7 +198,7 @@ window.MathJax = {
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">14</span>
+          <span class="site-state-item-count">15</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -209,7 +209,7 @@ window.MathJax = {
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-count">17</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -342,8 +342,7 @@ window.MathJax = {
     
     
     
-    <div class="post-body" itemprop="articleBody"><h1 id="git常用指令">Git常用指令</h1>
-<!--more-->
+    <div class="post-body" itemprop="articleBody"><h1 id="Git常用指令"><a href="#Git常用指令" class="headerlink" title="Git常用指令"></a>Git常用指令</h1><!--more-->
 <ul>
 <li>自报家门</li>
 </ul>
@@ -352,9 +351,9 @@ window.MathJax = {
 <li>查询家门</li>
 </ul>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config user.name</span><br><span class="line">git config user.email</span><br></pre></td></tr></table></figure>
-<p>创建SSH连接 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># 在本地生成密钥和公钥</span><br><span class="line">ssh-keygen -t rsa -C &quot;xxx@xxx.com&quot;</span><br><span class="line"></span><br><span class="line">获取公钥（id_rsa.pub）后在Github上创建SSHKey</span><br><span class="line"></span><br><span class="line">验证是否成功</span><br><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure></p>
+<p>创建SSH连接<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># 在本地生成密钥和公钥</span><br><span class="line">ssh-keygen -t rsa -C &quot;xxx@xxx.com&quot;</span><br><span class="line"></span><br><span class="line">获取公钥（id_rsa.pub）后在Github上创建SSHKey</span><br><span class="line"></span><br><span class="line">验证是否成功</span><br><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure></p>
 <ul>
-<li>pwd 用于显示当前目录</li>
+<li>pwd 用于显示当前目录  </li>
 </ul>
 <p><code>$ pwd</code></p>
 <ul>
@@ -384,7 +383,7 @@ window.MathJax = {
 <ul>
 <li>log 查看历史记录</li>
 </ul>
-<p><code>$ git log</code> <code>$ git log --pretty=oneline</code></p>
+<p><code>$ git log</code><br><code>$ git log --pretty=oneline</code></p>
 <ul>
 <li>reflog 查看每一次命令</li>
 </ul>
@@ -392,9 +391,8 @@ window.MathJax = {
 <ul>
 <li>reset 版本回退</li>
 </ul>
-<p>–hard会回退到上个版本的已提交状态，而–soft会回退到上个版本的未提交状态，–mixed会回退到上个版本已添加但未提交的状态.</p>
-<p><code>$ git reset --hard HEAD~&lt;num&gt;</code>
-<code>$ git reset --hard &lt;version&gt;</code></p>
+<p>—hard会回退到上个版本的已提交状态，而—soft会回退到上个版本的未提交状态，—mixed会回退到上个版本已添加但未提交的状态.</p>
+<p><code>$ git reset --hard HEAD~&lt;num&gt;</code><br><code>$ git reset --hard &lt;version&gt;</code></p>
 <ul>
 <li>cat 查看内容</li>
 </ul>
@@ -438,8 +436,7 @@ window.MathJax = {
 <ul>
 <li>创建并切换至新分支</li>
 </ul>
-<p><code>$ git checkout -b &lt;name&gt;</code>
-<code>$ git switch -c &lt;name&gt;</code></p>
+<p><code>$ git checkout -b &lt;name&gt;</code><br><code>$ git switch -c &lt;name&gt;</code> </p>
 <p>等同于</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git branch dev</span><br><span class="line">$ git checkout dev</span><br></pre></td></tr></table></figure>
 <p>或</p>
@@ -463,7 +460,7 @@ window.MathJax = {
 <ul>
 <li><code>--no-ff</code>方式的<code>git merge</code></li>
 </ul>
-<p><code>$ git merge --no-ff -m "merge with no-ff" &lt;name&gt;</code></p>
+<p><code>$ git merge --no-ff -m &quot;merge with no-ff&quot; &lt;name&gt;</code></p>
 <ul>
 <li>stash储藏工作现场</li>
 </ul>
@@ -475,7 +472,7 @@ window.MathJax = {
 <ul>
 <li>恢复现场</li>
 </ul>
-<p>恢复并删除 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git stash apply</span><br><span class="line">$ git stash drop</span><br></pre></td></tr></table></figure> 或 <code>$ git stash pop</code></p>
+<p>恢复并删除<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git stash apply</span><br><span class="line">$ git stash drop</span><br></pre></td></tr></table></figure><br>或<br><code>$ git stash pop</code></p>
 <ul>
 <li>复制修改</li>
 </ul>
@@ -491,10 +488,9 @@ window.MathJax = {
 <ul>
 <li>打标签</li>
 </ul>
-<p><code>$ git tag &lt;tag&gt;</code>
-<code>$ git tag &lt;tag&gt; &lt;version&gt;</code></p>
+<p><code>$ git tag &lt;tag&gt;</code><br><code>$ git tag &lt;tag&gt; &lt;version&gt;</code></p>
 <p>还可以创建带有说明的标签，用-a指定标签名，-m指定说明文字：</p>
-<p><code>$ git tag -a &lt;tag&gt; -m "info" &lt;version&gt;</code></p>
+<p><code>$ git tag -a &lt;tag&gt; -m &quot;info&quot; &lt;version&gt;</code></p>
 <ul>
 <li>查看标签</li>
 </ul>
@@ -510,20 +506,14 @@ window.MathJax = {
 <ul>
 <li>推送标签</li>
 </ul>
-<p><code>$ git push origin &lt;tag&gt;</code>
-<code>$ git push origin --tags</code></p>
+<p><code>$ git push origin &lt;tag&gt;</code><br><code>$ git push origin --tags</code></p>
 <ul>
 <li>删除远程标签</li>
 </ul>
-<p>先删除本地再：
-<code>$ git push origin :refs/tags/&lt;tag&gt;</code></p>
+<p>先删除本地再：<br><code>$ git push origin :refs/tags/&lt;tag&gt;</code></p>
 <p>补充</p>
-<figure>
-<img src="/learngit/git1.png" alt="git1">
-<figcaption aria-hidden="true">git1</figcaption>
-</figure>
-<h1 id="参考资料">参考资料</h1>
-<p><a target="_blank" rel="noopener" href="https://liaoxuefeng.com/">廖雪峰</a></p>
+<p><img src="/learngit/git1.png" alt="git1"></p>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a target="_blank" rel="noopener" href="https://liaoxuefeng.com/">廖雪峰</a></p>
 
     </div>
 
@@ -607,14 +597,14 @@ window.MathJax = {
       <i class="fa fa-chart-line"></i>
     </span>
       <span>站点总字数：</span>
-    <span title="站点总字数">68k</span>
+    <span title="站点总字数">69k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">4:09</span>
+    <span title="站点阅读时长">4:13</span>
   </span>
 </div>
 <div class="busuanzi-count">
