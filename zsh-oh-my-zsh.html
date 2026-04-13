@@ -184,7 +184,7 @@ window.MathJax = {
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#zsh-oh-my-zsh%E9%85%8D%E7%BD%AE-debian-ubuntu"><span class="nav-number">1.</span> <span class="nav-text">zsh&#x2F;oh_my_zsh配置(debian&#x2F;ubuntu)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#zsh"><span class="nav-number">2.</span> <span class="nav-text">zsh</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#oh-my-zsh"><span class="nav-number">3.</span> <span class="nav-text">oh_my_zsh</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%9B%E9%98%B6"><span class="nav-number">3.0.1.</span> <span class="nav-text">进阶</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B"><span class="nav-number">4.</span> <span class="nav-text">参考教程</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#zshoh_my_zsh%E9%85%8D%E7%BD%AEdebianubuntu"><span class="nav-number">1.</span> <span class="nav-text">zsh&#x2F;oh_my_zsh配置(debian&#x2F;ubuntu)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#zsh"><span class="nav-number">2.</span> <span class="nav-text">zsh</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#oh_my_zsh"><span class="nav-number">3.</span> <span class="nav-text">oh_my_zsh</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%9B%E9%98%B6"><span class="nav-number">3.0.1.</span> <span class="nav-text">进阶</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B"><span class="nav-number">4.</span> <span class="nav-text">参考教程</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -240,10 +240,7 @@ window.MathJax = {
         </div>
         <ul class="links-of-blogroll-list">
             <li class="links-of-blogroll-item">
-              <a href="https://www.whalefall.fun/" title="https:&#x2F;&#x2F;www.whalefall.fun&#x2F;" rel="noopener" target="_blank">美式男孩</a>
-            </li>
-            <li class="links-of-blogroll-item">
-              <a href="https://kirawii.cyou/" title="https:&#x2F;&#x2F;kirawii.cyou&#x2F;" rel="noopener" target="_blank">日本柜子</a>
+              <a href="https://www.whalefall.top/" title="https:&#x2F;&#x2F;www.whalefall.top&#x2F;" rel="noopener" target="_blank">美式男孩</a>
             </li>
         </ul>
       </div>
@@ -344,11 +341,13 @@ window.MathJax = {
     
     
     <div class="post-body" itemprop="articleBody"><!--more-->
-<h1 id="zsh-oh-my-zsh配置-debian-ubuntu"><a href="#zsh-oh-my-zsh配置-debian-ubuntu" class="headerlink" title="zsh/oh_my_zsh配置(debian/ubuntu)"></a>zsh/oh_my_zsh配置(debian/ubuntu)</h1><p>如果bash的脚本开头是以!#/bin/bash的话，在zsh下完全兼容bash,其余的我就不知道鸟  </p>
+<h1 id="zshoh_my_zsh配置debianubuntu">zsh/oh_my_zsh配置(debian/ubuntu)</h1>
+<p>如果bash的脚本开头是以!#/bin/bash的话，在zsh下完全兼容bash,其余的我就不知道鸟</p>
 <blockquote>
-<p> 注意以下所有指令均在debian系下运行  </p>
+<p>注意以下所有指令均在debian系下运行</p>
 </blockquote>
-<h1 id="zsh"><a href="#zsh" class="headerlink" title="zsh"></a>zsh</h1><p>查看shell</p>
+<h1 id="zsh">zsh</h1>
+<p>查看shell</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo $SHELL</span><br></pre></td></tr></table></figure>
 <p>安装zsh</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt update</span><br><span class="line">sudo apt install zsh</span><br></pre></td></tr></table></figure>
@@ -365,7 +364,8 @@ window.MathJax = {
 <li>为特定用户</li>
 </ul>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo chsh -s /bin/zsh &lt;username&gt;</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">&lt;username&gt; 替换为实际用户名</span></span><br></pre></td></tr></table></figure>
-<h1 id="oh-my-zsh"><a href="#oh-my-zsh" class="headerlink" title="oh_my_zsh"></a>oh_my_zsh</h1><p>安装git</p>
+<h1 id="oh_my_zsh">oh_my_zsh</h1>
+<p>安装git</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt update</span><br><span class="line">sudo apt install git</span><br></pre></td></tr></table></figure>
 <p>自动安装</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sh -c &quot;$(wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)&quot;</span><br></pre></td></tr></table></figure>
@@ -375,13 +375,13 @@ window.MathJax = {
 </blockquote>
 <p>也可以手动自行去github上克隆安装，然后将配置cp到自己的.zshrc上</p>
 <ul>
-<li><h3 id="进阶"><a href="#进阶" class="headerlink" title="进阶"></a>进阶</h3></li>
+<li><h3 id="进阶">进阶</h3></li>
 </ul>
 <p>功能介绍：优雅主题、自动补全、语法高亮、esc两次等于添加sudo</p>
 <p><strong>主题</strong></p>
 <p>祖传powerlevel10k，</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone --depth=1 https://gitee.com/romkatv/powerlevel10k.git $&#123;ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom&#125;/themes/powerlevel10k</span><br></pre></td></tr></table></figure>
-<p>在<code>~/.zshrc</code>中配置<code>ZSH_THEME=&quot;powerlevel10k/powerlevel10k&quot;</code></p>
+<p>在<code>~/.zshrc</code>中配置<code>ZSH_THEME="powerlevel10k/powerlevel10k"</code></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Set name of the theme to load --- <span class="keyword">if</span> <span class="built_in">set</span> to <span class="string">&quot;random&quot;</span>, it will</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">load a random theme each time Oh My Zsh is loaded, <span class="keyword">in</span> <span class="built_in">which</span> <span class="keyword">case</span>,</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">to know <span class="built_in">which</span> specific one was loaded, run: <span class="built_in">echo</span> <span class="variable">$RANDOM_THEME</span></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">ZSH_THEME=<span class="string">&quot;robbyrussell&quot;</span></span></span><br><span class="line">ZSH_THEME=&quot;powerlevel10k/powerlevel10k&quot;</span><br></pre></td></tr></table></figure>
 <p><code>source ~/.zshrc</code>一下</p>
 <p><strong>plus</strong></p>
@@ -392,11 +392,14 @@ window.MathJax = {
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone --depth=1 https://github.com/zsh-users/zsh-syntax-highlighting.git $&#123;ZSH_CUSTOM:-~/.oh-my-zsh/custom&#125;/plugins/zsh-syntax-highlighting</span><br></pre></td></tr></table></figure>
 <p>编辑<code>~/.zshrc</code></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Which plugins would you like to load?</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Standard plugins can be found <span class="keyword">in</span> <span class="variable">$ZSH</span>/plugins/</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Custom plugins may be added to <span class="variable">$ZSH_CUSTOM</span>/plugins/</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Example format: plugins=(rails git textmate ruby lighthouse)</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Add wisely, as too many plugins slow down shell startup.</span></span><br><span class="line">plugins=(</span><br><span class="line">        git</span><br><span class="line">        sudo</span><br><span class="line">        zsh-syntax-highlighting</span><br><span class="line">        zsh-autosuggestions</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-<p>最后记得<code>source .zshrc</code>，然后会进入主题的配置界面，非常简单的交互<br><img src="/zsh-oh-my-zsh/p1.png" alt><br>最终效果，简约，补全（根据最近历史记录)，时间显示，按两次esc可以直接sudo</p>
+<p>最后记得<code>source .zshrc</code>，然后会进入主题的配置界面，非常简单的交互
+<img src="/zsh-oh-my-zsh/p1.png">
+最终效果，简约，补全（根据最近历史记录)，时间显示，按两次esc可以直接sudo</p>
 <blockquote>
 <p>熟练后在新设备上五分钟不到就OK，如果你发现怎么都没办法把zsh调成默认shell，不妨试一下重启，血压飙升！</p>
 </blockquote>
-<h1 id="参考教程"><a href="#参考教程" class="headerlink" title="参考教程"></a>参考教程</h1><p><a target="_blank" rel="noopener" href="https://ohmyz.sh/">oh_my_zsh官网</a></p>
+<h1 id="参考教程">参考教程</h1>
+<p><a target="_blank" rel="noopener" href="https://ohmyz.sh/">oh_my_zsh官网</a></p>
 <p><a target="_blank" rel="noopener" href="https://sysin.org/blog/linux-zsh/">sysin</a></p>
 <p><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/33277508">知乎_theme</a></p>
 
