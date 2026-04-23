@@ -69,28 +69,6 @@
 
 
 
-  
-
-  <script class="next-config" data-name="enableMath" type="application/json">true</script>
-<script>
-window.MathJax = {
-  tex: {
-    inlineMath: [['$', '$'], ['\\(', '\\)']],
-    displayMath: [['$$', '$$'], ['\\[', '\\]']],
-    processEscapes: true,
-    processEnvironments: true
-  },
-  options: {
-    skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-    ignoreHtmlClass: 'tex2jax_ignore',
-    processHtmlClass: 'tex2jax_process'
-  }
-};
-</script>
-<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-
-
-
 
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
@@ -237,7 +215,7 @@ window.MathJax = {
         </div>
         <ul class="links-of-blogroll-list">
             <li class="links-of-blogroll-item">
-              <a href="https://www.whalefall.top/" title="https:&#x2F;&#x2F;www.whalefall.top&#x2F;" rel="noopener" target="_blank">美式男孩</a>
+              <a href="https://www.whalefall.top/" title="https:&#x2F;&#x2F;www.whalefall.top&#x2F;" rel="noopener" target="_blank">jiely</a>
             </li>
         </ul>
       </div>
@@ -372,14 +350,13 @@ K₁。重复共生成16 个子密钥 K₁…K₁₆。 (<a target="_blank" rel=
 </ol>
 <p>对于 i = 1 到 16 轮，进行以下操作：</p>
 <ul>
-<li><span class="math inline"><em>L</em><sub><em>i</em></sub></span>=
-<span class="math inline"><em>R</em><sub><em>i</em> − 1</sub></span></li>
-<li><span class="math inline"><em>R</em><sub><em>i</em></sub></span> =
-$L_{i - 1} f(R_{i - 1}, K_{i}) $ (<a target="_blank" rel="noopener" href="https://houbb.github.io/2020/06/17/althgorim-cryptograph-05-des?utm_source=chatgpt.com">Echo
+<li><span class="math inline">\(L_{i}\)</span>= <span class="math inline">\(R_{i - 1}\)</span></li>
+<li><span class="math inline">\(R_{i}\)</span> = $L_{i - 1} f(R_{i - 1},
+K_{i}) $ (<a target="_blank" rel="noopener" href="https://houbb.github.io/2020/06/17/althgorim-cryptograph-05-des?utm_source=chatgpt.com">Echo
 Blog1</a>) 其中 f 函数包含：
 <ol type="1">
-<li>扩展置换 E：将32 位 <span class="math inline"><em>R</em><sub><em>i</em> − 1</sub></span> 扩展至48
-位。 (<a target="_blank" rel="noopener" href="https://www.cnblogs.com/idreamo/p/9333753.html?utm_source=chatgpt.com">cnblogs.com</a>)</li>
+<li>扩展置换 E：将32 位 <span class="math inline">\(R_{i - 1}\)</span>
+扩展至48 位。 (<a target="_blank" rel="noopener" href="https://www.cnblogs.com/idreamo/p/9333753.html?utm_source=chatgpt.com">cnblogs.com</a>)</li>
 <li>与子密钥 Kᵢ 做 XOR。 (<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/650839499?utm_source=chatgpt.com">知乎专栏</a>)</li>
 <li>分为8块，每块6 位，输入各自 S‐盒，输出4 位。总输出32 位。 (<a target="_blank" rel="noopener" href="https://www.ruanx.net/des/?utm_source=chatgpt.com">Pion1eer</a>)</li>
 <li>最后通过固定 P 置换将32 位再重排。 (<a target="_blank" rel="noopener" href="https://houbb.github.io/2020/06/17/althgorim-cryptograph-05-des?utm_source=chatgpt.com">Echo
@@ -558,7 +535,7 @@ X₃）或重组，为下一轮输入。</li>
       <i class="fa fa-chart-line"></i>
     </span>
       <span>站点总字数：</span>
-    <span title="站点总字数">69k</span>
+    <span title="站点总字数">70k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
