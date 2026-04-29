@@ -3037,10 +3037,8 @@ Git 的这些显著优势正是我们学习和使用它的重要原因。</p>
     <url>/cycle.html</url>
     <content><![CDATA[<!--more-->
 <h1 id="铁腚行">铁腚行</h1>
-<h2 id="已备骑行装备">已备骑行装备</h2>
-<ul>
-<li>车</li>
-</ul>
+<h2 id="装备">装备</h2>
+<h3 id="车">车</h3>
 <p>喜德盛RC200（2025-2-11） <span class="price" data-price="1499"> 1499
 ￥</span></p>
 <figure>
@@ -3053,38 +3051,25 @@ Git 的这些显著优势正是我们学习和使用它的重要原因。</p>
 <img src="/cycle/ad300.png" alt="AD300">
 <figcaption aria-hidden="true">AD300</figcaption>
 </figure>
-<ul>
-<li>护目镜：</li>
-</ul>
-<p>匹克日常 <span class="price" data-price="39"> 39 ￥</span></p>
-<ul>
-<li>手机支架</li>
-</ul>
-<p>ROCKBROS <span class="price" data-price="29"> 29 ￥</span></p>
-<ul>
-<li>头盔</li>
-</ul>
+<h3 id="穿戴">穿戴</h3>
+<p>匹克日常护目镜 <span class="price" data-price="39"> 39 ￥</span></p>
+<p>ROCKBROS 手机支架 <span class="price" data-price="29"> 29 ￥</span></p>
 <p>GUB M5 Mips骑行头盔 <span class="price" data-price="239"> 239 ￥</span></p>
-<ul>
-<li>手套</li>
-</ul>
-<p>VEIDOORN 半指 <span class="price" data-price="39"> 39 ￥</span></p>
-<ul>
-<li>水壶 + 水壶架</li>
-</ul>
-<p>ROCKBROS <span class="price" data-price="35"> 35￥</span></p>
-<p>铂朗尼水壶 <span class="price" data-price="23"> 23 ￥</span></p>
-<p>碳纹ABS一体成型水杯架 <span class="price" data-price="16"> 16 ￥</span></p>
-<ul>
-<li>尾灯</li>
-</ul>
-<p>美利达智能感应刹车灯 <span class="price" data-price="30"> 30 ￥</span></p>
-<ul>
-<li>骑行酷</li>
-</ul>
-<p>EVR无背带短裤-Discover <span class="price" data-peice="230">
+<p>VEIDOORN 半指手套 <span class="price" data-price="39"> 39 ￥</span></p>
+<p>EVR无背带短裤-Discover 骑行酷 <span class="price" data-price="230">
 230￥</span></p>
-<hr>
+<h3 id="外设">外设</h3>
+<p>ROCKBROS 水壶 <span class="price" data-price="35"> 35￥</span></p>
+<p>铂朗尼水壶 <span class="price" data-price="23"> 23 ￥</span></p>
+<p>碳纹ABS一体成型水杯架 <span class="price" data-price="32"> 16 *
+2￥</span></p>
+<p>美利达智能感应刹车灯 尾灯 <span class="price" data-price="30"> 30
+￥</span></p>
+<p>iGPSORT M82S 一体把支架 <span class="price" data-price="69"> 69
+￥</span></p>
+<p>iGPSORT BSC300T 码表 <span class="price" data-price="599"> 599 ￥</span></p>
+<p>iGPSORT CAD70 踏频传感器 <span class="price" data-price="139"> 139
+￥</span></p>
 <blockquote>
 <p><strong>总价</strong>: <span id="total-price">计算中…</span></p>
 </blockquote>
@@ -3168,11 +3153,15 @@ Git 的这些显著优势正是我们学习和使用它的重要原因。</p>
 (pcr ltd 2+)</span></p>
 <p>2026-04-21 <span class="distance" data-distance="50"> 50 km
 (ad300)</span></p>
+<p>2026-04-25 <span class="distance" data-distance="29.86"> 29.86 km
+(ad300)</span></p>
+<p>2026-04-28 <span class="distance" data-distance="29.87"> 29.87 km
+(ad300)</span></p>
 <blockquote>
 <p><strong>总行程</strong>: <span id="total-distance"> 计算中…</span></p>
 </blockquote>
 <hr>
-<h2 id="车">车</h2>
+<h2 id="车-1">车</h2>
 <p>2025-04-21 第一次扎胎，扎到落叶里生命的余韵了🔥 <img src="/cycle/cy1.jpg" alt="2"></p>
 <p>2025-06-29
 第一次拆车并装车，一定要经常松动一些关键部位的螺丝，不然生锈了会卡死，拆下来的前轮要放在飞盘的另一侧，轮轴差不多对准放竖杯架的地方。
