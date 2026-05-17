@@ -6,8 +6,11 @@
     <content><![CDATA[<!--more-->
 <h1 id="铁腚行">铁腚行</h1>
 <style>
-.ride-github-panel {
+#ride-dashboard-root {
   margin: 1.5rem 0 2rem;
+}
+
+.ride-github-panel {
   padding: 16px 20px;
   border: 1px solid #d0d7de;
   border-radius: 6px;
@@ -22,21 +25,21 @@
   margin-bottom: 18px;
 }
 
-.ride-github-header div {
+.ride-stat-card {
   padding: 12px;
   border-radius: 6px;
   background: #f6f8fa;
   text-align: center;
 }
 
-.ride-github-header strong {
+.ride-stat-card strong {
   display: block;
   font-size: 20px;
   color: #24292f;
   line-height: 1.4;
 }
 
-.ride-github-header span {
+.ride-stat-card span {
   font-size: 13px;
   color: #57606a;
 }
@@ -69,19 +72,19 @@
 }
 
 .ride-year-section {
-  margin-top: 18px;
+  margin-top: 24px;
 }
 
 .ride-year-title {
   margin: 0 0 10px;
-  font-size: 18px;
+  font-size: 24px;
   font-weight: 600;
-  color: #24292f;
+  color: #009688;
 }
 
 .ride-year-summary {
   margin-bottom: 10px;
-  font-size: 13px;
+  font-size: 14px;
   color: #57606a;
 }
 
@@ -96,7 +99,7 @@
   display: grid;
   grid-template-columns: repeat(54, 13px);
   gap: 3px;
-  margin-left: 32px;
+  margin-left: 36px;
   margin-bottom: 4px;
   font-size: 12px;
   color: #57606a;
@@ -116,6 +119,7 @@
   display: grid;
   grid-template-rows: repeat(7, 13px);
   gap: 3px;
+  width: 30px;
   margin-right: 6px;
   font-size: 12px;
   color: #57606a;
@@ -147,23 +151,28 @@
   outline-offset: 1px;
 }
 
-.ride-cell.level-0 {
+.ride-cell.level-0,
+.ride-legend-box.level-0 {
   background: #ebedf0;
 }
 
-.ride-cell.level-1 {
+.ride-cell.level-1,
+.ride-legend-box.level-1 {
   background: #9be9a8;
 }
 
-.ride-cell.level-2 {
+.ride-cell.level-2,
+.ride-legend-box.level-2 {
   background: #40c463;
 }
 
-.ride-cell.level-3 {
+.ride-cell.level-3,
+.ride-legend-box.level-3 {
   background: #30a14e;
 }
 
-.ride-cell.level-4 {
+.ride-cell.level-4,
+.ride-legend-box.level-4 {
   background: #216e39;
 }
 
@@ -172,36 +181,16 @@
   align-items: center;
   justify-content: flex-end;
   gap: 4px;
-  margin-top: 8px;
+  margin-top: 12px;
   font-size: 12px;
   color: #57606a;
 }
 
-.ride-github-footer i {
+.ride-legend-box {
   width: 13px;
   height: 13px;
   border-radius: 2px;
   box-shadow: inset 0 0 0 1px rgba(27, 31, 35, 0.06);
-}
-
-.ride-github-footer .level-0 {
-  background: #ebedf0;
-}
-
-.ride-github-footer .level-1 {
-  background: #9be9a8;
-}
-
-.ride-github-footer .level-2 {
-  background: #40c463;
-}
-
-.ride-github-footer .level-3 {
-  background: #30a14e;
-}
-
-.ride-github-footer .level-4 {
-  background: #216e39;
 }
 
 @media (max-width: 700px) {
@@ -258,41 +247,43 @@
 <p><strong>总价</strong>: <span id="total-price">计算中…</span></p>
 </blockquote>
 <h2 id="总行程">总行程</h2>
-<div class="ride-github-panel">
-<div class="ride-github-header">
-<pre><code>&lt;div&gt;
-  &lt;strong id=&quot;ride-total-distance&quot;&gt;--&lt;/strong&gt;
-  &lt;span&gt;总里程&lt;/span&gt;
-&lt;/div&gt;
-&lt;div&gt;
-  &lt;strong id=&quot;ride-total-days&quot;&gt;--&lt;/strong&gt;
-  &lt;span&gt;骑行天数&lt;/span&gt;
-&lt;/div&gt;
-&lt;div&gt;
-  &lt;strong id=&quot;ride-max-distance&quot;&gt;--&lt;/strong&gt;
-  &lt;span&gt;最远单日&lt;/span&gt;
-&lt;/div&gt;
-&lt;div&gt;
-  &lt;strong id=&quot;ride-year-count&quot;&gt;--&lt;/strong&gt;
-  &lt;span&gt;记录年份&lt;/span&gt;
-&lt;/div&gt;</code></pre>
-</div>
-<div id="ride-year-switcher" class="ride-year-switcher">
+<div id="ride-dashboard-root">
 
 </div>
-<div id="ride-years-container">
+<!-- <div class="ride-github-panel">
+  <div class="ride-github-header">
+    <div>
+      <strong id="ride-total-distance">--</strong>
+      <span>总里程</span>
+    </div>
+    <div>
+      <strong id="ride-total-days">--</strong>
+      <span>骑行天数</span>
+    </div>
+    <div>
+      <strong id="ride-max-distance">--</strong>
+      <span>最远单日</span>
+    </div>
+    <div>
+      <strong id="ride-year-count">--</strong>
+      <span>记录年份</span>
+    </div>
+  </div>
 
-</div>
-<div class="ride-github-footer">
-<pre><code>&lt;span&gt;Less&lt;/span&gt;
-&lt;i class=&quot;level-0&quot;&gt;&lt;/i&gt;
-&lt;i class=&quot;level-1&quot;&gt;&lt;/i&gt;
-&lt;i class=&quot;level-2&quot;&gt;&lt;/i&gt;
-&lt;i class=&quot;level-3&quot;&gt;&lt;/i&gt;
-&lt;i class=&quot;level-4&quot;&gt;&lt;/i&gt;
-&lt;span&gt;More&lt;/span&gt;</code></pre>
-</div>
-</div>
+  <div id="ride-year-switcher" class="ride-year-switcher"></div>
+
+  <div id="ride-years-container"></div>
+
+  <div class="ride-github-footer">
+    <span>Less</span>
+    <i class="level-0"></i>
+    <i class="level-1"></i>
+    <i class="level-2"></i>
+    <i class="level-3"></i>
+    <i class="level-4"></i>
+    <span>More</span>
+  </div>
+</div> -->
 <p>2025-03-01之前 <span class="distance history-distance" data-distance="147">147 km</span></p>
 <p>2025-03-01 <span class="distance" data-date="2025-03-01" data-distance="150">150 km</span></p>
 <p>2025-03-11 <span class="distance" data-date="2025-03-11" data-distance="40">40 km</span></p>
@@ -372,7 +363,6 @@
 成都-和盛镇-天乡路三段的路沿有一个贼大的下水道坑，车子冲过去直接冲爆胎了，入坑货拉拉…</p>
 <script>
 document.addEventListener("DOMContentLoaded", function () {
-  // 装备总价
   let totalPrice = 0;
 
   document.querySelectorAll(".price").forEach(item => {
@@ -389,7 +379,6 @@ document.addEventListener("DOMContentLoaded", function () {
     totalPriceEl.innerText = totalPrice.toFixed(2) + " ￥";
   }
 
-  // 总里程：所有 .distance 都参与统计，包括历史汇总
   let totalDistance = 0;
 
   document.querySelectorAll(".distance").forEach(item => {
@@ -406,7 +395,6 @@ document.addEventListener("DOMContentLoaded", function () {
     totalDistanceEl.innerText = totalDistance.toFixed(2) + " km";
   }
 
-  // 热力图数据：只有带 data-date 的 .distance 进入热力图
   const rideMap = new Map();
 
   document.querySelectorAll(".distance[data-date]").forEach(item => {
@@ -427,30 +415,83 @@ document.addEventListener("DOMContentLoaded", function () {
   const years = Array.from(new Set(rides.map(item => item.year)))
     .sort((a, b) => Number(b) - Number(a));
 
-  const yearSwitcher = document.getElementById("ride-year-switcher");
-  const yearsContainer = document.getElementById("ride-years-container");
+  const root = document.getElementById("ride-dashboard-root");
 
-  if (!yearSwitcher || !yearsContainer) return;
-
-  const rideTotalEl = document.getElementById("ride-total-distance");
-  const rideDaysEl = document.getElementById("ride-total-days");
-  const rideMaxEl = document.getElementById("ride-max-distance");
-  const rideYearCountEl = document.getElementById("ride-year-count");
+  if (!root) return;
 
   const rideDays = rides.length;
   const maxDistance = rides.length
     ? Math.max(...rides.map(item => item.distance))
     : 0;
 
-  if (rideTotalEl) rideTotalEl.innerText = totalDistance.toFixed(2) + " km";
-  if (rideDaysEl) rideDaysEl.innerText = rideDays + " 天";
-  if (rideMaxEl) rideMaxEl.innerText = maxDistance.toFixed(2) + " km";
-  if (rideYearCountEl) rideYearCountEl.innerText = years.length + " 年";
+  const panel = document.createElement("div");
+  panel.className = "ride-github-panel";
 
-  function createLocalDate(dateStr) {
-    const [year, month, day] = dateStr.split("-").map(Number);
-    return new Date(year, month - 1, day);
+  const header = document.createElement("div");
+  header.className = "ride-github-header";
+
+  const stats = [
+    {
+      value: totalDistance.toFixed(2) + " km",
+      label: "总里程"
+    },
+    {
+      value: rideDays + " 天",
+      label: "骑行天数"
+    },
+    {
+      value: maxDistance.toFixed(2) + " km",
+      label: "最远单日"
+    },
+    {
+      value: years.length + " 年",
+      label: "记录年份"
+    }
+  ];
+
+  stats.forEach(stat => {
+    const card = document.createElement("div");
+    card.className = "ride-stat-card";
+
+    const strong = document.createElement("strong");
+    strong.innerText = stat.value;
+
+    const span = document.createElement("span");
+    span.innerText = stat.label;
+
+    card.appendChild(strong);
+    card.appendChild(span);
+    header.appendChild(card);
+  });
+
+  const yearSwitcher = document.createElement("div");
+  yearSwitcher.className = "ride-year-switcher";
+
+  const yearsContainer = document.createElement("div");
+
+  panel.appendChild(header);
+  panel.appendChild(yearSwitcher);
+  panel.appendChild(yearsContainer);
+
+  const footer = document.createElement("div");
+  footer.className = "ride-github-footer";
+
+  const less = document.createElement("span");
+  less.innerText = "Less";
+  footer.appendChild(less);
+
+  for (let i = 0; i <= 4; i++) {
+    const box = document.createElement("span");
+    box.className = `ride-legend-box level-${i}`;
+    footer.appendChild(box);
   }
+
+  const more = document.createElement("span");
+  more.innerText = "More";
+  footer.appendChild(more);
+
+  panel.appendChild(footer);
+  root.appendChild(panel);
 
   function formatDate(date) {
     const y = date.getFullYear();
@@ -462,9 +503,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function getLevel(distance) {
     if (!distance) return 0;
-    if (distance <= 50) return 1;
-    if (distance <= 100) return 2;
-    if (distance <= 150) return 3;
+    if (distance <= 20) return 1;
+    if (distance <= 40) return 2;
+    if (distance <= 60) return 3;
     return 4;
   }
 
@@ -514,15 +555,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const weekdays = document.createElement("div");
     weekdays.className = "ride-weekdays";
-    weekdays.innerHTML = `
-      <span></span>
-      <span>Mon</span>
-      <span></span>
-      <span>Wed</span>
-      <span></span>
-      <span>Fri</span>
-      <span></span>
-    `;
+
+    ["", "Mon", "", "Wed", "", "Fri", ""].forEach(day => {
+      const span = document.createElement("span");
+      span.innerText = day;
+      weekdays.appendChild(span);
+    });
 
     const heatmap = document.createElement("div");
     heatmap.className = "ride-heatmap";
@@ -593,14 +631,6 @@ document.addEventListener("DOMContentLoaded", function () {
     yearsContainer.appendChild(section);
   }
 
-  function renderAllYears() {
-    yearsContainer.innerHTML = "";
-
-    years.forEach(year => {
-      renderYear(year);
-    });
-  }
-
   function setActiveYear(targetYear) {
     document.querySelectorAll(".ride-year-btn").forEach(btn => {
       btn.classList.toggle("active", btn.dataset.year === targetYear);
@@ -635,7 +665,10 @@ document.addEventListener("DOMContentLoaded", function () {
     createYearButton(year, year);
   });
 
-  renderAllYears();
+  years.forEach(year => {
+    renderYear(year);
+  });
+
   setActiveYear("all");
 });
 </script>
