@@ -1285,8 +1285,9 @@ then:</p>
   <entry>
     <title>DES和IDEA的CPP实现</title>
     <url>/DES%E5%92%8CIDEA%E7%9A%84CPP%E5%AE%9E%E7%8E%B0.html</url>
-    <content><![CDATA[<!--more-->
+    <content><![CDATA[<blockquote>
 <p>在std版本中，当输入的文本以<code>@</code>开头且后面跟的是绝对地址时，可以读取文档。</p>
+</blockquote>
 <h2 id="des">DES</h2>
 <p>数据加密标准（Data Encryption
 Standard，DES）能够依赖64位密钥加密64位明文，将64位密文反向使用64位密钥生成的子密钥可以按照完全相同的步骤把密文解密为明文，加密步骤如下：</p>
