@@ -1,6 +1,653 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>cycle</title>
+    <url>/cycle.html</url>
+    <content><![CDATA[<!--more-->
+<h1 id="铁腚行">铁腚行</h1>
+<style>
+.ride-github-panel {
+  margin: 1.5rem 0 2rem;
+  padding: 16px 20px;
+  border: 1px solid #d0d7de;
+  border-radius: 6px;
+  background: #ffffff;
+  color: #24292f;
+}
+
+.ride-github-header {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.ride-github-header div {
+  padding: 12px;
+  border-radius: 6px;
+  background: #f6f8fa;
+  text-align: center;
+}
+
+.ride-github-header strong {
+  display: block;
+  font-size: 20px;
+  color: #24292f;
+  line-height: 1.4;
+}
+
+.ride-github-header span {
+  font-size: 13px;
+  color: #57606a;
+}
+
+.ride-year-switcher {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+.ride-year-btn {
+  padding: 6px 14px;
+  border: 1px solid #d0d7de;
+  border-radius: 6px;
+  background: #f6f8fa;
+  color: #24292f;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.ride-year-btn:hover {
+  background: #eef1f4;
+}
+
+.ride-year-btn.active {
+  background: #0969da;
+  border-color: #0969da;
+  color: #ffffff;
+}
+
+.ride-year-section {
+  margin-top: 18px;
+}
+
+.ride-year-title {
+  margin: 0 0 10px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #24292f;
+}
+
+.ride-year-summary {
+  margin-bottom: 10px;
+  font-size: 13px;
+  color: #57606a;
+}
+
+.ride-github-body {
+  overflow-x: auto;
+  padding: 12px;
+  border: 1px solid #d8dee4;
+  border-radius: 6px;
+}
+
+.ride-months {
+  display: grid;
+  grid-template-columns: repeat(54, 13px);
+  gap: 3px;
+  margin-left: 32px;
+  margin-bottom: 4px;
+  font-size: 12px;
+  color: #57606a;
+  min-width: max-content;
+}
+
+.ride-month {
+  white-space: nowrap;
+}
+
+.ride-grid-area {
+  display: flex;
+  min-width: max-content;
+}
+
+.ride-weekdays {
+  display: grid;
+  grid-template-rows: repeat(7, 13px);
+  gap: 3px;
+  margin-right: 6px;
+  font-size: 12px;
+  color: #57606a;
+}
+
+.ride-weekdays span {
+  height: 13px;
+  line-height: 13px;
+}
+
+.ride-heatmap {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-rows: repeat(7, 13px);
+  gap: 3px;
+  min-width: max-content;
+}
+
+.ride-cell {
+  width: 13px;
+  height: 13px;
+  border-radius: 2px;
+  background: #ebedf0;
+  box-shadow: inset 0 0 0 1px rgba(27, 31, 35, 0.06);
+}
+
+.ride-cell:hover {
+  outline: 1px solid rgba(27, 31, 35, 0.6);
+  outline-offset: 1px;
+}
+
+.ride-cell.level-0 {
+  background: #ebedf0;
+}
+
+.ride-cell.level-1 {
+  background: #9be9a8;
+}
+
+.ride-cell.level-2 {
+  background: #40c463;
+}
+
+.ride-cell.level-3 {
+  background: #30a14e;
+}
+
+.ride-cell.level-4 {
+  background: #216e39;
+}
+
+.ride-github-footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 4px;
+  margin-top: 8px;
+  font-size: 12px;
+  color: #57606a;
+}
+
+.ride-github-footer i {
+  width: 13px;
+  height: 13px;
+  border-radius: 2px;
+  box-shadow: inset 0 0 0 1px rgba(27, 31, 35, 0.06);
+}
+
+.ride-github-footer .level-0 {
+  background: #ebedf0;
+}
+
+.ride-github-footer .level-1 {
+  background: #9be9a8;
+}
+
+.ride-github-footer .level-2 {
+  background: #40c463;
+}
+
+.ride-github-footer .level-3 {
+  background: #30a14e;
+}
+
+.ride-github-footer .level-4 {
+  background: #216e39;
+}
+
+@media (max-width: 700px) {
+  .ride-github-header {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 500px) {
+  .ride-github-header {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+<h2 id="装备">装备</h2>
+<h3 id="车">车</h3>
+<p>喜德盛RC200（2025-2-11） <span class="price" data-price="1499">1499
+￥</span></p>
+<figure>
+<img src="/cycle/init1.png" alt="RC200">
+<figcaption aria-hidden="true">RC200</figcaption>
+</figure>
+<p>喜德胜AD300（2025-12-25） <span class="price" data-price="2999">2999
+￥</span></p>
+<figure>
+<img src="/cycle/ad300.png" alt="AD300">
+<figcaption aria-hidden="true">AD300</figcaption>
+</figure>
+<h3 id="穿戴">穿戴</h3>
+<p>GUB M5 Mips 骑行头盔 <span class="price" data-price="239">239
+￥</span></p>
+<p>匹克日常护目镜 <span class="price" data-price="39">39 ￥</span></p>
+<p>VEIDOORN 半指手套 <span class="price" data-price="39">39
+￥</span></p>
+<p>EVR 军绿色 骑行服 <span class="price" data-price="99">99
+￥</span></p>
+<p>EVR 无背带短裤-Discover 骑行酷 <span class="price" data-price="230">230 ￥</span></p>
+<h3 id="外设">外设</h3>
+<p>ROCKBROS 水壶 <span class="price" data-price="35">35 ￥</span></p>
+<p>铂朗尼水壶 <span class="price" data-price="23">23 ￥</span></p>
+<p>ROCKBROS 手机支架 <span class="price" data-price="29">29
+￥</span></p>
+<p>碳纹ABS一体成型水杯架 <span class="price" data-price="32">32
+￥</span></p>
+<p>美利达智能感应刹车灯 尾灯 <span class="price" data-price="30">30
+￥</span></p>
+<p>iGPSORT M82S 一体把支架 <span class="price" data-price="69">69
+￥</span></p>
+<p>iGPSORT BSC300T 码表 <span class="price" data-price="599">599
+￥</span></p>
+<p>iGPSORT CAD70 踏频传感器 <span class="price" data-price="139">139
+￥</span></p>
+<blockquote>
+<p><strong>总价</strong>: <span id="total-price">计算中…</span></p>
+</blockquote>
+<h2 id="总行程">总行程</h2>
+<div class="ride-github-panel">
+<div class="ride-github-header">
+<pre><code>&lt;div&gt;
+  &lt;strong id=&quot;ride-total-distance&quot;&gt;--&lt;/strong&gt;
+  &lt;span&gt;总里程&lt;/span&gt;
+&lt;/div&gt;
+&lt;div&gt;
+  &lt;strong id=&quot;ride-total-days&quot;&gt;--&lt;/strong&gt;
+  &lt;span&gt;骑行天数&lt;/span&gt;
+&lt;/div&gt;
+&lt;div&gt;
+  &lt;strong id=&quot;ride-max-distance&quot;&gt;--&lt;/strong&gt;
+  &lt;span&gt;最远单日&lt;/span&gt;
+&lt;/div&gt;
+&lt;div&gt;
+  &lt;strong id=&quot;ride-year-count&quot;&gt;--&lt;/strong&gt;
+  &lt;span&gt;记录年份&lt;/span&gt;
+&lt;/div&gt;</code></pre>
+</div>
+<div id="ride-year-switcher" class="ride-year-switcher">
+
+</div>
+<div id="ride-years-container">
+
+</div>
+<div class="ride-github-footer">
+<pre><code>&lt;span&gt;Less&lt;/span&gt;
+&lt;i class=&quot;level-0&quot;&gt;&lt;/i&gt;
+&lt;i class=&quot;level-1&quot;&gt;&lt;/i&gt;
+&lt;i class=&quot;level-2&quot;&gt;&lt;/i&gt;
+&lt;i class=&quot;level-3&quot;&gt;&lt;/i&gt;
+&lt;i class=&quot;level-4&quot;&gt;&lt;/i&gt;
+&lt;span&gt;More&lt;/span&gt;</code></pre>
+</div>
+</div>
+<p>2025-03-01之前 <span class="distance history-distance" data-distance="147">147 km</span></p>
+<p>2025-03-01 <span class="distance" data-date="2025-03-01" data-distance="150">150 km</span></p>
+<p>2025-03-11 <span class="distance" data-date="2025-03-11" data-distance="40">40 km</span></p>
+<p>2025-03-15 <span class="distance" data-date="2025-03-15" data-distance="13">13 km</span></p>
+<p>2025-03-18 <span class="distance" data-date="2025-03-18" data-distance="40">40 km</span></p>
+<p>2025-03-25 <span class="distance" data-date="2025-03-25" data-distance="40">40 km</span></p>
+<p>2025-04-02 <span class="distance" data-date="2025-04-02" data-distance="40">40 km</span></p>
+<p>2025-04-08 <span class="distance" data-date="2025-04-08" data-distance="40">40 km</span></p>
+<p>2025-04-15 <span class="distance" data-date="2025-04-15" data-distance="40">40 km</span></p>
+<p>2025-04-22 <span class="distance" data-date="2025-04-22" data-distance="40">40 km</span></p>
+<p>2025-05-24 <span class="distance" data-date="2025-05-24" data-distance="40">40 km</span></p>
+<p>不要在温玉路夜骑，太吓人了，伸手不见五指。</p>
+<p>2025-05-27 <span class="distance" data-date="2025-05-27" data-distance="40">40 km</span></p>
+<p>2025-05-29 <span class="distance" data-date="2025-05-29" data-distance="40">40 km</span></p>
+<p>2025-05-30 <span class="distance" data-date="2025-05-30" data-distance="40">40 km</span></p>
+<p>2025-06-05 <span class="distance" data-date="2025-06-05" data-distance="50">50 km</span></p>
+<p>解锁新路线：北林（和老友）</p>
+<figure>
+<img src="/cycle/shouan12_3.png" alt="shouan12_3">
+<figcaption aria-hidden="true">shouan12_3</figcaption>
+</figure>
+<p>2025-06-25 <span class="distance" data-date="2025-06-25" data-distance="40">40 km</span></p>
+<p>解放的期末，久违的骑行</p>
+<p>2025-06-28 <span class="distance" data-date="2025-06-28" data-distance="40">40 km</span></p>
+<p>最累的一集，感觉期末状态没恢复过来</p>
+<p>2025-07-07 <span class="distance" data-date="2025-07-07" data-distance="25">25 km</span></p>
+<p>回家了，绕城</p>
+<p>2025-07-15 <span class="distance" data-date="2025-07-15" data-distance="20">20 km</span></p>
+<p>2025-07-17 <span class="distance" data-date="2025-07-17" data-distance="20">20 km</span></p>
+<p>2025-07-18 <span class="distance" data-date="2025-07-18" data-distance="15">15 km</span></p>
+<p>2025-07-24 <span class="distance" data-date="2025-07-24" data-distance="20">20 km</span></p>
+<p>2025-07-27 <span class="distance" data-date="2025-07-27" data-distance="10">10 km</span></p>
+<p>2025-07-28 <span class="distance" data-date="2025-07-28" data-distance="20">20 km</span></p>
+<p>2025-07-30 <span class="distance" data-date="2025-07-30" data-distance="110">110 km</span></p>
+<p>最艰难的一集，接近四十度的天气暴晒八小时（不会再顶着高温征战绿道了，差点没活着回来）</p>
+<p>2025-08-02 <span class="distance" data-date="2025-08-02" data-distance="40">40 km</span></p>
+<p>2025-08-03 <span class="distance" data-date="2025-08-03" data-distance="40">40 km</span></p>
+<p>双排</p>
+<p>2025-08-06 <span class="distance" data-date="2025-08-06" data-distance="40">40 km</span></p>
+<p>2025-08-09 <span class="distance" data-date="2025-08-09" data-distance="40">40 km</span></p>
+<p>2025-08-11 <span class="distance" data-date="2025-08-11" data-distance="50">50 km</span></p>
+<p>2025-08-13 <span class="distance" data-date="2025-08-13" data-distance="50">50 km</span></p>
+<p>2025-08-25 <span class="distance" data-date="2025-08-25" data-distance="50">50 km</span></p>
+<p>2025-08-29 <span class="distance" data-date="2025-08-29" data-distance="40">40 km</span></p>
+<p>雨骑的魅力在于，越骑越冷…</p>
+<p>2025-08-31 <span class="distance" data-date="2025-08-31" data-distance="40">40 km</span></p>
+<p>2025-09-09 <span class="distance" data-date="2025-09-09" data-distance="40">40 km</span></p>
+<p>2025-09-13 <span class="distance" data-date="2025-09-13" data-distance="40">40 km</span></p>
+<p>2026-01-18 <span class="distance" data-date="2026-01-18" data-distance="40">40 km</span></p>
+<p>2026-02-26 <span class="distance" data-date="2026-02-26" data-distance="40">40 km</span></p>
+<p>2026-03-28 <span class="distance" data-date="2026-03-28" data-distance="52">52 km</span></p>
+<p>2026-04-04 <span class="distance" data-date="2026-04-04" data-distance="43.4">43.4 km</span>（ad300）</p>
+<p>2026-04-06 <span class="distance" data-date="2026-04-06" data-distance="43.55">43.55 km</span>（pcr ltd 2+）</p>
+<p>2026-04-21 <span class="distance" data-date="2026-04-21" data-distance="50">50 km</span>（ad300）</p>
+<p>2026-04-25 <span class="distance" data-date="2026-04-25" data-distance="29.86">29.86 km</span>（ad300）</p>
+<p>2026-04-28 <span class="distance" data-date="2026-04-28" data-distance="29.87">29.87 km</span>（ad300）</p>
+<p>2026-05-08 <span class="distance" data-date="2026-05-08" data-distance="44.73">44.73 km</span>（ad300）</p>
+<p>2026-05-10 <span class="distance" data-date="2026-05-10" data-distance="44.20">44.20 km</span>（ad300）</p>
+<p>2026-05-12 <span class="distance" data-date="2026-05-12" data-distance="49.06">49.06 km</span>（ad300）</p>
+<blockquote>
+<p><strong>总行程</strong>: <span id="total-distance">计算中…</span></p>
+</blockquote>
+<hr>
+<h2 id="车-1">车</h2>
+<p>2025-04-21 第一次扎胎，扎到落叶里生命的余韵了🔥</p>
+<figure>
+<img src="/cycle/cy1.jpg" alt="2">
+<figcaption aria-hidden="true">2</figcaption>
+</figure>
+<p>2025-06-29
+第一次拆车并装车，一定要经常松动一些关键部位的螺丝，不然生锈了会卡死，拆下来的前轮要放在飞盘的另一侧，轮轴差不多对准放竖杯架的地方。</p>
+<blockquote>
+<p>一个月后顺利装车返校…</p>
+</blockquote>
+<p>2025-08-13 洗车，上油</p>
+<p>2026-02-26
+成都-和盛镇-天乡路三段的路沿有一个贼大的下水道坑，车子冲过去直接冲爆胎了，入坑货拉拉…</p>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  // 装备总价
+  let totalPrice = 0;
+
+  document.querySelectorAll(".price").forEach(item => {
+    const price = Number(item.dataset.price);
+
+    if (!Number.isNaN(price)) {
+      totalPrice += price;
+    }
+  });
+
+  const totalPriceEl = document.getElementById("total-price");
+
+  if (totalPriceEl) {
+    totalPriceEl.innerText = totalPrice.toFixed(2) + " ￥";
+  }
+
+  // 总里程：所有 .distance 都参与统计，包括历史汇总
+  let totalDistance = 0;
+
+  document.querySelectorAll(".distance").forEach(item => {
+    const distance = Number(item.dataset.distance);
+
+    if (!Number.isNaN(distance)) {
+      totalDistance += distance;
+    }
+  });
+
+  const totalDistanceEl = document.getElementById("total-distance");
+
+  if (totalDistanceEl) {
+    totalDistanceEl.innerText = totalDistance.toFixed(2) + " km";
+  }
+
+  // 热力图数据：只有带 data-date 的 .distance 进入热力图
+  const rideMap = new Map();
+
+  document.querySelectorAll(".distance[data-date]").forEach(item => {
+    const date = item.dataset.date;
+    const distance = Number(item.dataset.distance);
+
+    if (!date || Number.isNaN(distance)) return;
+
+    rideMap.set(date, (rideMap.get(date) || 0) + distance);
+  });
+
+  const rides = Array.from(rideMap.entries()).map(([date, distance]) => ({
+    date,
+    distance,
+    year: date.slice(0, 4)
+  }));
+
+  const years = Array.from(new Set(rides.map(item => item.year)))
+    .sort((a, b) => Number(b) - Number(a));
+
+  const yearSwitcher = document.getElementById("ride-year-switcher");
+  const yearsContainer = document.getElementById("ride-years-container");
+
+  if (!yearSwitcher || !yearsContainer) return;
+
+  const rideTotalEl = document.getElementById("ride-total-distance");
+  const rideDaysEl = document.getElementById("ride-total-days");
+  const rideMaxEl = document.getElementById("ride-max-distance");
+  const rideYearCountEl = document.getElementById("ride-year-count");
+
+  const rideDays = rides.length;
+  const maxDistance = rides.length
+    ? Math.max(...rides.map(item => item.distance))
+    : 0;
+
+  if (rideTotalEl) rideTotalEl.innerText = totalDistance.toFixed(2) + " km";
+  if (rideDaysEl) rideDaysEl.innerText = rideDays + " 天";
+  if (rideMaxEl) rideMaxEl.innerText = maxDistance.toFixed(2) + " km";
+  if (rideYearCountEl) rideYearCountEl.innerText = years.length + " 年";
+
+  function createLocalDate(dateStr) {
+    const [year, month, day] = dateStr.split("-").map(Number);
+    return new Date(year, month - 1, day);
+  }
+
+  function formatDate(date) {
+    const y = date.getFullYear();
+    const m = String(date.getMonth() + 1).padStart(2, "0");
+    const d = String(date.getDate()).padStart(2, "0");
+
+    return `${y}-${m}-${d}`;
+  }
+
+  function getLevel(distance) {
+    if (!distance) return 0;
+    if (distance <= 50) return 1;
+    if (distance <= 100) return 2;
+    if (distance <= 150) return 3;
+    return 4;
+  }
+
+  const monthNames = [
+    "Jan", "Feb", "Mar", "Apr", "May", "Jun",
+    "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
+  ];
+
+  function getYearStats(year) {
+    const yearRides = rides.filter(item => item.year === year);
+    const yearDistance = yearRides.reduce((sum, item) => sum + item.distance, 0);
+    const yearDays = yearRides.length;
+    const yearMax = yearRides.length
+      ? Math.max(...yearRides.map(item => item.distance))
+      : 0;
+
+    return {
+      distance: yearDistance,
+      days: yearDays,
+      max: yearMax
+    };
+  }
+
+  function renderYear(year) {
+    const section = document.createElement("section");
+    section.className = "ride-year-section";
+    section.dataset.year = year;
+
+    const stats = getYearStats(year);
+
+    const title = document.createElement("h3");
+    title.className = "ride-year-title";
+    title.innerText = year;
+
+    const summary = document.createElement("div");
+    summary.className = "ride-year-summary";
+    summary.innerText = `${year} 年骑行 ${stats.days} 天，累计 ${stats.distance.toFixed(2)} km，最远单日 ${stats.max.toFixed(2)} km`;
+
+    const body = document.createElement("div");
+    body.className = "ride-github-body";
+
+    const months = document.createElement("div");
+    months.className = "ride-months";
+
+    const gridArea = document.createElement("div");
+    gridArea.className = "ride-grid-area";
+
+    const weekdays = document.createElement("div");
+    weekdays.className = "ride-weekdays";
+    weekdays.innerHTML = `
+      <span></span>
+      <span>Mon</span>
+      <span></span>
+      <span>Wed</span>
+      <span></span>
+      <span>Fri</span>
+      <span></span>
+    `;
+
+    const heatmap = document.createElement("div");
+    heatmap.className = "ride-heatmap";
+
+    const firstDay = new Date(Number(year), 0, 1);
+    const lastDay = new Date(Number(year), 11, 31);
+
+    const startDate = new Date(firstDay);
+    startDate.setDate(startDate.getDate() - startDate.getDay());
+
+    const endDate = new Date(lastDay);
+    endDate.setDate(endDate.getDate() + (6 - endDate.getDay()));
+
+    let lastMonth = -1;
+
+    for (
+      let current = new Date(startDate);
+      current <= endDate;
+      current.setDate(current.getDate() + 1)
+    ) {
+      const dateStr = formatDate(current);
+      const distance = rideMap.get(dateStr) || 0;
+      const level = getLevel(distance);
+
+      const cell = document.createElement("div");
+      cell.className = `ride-cell level-${level}`;
+
+      if (current.getFullYear() !== Number(year)) {
+        cell.style.visibility = "hidden";
+        cell.title = "";
+      } else {
+        cell.title = distance
+          ? `${dateStr}: ${distance.toFixed(2)} km`
+          : `${dateStr}: No ride`;
+      }
+
+      heatmap.appendChild(cell);
+
+      if (current.getDay() === 0) {
+        const month = current.getMonth();
+        const monthCell = document.createElement("span");
+
+        if (
+          current.getFullYear() === Number(year) &&
+          month !== lastMonth
+        ) {
+          monthCell.className = "ride-month";
+          monthCell.innerText = monthNames[month];
+          lastMonth = month;
+        } else {
+          monthCell.innerText = "";
+        }
+
+        months.appendChild(monthCell);
+      }
+    }
+
+    gridArea.appendChild(weekdays);
+    gridArea.appendChild(heatmap);
+
+    body.appendChild(months);
+    body.appendChild(gridArea);
+
+    section.appendChild(title);
+    section.appendChild(summary);
+    section.appendChild(body);
+
+    yearsContainer.appendChild(section);
+  }
+
+  function renderAllYears() {
+    yearsContainer.innerHTML = "";
+
+    years.forEach(year => {
+      renderYear(year);
+    });
+  }
+
+  function setActiveYear(targetYear) {
+    document.querySelectorAll(".ride-year-btn").forEach(btn => {
+      btn.classList.toggle("active", btn.dataset.year === targetYear);
+    });
+
+    document.querySelectorAll(".ride-year-section").forEach(section => {
+      if (targetYear === "all") {
+        section.style.display = "";
+      } else {
+        section.style.display = section.dataset.year === targetYear ? "" : "none";
+      }
+    });
+  }
+
+  function createYearButton(label, year) {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "ride-year-btn";
+    button.dataset.year = year;
+    button.innerText = label;
+
+    button.addEventListener("click", function () {
+      setActiveYear(year);
+    });
+
+    yearSwitcher.appendChild(button);
+  }
+
+  createYearButton("全部", "all");
+
+  years.forEach(year => {
+    createYearButton(year, year);
+  });
+
+  renderAllYears();
+  setActiveYear("all");
+});
+</script>
+]]></content>
+      <categories>
+        <category>Daily</category>
+      </categories>
+      <tags>
+        <tag>Bike</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Solfware</title>
     <url>/Solfware.html</url>
     <content><![CDATA[<h1 id="soft-engineering">Soft Engineering</h1>
@@ -3002,653 +3649,6 @@ CSDN</a></p>
       <tags>
         <tag>Algorithm</tag>
         <tag>Data_Structure</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>cycle</title>
-    <url>/cycle.html</url>
-    <content><![CDATA[<!--more-->
-<h1 id="铁腚行">铁腚行</h1>
-<style>
-.ride-github-panel {
-  margin: 1.5rem 0 2rem;
-  padding: 16px 20px;
-  border: 1px solid #d0d7de;
-  border-radius: 6px;
-  background: #ffffff;
-  color: #24292f;
-}
-
-.ride-github-header {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 12px;
-  margin-bottom: 18px;
-}
-
-.ride-github-header div {
-  padding: 12px;
-  border-radius: 6px;
-  background: #f6f8fa;
-  text-align: center;
-}
-
-.ride-github-header strong {
-  display: block;
-  font-size: 20px;
-  color: #24292f;
-  line-height: 1.4;
-}
-
-.ride-github-header span {
-  font-size: 13px;
-  color: #57606a;
-}
-
-.ride-year-switcher {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-bottom: 18px;
-}
-
-.ride-year-btn {
-  padding: 6px 14px;
-  border: 1px solid #d0d7de;
-  border-radius: 6px;
-  background: #f6f8fa;
-  color: #24292f;
-  font-size: 14px;
-  cursor: pointer;
-}
-
-.ride-year-btn:hover {
-  background: #eef1f4;
-}
-
-.ride-year-btn.active {
-  background: #0969da;
-  border-color: #0969da;
-  color: #ffffff;
-}
-
-.ride-year-section {
-  margin-top: 18px;
-}
-
-.ride-year-title {
-  margin: 0 0 10px;
-  font-size: 18px;
-  font-weight: 600;
-  color: #24292f;
-}
-
-.ride-year-summary {
-  margin-bottom: 10px;
-  font-size: 13px;
-  color: #57606a;
-}
-
-.ride-github-body {
-  overflow-x: auto;
-  padding: 12px;
-  border: 1px solid #d8dee4;
-  border-radius: 6px;
-}
-
-.ride-months {
-  display: grid;
-  grid-template-columns: repeat(54, 13px);
-  gap: 3px;
-  margin-left: 32px;
-  margin-bottom: 4px;
-  font-size: 12px;
-  color: #57606a;
-  min-width: max-content;
-}
-
-.ride-month {
-  white-space: nowrap;
-}
-
-.ride-grid-area {
-  display: flex;
-  min-width: max-content;
-}
-
-.ride-weekdays {
-  display: grid;
-  grid-template-rows: repeat(7, 13px);
-  gap: 3px;
-  margin-right: 6px;
-  font-size: 12px;
-  color: #57606a;
-}
-
-.ride-weekdays span {
-  height: 13px;
-  line-height: 13px;
-}
-
-.ride-heatmap {
-  display: grid;
-  grid-auto-flow: column;
-  grid-template-rows: repeat(7, 13px);
-  gap: 3px;
-  min-width: max-content;
-}
-
-.ride-cell {
-  width: 13px;
-  height: 13px;
-  border-radius: 2px;
-  background: #ebedf0;
-  box-shadow: inset 0 0 0 1px rgba(27, 31, 35, 0.06);
-}
-
-.ride-cell:hover {
-  outline: 1px solid rgba(27, 31, 35, 0.6);
-  outline-offset: 1px;
-}
-
-.ride-cell.level-0 {
-  background: #ebedf0;
-}
-
-.ride-cell.level-1 {
-  background: #9be9a8;
-}
-
-.ride-cell.level-2 {
-  background: #40c463;
-}
-
-.ride-cell.level-3 {
-  background: #30a14e;
-}
-
-.ride-cell.level-4 {
-  background: #216e39;
-}
-
-.ride-github-footer {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  gap: 4px;
-  margin-top: 8px;
-  font-size: 12px;
-  color: #57606a;
-}
-
-.ride-github-footer i {
-  width: 13px;
-  height: 13px;
-  border-radius: 2px;
-  box-shadow: inset 0 0 0 1px rgba(27, 31, 35, 0.06);
-}
-
-.ride-github-footer .level-0 {
-  background: #ebedf0;
-}
-
-.ride-github-footer .level-1 {
-  background: #9be9a8;
-}
-
-.ride-github-footer .level-2 {
-  background: #40c463;
-}
-
-.ride-github-footer .level-3 {
-  background: #30a14e;
-}
-
-.ride-github-footer .level-4 {
-  background: #216e39;
-}
-
-@media (max-width: 700px) {
-  .ride-github-header {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 500px) {
-  .ride-github-header {
-    grid-template-columns: 1fr;
-  }
-}
-</style>
-<h2 id="装备">装备</h2>
-<h3 id="车">车</h3>
-<p>喜德盛RC200（2025-2-11） <span class="price" data-price="1499">1499
-￥</span></p>
-<figure>
-<img src="/cycle/init1.png" alt="RC200">
-<figcaption aria-hidden="true">RC200</figcaption>
-</figure>
-<p>喜德胜AD300（2025-12-25） <span class="price" data-price="2999">2999
-￥</span></p>
-<figure>
-<img src="/cycle/ad300.png" alt="AD300">
-<figcaption aria-hidden="true">AD300</figcaption>
-</figure>
-<h3 id="穿戴">穿戴</h3>
-<p>GUB M5 Mips 骑行头盔 <span class="price" data-price="239">239
-￥</span></p>
-<p>匹克日常护目镜 <span class="price" data-price="39">39 ￥</span></p>
-<p>VEIDOORN 半指手套 <span class="price" data-price="39">39
-￥</span></p>
-<p>EVR 军绿色 骑行服 <span class="price" data-price="99">99
-￥</span></p>
-<p>EVR 无背带短裤-Discover 骑行酷 <span class="price" data-price="230">230 ￥</span></p>
-<h3 id="外设">外设</h3>
-<p>ROCKBROS 水壶 <span class="price" data-price="35">35 ￥</span></p>
-<p>铂朗尼水壶 <span class="price" data-price="23">23 ￥</span></p>
-<p>ROCKBROS 手机支架 <span class="price" data-price="29">29
-￥</span></p>
-<p>碳纹ABS一体成型水杯架 <span class="price" data-price="32">32
-￥</span></p>
-<p>美利达智能感应刹车灯 尾灯 <span class="price" data-price="30">30
-￥</span></p>
-<p>iGPSORT M82S 一体把支架 <span class="price" data-price="69">69
-￥</span></p>
-<p>iGPSORT BSC300T 码表 <span class="price" data-price="599">599
-￥</span></p>
-<p>iGPSORT CAD70 踏频传感器 <span class="price" data-price="139">139
-￥</span></p>
-<blockquote>
-<p><strong>总价</strong>: <span id="total-price">计算中…</span></p>
-</blockquote>
-<h2 id="总行程">总行程</h2>
-<div class="ride-github-panel">
-<div class="ride-github-header">
-<pre><code>&lt;div&gt;
-  &lt;strong id=&quot;ride-total-distance&quot;&gt;--&lt;/strong&gt;
-  &lt;span&gt;总里程&lt;/span&gt;
-&lt;/div&gt;
-&lt;div&gt;
-  &lt;strong id=&quot;ride-total-days&quot;&gt;--&lt;/strong&gt;
-  &lt;span&gt;骑行天数&lt;/span&gt;
-&lt;/div&gt;
-&lt;div&gt;
-  &lt;strong id=&quot;ride-max-distance&quot;&gt;--&lt;/strong&gt;
-  &lt;span&gt;最远单日&lt;/span&gt;
-&lt;/div&gt;
-&lt;div&gt;
-  &lt;strong id=&quot;ride-year-count&quot;&gt;--&lt;/strong&gt;
-  &lt;span&gt;记录年份&lt;/span&gt;
-&lt;/div&gt;</code></pre>
-</div>
-<div id="ride-year-switcher" class="ride-year-switcher">
-
-</div>
-<div id="ride-years-container">
-
-</div>
-<div class="ride-github-footer">
-<pre><code>&lt;span&gt;Less&lt;/span&gt;
-&lt;i class=&quot;level-0&quot;&gt;&lt;/i&gt;
-&lt;i class=&quot;level-1&quot;&gt;&lt;/i&gt;
-&lt;i class=&quot;level-2&quot;&gt;&lt;/i&gt;
-&lt;i class=&quot;level-3&quot;&gt;&lt;/i&gt;
-&lt;i class=&quot;level-4&quot;&gt;&lt;/i&gt;
-&lt;span&gt;More&lt;/span&gt;</code></pre>
-</div>
-</div>
-<p>2025-03-01之前 <span class="distance history-distance" data-distance="147">147 km</span></p>
-<p>2025-03-01 <span class="distance" data-date="2025-03-01" data-distance="150">150 km</span></p>
-<p>2025-03-11 <span class="distance" data-date="2025-03-11" data-distance="40">40 km</span></p>
-<p>2025-03-15 <span class="distance" data-date="2025-03-15" data-distance="13">13 km</span></p>
-<p>2025-03-18 <span class="distance" data-date="2025-03-18" data-distance="40">40 km</span></p>
-<p>2025-03-25 <span class="distance" data-date="2025-03-25" data-distance="40">40 km</span></p>
-<p>2025-04-02 <span class="distance" data-date="2025-04-02" data-distance="40">40 km</span></p>
-<p>2025-04-08 <span class="distance" data-date="2025-04-08" data-distance="40">40 km</span></p>
-<p>2025-04-15 <span class="distance" data-date="2025-04-15" data-distance="40">40 km</span></p>
-<p>2025-04-22 <span class="distance" data-date="2025-04-22" data-distance="40">40 km</span></p>
-<p>2025-05-24 <span class="distance" data-date="2025-05-24" data-distance="40">40 km</span></p>
-<p>不要在温玉路夜骑，太吓人了，伸手不见五指。</p>
-<p>2025-05-27 <span class="distance" data-date="2025-05-27" data-distance="40">40 km</span></p>
-<p>2025-05-29 <span class="distance" data-date="2025-05-29" data-distance="40">40 km</span></p>
-<p>2025-05-30 <span class="distance" data-date="2025-05-30" data-distance="40">40 km</span></p>
-<p>2025-06-05 <span class="distance" data-date="2025-06-05" data-distance="50">50 km</span></p>
-<p>解锁新路线：北林（和老友）</p>
-<figure>
-<img src="/cycle/shouan12_3.png" alt="shouan12_3">
-<figcaption aria-hidden="true">shouan12_3</figcaption>
-</figure>
-<p>2025-06-25 <span class="distance" data-date="2025-06-25" data-distance="40">40 km</span></p>
-<p>解放的期末，久违的骑行</p>
-<p>2025-06-28 <span class="distance" data-date="2025-06-28" data-distance="40">40 km</span></p>
-<p>最累的一集，感觉期末状态没恢复过来</p>
-<p>2025-07-07 <span class="distance" data-date="2025-07-07" data-distance="25">25 km</span></p>
-<p>回家了，绕城</p>
-<p>2025-07-15 <span class="distance" data-date="2025-07-15" data-distance="20">20 km</span></p>
-<p>2025-07-17 <span class="distance" data-date="2025-07-17" data-distance="20">20 km</span></p>
-<p>2025-07-18 <span class="distance" data-date="2025-07-18" data-distance="15">15 km</span></p>
-<p>2025-07-24 <span class="distance" data-date="2025-07-24" data-distance="20">20 km</span></p>
-<p>2025-07-27 <span class="distance" data-date="2025-07-27" data-distance="10">10 km</span></p>
-<p>2025-07-28 <span class="distance" data-date="2025-07-28" data-distance="20">20 km</span></p>
-<p>2025-07-30 <span class="distance" data-date="2025-07-30" data-distance="110">110 km</span></p>
-<p>最艰难的一集，接近四十度的天气暴晒八小时（不会再顶着高温征战绿道了，差点没活着回来）</p>
-<p>2025-08-02 <span class="distance" data-date="2025-08-02" data-distance="40">40 km</span></p>
-<p>2025-08-03 <span class="distance" data-date="2025-08-03" data-distance="40">40 km</span></p>
-<p>双排</p>
-<p>2025-08-06 <span class="distance" data-date="2025-08-06" data-distance="40">40 km</span></p>
-<p>2025-08-09 <span class="distance" data-date="2025-08-09" data-distance="40">40 km</span></p>
-<p>2025-08-11 <span class="distance" data-date="2025-08-11" data-distance="50">50 km</span></p>
-<p>2025-08-13 <span class="distance" data-date="2025-08-13" data-distance="50">50 km</span></p>
-<p>2025-08-25 <span class="distance" data-date="2025-08-25" data-distance="50">50 km</span></p>
-<p>2025-08-29 <span class="distance" data-date="2025-08-29" data-distance="40">40 km</span></p>
-<p>雨骑的魅力在于，越骑越冷…</p>
-<p>2025-08-31 <span class="distance" data-date="2025-08-31" data-distance="40">40 km</span></p>
-<p>2025-09-09 <span class="distance" data-date="2025-09-09" data-distance="40">40 km</span></p>
-<p>2025-09-13 <span class="distance" data-date="2025-09-13" data-distance="40">40 km</span></p>
-<p>2026-01-18 <span class="distance" data-date="2026-01-18" data-distance="40">40 km</span></p>
-<p>2026-02-26 <span class="distance" data-date="2026-02-26" data-distance="40">40 km</span></p>
-<p>2026-03-28 <span class="distance" data-date="2026-03-28" data-distance="52">52 km</span></p>
-<p>2026-04-04 <span class="distance" data-date="2026-04-04" data-distance="43.4">43.4 km</span>（ad300）</p>
-<p>2026-04-06 <span class="distance" data-date="2026-04-06" data-distance="43.55">43.55 km</span>（pcr ltd 2+）</p>
-<p>2026-04-21 <span class="distance" data-date="2026-04-21" data-distance="50">50 km</span>（ad300）</p>
-<p>2026-04-25 <span class="distance" data-date="2026-04-25" data-distance="29.86">29.86 km</span>（ad300）</p>
-<p>2026-04-28 <span class="distance" data-date="2026-04-28" data-distance="29.87">29.87 km</span>（ad300）</p>
-<p>2026-05-08 <span class="distance" data-date="2026-05-08" data-distance="44.73">44.73 km</span>（ad300）</p>
-<p>2026-05-10 <span class="distance" data-date="2026-05-10" data-distance="44.20">44.20 km</span>（ad300）</p>
-<p>2026-05-12 <span class="distance" data-date="2026-05-12" data-distance="49.06">49.06 km</span>（ad300）</p>
-<blockquote>
-<p><strong>总行程</strong>: <span id="total-distance">计算中…</span></p>
-</blockquote>
-<hr>
-<h2 id="车-1">车</h2>
-<p>2025-04-21 第一次扎胎，扎到落叶里生命的余韵了🔥</p>
-<figure>
-<img src="/cycle/cy1.jpg" alt="2">
-<figcaption aria-hidden="true">2</figcaption>
-</figure>
-<p>2025-06-29
-第一次拆车并装车，一定要经常松动一些关键部位的螺丝，不然生锈了会卡死，拆下来的前轮要放在飞盘的另一侧，轮轴差不多对准放竖杯架的地方。</p>
-<blockquote>
-<p>一个月后顺利装车返校…</p>
-</blockquote>
-<p>2025-08-13 洗车，上油</p>
-<p>2026-02-26
-成都-和盛镇-天乡路三段的路沿有一个贼大的下水道坑，车子冲过去直接冲爆胎了，入坑货拉拉…</p>
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  // 装备总价
-  let totalPrice = 0;
-
-  document.querySelectorAll(".price").forEach(item => {
-    const price = Number(item.dataset.price);
-
-    if (!Number.isNaN(price)) {
-      totalPrice += price;
-    }
-  });
-
-  const totalPriceEl = document.getElementById("total-price");
-
-  if (totalPriceEl) {
-    totalPriceEl.innerText = totalPrice.toFixed(2) + " ￥";
-  }
-
-  // 总里程：所有 .distance 都参与统计，包括历史汇总
-  let totalDistance = 0;
-
-  document.querySelectorAll(".distance").forEach(item => {
-    const distance = Number(item.dataset.distance);
-
-    if (!Number.isNaN(distance)) {
-      totalDistance += distance;
-    }
-  });
-
-  const totalDistanceEl = document.getElementById("total-distance");
-
-  if (totalDistanceEl) {
-    totalDistanceEl.innerText = totalDistance.toFixed(2) + " km";
-  }
-
-  // 热力图数据：只有带 data-date 的 .distance 进入热力图
-  const rideMap = new Map();
-
-  document.querySelectorAll(".distance[data-date]").forEach(item => {
-    const date = item.dataset.date;
-    const distance = Number(item.dataset.distance);
-
-    if (!date || Number.isNaN(distance)) return;
-
-    rideMap.set(date, (rideMap.get(date) || 0) + distance);
-  });
-
-  const rides = Array.from(rideMap.entries()).map(([date, distance]) => ({
-    date,
-    distance,
-    year: date.slice(0, 4)
-  }));
-
-  const years = Array.from(new Set(rides.map(item => item.year)))
-    .sort((a, b) => Number(b) - Number(a));
-
-  const yearSwitcher = document.getElementById("ride-year-switcher");
-  const yearsContainer = document.getElementById("ride-years-container");
-
-  if (!yearSwitcher || !yearsContainer) return;
-
-  const rideTotalEl = document.getElementById("ride-total-distance");
-  const rideDaysEl = document.getElementById("ride-total-days");
-  const rideMaxEl = document.getElementById("ride-max-distance");
-  const rideYearCountEl = document.getElementById("ride-year-count");
-
-  const rideDays = rides.length;
-  const maxDistance = rides.length
-    ? Math.max(...rides.map(item => item.distance))
-    : 0;
-
-  if (rideTotalEl) rideTotalEl.innerText = totalDistance.toFixed(2) + " km";
-  if (rideDaysEl) rideDaysEl.innerText = rideDays + " 天";
-  if (rideMaxEl) rideMaxEl.innerText = maxDistance.toFixed(2) + " km";
-  if (rideYearCountEl) rideYearCountEl.innerText = years.length + " 年";
-
-  function createLocalDate(dateStr) {
-    const [year, month, day] = dateStr.split("-").map(Number);
-    return new Date(year, month - 1, day);
-  }
-
-  function formatDate(date) {
-    const y = date.getFullYear();
-    const m = String(date.getMonth() + 1).padStart(2, "0");
-    const d = String(date.getDate()).padStart(2, "0");
-
-    return `${y}-${m}-${d}`;
-  }
-
-  function getLevel(distance) {
-    if (!distance) return 0;
-    if (distance <= 50) return 1;
-    if (distance <= 100) return 2;
-    if (distance <= 150) return 3;
-    return 4;
-  }
-
-  const monthNames = [
-    "Jan", "Feb", "Mar", "Apr", "May", "Jun",
-    "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
-  ];
-
-  function getYearStats(year) {
-    const yearRides = rides.filter(item => item.year === year);
-    const yearDistance = yearRides.reduce((sum, item) => sum + item.distance, 0);
-    const yearDays = yearRides.length;
-    const yearMax = yearRides.length
-      ? Math.max(...yearRides.map(item => item.distance))
-      : 0;
-
-    return {
-      distance: yearDistance,
-      days: yearDays,
-      max: yearMax
-    };
-  }
-
-  function renderYear(year) {
-    const section = document.createElement("section");
-    section.className = "ride-year-section";
-    section.dataset.year = year;
-
-    const stats = getYearStats(year);
-
-    const title = document.createElement("h3");
-    title.className = "ride-year-title";
-    title.innerText = year;
-
-    const summary = document.createElement("div");
-    summary.className = "ride-year-summary";
-    summary.innerText = `${year} 年骑行 ${stats.days} 天，累计 ${stats.distance.toFixed(2)} km，最远单日 ${stats.max.toFixed(2)} km`;
-
-    const body = document.createElement("div");
-    body.className = "ride-github-body";
-
-    const months = document.createElement("div");
-    months.className = "ride-months";
-
-    const gridArea = document.createElement("div");
-    gridArea.className = "ride-grid-area";
-
-    const weekdays = document.createElement("div");
-    weekdays.className = "ride-weekdays";
-    weekdays.innerHTML = `
-      <span></span>
-      <span>Mon</span>
-      <span></span>
-      <span>Wed</span>
-      <span></span>
-      <span>Fri</span>
-      <span></span>
-    `;
-
-    const heatmap = document.createElement("div");
-    heatmap.className = "ride-heatmap";
-
-    const firstDay = new Date(Number(year), 0, 1);
-    const lastDay = new Date(Number(year), 11, 31);
-
-    const startDate = new Date(firstDay);
-    startDate.setDate(startDate.getDate() - startDate.getDay());
-
-    const endDate = new Date(lastDay);
-    endDate.setDate(endDate.getDate() + (6 - endDate.getDay()));
-
-    let lastMonth = -1;
-
-    for (
-      let current = new Date(startDate);
-      current <= endDate;
-      current.setDate(current.getDate() + 1)
-    ) {
-      const dateStr = formatDate(current);
-      const distance = rideMap.get(dateStr) || 0;
-      const level = getLevel(distance);
-
-      const cell = document.createElement("div");
-      cell.className = `ride-cell level-${level}`;
-
-      if (current.getFullYear() !== Number(year)) {
-        cell.style.visibility = "hidden";
-        cell.title = "";
-      } else {
-        cell.title = distance
-          ? `${dateStr}: ${distance.toFixed(2)} km`
-          : `${dateStr}: No ride`;
-      }
-
-      heatmap.appendChild(cell);
-
-      if (current.getDay() === 0) {
-        const month = current.getMonth();
-        const monthCell = document.createElement("span");
-
-        if (
-          current.getFullYear() === Number(year) &&
-          month !== lastMonth
-        ) {
-          monthCell.className = "ride-month";
-          monthCell.innerText = monthNames[month];
-          lastMonth = month;
-        } else {
-          monthCell.innerText = "";
-        }
-
-        months.appendChild(monthCell);
-      }
-    }
-
-    gridArea.appendChild(weekdays);
-    gridArea.appendChild(heatmap);
-
-    body.appendChild(months);
-    body.appendChild(gridArea);
-
-    section.appendChild(title);
-    section.appendChild(summary);
-    section.appendChild(body);
-
-    yearsContainer.appendChild(section);
-  }
-
-  function renderAllYears() {
-    yearsContainer.innerHTML = "";
-
-    years.forEach(year => {
-      renderYear(year);
-    });
-  }
-
-  function setActiveYear(targetYear) {
-    document.querySelectorAll(".ride-year-btn").forEach(btn => {
-      btn.classList.toggle("active", btn.dataset.year === targetYear);
-    });
-
-    document.querySelectorAll(".ride-year-section").forEach(section => {
-      if (targetYear === "all") {
-        section.style.display = "";
-      } else {
-        section.style.display = section.dataset.year === targetYear ? "" : "none";
-      }
-    });
-  }
-
-  function createYearButton(label, year) {
-    const button = document.createElement("button");
-    button.type = "button";
-    button.className = "ride-year-btn";
-    button.dataset.year = year;
-    button.innerText = label;
-
-    button.addEventListener("click", function () {
-      setActiveYear(year);
-    });
-
-    yearSwitcher.appendChild(button);
-  }
-
-  createYearButton("全部", "all");
-
-  years.forEach(year => {
-    createYearButton(year, year);
-  });
-
-  renderAllYears();
-  setActiveYear("all");
-});
-</script>
-]]></content>
-      <categories>
-        <category>Daily</category>
-      </categories>
-      <tags>
-        <tag>Bike</tag>
       </tags>
   </entry>
   <entry>
