@@ -160,7 +160,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9B%B4%E6%8D%A2kernel"><span class="nav-number">1.</span> <span class="nav-text">更换Kernel</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%A0%E9%99%A4%E5%A4%9A%E4%BD%99kernel"><span class="nav-number">1.1.</span> <span class="nav-text">删除多余kernel</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8D%A2%E6%A0%B8"><span class="nav-number">1.2.</span> <span class="nav-text">换核</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9B%B4%E6%8D%A2Kernel"><span class="nav-number">1.</span> <span class="nav-text">更换Kernel</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%A0%E9%99%A4%E5%A4%9A%E4%BD%99kernel"><span class="nav-number">1.1.</span> <span class="nav-text">删除多余kernel</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8D%A2%E6%A0%B8"><span class="nav-number">1.2.</span> <span class="nav-text">换核</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -316,10 +316,8 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><h1 id="更换kernel">更换Kernel</h1>
-<p>当boot空间不足时，我们不得不删除多余的备用linux核。</p>
-<h2 id="删除多余kernel">删除多余kernel</h2>
-<p>确认当前内核</p>
+    <div class="post-body" itemprop="articleBody"><h1 id="更换Kernel"><a href="#更换Kernel" class="headerlink" title="更换Kernel"></a>更换Kernel</h1><p>当boot空间不足时，我们不得不删除多余的备用linux核。</p>
+<h2 id="删除多余kernel"><a href="#删除多余kernel" class="headerlink" title="删除多余kernel"></a>删除多余kernel</h2><p>确认当前内核</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">uname</span> -r</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>我的结果为</p>
@@ -337,8 +335,7 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt autoremove --purge</span><br></pre></td></tr></table></figure>
 <p>检查/boot空间</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">df</span> -h /boot</span><br></pre></td></tr></table></figure>
-<h2 id="换核">换核</h2>
-<p>直接update+upgrade两件套</p>
+<h2 id="换核"><a href="#换核" class="headerlink" title="换核"></a>换核</h2><p>直接update+upgrade两件套</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt update</span><br><span class="line">sudo apt upgrade</span><br></pre></td></tr></table></figure>
 <p>下好了新的内核后，记得更新gtub</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo update-grub2</span><br></pre></td></tr></table></figure>
@@ -429,7 +426,7 @@
       <i class="fa fa-chart-line"></i>
     </span>
       <span>站点总字数：</span>
-    <span title="站点总字数">69k</span>
+    <span title="站点总字数">70k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
