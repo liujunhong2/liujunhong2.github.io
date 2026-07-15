@@ -2046,6 +2046,65 @@ document.addEventListener("DOMContentLoaded", function () {
       </tags>
   </entry>
   <entry>
+    <title>remoteSSH</title>
+    <url>/remoteSSH.html</url>
+    <content><![CDATA[<p>服务器计算资源在当下已经成为科研或者竞赛中必不可少的工具，接下来讲解一下在
+Vscode 中如何根据已有账户登陆上服务器，步骤比较简单，大约配置为 5
+步，之后每次连接只需要 3 步</p>
+<p>首先是点击 VScode
+的左下角的“打开远程窗口”按钮，如果不在这个地方就自己找一找，我看网上的教程这一步会下载一个
+SSH 插件，因为我已经下载了就没弹出，如果任何地方需要下载新的插件按照
+VScdoe 的弹窗提示来就行</p>
+<figure>
+<img src="/remoteSSH/p1.png" alt="img">
+<figcaption aria-hidden="true">img</figcaption>
+</figure>
+<p>接下来点击“连接到主机”</p>
+<figure>
+<img src="/remoteSSH/p2.png" alt="img">
+<figcaption aria-hidden="true">img</figcaption>
+</figure>
+<p>然后根据需求点击，可以直接连接已添加的账户，也可以配置添加新的账户（日常使用到这里就终止）</p>
+<figure>
+<img src="/remoteSSH/p3.png" alt="img">
+<figcaption aria-hidden="true">img</figcaption>
+</figure>
+<p>一般配置这个带自己用户名路径的文件</p>
+<figure>
+<img src="/remoteSSH/p4.png" alt="img">
+<figcaption aria-hidden="true">img</figcaption>
+</figure>
+<p>根据自己账号的属性进行配置，</p>
+<p>一般包括</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Host label_whatever</span><br><span class="line">  HostName IP_address</span><br><span class="line">  Port port_number</span><br><span class="line">  User username</span><br></pre></td></tr></table></figure>
+<p>Host：自己本地用于标识的别名</p>
+<p>HostName：服务器的 IP 地址</p>
+<p>Port：有些服务器会配置端口号，如无要求可以删除</p>
+<p>User：服务器账户的用户名</p>
+<figure>
+<img src="/remoteSSH/p5.png" alt="img">
+<figcaption aria-hidden="true">img</figcaption>
+</figure>
+<p>配置完之后再重复前三步就能看到对应条目，点击后输入密码即可</p>
+<figure>
+<img src="/remoteSSH/p6.png" alt="img">
+<figcaption aria-hidden="true">img</figcaption>
+</figure>
+<p>具体就是会重建一个新的窗口，然后输入密码</p>
+<figure>
+<img src="/remoteSSH/p7.png" alt="img">
+<figcaption aria-hidden="true">img</figcaption>
+</figure>
+<p>That‘s all，希望使用愉快</p>
+]]></content>
+      <categories>
+        <category>Learn</category>
+      </categories>
+      <tags>
+        <tag>ssh</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Solfware</title>
     <url>/Solfware.html</url>
     <content><![CDATA[<h1 id="soft-engineering">Soft Engineering</h1>
