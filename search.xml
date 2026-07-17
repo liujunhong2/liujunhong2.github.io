@@ -1767,7 +1767,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const distance = Number(item.dataset.distance);
 
     if (!date || Number.isNaN(distance)) return;
-
+    
     rideMap.set(date, (rideMap.get(date) || 0) + distance);
   });
 
@@ -1820,10 +1820,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const strong = document.createElement("strong");
     strong.innerText = stat.value;
-
+    
     const span = document.createElement("span");
     span.innerText = stat.label;
-
+    
     card.appendChild(strong);
     card.appendChild(span);
     header.appendChild(card);
@@ -1900,47 +1900,47 @@ document.addEventListener("DOMContentLoaded", function () {
     section.dataset.year = year;
 
     const stats = getYearStats(year);
-
+    
     const title = document.createElement("h3");
     title.className = "ride-year-title";
     title.innerText = year;
-
+    
     const summary = document.createElement("div");
     summary.className = "ride-year-summary";
     summary.innerText = `${year} 年骑行 ${stats.days} 天，累计 ${stats.distance.toFixed(2)} km，最远单日 ${stats.max.toFixed(2)} km`;
-
+    
     const body = document.createElement("div");
     body.className = "ride-github-body";
-
+    
     const months = document.createElement("div");
     months.className = "ride-months";
-
+    
     const gridArea = document.createElement("div");
     gridArea.className = "ride-grid-area";
-
+    
     const weekdays = document.createElement("div");
     weekdays.className = "ride-weekdays";
-
+    
     ["", "Mon", "", "Wed", "", "Fri", ""].forEach(day => {
       const span = document.createElement("span");
       span.innerText = day;
       weekdays.appendChild(span);
     });
-
+    
     const heatmap = document.createElement("div");
     heatmap.className = "ride-heatmap";
-
+    
     const firstDay = new Date(Number(year), 0, 1);
     const lastDay = new Date(Number(year), 11, 31);
-
+    
     const startDate = new Date(firstDay);
     startDate.setDate(startDate.getDate() - startDate.getDay());
-
+    
     const endDate = new Date(lastDay);
     endDate.setDate(endDate.getDate() + (6 - endDate.getDay()));
-
+    
     let lastMonth = -1;
-
+    
     for (
       let current = new Date(startDate);
       current <= endDate;
@@ -1949,10 +1949,10 @@ document.addEventListener("DOMContentLoaded", function () {
       const dateStr = formatDate(current);
       const distance = rideMap.get(dateStr) || 0;
       const level = getLevel(distance);
-
+    
       const cell = document.createElement("div");
       cell.className = `ride-cell level-${level}`;
-
+    
       if (current.getFullYear() !== Number(year)) {
         cell.style.visibility = "hidden";
         cell.title = "";
@@ -1961,13 +1961,13 @@ document.addEventListener("DOMContentLoaded", function () {
           ? `${dateStr}: ${distance.toFixed(2)} km`
           : `${dateStr}: No ride`;
       }
-
+    
       heatmap.appendChild(cell);
-
+    
       if (current.getDay() === 0) {
         const month = current.getMonth();
         const monthCell = document.createElement("span");
-
+    
         if (
           current.getFullYear() === Number(year) &&
           month !== lastMonth
@@ -1978,21 +1978,21 @@ document.addEventListener("DOMContentLoaded", function () {
         } else {
           monthCell.innerText = "";
         }
-
+    
         months.appendChild(monthCell);
       }
     }
-
+    
     gridArea.appendChild(weekdays);
     gridArea.appendChild(heatmap);
-
+    
     body.appendChild(months);
     body.appendChild(gridArea);
-
+    
     section.appendChild(title);
     section.appendChild(summary);
     section.appendChild(body);
-
+    
     yearsContainer.appendChild(section);
   }
 
@@ -2020,7 +2020,7 @@ document.addEventListener("DOMContentLoaded", function () {
     button.addEventListener("click", function () {
       setActiveYear(year);
     });
-
+    
     yearSwitcher.appendChild(button);
   }
 
