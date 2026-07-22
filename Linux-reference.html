@@ -1,0 +1,1507 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha256-dABdfBfUoC8vJUBOwGVdm8L9qlMWaHTIfXt+7GnZCIo=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"baoziwan.top","root":"/","images":"/images","scheme":"Pisces","darkmode":true,"version":"8.22.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":"ture","style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="My linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux_reference">
+<meta property="og:url" content="http://baoziwan.top/Linux-reference.html">
+<meta property="og:site_name" content="豹子湾2.0">
+<meta property="og:description" content="My linux">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-07-22T03:53:47.000Z">
+<meta property="article:modified_time" content="2026-07-22T03:59:54.947Z">
+<meta property="article:author" content="jiangshun">
+<meta property="article:tag" content="Linux">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://baoziwan.top/Linux-reference.html">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://baoziwan.top/Linux-reference.html","path":"Linux-reference.html","title":"Linux_reference"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Linux_reference | 豹子湾2.0</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">豹子湾2.0</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">17</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">5</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">16</span></a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#linux-%E4%B8%AA%E4%BA%BA%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C"><span class="nav-number">1.</span> <span class="nav-text">Linux 个人参考手册</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BF%AB%E9%80%9F%E7%9B%AE%E5%BD%95"><span class="nav-number">1.1.</span> <span class="nav-text">快速目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E5%8E%9F%E5%88%99"><span class="nav-number">1.2.</span> <span class="nav-text">使用原则</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#shell-%E7%BA%A6%E5%AE%9A"><span class="nav-number">1.2.1.</span> <span class="nav-text">Shell 约定</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%91%BD%E4%BB%A4%E9%A3%8E%E9%99%A9%E6%A0%87%E8%AE%B0"><span class="nav-number">1.2.2.</span> <span class="nav-text">命令风险标记</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E9%A1%B5%E5%BA%94%E6%80%A5%E9%80%9F%E6%9F%A5"><span class="nav-number">1.3.</span> <span class="nav-text">一页应急速查</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B3%BB%E7%BB%9F%E4%B8%8E%E8%BA%AB%E4%BB%BD"><span class="nav-number">1.3.1.</span> <span class="nav-text">系统与身份</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B5%84%E6%BA%90%E4%B8%8E%E6%95%85%E9%9A%9C%E5%85%A5%E5%8F%A3"><span class="nav-number">1.3.2.</span> <span class="nav-text">资源与故障入口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%AB%98%E9%A2%91%E6%93%8D%E4%BD%9C"><span class="nav-number">1.3.3.</span> <span class="nav-text">高频操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%8D%E5%8A%A1%E4%B8%8E%E6%97%A5%E5%BF%97"><span class="nav-number">1.3.4.</span> <span class="nav-text">服务与日志</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BD%91%E7%BB%9C"><span class="nav-number">1.3.5.</span> <span class="nav-text">网络</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B7%AF%E5%BE%84%E5%AF%BC%E8%88%AA%E4%B8%8E%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F"><span class="nav-number">1.4.</span> <span class="nav-text">路径、导航与文件系统</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B7%AF%E5%BE%84%E8%A7%84%E5%88%99"><span class="nav-number">1.4.1.</span> <span class="nav-text">路径规则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%B9%E7%9B%AE%E5%BD%95%E4%B8%8B%E5%B8%B8%E8%A7%81%E4%BD%8D%E7%BD%AE"><span class="nav-number">1.4.2.</span> <span class="nav-text">根目录下常见位置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E7%B1%BB%E5%9E%8B%E4%B8%8E%E5%85%83%E6%95%B0%E6%8D%AE"><span class="nav-number">1.4.3.</span> <span class="nav-text">文件类型与元数据</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E4%B8%8E%E7%9B%AE%E5%BD%95%E6%93%8D%E4%BD%9C"><span class="nav-number">1.5.</span> <span class="nav-text">文件与目录操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%97%E5%87%BA%E4%B8%8E%E6%9F%A5%E7%9C%8B"><span class="nav-number">1.5.1.</span> <span class="nav-text">列出与查看</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E5%A4%8D%E5%88%B6%E7%A7%BB%E5%8A%A8%E4%B8%8E%E5%88%A0%E9%99%A4"><span class="nav-number">1.5.2.</span> <span class="nav-text">创建、复制、移动与删除</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%9A%E9%85%8D%E7%AC%A6-glob"><span class="nav-number">1.5.3.</span> <span class="nav-text">通配符 glob</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%90%9C%E7%B4%A2%E6%96%87%E4%BB%B6%E4%B8%8E%E7%BB%9F%E8%AE%A1%E7%A9%BA%E9%97%B4"><span class="nav-number">1.6.</span> <span class="nav-text">搜索文件与统计空间</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#find-%E5%B8%B8%E7%94%A8%E6%A8%A1%E6%9D%BF"><span class="nav-number">1.6.1.</span> <span class="nav-text">find 常用模板</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A3%81%E7%9B%98%E7%A9%BA%E9%97%B4"><span class="nav-number">1.6.2.</span> <span class="nav-text">磁盘空间</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E6%90%9C%E7%B4%A2%E4%B8%8E%E5%8A%A0%E5%B7%A5%E6%96%87%E6%9C%AC"><span class="nav-number">1.7.</span> <span class="nav-text">查看、搜索与加工文本</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%87%E5%87%86%E6%B5%81%E4%B8%8E%E9%87%8D%E5%AE%9A%E5%90%91"><span class="nav-number">1.7.1.</span> <span class="nav-text">标准流与重定向</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#grep-%E6%90%9C%E7%B4%A2"><span class="nav-number">1.7.2.</span> <span class="nav-text">grep 搜索</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sortuniqcuttrwc"><span class="nav-number">1.7.3.</span> <span class="nav-text">sort、uniq、cut、tr、wc</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sed-%E8%A1%8C%E7%BA%A7%E7%BC%96%E8%BE%91"><span class="nav-number">1.7.4.</span> <span class="nav-text">sed 行级编辑</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#awk-%E5%88%97%E5%A4%84%E7%90%86"><span class="nav-number">1.7.5.</span> <span class="nav-text">awk 列处理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#diff-%E6%AF%94%E8%BE%83"><span class="nav-number">1.7.6.</span> <span class="nav-text">diff 比较</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E9%80%9F%E6%9F%A5"><span class="nav-number">1.8.</span> <span class="nav-text">正则表达式速查</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8-ere-%E5%85%83%E5%AD%97%E7%AC%A6"><span class="nav-number">1.8.1.</span> <span class="nav-text">常用 ERE 元字符</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9D%83%E9%99%90%E7%94%A8%E6%88%B7%E4%B8%8E%E7%94%A8%E6%88%B7%E7%BB%84"><span class="nav-number">1.9.</span> <span class="nav-text">权限、用户与用户组</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%BB%E6%87%82%E6%9D%83%E9%99%90"><span class="nav-number">1.9.1.</span> <span class="nav-text">读懂权限</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BA%AB%E4%BB%BD%E4%B8%8E%E6%8F%90%E6%9D%83"><span class="nav-number">1.9.2.</span> <span class="nav-text">身份与提权</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BD%AF%E4%BB%B6%E5%8C%85%E7%AE%A1%E7%90%86"><span class="nav-number">1.10.</span> <span class="nav-text">软件包管理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#debian-ubuntuapt"><span class="nav-number">1.10.1.</span> <span class="nav-text">Debian &#x2F; Ubuntu（APT）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%91%E8%A1%8C%E7%89%88%E9%80%9F%E6%9F%A5"><span class="nav-number">1.10.2.</span> <span class="nav-text">发行版速查</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%8E%E6%BA%90%E7%A0%81%E5%AE%89%E8%A3%85"><span class="nav-number">1.10.3.</span> <span class="nav-text">从源码安装</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BD%92%E6%A1%A3%E4%B8%8E%E5%8E%8B%E7%BC%A9"><span class="nav-number">1.11.</span> <span class="nav-text">归档与压缩</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#tar"><span class="nav-number">1.11.1.</span> <span class="nav-text">tar</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B6%E4%BB%96%E6%A0%BC%E5%BC%8F"><span class="nav-number">1.11.2.</span> <span class="nav-text">其他格式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%9B%E7%A8%8B%E4%BB%BB%E5%8A%A1%E4%B8%8E%E4%BC%9A%E8%AF%9D"><span class="nav-number">1.12.</span> <span class="nav-text">进程、任务与会话</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E8%BF%9B%E7%A8%8B"><span class="nav-number">1.12.1.</span> <span class="nav-text">查看进程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%89%8D%E5%90%8E%E5%8F%B0%E4%BB%BB%E5%8A%A1"><span class="nav-number">1.12.2.</span> <span class="nav-text">前后台任务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%BB%93%E6%9D%9F%E8%BF%9B%E7%A8%8B"><span class="nav-number">1.12.3.</span> <span class="nav-text">信号与结束进程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BC%98%E5%85%88%E7%BA%A7"><span class="nav-number">1.12.4.</span> <span class="nav-text">优先级</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#nohup-%E4%B8%8E-tmux"><span class="nav-number">1.12.5.</span> <span class="nav-text">nohup 与 tmux</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#systemd-%E6%9C%8D%E5%8A%A1%E4%B8%8E%E6%97%A5%E5%BF%97"><span class="nav-number">1.13.</span> <span class="nav-text">systemd 服务与日志</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AE%A1%E7%90%86%E6%9C%8D%E5%8A%A1"><span class="nav-number">1.13.1.</span> <span class="nav-text">管理服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%97%A5%E5%BF%97"><span class="nav-number">1.13.2.</span> <span class="nav-text">日志</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89-service-%E6%A8%A1%E6%9D%BF"><span class="nav-number">1.13.3.</span> <span class="nav-text">自定义 service 模板</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1"><span class="nav-number">1.14.</span> <span class="nav-text">定时任务</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E6%AC%A1%E6%80%A7%E4%BB%BB%E5%8A%A1-at"><span class="nav-number">1.14.1.</span> <span class="nav-text">一次性任务 at</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%91%A8%E6%9C%9F%E4%BB%BB%E5%8A%A1-cron"><span class="nav-number">1.14.2.</span> <span class="nav-text">周期任务 cron</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BD%91%E7%BB%9C%E4%B8%8B%E8%BD%BD%E4%B8%8E%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5"><span class="nav-number">1.15.</span> <span class="nav-text">网络、下载与远程连接</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E5%B1%82%E6%8E%92%E9%9A%9C"><span class="nav-number">1.15.1.</span> <span class="nav-text">分层排障</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#wget-%E4%B8%8E-curl"><span class="nav-number">1.15.2.</span> <span class="nav-text">wget 与 curl</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ssh"><span class="nav-number">1.15.3.</span> <span class="nav-text">SSH</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E4%BC%A0%E8%BE%93"><span class="nav-number">1.15.4.</span> <span class="nav-text">文件传输</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#zsh-%E4%BA%A4%E4%BA%92%E4%B8%8E%E8%84%9A%E6%9C%AC%E5%85%BC%E9%A1%BE-bash"><span class="nav-number">1.16.</span> <span class="nav-text">zsh 交互与脚本（兼顾 Bash）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%AF%E5%8A%A8%E6%96%87%E4%BB%B6%E4%B8%8E%E9%BB%98%E8%AE%A4-shell"><span class="nav-number">1.16.1.</span> <span class="nav-text">启动文件与默认 Shell</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%91%BD%E4%BB%A4%E7%BB%84%E5%90%88"><span class="nav-number">1.16.2.</span> <span class="nav-text">命令组合</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%98%E9%87%8F%E5%BC%95%E7%94%A8%E4%B8%8E%E5%8D%95%E8%AF%8D%E6%8B%86%E5%88%86"><span class="nav-number">1.16.3.</span> <span class="nav-text">变量、引用与单词拆分</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E7%BB%84"><span class="nav-number">1.16.4.</span> <span class="nav-text">数组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#read-%E8%BE%93%E5%85%A5"><span class="nav-number">1.16.5.</span> <span class="nav-text">read 输入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%84%9A%E6%9C%AC%E5%8F%82%E6%95%B0"><span class="nav-number">1.16.6.</span> <span class="nav-text">脚本参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8E%A8%E8%8D%90-zsh-%E8%84%9A%E6%9C%AC%E9%AA%A8%E6%9E%B6"><span class="nav-number">1.16.7.</span> <span class="nav-text">推荐 zsh 脚本骨架</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9D%A1%E4%BB%B6%E4%B8%8E%E5%BE%AA%E7%8E%AF"><span class="nav-number">1.16.8.</span> <span class="nav-text">条件与循环</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%89%A7%E8%A1%8C%E5%8A%A0%E8%BD%BD%E4%B8%8E%E8%AF%AD%E6%B3%95%E6%A3%80%E6%9F%A5"><span class="nav-number">1.16.9.</span> <span class="nav-text">执行、加载与语法检查</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cc-%E4%B8%8E-python-%E5%BC%80%E5%8F%91"><span class="nav-number">1.17.</span> <span class="nav-text">C&#x2F;C++ 与 Python 开发</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#cc"><span class="nav-number">1.17.1.</span> <span class="nav-text">C&#x2F;C++</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#python-%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83"><span class="nav-number">1.17.2.</span> <span class="nav-text">Python 虚拟环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#conda"><span class="nav-number">1.17.3.</span> <span class="nav-text">Conda</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#docker-%E9%80%9F%E6%9F%A5"><span class="nav-number">1.18.</span> <span class="nav-text">Docker 速查</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A6%82%E5%BF%B5"><span class="nav-number">1.18.1.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%B9%E5%99%A8%E4%B8%8E%E9%95%9C%E5%83%8F"><span class="nav-number">1.18.2.</span> <span class="nav-text">容器与镜像</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#dockerfile-%E6%9C%80%E5%B0%8F%E6%A8%A1%E6%9D%BF"><span class="nav-number">1.18.3.</span> <span class="nav-text">Dockerfile 最小模板</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#compose"><span class="nav-number">1.18.4.</span> <span class="nav-text">Compose</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#docker-%E6%95%85%E9%9A%9C%E5%85%A5%E5%8F%A3"><span class="nav-number">1.18.5.</span> <span class="nav-text">Docker 故障入口</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%AB%98%E9%A2%91%E6%95%85%E9%9A%9C%E6%8E%92%E6%9F%A5%E6%89%8B%E5%86%8C"><span class="nav-number">1.19.</span> <span class="nav-text">高频故障排查手册</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#command-not-found"><span class="nav-number">1.19.1.</span> <span class="nav-text">command not found</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#permission-denied"><span class="nav-number">1.19.2.</span> <span class="nav-text">Permission denied</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A8%8B%E5%BA%8F%E6%97%A0%E6%B3%95%E6%89%A7%E8%A1%8C"><span class="nav-number">1.19.3.</span> <span class="nav-text">程序无法执行</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%8D%E5%8A%A1%E5%90%AF%E5%8A%A8%E5%A4%B1%E8%B4%A5"><span class="nav-number">1.19.4.</span> <span class="nav-text">服务启动失败</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AB%AF%E5%8F%A3%E5%B7%B2%E8%A2%AB%E5%8D%A0%E7%94%A8"><span class="nav-number">1.19.5.</span> <span class="nav-text">端口已被占用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BD%91%E7%BB%9C%E6%88%96-dns-%E5%BC%82%E5%B8%B8"><span class="nav-number">1.19.6.</span> <span class="nav-text">网络或 DNS 异常</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cpu-%E6%88%96%E5%86%85%E5%AD%98%E5%BC%82%E5%B8%B8"><span class="nav-number">1.19.7.</span> <span class="nav-text">CPU 或内存异常</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A3%81%E7%9B%98%E5%86%99%E4%B8%8D%E8%BF%9B%E5%8E%BB"><span class="nav-number">1.19.8.</span> <span class="nav-text">磁盘写不进去</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#apt-%E8%A2%AB%E9%94%81%E6%88%96%E4%B8%AD%E6%96%AD"><span class="nav-number">1.19.9.</span> <span class="nav-text">APT 被锁或中断</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ssh-%E7%99%BB%E5%BD%95%E5%A4%B1%E8%B4%A5"><span class="nav-number">1.19.10.</span> <span class="nav-text">SSH 登录失败</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#docker-%E5%AE%B9%E5%99%A8%E4%B8%80%E5%90%AF%E5%8A%A8%E5%B0%B1%E9%80%80%E5%87%BA"><span class="nav-number">1.19.11.</span> <span class="nav-text">Docker 容器一启动就退出</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%87%E6%A1%A3%E4%B8%8E%E8%87%AA%E6%95%91%E6%96%B9%E6%B3%95"><span class="nav-number">1.20.</span> <span class="nav-text">文档与自救方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%B1%E9%99%A9%E5%91%BD%E4%BB%A4%E6%A3%80%E6%9F%A5%E6%B8%85%E5%8D%95"><span class="nav-number">1.21.</span> <span class="nav-text">危险命令检查清单</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%AA%E4%BA%BA%E7%8E%AF%E5%A2%83%E5%A4%87%E5%BF%98%E5%8C%BA"><span class="nav-number">1.22.</span> <span class="nav-text">个人环境备忘区</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8E%A8%E8%8D%90%E4%BF%9D%E5%AD%98%E7%9A%84%E8%AF%8A%E6%96%AD%E5%BF%AB%E7%85%A7"><span class="nav-number">1.22.1.</span> <span class="nav-text">推荐保存的诊断快照</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="jiangshun"
+      src="/images/p1.jpeg">
+  <p class="site-author-name" itemprop="name">jiangshun</p>
+  <div class="site-description" itemprop="description">个人博客</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">16</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/liujunhong2" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;liujunhong2" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="返回顶部">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+
+    
+    <div class="sidebar-inner sidebar-blogroll">
+      <div class="links-of-blogroll animated">
+        <div class="links-of-blogroll-title"><i class="fa-solid fa-user fa-fw"></i>
+          友链
+        </div>
+        <ul class="links-of-blogroll-list">
+            <li class="links-of-blogroll-item">
+              <a href="https://www.whalefall.top/" title="https:&#x2F;&#x2F;www.whalefall.top&#x2F;" rel="noopener" target="_blank">jiely</a>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://baoziwan.top/Linux-reference.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/p1.jpeg">
+      <meta itemprop="name" content="jiangshun">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="豹子湾2.0">
+      <meta itemprop="description" content="个人博客">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Linux_reference | 豹子湾2.0">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Linux_reference
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2026-07-22 11:53:47 / 修改时间：11:59:54" itemprop="dateCreated datePublished" datetime="2026-07-22T11:53:47+08:00">2026-07-22</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Leran/" itemprop="url" rel="index"><span itemprop="name">Leran</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>10k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>37 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1 id="linux-个人参考手册">Linux 个人参考手册</h1>
+<blockquote>
+<p>默认环境为 Debian/Ubuntu、zsh 与 systemd；涉及 zsh 与 Bash
+差异的地方同时给出 Bash 对照。未特别标注的外部 Linux
+命令通常可在两者中直接使用。</p>
+<p>约定：<code>FILE</code>、<code>DIR</code>、<code>PID</code>、<code>USER</code>、<code>SERVICE</code>、<code>IMAGE</code>
+等大写词是待替换占位符；<code>#</code> 开头的命令通常需要 root
+权限；示例中的 <code>$</code>、<code>#</code> 提示符不要输入。</p>
+</blockquote>
+<h2 id="快速目录">快速目录</h2>
+<table>
+<colgroup>
+<col style="width: 5%">
+<col style="width: 94%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>需求</th>
+<th>入口</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>先救急</td>
+<td><a href="#一页应急速查">一页应急速查</a> · <a href="#高频故障排查手册">高频故障排查</a> · <a href="#危险命令检查清单">危险命令检查</a></td>
+</tr>
+<tr class="even">
+<td>文件与文本</td>
+<td><a href="#路径导航与文件系统">路径与文件系统</a> · <a href="#文件与目录操作">文件操作</a> · <a href="#搜索文件与统计空间">搜索与空间</a> · <a href="#查看搜索与加工文本">文本处理</a> · <a href="#正则表达式速查">正则</a></td>
+</tr>
+<tr class="odd">
+<td>系统管理</td>
+<td><a href="#权限用户与用户组">权限与用户</a> · <a href="#软件包管理">软件包</a> · <a href="#进程任务与会话">进程与会话</a>
+· <a href="#systemd-服务与日志">systemd</a> · <a href="#定时任务">定时任务</a></td>
+</tr>
+<tr class="even">
+<td>联网与开发</td>
+<td><a href="#网络下载与远程连接">网络与 SSH</a> · <a href="#zsh-交互与脚本（兼顾-bash）">zsh 与 Bash</a> · <a href="#cc-与-python-开发">C/C++ 与 Python</a> · <a href="#docker-速查">Docker</a></td>
+</tr>
+<tr class="odd">
+<td>自己扩展</td>
+<td><a href="#文档与自救方法">文档与自救</a> · <a href="#个人环境备忘区">个人环境备忘</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="使用原则">使用原则</h2>
+<ul>
+<li>不确定命令效果时，先查
+<code>tldr COMMAND</code>、<code>COMMAND --help</code>、<code>man COMMAND</code>。</li>
+<li>修改配置前先备份：<code>cp -a FILE FILE.bak.$(date +%F-%H%M%S)</code>。</li>
+<li>删除、覆盖、递归、通配符和提权命令执行前，先用只读命令确认目标。</li>
+<li>路径和变量几乎总应加双引号：<code>cp -- "$src" "$dst"</code>。</li>
+<li>文本处理先输出到终端确认，再使用 <code>-i</code>、重定向或
+<code>tee</code> 写回。</li>
+<li>结束进程先用 <code>SIGTERM</code>，确认无效后再考虑
+<code>SIGKILL</code>。</li>
+<li>长期服务用 systemd；需要保留交互现场用 tmux；临时后台任务才用
+<code>nohup</code>。</li>
+<li>从网络取得的脚本先下载、阅读、验证，再执行；避免直接
+<code>curl URL | sh</code>。</li>
+</ul>
+<h3 id="shell-约定">Shell 约定</h3>
+<ul>
+<li><code>shell</code> 代码块：zsh 与 Bash 都能使用的命令，或实际由
+<code>find</code>、<code>grep</code>、<code>systemctl</code>
+等外部程序解析的语法。</li>
+<li><code>zsh</code> 代码块：本手册默认写法；脚本使用
+<code>#!/usr/bin/env zsh</code>。</li>
+<li><code>bash</code> 代码块：仅用于给出有差异的 Bash 对照；脚本使用
+<code>#!/usr/bin/env bash</code>。</li>
+<li>交互配置默认写入 <code>~/.zshrc</code>；Bash 对应
+<code>~/.bashrc</code>。不要把一种 Shell
+的专属配置直接复制到另一种配置文件。</li>
+</ul>
+<h3 id="命令风险标记">命令风险标记</h3>
+<table>
+<colgroup>
+<col style="width: 4%">
+<col style="width: 28%">
+<col style="width: 67%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>标记</th>
+<th>含义</th>
+<th>典型命令</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>🟢</td>
+<td>只读，通常可放心执行</td>
+<td><code>ls</code>、<code>ps</code>、<code>df</code>、<code>grep</code>、<code>journalctl</code></td>
+</tr>
+<tr class="even">
+<td>🟡</td>
+<td>会修改用户数据或运行状态</td>
+<td><code>mv</code>、<code>chmod</code>、<code>systemctl restart</code>、<code>docker stop</code></td>
+</tr>
+<tr class="odd">
+<td>🔴</td>
+<td>可能不可恢复或影响全系统</td>
+<td><code>rm -rf</code>、<code>mkfs</code>、<code>dd</code>、<code>kill -9</code>、递归
+<code>chown</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="一页应急速查">一页应急速查</h2>
+<h3 id="系统与身份">系统与身份</h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">whoami                         # 当前用户名</span><br><span class="line">id                             # UID、GID、所属组</span><br><span class="line">hostnamectl                    # 主机名、系统与内核摘要</span><br><span class="line">cat /etc/os-release            # 发行版信息</span><br><span class="line">uname -a                       # 内核与架构</span><br><span class="line">date; uptime                   # 时间、运行时长、负载</span><br><span class="line">env | sort                     # 环境变量</span><br></pre></td></tr></table></figure>
+<h3 id="资源与故障入口">资源与故障入口</h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">free -h                        # 内存</span><br><span class="line">df -hT                         # 文件系统容量与类型</span><br><span class="line">df -i                          # inode 是否耗尽</span><br><span class="line">du -xh --max-depth=1 DIR | sort -h</span><br><span class="line">ps aux --sort=-%cpu | head     # CPU 占用靠前的进程</span><br><span class="line">ps aux --sort=-%mem | head     # 内存占用靠前的进程</span><br><span class="line">ss -lntup                      # 监听端口及进程</span><br><span class="line">systemctl --failed             # 失败的 systemd 单元</span><br><span class="line">journalctl -p warning -b       # 本次启动以来的警告和错误</span><br><span class="line">dmesg -T | tail -n 100         # 近期内核消息，可能需要 sudo</span><br></pre></td></tr></table></figure>
+<h3 id="高频操作">高频操作</h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">pwd                            # 当前路径</span><br><span class="line">ls -lah                        # 详细列出全部项目</span><br><span class="line">cd -                           # 回到上一个目录</span><br><span class="line">mkdir -p DIR/SUBDIR            # 递归创建目录</span><br><span class="line">cp -a SOURCE DEST              # 尽量保留属性地复制</span><br><span class="line">mv SOURCE DEST                 # 移动或重命名</span><br><span class="line">rm -i FILE                     # 交互确认后删除文件</span><br><span class="line">less FILE                      # 分页查看大文件</span><br><span class="line">tail -F FILE                   # 持续跟踪日志，日志轮转后继续</span><br><span class="line">find DIR -type f -name &#x27;*.log&#x27;</span><br><span class="line">grep -RIn --exclude-dir=.git &#x27;TEXT&#x27; DIR</span><br></pre></td></tr></table></figure>
+<h3 id="服务与日志">服务与日志</h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">systemctl status SERVICE --no-pager -l</span><br><span class="line">sudo systemctl restart SERVICE</span><br><span class="line">sudo systemctl enable --now SERVICE</span><br><span class="line">journalctl -u SERVICE -b --no-pager</span><br><span class="line">journalctl -u SERVICE -f</span><br></pre></td></tr></table></figure>
+<h3 id="网络">网络</h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">ip -br addr                    # 地址摘要</span><br><span class="line">ip route                       # 路由与默认网关</span><br><span class="line">ping -c 4 HOST                 # 基本连通性</span><br><span class="line">curl -I URL                    # HTTP 响应头</span><br><span class="line">curl -v URL                    # HTTP/TLS 详细过程</span><br><span class="line">ss -lntup                      # 本机监听端口</span><br><span class="line">ssh -v USER@HOST               # SSH 详细诊断</span><br></pre></td></tr></table></figure>
+<h2 id="路径导航与文件系统">路径、导航与文件系统</h2>
+<h3 id="路径规则">路径规则</h3>
+<table>
+<thead>
+<tr class="header">
+<th>写法</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>/</code></td>
+<td>根目录；所有路径的起点</td>
+</tr>
+<tr class="even">
+<td><code>~</code>、<code>$HOME</code></td>
+<td>当前用户家目录</td>
+</tr>
+<tr class="odd">
+<td><code>.</code>、<code>..</code></td>
+<td>当前目录、父目录</td>
+</tr>
+<tr class="even">
+<td><code>/path/to/x</code></td>
+<td>绝对路径</td>
+</tr>
+<tr class="odd">
+<td><code>path/to/x</code></td>
+<td>相对当前目录的路径</td>
+</tr>
+<tr class="even">
+<td><code>.name</code></td>
+<td>隐藏文件或目录</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">pwd                            # 显示当前绝对路径</span><br><span class="line">cd DIR                         # 进入目录</span><br><span class="line">cd                             # 回家目录</span><br><span class="line">cd -                           # 在最近两个目录间切换</span><br><span class="line">realpath FILE                  # 转为规范绝对路径</span><br><span class="line">basename /a/b/file.txt         # file.txt</span><br><span class="line">dirname /a/b/file.txt          # /a/b</span><br></pre></td></tr></table></figure>
+<h3 id="根目录下常见位置">根目录下常见位置</h3>
+<table>
+<colgroup>
+<col style="width: 38%">
+<col style="width: 61%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>路径</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>/etc</code></td>
+<td>系统及服务配置</td>
+</tr>
+<tr class="even">
+<td><code>/home/USER</code></td>
+<td>普通用户数据</td>
+</tr>
+<tr class="odd">
+<td><code>/root</code></td>
+<td>root 家目录</td>
+</tr>
+<tr class="even">
+<td><code>/var/log</code></td>
+<td>日志；systemd 日志主要由 journal 管理</td>
+</tr>
+<tr class="odd">
+<td><code>/var/lib</code></td>
+<td>服务持久状态和数据库</td>
+</tr>
+<tr class="even">
+<td><code>/run</code></td>
+<td>本次启动期的 PID、socket 等运行数据</td>
+</tr>
+<tr class="odd">
+<td><code>/tmp</code></td>
+<td>临时数据，可能在重启或定期清理时消失</td>
+</tr>
+<tr class="even">
+<td><code>/usr/bin</code>、<code>/usr/sbin</code></td>
+<td>大多数用户命令和管理命令</td>
+</tr>
+<tr class="odd">
+<td><code>/usr/local</code></td>
+<td>管理员手工安装且不归包管理器管理的软件</td>
+</tr>
+<tr class="even">
+<td><code>/opt</code></td>
+<td>独立的附加软件</td>
+</tr>
+<tr class="odd">
+<td><code>/dev</code></td>
+<td>设备文件，如<code>/dev/null</code>、<code>/dev/urandom</code></td>
+</tr>
+<tr class="even">
+<td><code>/proc</code>、<code>/sys</code></td>
+<td>内核和进程暴露的虚拟文件系统</td>
+</tr>
+<tr class="odd">
+<td><code>/mnt</code>、<code>/media</code></td>
+<td>临时挂载点、可移动介质挂载点</td>
+</tr>
+</tbody>
+</table>
+<h3 id="文件类型与元数据">文件类型与元数据</h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">file FILE                      # 按内容识别类型，不只看后缀</span><br><span class="line">stat FILE                      # 权限、所有者、inode、时间戳</span><br><span class="line">readlink LINK                  # 查看一层软链接目标</span><br><span class="line">readlink -f LINK               # 解析完整链路</span><br><span class="line">ls -li FILE                    # inode；判断硬链接是否指向同一 inode</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>mtime</code>：文件内容最后修改时间。</li>
+<li><code>ctime</code>：内容或权限、所有者等元数据最后变更时间，不是创建时间。</li>
+<li><code>atime</code>：最后访问时间，可能因挂载策略而延迟或不更新。</li>
+<li><code>Birth</code>/<code>btime</code>：创建时间，并非所有文件系统都支持。</li>
+</ul>
+<h2 id="文件与目录操作">文件与目录操作</h2>
+<h3 id="列出与查看">列出与查看</h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">ls -lah                        # 全部项目、详细信息、易读大小</span><br><span class="line">ls -ld DIR                     # 看目录本身，不展开目录内容</span><br><span class="line">ls -lt                         # 按修改时间排序</span><br><span class="line">tree -a -L 2 DIR               # 两层目录树，需安装 tree</span><br><span class="line">cat FILE                       # 小文件全文</span><br><span class="line">less FILE                      # 大文件分页；/ 搜索，n 下一个，q 退出</span><br><span class="line">head -n 20 FILE                # 前 20 行</span><br><span class="line">tail -n 20 FILE                # 后 20 行</span><br><span class="line">tail -F FILE                   # 持续跟踪，适合日志</span><br></pre></td></tr></table></figure>
+<h3 id="创建复制移动与删除">创建、复制、移动与删除</h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">touch FILE                     # 文件不存在则创建；存在则更新时间戳</span><br><span class="line">mkdir -p DIR/SUBDIR            # 中间目录不存在时一并创建</span><br><span class="line">cp FILE DEST                   # 复制文件</span><br><span class="line">cp -a DIR DEST                 # 复制目录并尽量保留链接、权限、时间等</span><br><span class="line">cp -i SOURCE DEST              # 覆盖前确认</span><br><span class="line">mv -i SOURCE DEST              # 移动/重命名，覆盖前确认</span><br><span class="line">ln SOURCE HARD_LINK            # 硬链接：同一文件数据、同一 inode</span><br><span class="line">ln -s TARGET SOFT_LINK         # 软链接：保存目标路径，可跨文件系统</span><br><span class="line">rm -i FILE                     # 删除文件</span><br><span class="line">rmdir EMPTY_DIR                # 只删除空目录</span><br><span class="line">rm -rI DIR                     # 递归删除，执行前进行一次确认</span><br></pre></td></tr></table></figure>
+<p>注意：</p>
+<ul>
+<li><code>rm</code> 通常不经过回收站；重要数据应先备份。</li>
+<li>命令参数可能以 <code>-</code> 开头时，用 <code>--</code>
+结束选项：<code>rm -- -strange-name</code>。</li>
+<li>使用通配符前先预览：先执行
+<code>printf '%s\n' ./*.log</code>，确认后再操作。zsh
+在没有匹配项时默认报错并且不执行命令；Bash
+默认会把未匹配的模式原样传给命令。</li>
+<li>不要用 <code>mv *.[ch] DIR</code> 期待匹配子目录；普通 glob
+默认只匹配当前层。</li>
+</ul>
+<h3 id="通配符-glob">通配符 glob</h3>
+<table>
+<thead>
+<tr class="header">
+<th>模式</th>
+<th>匹配</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>*</code></td>
+<td>任意长度字符串，不含路径分隔符<code>/</code></td>
+</tr>
+<tr class="even">
+<td><code>?</code></td>
+<td>任意单个字符</td>
+</tr>
+<tr class="odd">
+<td><code>[abc]</code></td>
+<td><code>a</code>、<code>b</code>、<code>c</code> 中任一字符</td>
+</tr>
+<tr class="even">
+<td><code>[0-9]</code></td>
+<td>一个数字字符</td>
+</tr>
+<tr class="odd">
+<td><code>*.[ch]</code></td>
+<td>以<code>.c</code> 或 <code>.h</code> 结尾的当前层文件</td>
+</tr>
+</tbody>
+</table>
+<p>glob 由 Shell 在命令执行前展开；正则表达式由
+<code>grep</code>、<code>sed</code> 等程序解释，两者不要混淆。</p>
+<p>zsh 与 Bash 的未匹配 glob 处理不同：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span> -rl -- ./*.<span class="built_in">log</span>(N)         <span class="comment"># zsh：N 使本次模式无匹配时展开为空</span></span><br><span class="line"><span class="built_in">setopt</span> NULL_GLOB                <span class="comment"># zsh：此后所有无匹配模式都展开为空</span></span><br><span class="line"><span class="built_in">unsetopt</span> NULL_GLOB              <span class="comment"># 恢复默认的 NOMATCH 报错行为</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">shopt</span> -s nullglob               <span class="comment"># Bash：无匹配模式展开为空</span></span><br><span class="line"><span class="built_in">printf</span> <span class="string">&#x27;%s\n&#x27;</span> ./*.<span class="built_in">log</span></span><br><span class="line"><span class="built_in">shopt</span> -u nullglob</span><br></pre></td></tr></table></figure>
+<ul>
+<li>zsh 默认 <code>NOMATCH</code> 更安全，能阻止把字面量
+<code>*.log</code> 交给命令；一般优先使用局部限定符
+<code>(N)</code>，不要长期全局开启 <code>NULL_GLOB</code>。</li>
+<li>Bash 的 <code>shopt</code> 是 Bash 专属；zsh 使用
+<code>setopt</code>/<code>unsetopt</code>，不能照搬。</li>
+<li>zsh 可用 <code>**/*.log</code> 递归匹配；Bash 需要先执行
+<code>shopt -s globstar</code> 才具有同类行为。跨 Shell 脚本优先使用
+<code>find</code>。</li>
+</ul>
+<h2 id="搜索文件与统计空间">搜索文件与统计空间</h2>
+<h3 id="find-常用模板">find 常用模板</h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">find DIR -type f -name &#x27;*.log&#x27;                 # 按名称找文件</span><br><span class="line">find DIR -type d -name node_modules -prune     # 找目录</span><br><span class="line">find DIR -type f -iname &#x27;*.jpg&#x27;                # 忽略大小写</span><br><span class="line">find DIR -type f -size +1G                     # 大于 1 GiB</span><br><span class="line">find DIR -type f -mtime -7                     # 7 天内修改</span><br><span class="line">find DIR -type f -empty                        # 空文件</span><br><span class="line">find DIR -type f -perm /111                    # 任一执行位已设置</span><br><span class="line">find DIR -type f -exec sha256sum &#123;&#125; +          # 批量作为参数执行</span><br></pre></td></tr></table></figure>
+<p>安全批处理原则：优先使用 <code>-exec ... &#123;&#125; +</code> 或 NUL
+分隔，不要把文件名直接拼进未经引用的 <code>for</code> 循环。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find DIR -type f -print0 | xargs -0 COMMAND</span><br></pre></td></tr></table></figure>
+<h3 id="磁盘空间">磁盘空间</h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">df -hT                          # 各文件系统容量、类型和挂载点</span><br><span class="line">df -i                           # inode 使用率</span><br><span class="line">du -sh DIR                      # 目录总大小</span><br><span class="line">du -xh --max-depth=1 DIR | sort -h</span><br><span class="line">find DIR -xdev -type f -size +1G -printf &#x27;%s %p\n&#x27; | sort -n</span><br><span class="line">ncdu DIR                        # 交互式查看，需安装；删除功能要谨慎</span><br></pre></td></tr></table></figure>
+<p>判断“磁盘满”的两条线：</p>
+<ol type="1">
+<li><code>df -h</code> 的空间是否 100%。</li>
+<li><code>df -i</code> 的 inode 是否 100%；大量小文件会耗尽
+inode，即使容量还有剩余。</li>
+</ol>
+<p>若 <code>du</code> 合计明显小于 <code>df</code>
+已用空间，检查已删除但仍被进程打开的文件：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo lsof +L1</span><br></pre></td></tr></table></figure>
+<h2 id="查看搜索与加工文本">查看、搜索与加工文本</h2>
+<h3 id="标准流与重定向">标准流与重定向</h3>
+<table>
+<thead>
+<tr class="header">
+<th>流</th>
+<th>文件描述符</th>
+<th>默认位置</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>stdin</td>
+<td><code>0</code></td>
+<td>键盘输入</td>
+</tr>
+<tr class="even">
+<td>stdout</td>
+<td><code>1</code></td>
+<td>正常输出到终端</td>
+</tr>
+<tr class="odd">
+<td>stderr</td>
+<td><code>2</code></td>
+<td>错误输出到终端</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">COMMAND &gt; FILE                  # 覆盖 stdout</span><br><span class="line">COMMAND &gt;&gt; FILE                 # 追加 stdout</span><br><span class="line">COMMAND 2&gt; ERROR.log            # 覆盖 stderr</span><br><span class="line">COMMAND &gt; OUT.log 2&gt;&amp;1          # stdout 与 stderr 写入同一文件</span><br><span class="line">COMMAND &amp;&gt; ALL.log              # zsh 与 Bash 均支持；非 POSIX</span><br><span class="line">COMMAND &lt; INPUT                 # 从文件提供 stdin</span><br><span class="line">COMMAND1 | COMMAND2             # 前者 stdout 接后者 stdin</span><br><span class="line">COMMAND | tee FILE              # 同时显示并覆盖写文件</span><br><span class="line">COMMAND | tee -a FILE           # 同时显示并追加</span><br><span class="line">COMMAND &gt; /dev/null 2&gt;&amp;1        # 丢弃全部输出</span><br></pre></td></tr></table></figure>
+<p>若脚本还需要兼容 <code>/bin/sh</code>，使用
+<code>COMMAND &gt; ALL.log 2&gt;&amp;1</code>，不要使用
+<code>&amp;&gt;</code>。</p>
+<p><code>sudo COMMAND &gt; /root/file</code> 仍可能权限不足，因为
+<code>&gt;</code> 由当前普通 Shell 执行。正确写法：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">COMMAND | sudo tee /ROOT/FILE &gt;/dev/null</span><br></pre></td></tr></table></figure>
+<h3 id="grep-搜索">grep 搜索</h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">grep -n &#x27;TEXT&#x27; FILE             # 行号</span><br><span class="line">grep -i &#x27;TEXT&#x27; FILE             # 忽略大小写</span><br><span class="line">grep -v &#x27;TEXT&#x27; FILE             # 反选</span><br><span class="line">grep -w &#x27;word&#x27; FILE             # 完整单词</span><br><span class="line">grep -x &#x27;whole line&#x27; FILE       # 整行匹配</span><br><span class="line">grep -E &#x27;foo|bar&#x27; FILE          # ERE 扩展正则</span><br><span class="line">grep -F &#x27;a.b[c]&#x27; FILE           # 按纯文本，不解释正则</span><br><span class="line">grep -C 3 &#x27;ERROR&#x27; FILE          # 前后各 3 行上下文</span><br><span class="line">grep -RIn --exclude-dir=.git &#x27;TODO&#x27; DIR</span><br></pre></td></tr></table></figure>
+<h3 id="sortuniqcuttrwc">sort、uniq、cut、tr、wc</h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">wc -l FILE                      # 行数</span><br><span class="line">wc -w FILE                      # 单词数</span><br><span class="line">cut -d: -f1 /etc/passwd         # 以 : 分列，取第 1 列</span><br><span class="line">tr &#x27;[:lower:]&#x27; &#x27;[:upper:]&#x27;      # 转大写，从 stdin 读取</span><br><span class="line">sort FILE                       # 字典序</span><br><span class="line">sort -n FILE                    # 数值升序</span><br><span class="line">sort -nr FILE                   # 数值降序</span><br><span class="line">sort -k2,2nr FILE               # 第 2 列数值降序</span><br><span class="line">sort -u FILE                    # 排序并去重</span><br><span class="line">sort FILE | uniq -c             # 统计连续重复行，先排序再统计</span><br><span class="line">LC_ALL=C sort FILE              # 固定为逐字节、可复现的排序规则</span><br></pre></td></tr></table></figure>
+<p>不要使用 <code>sort FILE &gt; FILE</code>，Shell 会在
+<code>sort</code> 读取前清空文件。使用：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sort -o FILE FILE</span><br></pre></td></tr></table></figure>
+<h3 id="sed-行级编辑">sed 行级编辑</h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sed -n &#x27;10,20p&#x27; FILE                           # 输出第 10 到 20 行</span><br><span class="line">sed &#x27;2d&#x27; FILE                                  # 删除第 2 行后输出</span><br><span class="line">sed -E &#x27;s/foo|bar/baz/g&#x27; FILE                  # 替换，先不写回</span><br><span class="line">sed -i.bak &#x27;s|old/url|new/url|g&#x27; FILE          # 写回并保留 .bak</span><br><span class="line">sed &#x27;/^#/d; /^[[:space:]]*$/d&#x27; FILE            # 去注释与空行</span><br></pre></td></tr></table></figure>
+<p><code>s</code> 可使用 <code>|</code> 等字符作分隔符，处理 URL 时比
+<code>/</code> 清晰。写配置时尽量匹配完整键值，使操作可重复执行：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed -i.bak &#x27;s|^homepage=.*$|homepage=https://example.com/|&#x27; FILE</span><br></pre></td></tr></table></figure>
+<h3 id="awk-列处理">awk 列处理</h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">awk &#x27;&#123;print $1&#125;&#x27; FILE                           # 第 1 列；$0 为整行</span><br><span class="line">awk -F: &#x27;&#123;print $1, $7&#125;&#x27; /etc/passwd            # 自定义输入分隔符</span><br><span class="line">awk &#x27;$3 &gt; 0 &#123;print $1, $2 * $3&#125;&#x27; FILE           # 条件与计算</span><br><span class="line">awk &#x27;&#123;sum += $2&#125; END &#123;print sum&#125;&#x27; FILE           # 求和</span><br><span class="line">awk &#x27;&#123;count[$1]++&#125; END &#123;for (k in count) print count[k], k&#125;&#x27; FILE</span><br></pre></td></tr></table></figure>
+<p>日志统计模板：按第 1 列分组、累计第 10 列、取前 50：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">awk &#x27;$10 ~ /^[0-9]+$/ &#123;bytes[$1] += $10&#125;</span><br><span class="line">     END &#123;for (ip in bytes) print ip, bytes[ip]&#125;&#x27; access.log |</span><br><span class="line">  sort -k2,2nr |</span><br><span class="line">  head -n 50</span><br></pre></td></tr></table></figure>
+<h3 id="diff-比较">diff 比较</h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">diff -u OLD NEW                 # 统一格式差异，最常用</span><br><span class="line">diff -ru DIR1 DIR2              # 递归比较目录</span><br><span class="line">cmp FILE1 FILE2                 # 字节级判断是否一致</span><br><span class="line">sha256sum FILE                  # 内容校验值</span><br></pre></td></tr></table></figure>
+<h2 id="正则表达式速查">正则表达式速查</h2>
+<h3 id="常用-ere-元字符">常用 ERE 元字符</h3>
+<table>
+<thead>
+<tr class="header">
+<th>表达式</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>^</code>、<code>$</code></td>
+<td>行首、行尾</td>
+</tr>
+<tr class="even">
+<td><code>.</code></td>
+<td>任意单个字符</td>
+</tr>
+<tr class="odd">
+<td><code>[abc]</code>、<code>[^abc]</code></td>
+<td>字符集合、排除集合</td>
+</tr>
+<tr class="even">
+<td><code>[0-9]</code></td>
+<td>数字字符</td>
+</tr>
+<tr class="odd">
+<td><code>*</code>、<code>+</code>、<code>?</code></td>
+<td>前项重复 0+、1+、0/1 次</td>
+</tr>
+<tr class="even">
+<td><code>&#123;n&#125;</code>、<code>&#123;n,m&#125;</code></td>
+<td>精确 n 次、n 至 m 次</td>
+</tr>
+<tr class="odd">
+<td><code>(abc)</code></td>
+<td>分组</td>
+</tr>
+<tr class="even">
+<td><code>a                    | b</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><code>\</code></td>
+<td>转义元字符</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">^[1-9][0-9]*$                                  # 正整数</span><br><span class="line">^[A-Za-z]+$                                    # 仅英文字母</span><br><span class="line">^(Chapter|Section) [1-9][0-9]?$                # Chapter/Section 1..99</span><br><span class="line">^[^@[:space:]]+@[^@[:space:]]+\.[^@[:space:]]+$ # 简化邮箱格式</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>grep</code>、普通 <code>sed</code> 默认使用 BRE；优先加
+<code>-E</code> 使用更直观的 ERE。</li>
+<li><code>awk</code> 使用 ERE。</li>
+<li>PCRE、Python、JavaScript
+等现代正则支持非贪婪、环视、命名组等，不能直接假设 POSIX
+工具也支持。</li>
+<li>回溯型引擎中避免 <code>(a+)+</code>
+一类嵌套、重叠量词，以免灾难性回溯或 ReDoS。</li>
+<li>解析任意嵌套语法、HTML、JSON
+时优先使用对应解析器，不要强行使用正则。</li>
+</ul>
+<h2 id="权限用户与用户组">权限、用户与用户组</h2>
+<h3 id="读懂权限">读懂权限</h3>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">-rwxr-x--- 1 alice dev 4096 Jul 22 10:00 script.sh</span><br><span class="line">│└─┬┘└─┬┘└─┬┘   │     │</span><br><span class="line">│ owner group other 所有者 组</span><br><span class="line">└ - 普通文件；d 目录；l 软链接</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr class="header">
+<th>权限</th>
+<th>文件</th>
+<th>目录</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>r</code></td>
+<td>读内容</td>
+<td>列出目录项名称</td>
+</tr>
+<tr class="even">
+<td><code>w</code></td>
+<td>改内容</td>
+<td>新建、删除、重命名目录项</td>
+</tr>
+<tr class="odd">
+<td><code>x</code></td>
+<td>作为程序执行</td>
+<td>进入目录、访问其中项目</td>
+</tr>
+</tbody>
+</table>
+<p>数字权限：<code>r=4</code>、<code>w=2</code>、<code>x=1</code>，每组三项相加。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">chmod u+x SCRIPT                # 所有者加执行权限</span><br><span class="line">chmod go-rw FILE                # 组和其他人移除读写</span><br><span class="line">chmod 640 FILE                  # rw-r-----</span><br><span class="line">chmod 750 DIR                   # rwxr-x---</span><br><span class="line">chmod -R u=rwX,go=rX DIR        # X 只给目录和原本可执行文件加 x</span><br><span class="line">chown USER:GROUP FILE           # 修改所有者与组</span><br><span class="line">chown -R USER:GROUP DIR         # 递归修改，目标必须反复确认</span><br><span class="line">chgrp GROUP FILE                # 只改组</span><br><span class="line">umask                           # 查看新文件权限掩码</span><br></pre></td></tr></table></figure>
+<p>常见安全默认值：普通文件 <code>644</code>、私密文件
+<code>600</code>、普通目录 <code>755</code>、私密目录
+<code>700</code>。不要用 <code>chmod 777</code>
+粗暴解决问题，应判断谁需要哪种权限。</p>
+<h3 id="身份与提权">身份与提权</h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">id                              # 当前身份</span><br><span class="line">groups USER                     # 用户所属组</span><br><span class="line">sudo COMMAND                    # 以 root 执行单条命令</span><br><span class="line">sudo -u USER COMMAND            # 以指定用户运行</span><br><span class="line">sudo -i                         # root 登录式 Shell；用完 exit</span><br><span class="line">su - USER                       # 切换并加载目标用户登录环境</span><br><span class="line">passwd                          # 修改自己的密码</span><br><span class="line">sudo passwd USER                # 管理员修改指定用户密码</span><br></pre></td></tr></table></figure>
+<p>Debian/Ubuntu 用户管理：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo adduser USER</span><br><span class="line">sudo addgroup GROUP</span><br><span class="line">sudo adduser USER GROUP</span><br><span class="line">sudo usermod -aG GROUP USER     # -a 不可漏，否则可能覆盖附加组</span><br><span class="line">sudo deluser USER GROUP</span><br></pre></td></tr></table></figure>
+<p>加入新组后需重新登录，或临时执行
+<code>newgrp GROUP</code>。<code>docker</code> 组近似拥有 root
+权限，不应随意添加用户。</p>
+<p>特殊权限：</p>
+<ul>
+<li>setuid：程序以文件所有者的有效 UID 运行。</li>
+<li>setgid：程序以文件所属组运行；目录内新文件继承该目录组。</li>
+<li>sticky：目录内文件通常只能由文件所有者、目录所有者或 root
+删除；典型为 <code>/tmp</code>。</li>
+</ul>
+<h2 id="软件包管理">软件包管理</h2>
+<h3 id="debian-ubuntuapt">Debian / Ubuntu（APT）</h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">sudo apt update                     # 刷新可用软件列表</span><br><span class="line">apt search KEYWORD                  # 搜索</span><br><span class="line">apt show PACKAGE                    # 包详情</span><br><span class="line">apt policy PACKAGE                  # 已装/候选版本与来源</span><br><span class="line">sudo apt install PACKAGE...</span><br><span class="line">sudo apt remove PACKAGE             # 删除程序，通常保留系统级配置</span><br><span class="line">sudo apt purge PACKAGE              # 连系统级配置一起删除</span><br><span class="line">sudo apt autoremove                 # 删除不再需要的自动依赖，先审阅列表</span><br><span class="line">sudo apt upgrade                    # 更新已安装包</span><br><span class="line">dpkg -l | grep PATTERN              # 查询已安装包</span><br><span class="line">dpkg -L PACKAGE                     # 包安装了哪些文件</span><br><span class="line">dpkg -S /PATH/TO/FILE               # 哪个包提供该文件</span><br><span class="line">sudo apt install ./PACKAGE.deb      # 安装本地 deb 并处理依赖</span><br></pre></td></tr></table></figure>
+<ul>
+<li>脚本中倾向使用命令行接口更稳定的 <code>apt-get</code>，交互操作使用
+<code>apt</code> 更直观。</li>
+<li><code>apt update</code> 只更新软件列表，<code>apt upgrade</code>
+才更新软件。</li>
+<li>第三方源必须核验发行版代号、架构、签名密钥和官方说明；不要使用已废弃的
+<code>apt-key</code> 流程。</li>
+<li>安装失败先看是否有另一个包管理进程，不要直接删除 lock 文件。</li>
+</ul>
+<h3 id="发行版速查">发行版速查</h3>
+<table>
+<colgroup>
+<col style="width: 10%">
+<col style="width: 15%">
+<col style="width: 20%">
+<col style="width: 32%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>系列</th>
+<th>搜索</th>
+<th>安装</th>
+<th>更新系统</th>
+<th>删除</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Debian/Ubuntu</td>
+<td><code>apt search X</code></td>
+<td><code>sudo apt install X</code></td>
+<td><code>sudo apt update &amp;&amp; sudo apt upgrade</code></td>
+<td><code>sudo apt remove X</code></td>
+</tr>
+<tr class="even">
+<td>Fedora/RHEL</td>
+<td><code>dnf search X</code></td>
+<td><code>sudo dnf install X</code></td>
+<td><code>sudo dnf upgrade</code></td>
+<td><code>sudo dnf remove X</code></td>
+</tr>
+<tr class="odd">
+<td>Arch</td>
+<td><code>pacman -Ss X</code></td>
+<td><code>sudo pacman -S X</code></td>
+<td><code>sudo pacman -Syu</code></td>
+<td><code>sudo pacman -Rns X</code></td>
+</tr>
+<tr class="even">
+<td>openSUSE</td>
+<td><code>zypper search X</code></td>
+<td><code>sudo zypper install X</code></td>
+<td><code>sudo zypper update</code></td>
+<td><code>sudo zypper remove X</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="从源码安装">从源码安装</h3>
+<p>典型 Autotools 流程：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">tar xf SOURCE.tar.xz</span><br><span class="line">cd SOURCE</span><br><span class="line">./configure --prefix=/usr/local</span><br><span class="line">make -j&quot;$(nproc)&quot;</span><br><span class="line">sudo make install</span><br></pre></td></tr></table></figure>
+<p>优先选择发行版包、项目官方包或可追踪的构建方式。<code>make install</code>
+往往不便卸载；执行前查看 README、INSTALL、构建依赖与安装前缀。</p>
+<h2 id="归档与压缩">归档与压缩</h2>
+<h3 id="tar">tar</h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">tar caf archive.tar.gz DIR FILE       # 按后缀自动选择压缩算法</span><br><span class="line">tar tf archive.tar.gz                 # 先查看内容</span><br><span class="line">mkdir -p DEST</span><br><span class="line">tar xf archive.tar.gz -C DEST         # 解压到指定目录</span><br><span class="line">tar czf archive.tar.gz DIR            # gzip</span><br><span class="line">tar cJf archive.tar.xz DIR            # xz</span><br><span class="line">tar --zstd -cf archive.tar.zst DIR    # zstd</span><br></pre></td></tr></table></figure>
+<p>记忆：<code>c</code> create、<code>x</code> extract、<code>t</code>
+list、<code>f</code> archive file、<code>C</code> target
+directory、<code>v</code> verbose、<code>a</code> auto-compress。</p>
+<p>安全解压陌生归档前先
+<code>tar tf</code>，警惕绝对路径、<code>../</code>
+路径穿越、覆盖现有文件和解压炸弹；最好解压到新建空目录。</p>
+<h3 id="其他格式">其他格式</h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">zip -r archive.zip DIR</span><br><span class="line">unzip -l archive.zip                    # 列表</span><br><span class="line">unzip archive.zip -d DEST</span><br><span class="line">7z l archive.7z</span><br><span class="line">7z x archive.7z -oDEST</span><br></pre></td></tr></table></figure>
+<h2 id="进程任务与会话">进程、任务与会话</h2>
+<h3 id="查看进程">查看进程</h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">ps aux                              # 全系统快照</span><br><span class="line">ps -ef --forest                     # 父子关系</span><br><span class="line">ps -p PID -o pid,ppid,user,stat,%cpu,%mem,etime,cmd</span><br><span class="line">pgrep -a NAME                       # 按名称找 PID 并显示命令行</span><br><span class="line">pstree -ap                          # 进程树</span><br><span class="line">top                                # 动态查看</span><br><span class="line">htop                               # 更友好的交互界面，通常需安装</span><br></pre></td></tr></table></figure>
+<p>常见状态：<code>R</code> 运行、<code>S</code>
+可中断睡眠、<code>D</code> 不可中断 I/O、<code>T</code>
+停止、<code>Z</code> 僵尸。僵尸进程已经退出，需由父进程回收；对它
+<code>kill -9</code> 没有意义。</p>
+<h3 id="前后台任务">前后台任务</h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">COMMAND &amp;                           # 直接在后台启动</span><br><span class="line">jobs -l                             # 当前 Shell 的任务</span><br><span class="line">Ctrl+Z                              # 暂停前台任务</span><br><span class="line">bg %1                               # 让任务 1 在后台继续</span><br><span class="line">fg %1                               # 将任务 1 带回前台</span><br><span class="line">disown %1                           # 从当前 Shell 任务表移除</span><br></pre></td></tr></table></figure>
+<p><code>jobs</code> 只显示当前 Shell
+启动的任务，不等于系统所有进程。</p>
+<h3 id="信号与结束进程">信号与结束进程</h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">kill PID                            # 默认 SIGTERM，允许清理后退出</span><br><span class="line">kill -INT PID                       # 类似前台 Ctrl+C</span><br><span class="line">kill -HUP PID                       # 部分程序用它重载配置</span><br><span class="line">kill -KILL PID                      # 最后手段，无法捕获和清理</span><br><span class="line">pkill -TERM -x NAME                 # 精确进程名</span><br><span class="line">kill -l                             # 信号列表</span><br></pre></td></tr></table></figure>
+<p>推荐顺序：确认目标 → <code>TERM</code> → 等待并复查 → 查日志/状态 →
+必要时 <code>KILL</code>。<code>D</code> 状态进程要等内核调用返回；PID 1
+对某些信号有特殊保护。</p>
+<h3 id="优先级">优先级</h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nice -n 10 COMMAND                  # 以较低调度优先级启动</span><br><span class="line">renice -n 10 -p PID                 # 调整运行中进程</span><br></pre></td></tr></table></figure>
+<p>nice 值通常为
+<code>-20..19</code>，值越大优先级越低；提高优先级通常需要权限。</p>
+<h3 id="nohup-与-tmux">nohup 与 tmux</h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">nohup COMMAND &gt;app.log 2&gt;&amp;1 &amp;       # 简单非交互临时任务</span><br><span class="line">echo $! &gt; app.pid                   # 保存最近后台 PID</span><br><span class="line"></span><br><span class="line">tmux new -s work                    # 新建命名会话</span><br><span class="line">tmux ls                             # 列出会话</span><br><span class="line">tmux attach -t work                 # 恢复会话</span><br><span class="line">tmux kill-session -t work           # 结束会话</span><br></pre></td></tr></table></figure>
+<p>tmux 默认前缀 <code>Ctrl+B</code>：<code>d</code>
+脱离、<code>c</code> 新窗口、<code>%</code> 左右分屏、<code>"</code>
+上下分屏、方向键切换面板、<code>z</code> 面板缩放。</p>
+<h2 id="systemd-服务与日志">systemd 服务与日志</h2>
+<h3 id="管理服务">管理服务</h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">systemctl status SERVICE --no-pager -l</span><br><span class="line">sudo systemctl start SERVICE</span><br><span class="line">sudo systemctl stop SERVICE</span><br><span class="line">sudo systemctl restart SERVICE</span><br><span class="line">sudo systemctl reload SERVICE           # 服务支持时，仅重载配置</span><br><span class="line">sudo systemctl enable SERVICE           # 设置开机启动，不立即启动</span><br><span class="line">sudo systemctl enable --now SERVICE     # 设置并立即启动</span><br><span class="line">sudo systemctl disable --now SERVICE</span><br><span class="line">systemctl is-active SERVICE</span><br><span class="line">systemctl is-enabled SERVICE</span><br><span class="line">systemctl --failed</span><br><span class="line">sudo systemctl daemon-reload             # unit 文件变化后执行</span><br></pre></td></tr></table></figure>
+<h3 id="日志">日志</h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">journalctl -u SERVICE                    # 指定服务全部日志</span><br><span class="line">journalctl -u SERVICE -b                 # 本次启动</span><br><span class="line">journalctl -u SERVICE -f                 # 实时跟踪</span><br><span class="line">journalctl -u SERVICE --since &#x27;1 hour ago&#x27;</span><br><span class="line">journalctl -b -1                         # 上一次启动</span><br><span class="line">journalctl -p err -b                     # 本次启动 error 及更严重日志</span><br><span class="line">journalctl --disk-usage                  # journal 占用</span><br></pre></td></tr></table></figure>
+<h3 id="自定义-service-模板">自定义 service 模板</h3>
+<p>保存为 <code>/etc/systemd/system/myapp.service</code>：</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[Unit]</span></span><br><span class="line"><span class="attr">Description</span>=My Application</span><br><span class="line"><span class="attr">After</span>=network-<span class="literal">on</span>line.target</span><br><span class="line"><span class="attr">Wants</span>=network-<span class="literal">on</span>line.target</span><br><span class="line"></span><br><span class="line"><span class="section">[Service]</span></span><br><span class="line"><span class="attr">Type</span>=simple</span><br><span class="line"><span class="attr">User</span>=appuser</span><br><span class="line"><span class="attr">Group</span>=appuser</span><br><span class="line"><span class="attr">WorkingDirectory</span>=/opt/myapp</span><br><span class="line"><span class="attr">ExecStart</span>=/opt/myapp/venv/bin/python /opt/myapp/app.py</span><br><span class="line"><span class="attr">Restart</span>=<span class="literal">on</span>-failure</span><br><span class="line"><span class="attr">RestartSec</span>=<span class="number">5</span></span><br><span class="line"></span><br><span class="line"><span class="section">[Install]</span></span><br><span class="line"><span class="attr">WantedBy</span>=multi-user.target</span><br></pre></td></tr></table></figure>
+<p>应用并验证：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo systemd-analyze verify /etc/systemd/system/myapp.service</span><br><span class="line">sudo systemctl daemon-reload</span><br><span class="line">sudo systemctl enable --now myapp.service</span><br><span class="line">systemctl status myapp.service</span><br><span class="line">journalctl -u myapp.service -f</span><br></pre></td></tr></table></figure>
+<p><code>ExecStart</code> 使用绝对路径；不要默认用 root
+运行应用；秘密信息不宜直接写进全局可读 unit 文件。</p>
+<p>systemd 的 <code>ExecStart=</code> 默认不经过交互
+Shell，<code>|</code>、<code>&gt;</code>、<code>&amp;&amp;</code>、glob、alias、<code>~</code>
+等不会按 zsh/Bash 语法解析。确实需要 Shell 表达式时显式写为
+<code>ExecStart=/usr/bin/zsh -c '...'</code>；Bash 对应
+<code>/bin/bash -c '...'</code>，但能直接执行程序时仍应避免额外套一层
+Shell。</p>
+<h2 id="定时任务">定时任务</h2>
+<h3 id="一次性任务-at">一次性任务 at</h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">echo &#x27;/path/to/job.sh &gt;&gt;/path/to/job.log 2&gt;&amp;1&#x27; | at now + 10 minutes</span><br><span class="line">atq                                  # 列表</span><br><span class="line">atrm JOB_ID                          # 删除</span><br></pre></td></tr></table></figure>
+<p>需要 <code>atd</code>
+服务运行。任务没有交互终端，输出应显式写入日志。</p>
+<h3 id="周期任务-cron">周期任务 cron</h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">crontab -e                           # 编辑当前用户任务</span><br><span class="line">crontab -l                           # 列出</span><br><span class="line">crontab -l &gt; crontab.backup          # 修改前备份</span><br><span class="line">crontab -r                           # 删除全部，危险且与 -e 相邻</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 分 时 日 月 周 命令</span><br><span class="line">*/15 * * * * /absolute/path/job.sh &gt;&gt;/absolute/path/job.log 2&gt;&amp;1</span><br><span class="line">5 3 * * * /absolute/path/backup.sh</span><br></pre></td></tr></table></figure>
+<p>cron 环境很精简：使用绝对路径、显式设置
+<code>PATH</code>、不要依赖当前目录或交互式 Shell 配置。</p>
+<p>cron 通常不会读取 <code>~/.zshrc</code> 或
+<code>~/.bashrc</code>，命令常由 <code>/bin/sh</code> 解释。确实需要
+Shell 专属语法时，在 crontab 顶部明确指定其一：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SHELL=/usr/bin/zsh</span><br><span class="line"># Bash 对应：SHELL=/bin/bash</span><br></pre></td></tr></table></figure>
+<p>更稳妥的方式是让 cron 只执行带有正确 shebang 的独立脚本，避免把复杂
+zsh/Bash 语法直接写在 crontab 中。防止耗时任务重叠：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">*/5 * * * * flock -n /tmp/myjob.lock /absolute/path/job.sh</span><br></pre></td></tr></table></figure>
+<p>复杂任务优先考虑 systemd
+timer：有统一日志、依赖管理、错过任务补跑和防重叠能力。</p>
+<h2 id="网络下载与远程连接">网络、下载与远程连接</h2>
+<h3 id="分层排障">分层排障</h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">ip -br link                         # 网卡是否 UP</span><br><span class="line">ip -br addr                         # 是否取得地址</span><br><span class="line">ip route                            # 是否有默认路由</span><br><span class="line">ping -c 4 GATEWAY                   # 到网关</span><br><span class="line">ping -c 4 1.1.1.1                   # 到公网 IP</span><br><span class="line">getent hosts example.com            # 系统解析器能否解析 DNS</span><br><span class="line">curl -I --connect-timeout 5 https://example.com</span><br><span class="line">ss -lntup                           # 服务是否监听、监听在哪个地址</span><br></pre></td></tr></table></figure>
+<p>判断思路：</p>
+<ol type="1">
+<li>无网卡或未 UP：检查链路、虚拟机网卡、驱动。</li>
+<li>无 IP：检查 DHCP 或静态地址配置。</li>
+<li>无默认路由：检查网关。</li>
+<li>公网 IP 可通、域名不通：DNS 问题。</li>
+<li>域名可解析、端口不通：服务、监听地址、防火墙或上游网络问题。</li>
+<li>HTTP 失败：用 <code>curl -v</code>
+查看连接、TLS、重定向和响应状态。</li>
+</ol>
+<h3 id="wget-与-curl">wget 与 curl</h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">wget URL                              # 下载，保留服务端文件名</span><br><span class="line">wget -O FILE URL                      # 指定文件名</span><br><span class="line">wget -c URL                           # 断点续传，需服务端支持 Range</span><br><span class="line">wget --content-disposition URL        # 参考响应头决定文件名</span><br><span class="line"></span><br><span class="line">curl -fLO URL                         # 失败时非零退出；保留远端文件名</span><br><span class="line">curl -fsSL URL -o FILE                # 静默、跟随跳转、失败即报错</span><br><span class="line">curl -I URL                           # 仅响应头</span><br><span class="line">curl -v URL                           # 详细诊断</span><br><span class="line">curl -H &#x27;Header: Value&#x27; URL           # 请求头</span><br><span class="line">curl -X POST -H &#x27;Content-Type: application/json&#x27; -d &#x27;&#123;&quot;k&quot;:&quot;v&quot;&#125;&#x27; URL</span><br></pre></td></tr></table></figure>
+<h3 id="ssh">SSH</h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ssh USER@HOST                         # 登录</span><br><span class="line">ssh -p PORT USER@HOST                 # 指定端口</span><br><span class="line">ssh -i ~/.ssh/id_ed25519 USER@HOST    # 指定私钥</span><br><span class="line">ssh -v USER@HOST                      # 一级详细诊断；可用 -vvv</span><br><span class="line">ssh USER@HOST &#x27;COMMAND&#x27;               # 执行远程命令</span><br></pre></td></tr></table></figure>
+<p>生成和部署密钥：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t ed25519 -C &#x27;DEVICE-NAME&#x27;</span><br><span class="line">ssh-copy-id -i ~/.ssh/id_ed25519.pub USER@HOST</span><br><span class="line">chmod 700 ~/.ssh</span><br><span class="line">chmod 600 ~/.ssh/authorized_keys ~/.ssh/id_ed25519</span><br><span class="line">chmod 644 ~/.ssh/id_ed25519.pub</span><br></pre></td></tr></table></figure>
+<p><code>~/.ssh/config</code> 模板：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Host myserver</span><br><span class="line">    HostName 203.0.113.10</span><br><span class="line">    User alice</span><br><span class="line">    Port 22</span><br><span class="line">    IdentityFile ~/.ssh/id_ed25519</span><br><span class="line">    ServerAliveInterval 60</span><br></pre></td></tr></table></figure>
+<p>随后可直接
+<code>ssh myserver</code>。首次连接应通过可信渠道核对主机指纹，不要习惯性忽略警告。</p>
+<h3 id="文件传输">文件传输</h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">scp FILE USER@HOST:/remote/path/</span><br><span class="line">scp -r DIR USER@HOST:/remote/path/</span><br><span class="line">rsync -avh --progress DIR/ USER@HOST:/remote/path/</span><br><span class="line">rsync -avhn --delete SOURCE/ DEST/       # 先 dry-run</span><br><span class="line">rsync -avh --delete SOURCE/ DEST/        # --delete 会删目标多余文件，危险</span><br></pre></td></tr></table></figure>
+<p><code>SOURCE/</code> 表示复制目录内容，<code>SOURCE</code>
+表示连目录本身一起复制，这是 rsync 最容易混淆的细节之一。</p>
+<h2 id="zsh-交互与脚本兼顾-bash">zsh 交互与脚本（兼顾 Bash）</h2>
+<h3 id="启动文件与默认-shell">启动文件与默认 Shell</h3>
+<table>
+<colgroup>
+<col style="width: 13%">
+<col style="width: 31%">
+<col style="width: 55%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>场景</th>
+<th>zsh</th>
+<th>Bash</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>所有 Shell</td>
+<td><code>~/.zshenv</code>，只放必须的环境变量</td>
+<td>无完全对应的用户文件</td>
+</tr>
+<tr class="even">
+<td>登录 Shell</td>
+<td><code>~/.zprofile</code>，之后还会读 <code>~/.zlogin</code></td>
+<td><code>~/.bash_profile</code>、<code>~/.bash_login</code>、<code>~/.profile</code>
+中第一个存在的文件</td>
+</tr>
+<tr class="odd">
+<td>交互式非登录 Shell</td>
+<td><code>~/.zshrc</code></td>
+<td><code>~/.bashrc</code></td>
+</tr>
+<tr class="even">
+<td>退出登录 Shell</td>
+<td><code>~/.zlogout</code></td>
+<td><code>~/.bash_logout</code></td>
+</tr>
+</tbody>
+</table>
+<p>日常 alias、补全、提示符和交互选项放在
+<code>~/.zshrc</code>；环境变量通常放在 <code>~/.zshenv</code> 或
+<code>~/.zprofile</code>。<code>.zshenv</code> 会被每个 zsh
+脚本读取，必须保持精简且不能输出文字。</p>
+<ul>
+<li>zsh 的交互式登录会依次读取
+<code>.zshenv</code>、<code>.zprofile</code>、<code>.zshrc</code>、<code>.zlogin</code>。</li>
+<li>Bash 登录时只读取三个登录文件中第一个存在者，且不会自动读取
+<code>.bashrc</code>；通常在 <code>.bash_profile</code> 中显式
+<code>source ~/.bashrc</code>。</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install zsh                 # Debian/Ubuntu 尚未安装时</span><br><span class="line">chsh -s &quot;$(command -v zsh)&quot;       # 将登录 Shell 改成 zsh，重新登录后生效</span><br><span class="line">printf &#x27;%s\n&#x27; &quot;$SHELL&quot;           # 账户登记的默认 Shell</span><br><span class="line">printf &#x27;%s\n&#x27; &quot;$0&quot;               # 当前 Shell 名；登录 Shell 可能带前导 -</span><br></pre></td></tr></table></figure>
+<p><code>$SHELL</code> 不一定等于当前正在运行的 Shell；用
+<code>ps -p $$ -o comm=</code> 或
+<code>printf '%s\n' "$ZSH_VERSION"</code> 确认当前是否为 zsh，Bash 对应
+<code>$BASH_VERSION</code>。</p>
+<h3 id="命令组合">命令组合</h3>
+<table>
+<colgroup>
+<col style="width: 25%">
+<col style="width: 75%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>写法</th>
+<th>zsh 与 Bash 中的行为</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>A; B</code></td>
+<td>无论 A 成败都执行 B</td>
+</tr>
+<tr class="even">
+<td><code>A &amp;&amp; B</code></td>
+<td>A 成功才执行 B</td>
+</tr>
+<tr class="odd">
+<td><code>A            |                                         | |</code>A
+&amp;<code>| A 放入后台                              | |</code>{ A; B;
+}<code>| 当前 Shell 中成组执行，花括号旁要留空格 | |</code>(A; B)`</td>
+<td>子 Shell 中执行，不影响当前目录和变量</td>
+</tr>
+</tbody>
+</table>
+<p>退出码 <code>0</code> 表示成功，非 <code>0</code> 表示失败；两种
+Shell 都可用 <code>$?</code> 读取上一条命令退出码。zsh 还提供更易读的
+<code>$status</code>。</p>
+<p>管道各段退出码写法不同：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span> -r -- <span class="variable">$pipestatus</span>          <span class="comment"># zsh：数组，默认下标从 1 开始</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">printf</span> <span class="string">&#x27;%s\n&#x27;</span> <span class="string">&quot;<span class="variable">$&#123;PIPESTATUS[@]&#125;</span>&quot;</span> <span class="comment"># Bash：数组，默认下标从 0 开始</span></span><br></pre></td></tr></table></figure>
+<h3 id="变量引用与单词拆分">变量、引用与单词拆分</h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">name=&#x27;Linux&#x27;                       # 等号两边不能有空格</span><br><span class="line">printf &#x27;%s\n&#x27; &quot;$name&quot;</span><br><span class="line">printf &#x27;%s\n&#x27; &quot;$&#123;name&#125;101&quot;       # 花括号明确变量边界</span><br><span class="line">unset name</span><br><span class="line">export APP_ENV=prod                # 导出给子进程</span><br><span class="line">APP_ENV=test COMMAND               # 仅本次命令有效</span><br><span class="line">result=$(COMMAND)                  # 命令替换</span><br><span class="line">value=$((2 + 3 * 4))               # 算术展开</span><br></pre></td></tr></table></figure>
+<p>引用规则：</p>
+<ul>
+<li>单引号 <code>'...'</code>：内容完全按字面值。</li>
+<li>双引号 <code>"..."</code>：保留空格，同时展开变量和
+<code>$(...)</code>。</li>
+<li>新脚本使用 <code>$(COMMAND)</code>，不要使用难嵌套的反引号。</li>
+<li>无论使用 zsh 还是
+Bash，变量和命令替换默认都加双引号；这是最稳妥、最易移植的写法。</li>
+</ul>
+<p>两者最重要的差异之一是未加引号的标量展开：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">words=<span class="string">&#x27;one two&#x27;</span></span><br><span class="line"><span class="built_in">printf</span> <span class="string">&#x27;&lt;%s&gt;\n&#x27;</span> <span class="variable">$words</span>           <span class="comment"># zsh 默认作为一个参数：&lt;one two&gt;</span></span><br><span class="line"><span class="built_in">printf</span> <span class="string">&#x27;&lt;%s&gt;\n&#x27;</span> <span class="variable">$&#123;=words&#125;</span>        <span class="comment"># zsh：显式按 IFS 拆分成两个参数</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">words=<span class="string">&#x27;one two&#x27;</span></span><br><span class="line"><span class="built_in">printf</span> <span class="string">&#x27;&lt;%s&gt;\n&#x27;</span> <span class="variable">$words</span>           <span class="comment"># Bash 默认拆成 &lt;one&gt; 和 &lt;two&gt;</span></span><br><span class="line"><span class="built_in">printf</span> <span class="string">&#x27;&lt;%s&gt;\n&#x27;</span> <span class="string">&quot;<span class="variable">$words</span>&quot;</span>         <span class="comment"># 两者通用：保持一个参数</span></span><br></pre></td></tr></table></figure>
+<p>不要为了模仿 Bash 而在 zsh 中全局开启
+<code>SH_WORD_SPLIT</code>；需要拆分时优先使用数组或 zsh 的
+<code>$&#123;=name&#125;</code> 局部标志。</p>
+<p>zsh 将 <code>$path</code> 暴露为与 <code>$PATH</code>
+自动同步的数组：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">path=(~/.local/bin <span class="variable">$path</span>)        <span class="comment"># zsh：前置目录并自动更新 PATH</span></span><br><span class="line"><span class="built_in">typeset</span> -U path                  <span class="comment"># zsh：数组元素去重并保留首次出现项</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">PATH=<span class="string">&quot;<span class="variable">$HOME</span>/.local/bin:<span class="variable">$PATH</span>&quot;</span>    <span class="comment"># Bash：直接修改字符串 PATH</span></span><br><span class="line"><span class="built_in">export</span> PATH</span><br></pre></td></tr></table></figure>
+<h3 id="数组">数组</h3>
+<p>普通数组的下标是常见陷阱：zsh 默认从 <code>1</code> 开始，Bash 从
+<code>0</code> 开始。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">items=(alpha beta gamma)</span><br><span class="line"><span class="built_in">print</span> -r -- <span class="string">&quot;<span class="variable">$items</span>[1]&quot;</span>          <span class="comment"># alpha</span></span><br><span class="line"><span class="built_in">print</span> -rl -- <span class="string">&quot;<span class="variable">$&#123;items[@]&#125;</span>&quot;</span>       <span class="comment"># 每个元素一行</span></span><br><span class="line">items+=(delta)</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">items=(alpha beta gamma)</span><br><span class="line"><span class="built_in">printf</span> <span class="string">&#x27;%s\n&#x27;</span> <span class="string">&quot;<span class="variable">$&#123;items[0]&#125;</span>&quot;</span>      <span class="comment"># alpha</span></span><br><span class="line"><span class="built_in">printf</span> <span class="string">&#x27;%s\n&#x27;</span> <span class="string">&quot;<span class="variable">$&#123;items[@]&#125;</span>&quot;</span>     <span class="comment"># 每个元素一行</span></span><br><span class="line">items+=(delta)</span><br></pre></td></tr></table></figure>
+<p>关联数组声明也不同：zsh 使用 <code>typeset -A map</code>，Bash 使用
+<code>declare -A map</code>。跨 Shell
+脚本若大量依赖数组，应明确选择解释器，不要假设能直接互换。</p>
+<h3 id="read-输入">read 输入</h3>
+<p>两种 Shell 的提示参数有冲突：zsh 的 <code>read -p</code> 表示从
+coprocess 读取，不是显示 prompt。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">IFS= <span class="built_in">read</span> -r <span class="string">&quot;name?Name: &quot;</span>       <span class="comment"># zsh：变量名与 ?提示文字写在同一参数</span></span><br><span class="line"><span class="built_in">printf</span> <span class="string">&#x27;Hello, %s\n&#x27;</span> <span class="string">&quot;<span class="variable">$name</span>&quot;</span></span><br><span class="line"></span><br><span class="line">IFS= <span class="built_in">read</span> -rs <span class="string">&quot;password?Password: &quot;</span></span><br><span class="line"><span class="built_in">printf</span> <span class="string">&#x27;\n&#x27;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">IFS= <span class="built_in">read</span> -r -p <span class="string">&#x27;Name: &#x27;</span> name    <span class="comment"># Bash：-p 后跟提示，变量名放最后</span></span><br><span class="line"><span class="built_in">printf</span> <span class="string">&#x27;Hello, %s\n&#x27;</span> <span class="string">&quot;<span class="variable">$name</span>&quot;</span></span><br><span class="line"></span><br><span class="line">IFS= <span class="built_in">read</span> -rs -p <span class="string">&#x27;Password: &#x27;</span> password</span><br><span class="line"><span class="built_in">printf</span> <span class="string">&#x27;\n&#x27;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>两者都建议使用 <code>-r</code>，避免反斜杠被当作转义符。</li>
+<li>两者的 <code>-s</code>
+都表示静默输入，适合密码；不要保存或打印明文密码。</li>
+<li>读入数组时 zsh 使用 <code>read -A items</code>，Bash 使用
+<code>read -a items</code>。</li>
+<li>格式化输出优先使用 <code>printf</code>；<code>echo</code>
+是否解释反斜杠和选项会受 Shell 与配置影响。</li>
+</ul>
+<p>逐行读取文件的下列写法在两者中通用：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">while IFS= read -r line; do</span><br><span class="line">  printf &#x27;%s\n&#x27; &quot;$line&quot;</span><br><span class="line">done &lt; FILE</span><br></pre></td></tr></table></figure>
+<p>避免用 <code>COMMAND | while ...</code> 保存循环变量：zsh 默认在当前
+Shell 执行管道最后一段，而 Bash 通常在子 Shell
+中执行，循环后的变量结果会不同。使用上面的输入重定向，或使用
+<code>done &lt; &lt;(COMMAND)</code>。</p>
+<h3 id="脚本参数">脚本参数</h3>
+<table>
+<thead>
+<tr class="header">
+<th>写法</th>
+<th>zsh 与 Bash 中的含义</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>$0</code></td>
+<td>脚本名</td>
+</tr>
+<tr class="even">
+<td><code>$1</code>、<code>$2</code></td>
+<td>第 1、2 个参数</td>
+</tr>
+<tr class="odd">
+<td><code>$#</code></td>
+<td>参数个数</td>
+</tr>
+<tr class="even">
+<td><code>"$@"</code></td>
+<td>每个参数保持独立，遍历参数时首选</td>
+</tr>
+<tr class="odd">
+<td><code>$?</code></td>
+<td>上条命令退出码</td>
+</tr>
+<tr class="even">
+<td><code>$$</code></td>
+<td>当前 Shell PID</td>
+</tr>
+<tr class="odd">
+<td><code>$!</code></td>
+<td>最近后台进程 PID</td>
+</tr>
+</tbody>
+</table>
+<h3 id="推荐-zsh-脚本骨架">推荐 zsh 脚本骨架</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/usr/bin/env zsh</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">set</span> -euo pipefail</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="title">usage</span></span>() &#123;</span><br><span class="line">  <span class="built_in">printf</span> <span class="string">&#x27;Usage: %s INPUT OUTPUT\n&#x27;</span> <span class="string">&quot;<span class="variable">$0</span>&quot;</span> &gt;&amp;2</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="title">main</span></span>() &#123;</span><br><span class="line">  <span class="keyword">if</span> (( <span class="variable">$#</span> != <span class="number">2</span> )); <span class="keyword">then</span></span><br><span class="line">    usage</span><br><span class="line">    <span class="built_in">return</span> 2</span><br><span class="line">  <span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line">  <span class="built_in">local</span> input=<span class="variable">$1</span></span><br><span class="line">  <span class="built_in">local</span> output=<span class="variable">$2</span></span><br><span class="line"></span><br><span class="line">  [[ -f <span class="string">&quot;<span class="variable">$input</span>&quot;</span> ]] || &#123;</span><br><span class="line">    <span class="built_in">printf</span> <span class="string">&#x27;Error: not a regular file: %s\n&#x27;</span> <span class="string">&quot;<span class="variable">$input</span>&quot;</span> &gt;&amp;2</span><br><span class="line">    <span class="built_in">return</span> 1</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">cp</span> -- <span class="string">&quot;<span class="variable">$input</span>&quot;</span> <span class="string">&quot;<span class="variable">$output</span>&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">main <span class="string">&quot;<span class="variable">$@</span>&quot;</span></span><br></pre></td></tr></table></figure>
+<p>Bash 版本的主体相同，只需改 shebang 和严格模式：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/usr/bin/env bash</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">set</span> -Eeuo pipefail</span><br><span class="line"><span class="comment"># 后续主体与上面的 zsh 版本相同</span></span><br></pre></td></tr></table></figure>
+<p>zsh 的 <code>set -E</code> 与 Bash 的 <code>set -E</code>
+并非同一语义，因此 zsh 骨架不照搬大写
+<code>E</code>。严格模式适合新写的受控脚本，但不是魔法：预期失败的探测命令、条件判断和旧脚本可能需要单独处理。</p>
+<h3 id="条件与循环">条件与循环</h3>
+<p>以下写法在 zsh 与 Bash 中通用：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">[[ -f &quot;$file&quot; ]]                  # 普通文件</span><br><span class="line">[[ -d &quot;$dir&quot; ]]                   # 目录</span><br><span class="line">[[ -r &quot;$file&quot; &amp;&amp; -s &quot;$file&quot; ]]  # 可读且非空</span><br><span class="line">[[ -z &quot;$value&quot; ]]                 # 空字符串</span><br><span class="line">[[ &quot;$a&quot; == &quot;$b&quot; ]]              # 字符串相等</span><br><span class="line">(( count &gt;= 10 ))                  # 数值比较</span><br><span class="line"></span><br><span class="line">if [[ -f &quot;$file&quot; ]]; then</span><br><span class="line">  printf &#x27;exists\n&#x27;</span><br><span class="line">else</span><br><span class="line">  printf &#x27;missing\n&#x27; &gt;&amp;2</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">for file in &quot;$@&quot;; do</span><br><span class="line">  printf &#x27;%s\n&#x27; &quot;$file&quot;</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+<p><code>[[ ... ]]</code> 比 <code>[ ... ]</code> 更适合明确选择
+zsh/Bash 的脚本，但不属于 POSIX <code>sh</code>。若脚本 shebang 是
+<code>#!/bin/sh</code>，应改用 <code>[ ... ]</code> 并遵守 POSIX
+语法。</p>
+<h3 id="执行加载与语法检查">执行、加载与语法检查</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">zsh script.zsh                  <span class="comment"># zsh：新进程执行，无需执行权限</span></span><br><span class="line">zsh -n script.zsh               <span class="comment"># 只检查语法</span></span><br><span class="line">zsh -x script.zsh               <span class="comment"># 跟踪执行；可能泄露秘密变量</span></span><br><span class="line"><span class="built_in">source</span> ~/.zshrc                 <span class="comment"># 当前 zsh 重新加载交互配置</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">bash script.sh                  <span class="comment"># Bash：新进程执行，无需执行权限</span></span><br><span class="line">bash -n script.sh               <span class="comment"># 只检查语法</span></span><br><span class="line">bash -x script.sh               <span class="comment"># 跟踪执行；可能泄露秘密变量</span></span><br><span class="line"><span class="built_in">source</span> ~/.bashrc                <span class="comment"># 当前 Bash 重新加载交互配置</span></span><br><span class="line">shellcheck script.sh            <span class="comment"># 主要检查 POSIX sh/Bash，不应当作 zsh 完整验证器</span></span><br></pre></td></tr></table></figure>
+<p>两者通用：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">chmod +x SCRIPT</span><br><span class="line">./SCRIPT                        # 根据 shebang 选择解释器</span><br><span class="line">source SCRIPT                   # 当前 Shell 执行，会改变变量、选项和目录</span><br><span class="line">. .venv/bin/activate            # source 的常见合理用途</span><br><span class="line">type COMMAND                    # alias、函数、内建还是外部程序</span><br><span class="line">command -V COMMAND</span><br></pre></td></tr></table></figure>
+<p>新脚本应由 shebang 明确解释器，不要用 <code>sh zsh-script.zsh</code>
+或 <code>bash zsh-script.zsh</code> 强行运行另一种 Shell 的脚本。</p>
+<h2 id="cc-与-python-开发">C/C++ 与 Python 开发</h2>
+<h3 id="cc">C/C++</h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">gcc -Wall -Wextra -O2 main.c -o main</span><br><span class="line">g++ -Wall -Wextra -O2 main.cpp -o main</span><br><span class="line">gcc -c main.c -o main.o</span><br><span class="line">gcc -c util.c -o util.o</span><br><span class="line">gcc main.o util.o -o app</span><br><span class="line">gcc thread.c -o thread -lpthread</span><br><span class="line">ldd ./app                         # 动态库依赖；不要对不可信程序使用 ldd</span><br><span class="line">file ./app                        # 架构、链接类型</span><br></pre></td></tr></table></figure>
+<p>Makefile 最小模板，命令行必须用 Tab 缩进：</p>
+<figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">CC := gcc</span><br><span class="line">CFLAGS := -Wall -Wextra -O2</span><br><span class="line"></span><br><span class="line"><span class="section">app: main.o util.o</span></span><br><span class="line">	<span class="variable">$(CC)</span> <span class="variable">$^</span> -o <span class="variable">$@</span></span><br><span class="line"></span><br><span class="line"><span class="section">main.o: main.c util.h</span></span><br><span class="line"><span class="section">util.o: util.c util.h</span></span><br><span class="line"></span><br><span class="line"><span class="meta"><span class="keyword">.PHONY</span>: clean</span></span><br><span class="line"><span class="section">clean:</span></span><br><span class="line">	rm -f app *.o</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">make                             # 构建第一个目标</span><br><span class="line">make -j&quot;$(nproc)&quot;               # 并行构建</span><br><span class="line">make clean</span><br></pre></td></tr></table></figure>
+<p>动态链接文件小且能共享、统一更新库；静态链接较易分发但文件更大，依赖修复需重新构建。跨架构程序出现
+<code>Exec format error</code> 时，用 <code>file PROGRAM</code>
+检查目标架构。</p>
+<h3 id="python-虚拟环境">Python 虚拟环境</h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">python3 --version</span><br><span class="line">python3 -m venv .venv</span><br><span class="line">source .venv/bin/activate</span><br><span class="line">python -m pip install --upgrade pip</span><br><span class="line">python -m pip install PACKAGE</span><br><span class="line">python -m pip install -r requirements.txt</span><br><span class="line">python -m pip freeze &gt; requirements.lock.txt</span><br><span class="line">deactivate</span><br></pre></td></tr></table></figure>
+<ul>
+<li>使用 <code>python -m pip</code> 可确保 pip 属于当前解释器。</li>
+<li>每个项目独立使用 <code>.venv</code>，不要用
+<code>sudo pip install</code> 修改系统 Python。</li>
+<li><code>requirements.txt</code> 可写
+<code>package</code>、<code>package&gt;=1.2</code> 或
+<code>package==1.2.3</code>；越精确越易复现，越宽松越易升级。</li>
+</ul>
+<h3 id="conda">Conda</h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">conda create -n PROJECT python=3.11</span><br><span class="line">conda activate PROJECT</span><br><span class="line">conda deactivate</span><br><span class="line">conda env export --from-history &gt; environment.yml</span><br><span class="line">conda env create -f environment.yml</span><br></pre></td></tr></table></figure>
+<p>Conda 还能管理非 Python 二进制依赖；同一环境混用 Conda 与 pip
+时，通常先用 Conda 安装，再用 pip 补充，并记录环境文件。</p>
+<h2 id="docker-速查">Docker 速查</h2>
+<h3 id="概念">概念</h3>
+<table>
+<thead>
+<tr class="header">
+<th>对象</th>
+<th>含义</th>
+<th>查看命令</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Registry</td>
+<td>存储和分发镜像</td>
+<td><code>docker search</code></td>
+</tr>
+<tr class="even">
+<td>Image</td>
+<td>只读文件系统模板</td>
+<td><code>docker image ls</code></td>
+</tr>
+<tr class="odd">
+<td>Container</td>
+<td>镜像的运行实例</td>
+<td><code>docker ps -a</code></td>
+</tr>
+<tr class="even">
+<td>Dockerfile</td>
+<td>可复现的镜像构建说明</td>
+<td><code>docker build</code></td>
+</tr>
+<tr class="odd">
+<td>Volume / bind mount</td>
+<td>持久化或映射数据</td>
+<td><code>docker volume ls</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="容器与镜像">容器与镜像</h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">docker run --rm hello-world</span><br><span class="line">docker run --rm -it ubuntu:24.04 bash</span><br><span class="line">docker run -d --name web -p 8080:80 IMAGE</span><br><span class="line">docker run --rm -v &quot;$PWD:/workspace&quot; -w /workspace IMAGE COMMAND</span><br><span class="line">docker ps                             # 正在运行</span><br><span class="line">docker ps -a                          # 全部容器</span><br><span class="line">docker logs -f --tail 100 CONTAINER</span><br><span class="line">docker exec -it CONTAINER bash        # 新建调试 Shell</span><br><span class="line">docker inspect CONTAINER</span><br><span class="line">docker stop CONTAINER</span><br><span class="line">docker rm CONTAINER</span><br><span class="line">docker image ls</span><br><span class="line">docker pull IMAGE:TAG</span><br><span class="line">docker build -t NAME:TAG .</span><br><span class="line">docker image rm IMAGE</span><br></pre></td></tr></table></figure>
+<p>要点：</p>
+<ul>
+<li><code>docker run ... bash</code> 中的 <code>bash</code>
+是容器内要启动的程序，与主机默认使用 zsh 无关；精简镜像可能只有
+<code>sh</code>，也可能额外安装了 zsh。</li>
+<li><code>-i</code> 保持 stdin，<code>-t</code> 分配伪终端，交互 Shell
+常用 <code>-it</code>。</li>
+<li><code>--rm</code> 退出即删容器，适合一次性任务。</li>
+<li><code>-p 主机端口:容器端口</code> 发布端口。</li>
+<li><code>-v 主机绝对路径:容器路径</code>
+绑定目录；写操作会影响主机。</li>
+<li>生产环境固定镜像版本或 digest，不依赖会漂移的
+<code>latest</code>。</li>
+<li>容器删除后，未放入 volume 或 bind mount 的可写层数据会丢失。</li>
+</ul>
+<h3 id="dockerfile-最小模板">Dockerfile 最小模板</h3>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">FROM</span> python:<span class="number">3.12</span>-slim</span><br><span class="line"></span><br><span class="line"><span class="keyword">WORKDIR</span><span class="language-bash"> /app</span></span><br><span class="line"><span class="keyword">COPY</span><span class="language-bash"> requirements.txt ./</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> pip install --no-cache-dir -r requirements.txt</span></span><br><span class="line"><span class="keyword">COPY</span><span class="language-bash"> . .</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> useradd --create-home appuser</span></span><br><span class="line"><span class="keyword">USER</span> appuser</span><br><span class="line"></span><br><span class="line"><span class="keyword">CMD</span><span class="language-bash"> [<span class="string">&quot;python&quot;</span>, <span class="string">&quot;app.py&quot;</span>]</span></span><br></pre></td></tr></table></figure>
+<p>构建原则：固定合理版本、先复制依赖清单利用缓存、使用
+<code>.dockerignore</code>、不要把密钥打进镜像、尽量非 root
+运行、合并并清理包管理缓存。</p>
+<h3 id="compose">Compose</h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">docker compose up -d</span><br><span class="line">docker compose ps</span><br><span class="line">docker compose logs -f --tail 100</span><br><span class="line">docker compose exec SERVICE sh</span><br><span class="line">docker compose restart SERVICE</span><br><span class="line">docker compose down                  # 删容器和网络，默认保留命名卷</span><br><span class="line">docker compose down -v               # 连卷一起删，数据可能不可恢复</span><br><span class="line">docker compose config                # 展开并验证配置</span><br></pre></td></tr></table></figure>
+<h3 id="docker-故障入口">Docker 故障入口</h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">systemctl status docker</span><br><span class="line">journalctl -u docker -b</span><br><span class="line">docker info</span><br><span class="line">docker inspect CONTAINER</span><br><span class="line">docker logs CONTAINER</span><br><span class="line">docker stats</span><br><span class="line">docker system df</span><br></pre></td></tr></table></figure>
+<p>权限提示：加入 <code>docker</code> 组等价于授予接近 root
+的控制能力；不要把 Docker socket 暴露给不可信用户或容器。</p>
+<h2 id="高频故障排查手册">高频故障排查手册</h2>
+<h3 id="command-not-found"><code>command not found</code></h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">type -a COMMAND</span><br><span class="line">command -v COMMAND</span><br><span class="line">printf &#x27;%s\n&#x27; &quot;$PATH&quot; | tr : &#x27;\n&#x27;</span><br><span class="line">apt search COMMAND</span><br></pre></td></tr></table></figure>
+<p>检查顺序：拼写 → 软件是否安装 → 当前 Shell 是否加载新 PATH →
+可执行文件目录是否在 PATH → 是否实际需要 <code>./program</code>。</p>
+<p>刚安装程序或修改 PATH 后仍找不到命令时，刷新命令缓存：zsh 使用
+<code>rehash</code>，Bash 使用 <code>hash -r</code>。重新打开 Shell
+也会重建缓存。</p>
+<h3 id="permission-denied"><code>Permission denied</code></h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">id</span><br><span class="line">namei -l /full/path/to/file       # 逐层查看目录权限</span><br><span class="line">ls -ld /full /full/path /full/path/to/file</span><br><span class="line">mount | grep &#x27; /relevant/mount &#x27;</span><br></pre></td></tr></table></figure>
+<p>可能原因：文件缺 <code>x</code>、父目录缺 <code>x</code>、目标目录缺
+<code>w+x</code>、所有者/组不符、文件系统只读或
+<code>noexec</code>、SELinux/AppArmor 策略。不要先上
+<code>chmod 777</code>。</p>
+<h3 id="程序无法执行">程序无法执行</h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">file PROGRAM</span><br><span class="line">ls -l PROGRAM</span><br><span class="line">head -n 1 SCRIPT</span><br><span class="line">ldd PROGRAM</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>Permission denied</code>：检查执行位、目录权限、<code>noexec</code>。</li>
+<li><code>Exec format error</code>：架构不匹配或脚本 shebang
+缺失/错误。</li>
+<li><code>bad interpreter</code>：解释器路径不存在，或脚本带 Windows
+CRLF；可用 <code>file SCRIPT</code> 检查。</li>
+<li><code>error while loading shared libraries</code>：用
+<code>ldd</code> 找
+<code>not found</code>，安装对应架构的软件包；不要随意从网络复制
+<code>.so</code>。</li>
+</ul>
+<h3 id="服务启动失败">服务启动失败</h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">systemctl status SERVICE --no-pager -l</span><br><span class="line">journalctl -u SERVICE -b -n 200 --no-pager</span><br><span class="line">systemctl cat SERVICE</span><br><span class="line">systemctl show SERVICE -p User,Group,ExecStart,WorkingDirectory,Environment</span><br><span class="line">sudo systemd-analyze verify /etc/systemd/system/SERVICE.service</span><br><span class="line">ss -lntup</span><br></pre></td></tr></table></figure>
+<p>检查：配置语法 → 命令绝对路径 → 运行用户权限 → 工作目录 → 环境变量 →
+端口冲突 → 依赖服务 → 磁盘空间。</p>
+<h3 id="端口已被占用">端口已被占用</h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo ss -lntup &#x27;sport = :PORT&#x27;</span><br><span class="line">sudo lsof -nP -iTCP:PORT -sTCP:LISTEN</span><br><span class="line">ps -fp PID</span><br></pre></td></tr></table></figure>
+<p>确认进程身份后，优先通过对应服务管理器停止，不要直接杀未知进程。</p>
+<h3 id="网络或-dns-异常">网络或 DNS 异常</h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">ip -br addr</span><br><span class="line">ip route</span><br><span class="line">ping -c 4 GATEWAY</span><br><span class="line">ping -c 4 1.1.1.1</span><br><span class="line">getent hosts example.com</span><br><span class="line">cat /etc/resolv.conf</span><br><span class="line">curl -v --connect-timeout 5 https://example.com</span><br></pre></td></tr></table></figure>
+<p>“IP 通、域名不通”通常指向
+DNS；“本机监听但外部不通”继续查监听地址是否为
+<code>127.0.0.1</code>、主机防火墙、云安全组、NAT/端口映射。</p>
+<h3 id="cpu-或内存异常">CPU 或内存异常</h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">uptime</span><br><span class="line">top</span><br><span class="line">ps aux --sort=-%cpu | head -n 15</span><br><span class="line">ps aux --sort=-%mem | head -n 15</span><br><span class="line">free -h</span><br><span class="line">vmstat 1</span><br><span class="line">journalctl -k -b | grep -iE &#x27;oom|killed process&#x27;</span><br></pre></td></tr></table></figure>
+<p>高 load 不必然等于高 CPU，也可能是大量 <code>D</code> 状态 I/O
+等待。发现 OOM
+时先找内存增长来源，再考虑限额或扩容，不要只清缓存掩盖问题。</p>
+<h3 id="磁盘写不进去">磁盘写不进去</h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">df -hT</span><br><span class="line">df -i</span><br><span class="line">du -xh --max-depth=1 /relevant/path | sort -h</span><br><span class="line">findmnt -no TARGET,SOURCE,FSTYPE,OPTIONS /relevant/path</span><br><span class="line">sudo lsof +L1</span><br><span class="line">dmesg -T | tail -n 100</span><br></pre></td></tr></table></figure>
+<p>区分：容量满、inode
+满、只读挂载、配额、权限、删除文件仍被占用、文件系统或硬件 I/O
+错误。</p>
+<h3 id="apt-被锁或中断">APT 被锁或中断</h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ps aux | grep -E &#x27;[a]pt|[d]pkg&#x27;</span><br><span class="line">systemctl status apt-daily.service apt-daily-upgrade.service</span><br><span class="line">sudo dpkg --configure -a             # 确认没有正常包管理进程后</span><br><span class="line">sudo apt -f install                  # 修复依赖</span><br></pre></td></tr></table></figure>
+<p>不要因看到 lock 报错就直接删除
+<code>/var/lib/dpkg/lock*</code>；活跃进程仍在使用时会损坏包数据库状态。</p>
+<h3 id="ssh-登录失败">SSH 登录失败</h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ssh -vvv USER@HOST</span><br><span class="line">getent hosts HOST</span><br><span class="line">nc -vz HOST 22</span><br></pre></td></tr></table></figure>
+<p>服务端可查：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">systemctl status ssh</span><br><span class="line">journalctl -u ssh -b</span><br><span class="line">ss -lntp &#x27;sport = :22&#x27;</span><br><span class="line">namei -l /home/USER/.ssh/authorized_keys</span><br></pre></td></tr></table></figure>
+<p>重点检查用户名、目标端口、私钥、文件权限、服务监听地址、防火墙与主机指纹变化。主机密钥告警应先核实服务器是否重装或遭受中间人攻击，不要直接删记录。</p>
+<h3 id="docker-容器一启动就退出">Docker 容器一启动就退出</h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">docker ps -a</span><br><span class="line">docker inspect CONTAINER --format &#x27;&#123;&#123;.State.Status&#125;&#125; &#123;&#123;.State.ExitCode&#125;&#125; &#123;&#123;.State.Error&#125;&#125;&#x27;</span><br><span class="line">docker logs --tail 200 CONTAINER</span><br><span class="line">docker inspect CONTAINER</span><br></pre></td></tr></table></figure>
+<p>容器寿命等于主进程寿命。常见原因：主命令执行完、配置/环境变量缺失、权限问题、端口冲突、依赖服务未就绪、架构不匹配、OOM。</p>
+<h2 id="文档与自救方法">文档与自救方法</h2>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">COMMAND --help                  # 最快的参数摘要</span><br><span class="line">man COMMAND                     # 常见命令手册，通常是第 1 节</span><br><span class="line">man 5 crontab                   # 指定手册章节；5 常为文件格式</span><br><span class="line">man 7 signal                    # 7 常为概念/约定</span><br><span class="line">man -k KEYWORD                  # 按关键词搜索，等价 apropos</span><br><span class="line">whatis COMMAND                  # 一行简介</span><br><span class="line">tldr COMMAND                    # 社区维护的高频示例</span><br><span class="line">type COMMAND                    # 判断 alias、函数、内建或外部程序</span><br></pre></td></tr></table></figure>
+<p>Shell 内建命令的帮助入口不同：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">autoload</span> -Uz run-help</span><br><span class="line">run-help <span class="built_in">read</span>                   <span class="comment"># zsh：查看 read 内建帮助</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">help</span> <span class="built_in">read</span>                       <span class="comment"># Bash：查看 read 内建帮助</span></span><br><span class="line"><span class="built_in">help</span> <span class="built_in">set</span></span><br></pre></td></tr></table></figure>
+<p>若 zsh 的 <code>run-help</code> 仍只等同于
+<code>man</code>，检查发行版是否安装 zsh 帮助文件，并确认没有把
+<code>run-help</code> 覆盖成简单 alias。</p>
+<p>man 常见章节：</p>
+<table>
+<thead>
+<tr class="header">
+<th>章节</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>用户命令</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>系统调用</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>程序库函数</td>
+</tr>
+<tr class="even">
+<td>5</td>
+<td>文件格式与配置</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>约定、协议、概念</td>
+</tr>
+<tr class="even">
+<td>8</td>
+<td>系统管理命令</td>
+</tr>
+</tbody>
+</table>
+<p>遇到陌生命令时，按这个顺序：</p>
+<ol type="1">
+<li><code>type</code>/<code>command -V</code> 确认实际运行的对象。</li>
+<li><code>tldr</code> 看典型示例，<code>--help</code> 看参数摘要。</li>
+<li><code>man</code> 阅读语法、选项、退出码、文件和示例。</li>
+<li>在临时目录用无价值数据做最小实验。</li>
+<li>对配置和错误信息使用精确关键词检索官方文档。</li>
+</ol>
+<h2 id="危险命令检查清单">危险命令检查清单</h2>
+<p>执行以下类型命令前停一下：</p>
+<ul>
+<li><code>rm -rf</code>：目标是否为准确、非空、非根路径？变量是否已验证并加引号？</li>
+<li><code>find ... -delete</code>、<code>-exec rm</code>：是否先去掉删除动作预览过匹配集合？</li>
+<li><code>chmod -R</code>、<code>chown -R</code>：是否会跨越不该修改的目录或软链接边界？</li>
+<li><code>dd</code>、<code>mkfs</code>、分区工具：输入输出设备是否通过
+<code>lsblk -f</code> 再次核对？</li>
+<li><code>rsync --delete</code>：是否先使用 <code>-n</code>
+dry-run，源目录末尾 <code>/</code> 是否符合预期？</li>
+<li><code>docker compose down -v</code>、<code>docker volume rm</code>：卷中是否有唯一数据？</li>
+<li><code>kill -9</code>：是否确认 PID
+没复用、目标正确、普通终止无效？</li>
+<li><code>curl | sh</code>：脚本来源、内容、签名和执行权限是否可信？</li>
+<li><code>sudo</code> + 重定向：究竟哪一段获得了 root 权限？</li>
+<li>Shell 通配符：展开结果是否先用 <code>printf '%s\n' PATTERN</code>
+看过？</li>
+</ul>
+<h2 id="个人环境备忘区">个人环境备忘区</h2>
+<blockquote>
+<p>将以下占位内容替换为自己的真实环境；不要记录明文密码、私钥和访问令牌。</p>
+</blockquote>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">常用发行版：</span><br><span class="line">主机名 / 用途：</span><br><span class="line">默认 Shell：zsh（路径通常为 `/usr/bin/zsh`）</span><br><span class="line">包管理器：</span><br><span class="line">主要配置目录：</span><br><span class="line">常用项目目录：</span><br><span class="line">备份位置与恢复方法：</span><br><span class="line">SSH 别名：</span><br><span class="line">常用服务及端口：</span><br><span class="line">Docker Compose 项目位置：</span><br><span class="line">代理 / 镜像配置位置：</span><br><span class="line">遇到过的特殊问题与最终原因：</span><br></pre></td></tr></table></figure>
+<h3 id="推荐保存的诊断快照">推荐保存的诊断快照</h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  date</span><br><span class="line">  hostnamectl</span><br><span class="line">  uptime</span><br><span class="line">  free -h</span><br><span class="line">  df -hT</span><br><span class="line">  df -i</span><br><span class="line">  ip -br addr</span><br><span class="line">  ip route</span><br><span class="line">  systemctl --failed</span><br><span class="line">&#125; &gt; &quot;diagnostic-$(date +%F-%H%M%S).txt&quot; 2&gt;&amp;1</span><br></pre></td></tr></table></figure>
+<p>这份快照不包含完整日志，但足以记录时间、系统、负载、内存、磁盘、网络和失败服务等第一现场。分享诊断信息前仍应检查主机名、IP、用户名和路径等隐私内容。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>请我一杯咖啡吧！</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/p2.png" alt="jiangshun 比特币">
+        <span>比特币</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>jiangshun
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="http://baoziwan.top/Linux-reference.html" title="Linux_reference">http://baoziwan.top/Linux-reference.html</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/Linux/" rel="tag"># Linux</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/remoteSSH.html" rel="prev" title="remoteSSH">
+                  <i class="fa fa-angle-left"></i> remoteSSH
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">jiangshun</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">80k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">4:52</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>
