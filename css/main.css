@@ -1401,7 +1401,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #e07014;
+    background: #bee5c2;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -2950,7 +2950,7 @@ header.header {
 /*
  * Office Viewer — Light / Github Dark, adapted for Hexo NexT.
  * Mirrors cweijan.vscode-office 4.1.5 and the local Viewer settings:
- * 13px body, 1.7 line-height, #bc4c00 bold, 100% content width.
+ * 14px body, 1.7 line-height, #bc4c00 bold, 100% content width.
  */
 :root {
   --ov-bg: #fff;
@@ -3047,7 +3047,7 @@ body,
   max-width: none;
   color: var(--ov-fg);
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans CJK SC', 'Microsoft YaHei', Helvetica, Arial, sans-serif;
-  font-size: 13px;
+  font-size: 14px;
   line-height: 1.7;
   letter-spacing: normal;
   word-break: break-word;
@@ -3100,12 +3100,12 @@ body,
 .post-body i {
   color: inherit;
 }
-.post-body a {
+.post-body a:not(.btn) {
   border-bottom: 0;
   color: var(--ov-link);
   text-decoration: none;
 }
-.post-body a:hover {
+.post-body a:not(.btn):hover {
   color: var(--ov-link);
   text-decoration: underline;
 }
@@ -3223,23 +3223,27 @@ body,
   border-radius: 3px;
   background: var(--ov-code-bg);
   color: var(--ov-fg);
-  font-size: 85%;
+  font-size: 90%;
   white-space: pre-wrap;
 }
 .post-body pre,
 .post-body .highlight {
+  box-sizing: border-box;
   display: block !important;
+  width: 100%;
+  max-width: 100%;
   margin: 1em 0;
   border: 1px solid var(--ov-border);
   border-radius: 5px;
   background: var(--ov-code-bg) !important;
   color: var(--ov-fg);
-  font-size: 85%;
-  line-height: 1.55;
-  overflow: auto;
+  font-size: 14px;
+  line-height: 1.65;
+  overflow-x: auto;
+  overflow-y: hidden;
 }
 .post-body pre {
-  padding: 0.5em;
+  padding: 12px 14px;
 }
 .post-body pre code,
 .post-body .highlight code {
@@ -3252,19 +3256,75 @@ body,
   font-size: inherit;
   white-space: pre;
 }
-.post-body .highlight table,
-.post-body .highlight td,
-.post-body .highlight tr {
+.post-body .highlight {
+  padding: 0;
+}
+.post-body .highlight table {
+  display: table;
+  width: 100%;
+  max-width: none;
   margin: 0;
+  padding: 0;
+  border: 0;
+  border-collapse: collapse;
+  background: transparent !important;
+  color: inherit;
+  font-size: inherit;
+  table-layout: auto;
+  word-break: normal;
+  overflow: visible;
+}
+.post-body .highlight tr {
+  display: table-row;
+  margin: 0;
+  padding: 0;
   border: 0;
   background: transparent !important;
 }
+.post-body .highlight td {
+  display: table-cell;
+  min-width: 0;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent !important;
+  color: inherit;
+  font-size: inherit;
+  overflow-wrap: normal;
+  white-space: normal;
+}
+.post-body .highlight pre {
+  width: auto;
+  max-width: none;
+  margin: 0;
+  padding: 12px 14px;
+  border: 0;
+  border-radius: 0;
+  background: transparent !important;
+  color: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  overflow: visible;
+  white-space: pre;
+}
 .post-body .highlight .gutter {
+  width: 1%;
   color: var(--ov-marker);
   border-right: 1px solid var(--ov-border);
+  white-space: nowrap;
+}
+.post-body .highlight .gutter pre {
+  padding-right: 10px;
+  padding-left: 10px;
+  text-align: right;
 }
 .post-body .highlight .code {
+  width: 99%;
   color: var(--ov-fg);
+}
+.post-body .highlight .code pre {
+  padding-left: 14px;
 }
 .post-body .highlight .comment,
 .post-body .highlight .quote {
@@ -3272,30 +3332,47 @@ body,
 }
 .post-body .highlight .keyword,
 .post-body .highlight .selector-tag,
-.post-body .highlight .type {
+.post-body .highlight .type,
+.post-body .highlight .doctag {
   color: var(--ov-code-keyword);
 }
 .post-body .highlight .string,
 .post-body .highlight .attr,
-.post-body .highlight .attribute {
+.post-body .highlight .attribute,
+.post-body .highlight .regexp,
+.post-body .highlight .template-tag,
+.post-body .highlight .template-variable {
   color: var(--ov-code-string);
 }
 .post-body .highlight .number,
 .post-body .highlight .literal,
-.post-body .highlight .symbol {
+.post-body .highlight .symbol,
+.post-body .highlight .bullet {
   color: var(--ov-code-number);
 }
 .post-body .highlight .title,
 .post-body .highlight .section,
-.post-body .highlight .function {
+.post-body .highlight .function,
+.post-body .highlight .selector-id,
+.post-body .highlight .selector-class {
   color: var(--ov-code-title);
 }
 .post-body .highlight .built_in,
-.post-body .highlight .name {
+.post-body .highlight .name,
+.post-body .highlight .tag {
   color: var(--ov-code-name);
 }
-.post-body .highlight .meta {
+.post-body .highlight .meta,
+.post-body .highlight .meta .keyword,
+.post-body .highlight .meta .string {
   color: var(--ov-code-meta);
+}
+.post-body .highlight .variable,
+.post-body .highlight .params,
+.post-body .highlight .property,
+.post-body .highlight .operator,
+.post-body .highlight .punctuation {
+  color: var(--ov-fg);
 }
 .post-body .highlight .deletion {
   color: var(--ov-code-del-fg);
@@ -3340,9 +3417,4 @@ body,
 }
 ::-webkit-scrollbar-thumb:hover {
   background: var(--ov-scrollbar-hover);
-}
-@media (max-width: 767px) {
-  .post-body {
-    font-size: 13px;
-  }
 }
