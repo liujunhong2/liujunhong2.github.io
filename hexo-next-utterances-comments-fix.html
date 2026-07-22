@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha256-dABdfBfUoC8vJUBOwGVdm8L9qlMWaHTIfXt+7GnZCIo=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"baoziwan.top","root":"/","images":"/images","scheme":"Pisces","darkmode":true,"version":"8.22.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":"ture","style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"utterances","storage":false,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="从 Windows 迁移到 Linux 后，评论区长期不显示。本文记录如何从配置、生成产物和浏览器运行时逐层取证，最终定位 NexT 的脚本加载时序问题，并使用一个幂等的 Utterances 加载器完成修复。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo NexT 评论系统长期失效的排查与修复">
+<meta property="og:url" content="https://baoziwan.top/hexo-next-utterances-comments-fix.html">
+<meta property="og:site_name" content="豹子湾2.0">
+<meta property="og:description" content="从 Windows 迁移到 Linux 后，评论区长期不显示。本文记录如何从配置、生成产物和浏览器运行时逐层取证，最终定位 NexT 的脚本加载时序问题，并使用一个幂等的 Utterances 加载器完成修复。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-07-22T09:30:00.000Z">
+<meta property="article:modified_time" content="2026-07-22T12:10:10.893Z">
+<meta property="article:author" content="jiangshun">
+<meta property="article:tag" content="Hexo">
+<meta property="article:tag" content="NexT">
+<meta property="article:tag" content="Utterances">
+<meta property="article:tag" content="JavaScript">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://baoziwan.top/hexo-next-utterances-comments-fix.html">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://baoziwan.top/hexo-next-utterances-comments-fix.html","path":"hexo-next-utterances-comments-fix.html","title":"Hexo NexT 评论系统长期失效的排查与修复"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Hexo NexT 评论系统长期失效的排查与修复 | 豹子湾2.0</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script>
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']],
+    displayMath: [['$$', '$$'], ['\\[', '\\]']],
+    processEscapes: true,
+    processEnvironments: true
+  },
+  options: {
+    skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    ignoreHtmlClass: 'tex2jax_ignore',
+    processHtmlClass: 'tex2jax_process'
+  }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">豹子湾2.0</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">20</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">3</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">17</span></a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="jiangshun"
+      src="/images/p1.jpeg">
+  <p class="site-author-name" itemprop="name">jiangshun</p>
+  <div class="site-description" itemprop="description">个人博客</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">17</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/liujunhong2" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;liujunhong2" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="返回顶部">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+
+    
+    <div class="sidebar-inner sidebar-blogroll">
+      <div class="links-of-blogroll animated">
+        <div class="links-of-blogroll-title"><i class="fa-solid fa-user fa-fw"></i>
+          友链
+        </div>
+        <ul class="links-of-blogroll-list">
+            <li class="links-of-blogroll-item">
+              <a href="https://www.whalefall.top/" title="https:&#x2F;&#x2F;www.whalefall.top&#x2F;" rel="noopener" target="_blank">jiely</a>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://baoziwan.top/hexo-next-utterances-comments-fix.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/p1.jpeg">
+      <meta itemprop="name" content="jiangshun">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="豹子湾2.0">
+      <meta itemprop="description" content="个人博客">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Hexo NexT 评论系统长期失效的排查与修复 | 豹子湾2.0">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Hexo NexT 评论系统长期失效的排查与修复
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2026-07-22 17:30:00 / 修改时间：20:10:10" itemprop="dateCreated datePublished" datetime="2026-07-22T17:30:00+08:00">2026-07-22</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Learn/" itemprop="url" rel="index"><span itemprop="name">Learn</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>1.6k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>6 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><!--more-->
+<p>这个博客最初在 Windows 上维护，后来迁移到
+Linux。迁移之后，文章正文、静态资源和部署流程都能正常工作，唯独评论系统长期无法恢复。</p>
+<p>问题最令人困惑的地方在于：NexT 配置文件里明明填写过 Gitalk、Twikoo 和
+Utterances
+的配置，生成过程也没有直接报告评论相关错误，但文章末尾始终是一片空白。由于故障恰好发生在系统迁移之后，很容易把原因归结为
+Windows 与 Linux 的路径、换行符或 Node.js 环境差异。</p>
+<p>最终排查表明，操作系统迁移只是时间上的巧合。真正的问题分为两层：</p>
+<ol type="1">
+<li>评论配置长期处于相互矛盾的“半启用”状态；</li>
+<li>切换到 Utterances 后，NexT
+的自定义加载事件又发生了脚本时序竞争。</li>
+</ol>
+<p>后者才是“页面源码里明明有评论代码，浏览器里却什么都没有”的直接原因。</p>
+<p>完成配置并重新生成后，检查
+<code>public/cycle.html</code>，可以看到评论容器、Utterances
+配置和加载脚本全部存在：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;comments utterances-container&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">class</span>=<span class="string">&quot;next-config&quot;</span> <span class="attr">data-name</span>=<span class="string">&quot;utterances&quot;</span> <span class="attr">type</span>=<span class="string">&quot;application/json&quot;</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">  &#123;</span></span><br><span class="line"><span class="language-javascript">    <span class="string">&quot;enable&quot;</span>: <span class="literal">true</span>,</span></span><br><span class="line"><span class="language-javascript">    <span class="string">&quot;repo&quot;</span>: <span class="string">&quot;liujunhong2/liujunhong2.github.io&quot;</span>,</span></span><br><span class="line"><span class="language-javascript">    <span class="string">&quot;issue_term&quot;</span>: <span class="string">&quot;pathname&quot;</span>,</span></span><br><span class="line"><span class="language-javascript">    <span class="string">&quot;theme&quot;</span>: <span class="string">&quot;github-light&quot;</span></span></span><br><span class="line"><span class="language-javascript">  &#125;</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;/js/third-party/comments/utterances.js&quot;</span> <span class="attr">defer</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>线上页面也包含完全相同的内容，<code>https://utteranc.es/client.js</code>
+返回 HTTP 200。这说明：</p>
+<ul>
+<li>Hexo 已经读取评论配置；</li>
+<li>NexT 已经注入评论容器；</li>
+<li>修复后的静态文件已经部署；</li>
+<li>Utterances 官方脚本可以访问。</li>
+</ul>
+<p>如果只检查生成产物，似乎所有环节都正常。但“脚本标签存在”并不等于“脚本按照预期执行”，所以排查必须从构建阶段进入浏览器运行时。</p>
+<p>使用浏览器运行时取证</p>
+<p>通过无界面 Chrome 和 Chrome DevTools Protocol
+读取实际页面状态，得到如下结果：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;readyState&quot;</span><span class="punctuation">:</span> <span class="string">&quot;interactive&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;container&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;containerHTML&quot;</span><span class="punctuation">:</span> <span class="string">&quot;&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;frames&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;scripts&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">    <span class="string">&quot;https://baoziwan.top/js/third-party/comments/utterances.js&quot;</span></span><br><span class="line">  <span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+<p>这段结果非常关键：</p>
+<ul>
+<li><code>.utterances-container</code> 确实存在；</li>
+<li>容器内部为空；</li>
+<li>页面没有创建任何 Utterances iframe；</li>
+<li>浏览器只看到了 NexT 的包装脚本，没有插入官方
+<code>client.js</code>。</li>
+</ul>
+<p>因此问题不在 CSS，也不在 GitHub Issue 映射，更不是 iframe
+被主题遮挡。加载流程根本没有走到创建 iframe 的阶段。</p>
+<p>根因：<code>defer</code> 脚本和 <code>page:loaded</code>
+事件发生竞争</p>
+<p>NexT 的 Utterances
+脚本并不立即加载评论，而是先监听一个主题自定义事件：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">document</span>.<span class="title function_">addEventListener</span>(<span class="string">&#x27;page:loaded&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (!<span class="variable constant_">CONFIG</span>.<span class="property">page</span>.<span class="property">comments</span>) <span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line">  <span class="title class_">NexT</span>.<span class="property">utils</span>.<span class="title function_">loadComments</span>(<span class="string">&#x27;.utterances-container&#x27;</span>)</span><br><span class="line">    .<span class="title function_">then</span>(<span class="function">() =&gt;</span> <span class="title class_">NexT</span>.<span class="property">utils</span>.<span class="title function_">getScript</span>(<span class="string">&#x27;https://utteranc.es/client.js&#x27;</span>, &#123;</span><br><span class="line">      <span class="comment">// Utterances attributes</span></span><br><span class="line">    &#125;));</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p><code>page:loaded</code> 由 NexT 的 <code>utils.js</code>
+触发。原逻辑会根据 <code>document.readyState</code>
+决定立即派发事件，或者只等待一次状态变化：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title function_">onPageLoaded</span> = (<span class="params"></span>) =&gt; <span class="variable language_">document</span>.<span class="title function_">dispatchEvent</span>(</span><br><span class="line">  <span class="keyword">new</span> <span class="title class_">Event</span>(<span class="string">&#x27;page:loaded&#x27;</span>, &#123; <span class="attr">bubbles</span>: <span class="literal">true</span> &#125;)</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (<span class="variable language_">document</span>.<span class="property">readyState</span> === <span class="string">&#x27;loading&#x27;</span>) &#123;</span><br><span class="line">  <span class="variable language_">document</span>.<span class="title function_">addEventListener</span>(<span class="string">&#x27;readystatechange&#x27;</span>, onPageLoaded, &#123; <span class="attr">once</span>: <span class="literal">true</span> &#125;);</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  <span class="title function_">onPageLoaded</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>问题在于，<code>utils.js</code> 位于页面较前的位置，而 Utterances
+包装脚本位于文末，两者都使用
+<code>defer</code>。在某些加载顺序下会出现如下过程：</p>
+<ol type="1">
+<li>HTML 解析接近结束，<code>document.readyState</code> 进入
+<code>interactive</code>；</li>
+<li>前面的 <code>utils.js</code> 执行并立即派发
+<code>page:loaded</code>；</li>
+<li>文末的 Utterances 脚本稍后才执行并注册监听器；</li>
+<li>事件不会为后来注册的监听器自动重放；</li>
+<li>评论容器永远保持空白。</li>
+</ol>
+<p>如果前面还存在加载缓慢的第三方 <code>defer</code>
+脚本，执行顺序会变得更加脆弱。这也解释了为什么问题看起来像是“有时正常、有时异常”，以及为什么仅凭静态
+HTML 很难发现。</p>
+<p>最终在 NexT 的
+themes/next/layout/_third-party/comments/utterances.njk
+模板中加入一个独立加载器。它会在浏览器解析到文末时立即执行，同时仍监听
+<code>page:loaded</code>，用于兼容 PJAX 页面切换。</p>
+<p>核心实现如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> <span class="title function_">loadUtterances</span> = (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">    <span class="keyword">const</span> container = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;.utterances-container&#x27;</span>);</span><br><span class="line">    <span class="keyword">const</span> configElement = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(</span><br><span class="line">      <span class="string">&#x27;.next-config[data-name=&quot;utterances&quot;]&#x27;</span></span><br><span class="line">    );</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (!container || !configElement || container.<span class="property">dataset</span>.<span class="property">utterancesLoading</span>) &#123;</span><br><span class="line">      <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> config;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">      config = <span class="title class_">JSON</span>.<span class="title function_">parse</span>(configElement.<span class="property">textContent</span>);</span><br><span class="line">    &#125; <span class="keyword">catch</span> (error) &#123;</span><br><span class="line">      <span class="variable language_">console</span>.<span class="title function_">error</span>(<span class="string">&#x27;Failed to parse Utterances config.&#x27;</span>, error);</span><br><span class="line">      <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (!config.<span class="property">repo</span>) <span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line">    container.<span class="property">dataset</span>.<span class="property">utterancesLoading</span> = <span class="string">&#x27;true&#x27;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> script = <span class="variable language_">document</span>.<span class="title function_">createElement</span>(<span class="string">&#x27;script&#x27;</span>);</span><br><span class="line">    script.<span class="property">src</span> = <span class="string">&#x27;https://utteranc.es/client.js&#x27;</span>;</span><br><span class="line">    script.<span class="property">async</span> = <span class="literal">true</span>;</span><br><span class="line">    script.<span class="property">crossOrigin</span> = <span class="string">&#x27;anonymous&#x27;</span>;</span><br><span class="line">    script.<span class="title function_">setAttribute</span>(<span class="string">&#x27;repo&#x27;</span>, config.<span class="property">repo</span>);</span><br><span class="line">    script.<span class="title function_">setAttribute</span>(<span class="string">&#x27;issue-term&#x27;</span>, config.<span class="property">issue_term</span> || <span class="string">&#x27;pathname&#x27;</span>);</span><br><span class="line">    script.<span class="title function_">setAttribute</span>(<span class="string">&#x27;theme&#x27;</span>, config.<span class="property">theme</span> || <span class="string">&#x27;github-light&#x27;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (config.<span class="property">label</span>) &#123;</span><br><span class="line">      script.<span class="title function_">setAttribute</span>(<span class="string">&#x27;label&#x27;</span>, config.<span class="property">label</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    container.<span class="title function_">appendChild</span>(script);</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="variable language_">document</span>.<span class="title function_">addEventListener</span>(<span class="string">&#x27;page:loaded&#x27;</span>, loadUtterances);</span><br><span class="line">  <span class="title function_">loadUtterances</span>();</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
+<p>这个实现有几个重要设计点。</p>
+<ol type="1">
+<li>不再等待可能已经错过的事件</li>
+</ol>
+<p>注册监听器后立即调用一次 <code>loadUtterances()</code>。即使 NexT
+已经派发过 <code>page:loaded</code>，首次打开文章时仍会加载评论。</p>
+<ol start="2" type="1">
+<li>不依赖 NexT 的运行时对象</li>
+</ol>
+<p>加载器直接读取页面中的 JSON 配置节点，不要求
+<code>CONFIG</code>、<code>NexT.utils</code>
+或其他主题脚本已经完成初始化。因此，即使某个前置第三方脚本加载缓慢，评论也不会被它阻塞。</p>
+<ol start="3" type="1">
+<li>使用幂等保护避免重复加载</li>
+</ol>
+<p>通过 <code>data-utterances-loading</code> 标记容器。立即调用和
+<code>page:loaded</code> 事件即使先后到达，也只会插入一次
+<code>client.js</code>。</p>
+<ol start="4" type="1">
+<li>保留 PJAX 兼容性</li>
+</ol>
+<p>首次打开首页时可能没有评论容器，但监听器仍然存在。通过 PJAX
+进入文章后，新的 <code>page:loaded</code> 会再次检查容器并加载评论。</p>
+<ol start="5" type="1">
+<li>失败必须对用户可见</li>
+</ol>
+<p>原故障最大的麻烦是“静默失败”：页面只留下一块空白。修复后的加载器给
+<code>script</code>
+添加了错误处理。如果官方脚本加载失败，会显示错误提示和 GitHub Issues
+备用链接，而不是继续假装一切正常。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">script.<span class="title function_">addEventListener</span>(<span class="string">&#x27;error&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">delete</span> container.<span class="property">dataset</span>.<span class="property">utterancesLoading</span>;</span><br><span class="line">  container.<span class="property">textContent</span> = <span class="string">&#x27;评论加载失败，请检查网络后刷新，或前往 GitHub Issues 留言：&#x27;</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> link = <span class="variable language_">document</span>.<span class="title function_">createElement</span>(<span class="string">&#x27;a&#x27;</span>);</span><br><span class="line">  link.<span class="property">href</span> = <span class="string">`https://github.com/<span class="subst">$&#123;config.repo&#125;</span>/issues`</span>;</span><br><span class="line">  link.<span class="property">textContent</span> = config.<span class="property">repo</span>;</span><br><span class="line">  link.<span class="property">target</span> = <span class="string">&#x27;_blank&#x27;</span>;</span><br><span class="line">  link.<span class="property">rel</span> = <span class="string">&#x27;noopener&#x27;</span>;</span><br><span class="line">  container.<span class="title function_">appendChild</span>(link);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>这次故障从表面上看只是“文章末尾没有评论框”，实际横跨了 Hexo
+数据模型、NexT 注入机制、GitHub
+App、第三方脚本加载以及浏览器事件时序。</p>
+<p>最终有效的排查路径是：先消除配置矛盾，再确认静态生成结果，最后进入真实浏览器观察运行时
+DOM。修复的关键也不是简单地再写一次
+<code>enable: true</code>，而是让评论加载逻辑摆脱容易丢失的初始化事件，并为重复执行和外部失败做好保护。</p>
+<p>从此，评论区终于不再是那个“配置里存在、源码里存在、页面上却不存在”的幽灵组件。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>请我一杯咖啡吧！</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/p2.png" alt="jiangshun 比特币">
+        <span>比特币</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>jiangshun
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://baoziwan.top/hexo-next-utterances-comments-fix.html" title="Hexo NexT 评论系统长期失效的排查与修复">https://baoziwan.top/hexo-next-utterances-comments-fix.html</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/Hexo/" rel="tag"># Hexo</a>
+              <a href="/tags/NexT/" rel="tag"># NexT</a>
+              <a href="/tags/Utterances/" rel="tag"># Utterances</a>
+              <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/Linux-reference.html" rel="prev" title="Linux_reference">
+                  <i class="fa fa-angle-left"></i> Linux_reference
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments utterances-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">jiangshun</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">82k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">4:57</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<script class="next-config" data-name="utterances" type="application/json">{"enable":true,"repo":"liujunhong2/liujunhong2.github.io","issue_term":"pathname","label":"💬评论","theme":"github-light"}</script>
+<script>
+(() => {
+  const loadUtterances = () => {
+    const container = document.querySelector('.utterances-container');
+    const configElement = document.querySelector('.next-config[data-name="utterances"]');
+    if (!container || !configElement || container.dataset.utterancesLoading) return;
+
+    let config;
+    try {
+      config = JSON.parse(configElement.textContent);
+    } catch (error) {
+      console.error('Failed to parse Utterances config.', error);
+      return;
+    }
+    if (!config.repo) return;
+
+    container.dataset.utterancesLoading = 'true';
+    const script = document.createElement('script');
+    script.src = 'https://utteranc.es/client.js';
+    script.async = true;
+    script.crossOrigin = 'anonymous';
+    script.setAttribute('repo', config.repo);
+    script.setAttribute('issue-term', config.issue_term || 'pathname');
+    script.setAttribute('theme', config.theme || 'github-light');
+    if (config.label) script.setAttribute('label', config.label);
+    script.addEventListener('error', () => {
+      delete container.dataset.utterancesLoading;
+      container.textContent = '评论加载失败，请检查网络后刷新，或前往 GitHub Issues 留言：';
+      const link = document.createElement('a');
+      link.href = `https://github.com/${config.repo}/issues`;
+      link.textContent = config.repo;
+      link.target = '_blank';
+      link.rel = 'noopener';
+      container.appendChild(link);
+    });
+    container.appendChild(script);
+  };
+
+  // Register before NexT's deferred scripts dispatch `page:loaded`, and also
+  // load immediately so a slow third-party deferred script cannot block comments.
+  document.addEventListener('page:loaded', loadUtterances);
+  loadUtterances();
+})();
+</script>
+
+</body>
+</html>

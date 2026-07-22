@@ -3226,6 +3226,129 @@ document.addEventListener("DOMContentLoaded", function () {
       </tags>
   </entry>
   <entry>
+    <title>Hexo NexT 评论系统长期失效的排查与修复</title>
+    <url>/hexo-next-utterances-comments-fix.html</url>
+    <content><![CDATA[<!--more-->
+<p>这个博客最初在 Windows 上维护，后来迁移到
+Linux。迁移之后，文章正文、静态资源和部署流程都能正常工作，唯独评论系统长期无法恢复。</p>
+<p>问题最令人困惑的地方在于：NexT 配置文件里明明填写过 Gitalk、Twikoo 和
+Utterances
+的配置，生成过程也没有直接报告评论相关错误，但文章末尾始终是一片空白。由于故障恰好发生在系统迁移之后，很容易把原因归结为
+Windows 与 Linux 的路径、换行符或 Node.js 环境差异。</p>
+<p>最终排查表明，操作系统迁移只是时间上的巧合。真正的问题分为两层：</p>
+<ol type="1">
+<li>评论配置长期处于相互矛盾的“半启用”状态；</li>
+<li>切换到 Utterances 后，NexT
+的自定义加载事件又发生了脚本时序竞争。</li>
+</ol>
+<p>后者才是“页面源码里明明有评论代码，浏览器里却什么都没有”的直接原因。</p>
+<p>完成配置并重新生成后，检查
+<code>public/cycle.html</code>，可以看到评论容器、Utterances
+配置和加载脚本全部存在：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;comments utterances-container&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">class</span>=<span class="string">&quot;next-config&quot;</span> <span class="attr">data-name</span>=<span class="string">&quot;utterances&quot;</span> <span class="attr">type</span>=<span class="string">&quot;application/json&quot;</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">  &#123;</span></span><br><span class="line"><span class="language-javascript">    <span class="string">&quot;enable&quot;</span>: <span class="literal">true</span>,</span></span><br><span class="line"><span class="language-javascript">    <span class="string">&quot;repo&quot;</span>: <span class="string">&quot;liujunhong2/liujunhong2.github.io&quot;</span>,</span></span><br><span class="line"><span class="language-javascript">    <span class="string">&quot;issue_term&quot;</span>: <span class="string">&quot;pathname&quot;</span>,</span></span><br><span class="line"><span class="language-javascript">    <span class="string">&quot;theme&quot;</span>: <span class="string">&quot;github-light&quot;</span></span></span><br><span class="line"><span class="language-javascript">  &#125;</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;/js/third-party/comments/utterances.js&quot;</span> <span class="attr">defer</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>线上页面也包含完全相同的内容，<code>https://utteranc.es/client.js</code>
+返回 HTTP 200。这说明：</p>
+<ul>
+<li>Hexo 已经读取评论配置；</li>
+<li>NexT 已经注入评论容器；</li>
+<li>修复后的静态文件已经部署；</li>
+<li>Utterances 官方脚本可以访问。</li>
+</ul>
+<p>如果只检查生成产物，似乎所有环节都正常。但“脚本标签存在”并不等于“脚本按照预期执行”，所以排查必须从构建阶段进入浏览器运行时。</p>
+<p>使用浏览器运行时取证</p>
+<p>通过无界面 Chrome 和 Chrome DevTools Protocol
+读取实际页面状态，得到如下结果：</p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;readyState&quot;</span><span class="punctuation">:</span> <span class="string">&quot;interactive&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;container&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;containerHTML&quot;</span><span class="punctuation">:</span> <span class="string">&quot;&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;frames&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;scripts&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">    <span class="string">&quot;https://baoziwan.top/js/third-party/comments/utterances.js&quot;</span></span><br><span class="line">  <span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+<p>这段结果非常关键：</p>
+<ul>
+<li><code>.utterances-container</code> 确实存在；</li>
+<li>容器内部为空；</li>
+<li>页面没有创建任何 Utterances iframe；</li>
+<li>浏览器只看到了 NexT 的包装脚本，没有插入官方
+<code>client.js</code>。</li>
+</ul>
+<p>因此问题不在 CSS，也不在 GitHub Issue 映射，更不是 iframe
+被主题遮挡。加载流程根本没有走到创建 iframe 的阶段。</p>
+<p>根因：<code>defer</code> 脚本和 <code>page:loaded</code>
+事件发生竞争</p>
+<p>NexT 的 Utterances
+脚本并不立即加载评论，而是先监听一个主题自定义事件：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="variable language_">document</span>.<span class="title function_">addEventListener</span>(<span class="string">&#x27;page:loaded&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (!<span class="variable constant_">CONFIG</span>.<span class="property">page</span>.<span class="property">comments</span>) <span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line">  <span class="title class_">NexT</span>.<span class="property">utils</span>.<span class="title function_">loadComments</span>(<span class="string">&#x27;.utterances-container&#x27;</span>)</span><br><span class="line">    .<span class="title function_">then</span>(<span class="function">() =&gt;</span> <span class="title class_">NexT</span>.<span class="property">utils</span>.<span class="title function_">getScript</span>(<span class="string">&#x27;https://utteranc.es/client.js&#x27;</span>, &#123;</span><br><span class="line">      <span class="comment">// Utterances attributes</span></span><br><span class="line">    &#125;));</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p><code>page:loaded</code> 由 NexT 的 <code>utils.js</code>
+触发。原逻辑会根据 <code>document.readyState</code>
+决定立即派发事件，或者只等待一次状态变化：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title function_">onPageLoaded</span> = (<span class="params"></span>) =&gt; <span class="variable language_">document</span>.<span class="title function_">dispatchEvent</span>(</span><br><span class="line">  <span class="keyword">new</span> <span class="title class_">Event</span>(<span class="string">&#x27;page:loaded&#x27;</span>, &#123; <span class="attr">bubbles</span>: <span class="literal">true</span> &#125;)</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (<span class="variable language_">document</span>.<span class="property">readyState</span> === <span class="string">&#x27;loading&#x27;</span>) &#123;</span><br><span class="line">  <span class="variable language_">document</span>.<span class="title function_">addEventListener</span>(<span class="string">&#x27;readystatechange&#x27;</span>, onPageLoaded, &#123; <span class="attr">once</span>: <span class="literal">true</span> &#125;);</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  <span class="title function_">onPageLoaded</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>问题在于，<code>utils.js</code> 位于页面较前的位置，而 Utterances
+包装脚本位于文末，两者都使用
+<code>defer</code>。在某些加载顺序下会出现如下过程：</p>
+<ol type="1">
+<li>HTML 解析接近结束，<code>document.readyState</code> 进入
+<code>interactive</code>；</li>
+<li>前面的 <code>utils.js</code> 执行并立即派发
+<code>page:loaded</code>；</li>
+<li>文末的 Utterances 脚本稍后才执行并注册监听器；</li>
+<li>事件不会为后来注册的监听器自动重放；</li>
+<li>评论容器永远保持空白。</li>
+</ol>
+<p>如果前面还存在加载缓慢的第三方 <code>defer</code>
+脚本，执行顺序会变得更加脆弱。这也解释了为什么问题看起来像是“有时正常、有时异常”，以及为什么仅凭静态
+HTML 很难发现。</p>
+<p>最终在 NexT 的
+themes/next/layout/_third-party/comments/utterances.njk
+模板中加入一个独立加载器。它会在浏览器解析到文末时立即执行，同时仍监听
+<code>page:loaded</code>，用于兼容 PJAX 页面切换。</p>
+<p>核心实现如下：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> <span class="title function_">loadUtterances</span> = (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">    <span class="keyword">const</span> container = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;.utterances-container&#x27;</span>);</span><br><span class="line">    <span class="keyword">const</span> configElement = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(</span><br><span class="line">      <span class="string">&#x27;.next-config[data-name=&quot;utterances&quot;]&#x27;</span></span><br><span class="line">    );</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (!container || !configElement || container.<span class="property">dataset</span>.<span class="property">utterancesLoading</span>) &#123;</span><br><span class="line">      <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> config;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">      config = <span class="title class_">JSON</span>.<span class="title function_">parse</span>(configElement.<span class="property">textContent</span>);</span><br><span class="line">    &#125; <span class="keyword">catch</span> (error) &#123;</span><br><span class="line">      <span class="variable language_">console</span>.<span class="title function_">error</span>(<span class="string">&#x27;Failed to parse Utterances config.&#x27;</span>, error);</span><br><span class="line">      <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (!config.<span class="property">repo</span>) <span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line">    container.<span class="property">dataset</span>.<span class="property">utterancesLoading</span> = <span class="string">&#x27;true&#x27;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> script = <span class="variable language_">document</span>.<span class="title function_">createElement</span>(<span class="string">&#x27;script&#x27;</span>);</span><br><span class="line">    script.<span class="property">src</span> = <span class="string">&#x27;https://utteranc.es/client.js&#x27;</span>;</span><br><span class="line">    script.<span class="property">async</span> = <span class="literal">true</span>;</span><br><span class="line">    script.<span class="property">crossOrigin</span> = <span class="string">&#x27;anonymous&#x27;</span>;</span><br><span class="line">    script.<span class="title function_">setAttribute</span>(<span class="string">&#x27;repo&#x27;</span>, config.<span class="property">repo</span>);</span><br><span class="line">    script.<span class="title function_">setAttribute</span>(<span class="string">&#x27;issue-term&#x27;</span>, config.<span class="property">issue_term</span> || <span class="string">&#x27;pathname&#x27;</span>);</span><br><span class="line">    script.<span class="title function_">setAttribute</span>(<span class="string">&#x27;theme&#x27;</span>, config.<span class="property">theme</span> || <span class="string">&#x27;github-light&#x27;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (config.<span class="property">label</span>) &#123;</span><br><span class="line">      script.<span class="title function_">setAttribute</span>(<span class="string">&#x27;label&#x27;</span>, config.<span class="property">label</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    container.<span class="title function_">appendChild</span>(script);</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="variable language_">document</span>.<span class="title function_">addEventListener</span>(<span class="string">&#x27;page:loaded&#x27;</span>, loadUtterances);</span><br><span class="line">  <span class="title function_">loadUtterances</span>();</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
+<p>这个实现有几个重要设计点。</p>
+<ol type="1">
+<li>不再等待可能已经错过的事件</li>
+</ol>
+<p>注册监听器后立即调用一次 <code>loadUtterances()</code>。即使 NexT
+已经派发过 <code>page:loaded</code>，首次打开文章时仍会加载评论。</p>
+<ol start="2" type="1">
+<li>不依赖 NexT 的运行时对象</li>
+</ol>
+<p>加载器直接读取页面中的 JSON 配置节点，不要求
+<code>CONFIG</code>、<code>NexT.utils</code>
+或其他主题脚本已经完成初始化。因此，即使某个前置第三方脚本加载缓慢，评论也不会被它阻塞。</p>
+<ol start="3" type="1">
+<li>使用幂等保护避免重复加载</li>
+</ol>
+<p>通过 <code>data-utterances-loading</code> 标记容器。立即调用和
+<code>page:loaded</code> 事件即使先后到达，也只会插入一次
+<code>client.js</code>。</p>
+<ol start="4" type="1">
+<li>保留 PJAX 兼容性</li>
+</ol>
+<p>首次打开首页时可能没有评论容器，但监听器仍然存在。通过 PJAX
+进入文章后，新的 <code>page:loaded</code> 会再次检查容器并加载评论。</p>
+<ol start="5" type="1">
+<li>失败必须对用户可见</li>
+</ol>
+<p>原故障最大的麻烦是“静默失败”：页面只留下一块空白。修复后的加载器给
+<code>script</code>
+添加了错误处理。如果官方脚本加载失败，会显示错误提示和 GitHub Issues
+备用链接，而不是继续假装一切正常。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">script.<span class="title function_">addEventListener</span>(<span class="string">&#x27;error&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">delete</span> container.<span class="property">dataset</span>.<span class="property">utterancesLoading</span>;</span><br><span class="line">  container.<span class="property">textContent</span> = <span class="string">&#x27;评论加载失败，请检查网络后刷新，或前往 GitHub Issues 留言：&#x27;</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> link = <span class="variable language_">document</span>.<span class="title function_">createElement</span>(<span class="string">&#x27;a&#x27;</span>);</span><br><span class="line">  link.<span class="property">href</span> = <span class="string">`https://github.com/<span class="subst">$&#123;config.repo&#125;</span>/issues`</span>;</span><br><span class="line">  link.<span class="property">textContent</span> = config.<span class="property">repo</span>;</span><br><span class="line">  link.<span class="property">target</span> = <span class="string">&#x27;_blank&#x27;</span>;</span><br><span class="line">  link.<span class="property">rel</span> = <span class="string">&#x27;noopener&#x27;</span>;</span><br><span class="line">  container.<span class="title function_">appendChild</span>(link);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>这次故障从表面上看只是“文章末尾没有评论框”，实际横跨了 Hexo
+数据模型、NexT 注入机制、GitHub
+App、第三方脚本加载以及浏览器事件时序。</p>
+<p>最终有效的排查路径是：先消除配置矛盾，再确认静态生成结果，最后进入真实浏览器观察运行时
+DOM。修复的关键也不是简单地再写一次
+<code>enable: true</code>，而是让评论加载逻辑摆脱容易丢失的初始化事件，并为重复执行和外部失败做好保护。</p>
+<p>从此，评论区终于不再是那个“配置里存在、源码里存在、页面上却不存在”的幽灵组件。</p>
+]]></content>
+      <categories>
+        <category>Learn</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>NexT</tag>
+        <tag>Utterances</tag>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>remoteSSH</title>
     <url>/remoteSSH.html</url>
     <content><![CDATA[<p>服务器计算资源在当下已经成为科研或者竞赛中必不可少的工具，接下来讲解一下在
