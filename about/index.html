@@ -28,7 +28,7 @@
 <meta property="og:description" content="计算机科学与技术在读本科生  本科 计算机科学与技术 2023.9-2027.6  会做一些好玩的项目如善香数字生成器，也曾扒过”不背单词”并开发了”偷背单词“(无任何商业用途！) 小站用于记录生活和学习，会一直更新 ps:有熟练掌握评论系统的友友能不能助力一下我🤩（QQ：2499185166），本站因为一次大的迁移评论系统一直开通不了，本人现已燃尽😭 &gt; 一个燥热的下午，突然想到为什么">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-03-23T02:46:43.000Z">
-<meta property="article:modified_time" content="2026-07-22T09:11:49.739Z">
+<meta property="article:modified_time" content="2026-07-22T09:31:20.086Z">
 <meta property="article:author" content="jiangshun">
 <meta name="twitter:card" content="summary">
 
@@ -363,7 +363,50 @@ time.</strong></p>
   <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
 </noscript>
 <script class="next-config" data-name="utterances" type="application/json">{"enable":true,"repo":"liujunhong2/liujunhong2.github.io","issue_term":"pathname","label":"💬评论","theme":"github-light"}</script>
-<script src="/js/third-party/comments/utterances.js" defer></script>
+<script>
+(() => {
+  const loadUtterances = () => {
+    const container = document.querySelector('.utterances-container');
+    const configElement = document.querySelector('.next-config[data-name="utterances"]');
+    if (!container || !configElement || container.dataset.utterancesLoading) return;
+
+    let config;
+    try {
+      config = JSON.parse(configElement.textContent);
+    } catch (error) {
+      console.error('Failed to parse Utterances config.', error);
+      return;
+    }
+    if (!config.repo) return;
+
+    container.dataset.utterancesLoading = 'true';
+    const script = document.createElement('script');
+    script.src = 'https://utteranc.es/client.js';
+    script.async = true;
+    script.crossOrigin = 'anonymous';
+    script.setAttribute('repo', config.repo);
+    script.setAttribute('issue-term', config.issue_term || 'pathname');
+    script.setAttribute('theme', config.theme || 'github-light');
+    if (config.label) script.setAttribute('label', config.label);
+    script.addEventListener('error', () => {
+      delete container.dataset.utterancesLoading;
+      container.textContent = '评论加载失败，请检查网络后刷新，或前往 GitHub Issues 留言：';
+      const link = document.createElement('a');
+      link.href = `https://github.com/${config.repo}/issues`;
+      link.textContent = config.repo;
+      link.target = '_blank';
+      link.rel = 'noopener';
+      container.appendChild(link);
+    });
+    container.appendChild(script);
+  };
+
+  // Register before NexT's deferred scripts dispatch `page:loaded`, and also
+  // load immediately so a slow third-party deferred script cannot block comments.
+  document.addEventListener('page:loaded', loadUtterances);
+  loadUtterances();
+})();
+</script>
 
 </body>
 </html>

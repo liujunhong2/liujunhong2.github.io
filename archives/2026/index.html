@@ -413,7 +413,50 @@ window.MathJax = {
   <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
 </noscript>
 <script class="next-config" data-name="utterances" type="application/json">{"enable":true,"repo":"liujunhong2/liujunhong2.github.io","issue_term":"pathname","label":"💬评论","theme":"github-light"}</script>
-<script src="/js/third-party/comments/utterances.js" defer></script>
+<script>
+(() => {
+  const loadUtterances = () => {
+    const container = document.querySelector('.utterances-container');
+    const configElement = document.querySelector('.next-config[data-name="utterances"]');
+    if (!container || !configElement || container.dataset.utterancesLoading) return;
+
+    let config;
+    try {
+      config = JSON.parse(configElement.textContent);
+    } catch (error) {
+      console.error('Failed to parse Utterances config.', error);
+      return;
+    }
+    if (!config.repo) return;
+
+    container.dataset.utterancesLoading = 'true';
+    const script = document.createElement('script');
+    script.src = 'https://utteranc.es/client.js';
+    script.async = true;
+    script.crossOrigin = 'anonymous';
+    script.setAttribute('repo', config.repo);
+    script.setAttribute('issue-term', config.issue_term || 'pathname');
+    script.setAttribute('theme', config.theme || 'github-light');
+    if (config.label) script.setAttribute('label', config.label);
+    script.addEventListener('error', () => {
+      delete container.dataset.utterancesLoading;
+      container.textContent = '评论加载失败，请检查网络后刷新，或前往 GitHub Issues 留言：';
+      const link = document.createElement('a');
+      link.href = `https://github.com/${config.repo}/issues`;
+      link.textContent = config.repo;
+      link.target = '_blank';
+      link.rel = 'noopener';
+      container.appendChild(link);
+    });
+    container.appendChild(script);
+  };
+
+  // Register before NexT's deferred scripts dispatch `page:loaded`, and also
+  // load immediately so a slow third-party deferred script cannot block comments.
+  document.addEventListener('page:loaded', loadUtterances);
+  loadUtterances();
+})();
+</script>
 
 </body>
 </html>
