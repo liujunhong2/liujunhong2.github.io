@@ -1289,9 +1289,9 @@ operations）</strong>：</p>
 <h4 id="两次dfs">两次DFS</h4>
 <p>适用与无负边树</p>
 <p>首先从任意节点 y 开始进行第一次 DFS，到达距离其最远的节点，记为
-z，然后再从z 开始做第二次 DFS，到达距离z最远的节点，记为z’，则 <span class="math inline">\(\delta(z,z&#39;)\)</span> 即为树的直径。</p>
+z，然后再从z 开始做第二次 DFS，到达距离z最远的节点，记为z'，则 <span class="math inline">\(\delta(z,z&#39;)\)</span> 即为树的直径。</p>
 <p>显然，如果第一次 DFS 到达的节点z是直径的一端，那么第二次 DFS
-到达的节点z’一定是直径的一端。我们只需证明在任意情况下，z必为直径的一端。</p>
+到达的节点z'一定是直径的一端。我们只需证明在任意情况下，z必为直径的一端。</p>
 <p>定理：在一棵树上，从任意节点y开始进行一次
 DFS，到达的距离其最远的节点z必为直径的一端。</p>
 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> n;</span><br><span class="line">cin &gt;&gt; n;</span><br><span class="line"><span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">head</span><span class="params">(n + <span class="number">1</span>, <span class="number">0</span>)</span>, <span class="title">next</span><span class="params">(n &lt;&lt; <span class="number">1</span> | <span class="number">1</span>)</span>, <span class="title">to</span><span class="params">(n &lt;&lt; <span class="number">1</span> | <span class="number">1</span>)</span>, <span class="title">weight</span><span class="params">(n &lt;&lt; <span class="number">1</span> | <span class="number">1</span>)</span></span>;</span><br><span class="line"><span class="type">int</span> cnt1 = <span class="number">1</span>;</span><br><span class="line"><span class="comment">// 两次DFS</span></span><br><span class="line"><span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">dis</span><span class="params">(n + <span class="number">1</span>, <span class="number">0</span>)</span>, <span class="title">fa</span><span class="params">(n + <span class="number">1</span>)</span>, <span class="title">len</span><span class="params">(n + <span class="number">1</span>, <span class="number">0</span>)</span></span>;</span><br><span class="line"><span class="type">int</span> st, en;</span><br><span class="line"><span class="keyword">auto</span> dfs = [&amp;](<span class="keyword">auto</span> &amp;&amp; f, <span class="type">int</span> u, <span class="type">int</span> last, <span class="type">int</span> val) -&gt; <span class="type">void</span> &#123;</span><br><span class="line">    dis[u] = val;</span><br><span class="line">    fa[u] = last;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> ei = head[u], v, w; ei; ei = next[ei])&#123;</span><br><span class="line">        v = to[ei];</span><br><span class="line">        w = weight[ei];</span><br><span class="line">        <span class="keyword">if</span>(v != last)&#123;</span><br><span class="line">            len[v] = w;</span><br><span class="line">            <span class="built_in">f</span>(f, v, u, val + w);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="built_in">dfs</span>(dfs, <span class="number">1</span>, <span class="number">-1</span>, <span class="number">0</span>);</span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>, max1 = <span class="number">0</span>; i &lt;= n; i ++)&#123;</span><br><span class="line">    <span class="keyword">if</span>(max1 &lt; dis[i])&#123;</span><br><span class="line">        max1 = dis[i];</span><br><span class="line">        dis[i] = len[i] = <span class="number">0</span>;</span><br><span class="line">        st = i;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">dfs</span>(dfs, st, <span class="number">-1</span>, <span class="number">0</span>);</span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>, max1 = <span class="number">0</span>; i &lt;= n; i ++)&#123;</span><br><span class="line">    <span class="keyword">if</span>(max1 &lt; dis[i])&#123;</span><br><span class="line">        max1 = dis[i];</span><br><span class="line">        en = i;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">int</span> sum1 = dis[en]; <span class="comment">// 直径</span></span><br></pre></td></tr></table></figure>
@@ -1302,7 +1302,7 @@ DFS，到达的距离其最远的节点z必为直径的一端。</p>
 <h3 id="树上差分">树上差分</h3>
 <p>在树上对多条路径上的点或者边进行修改时，不能直接便利操作，而是利用差分思想积累信息，最后累加</p>
 <ul>
-<li>对于点，路径两端++,两端LCA和LCA的父亲–</li>
+<li>对于点，路径两端++,两端LCA和LCA的父亲--</li>
 <li>对于边，路径两端++,其值可理解为该点到其父亲的边，两端LCA-=2</li>
 </ul>
 <h4 id="点差分">点差分</h4>
@@ -1366,7 +1366,7 @@ information》中公开了这一数据结构。</p>
 <hr>
 <p><strong>删除</strong></p>
 <ol type="1">
-<li>count &gt; 1 → count–</li>
+<li>count &gt; 1 → count--</li>
 <li>无子 → 直接删</li>
 <li>单子 → 用唯一子替代</li>
 <li>双子 → 找右子树最左节点替代，删掉它</li>
@@ -1430,11 +1430,11 @@ information》中公开了这一数据结构。</p>
 的数</h4>
 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="meta">#<span class="keyword">define</span> M 500</span></span><br><span class="line"><span class="comment">// 经典</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">partition1</span><span class="params">(<span class="type">int</span> a1[],<span class="type">int</span> l,<span class="type">int</span> mid,<span class="type">int</span> r)</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> i=l;</span><br><span class="line">    <span class="type">int</span> j=r;</span><br><span class="line">    <span class="type">int</span> temp=a1[mid];</span><br><span class="line">    <span class="built_in">swap</span>(a1[mid],a1[l]);</span><br><span class="line">    <span class="keyword">while</span>(i&lt;j)&#123;</span><br><span class="line">        <span class="keyword">while</span>(j&gt;i &amp;&amp; a1[j]&gt;temp)&#123;</span><br><span class="line">            j--;</span><br><span class="line">        &#125;</span><br><span class="line">        a1[i]=a1[j];</span><br><span class="line">        <span class="keyword">while</span>(i&lt;j &amp;&amp; a1[i]&lt;=temp)&#123;</span><br><span class="line">            i++;</span><br><span class="line">        &#125;</span><br><span class="line">        a1[j]=a1[i];</span><br><span class="line">    &#125;</span><br><span class="line">    a1[i]=temp;</span><br><span class="line">    <span class="keyword">return</span> i;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">qs1</span><span class="params">(<span class="type">int</span> a1[],<span class="type">int</span> l,<span class="type">int</span> r)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(l&gt;=r) <span class="keyword">return</span> ;</span><br><span class="line">    <span class="type">int</span> x=l+(<span class="built_in">rand</span>()%(r-l+<span class="number">1</span>));</span><br><span class="line">    <span class="type">int</span> mid=<span class="built_in">partition1</span>(a1,l,x,r);</span><br><span class="line">    <span class="built_in">qs1</span>(a1,l,mid<span class="number">-1</span>);</span><br><span class="line">    <span class="built_in">qs1</span>(a1,mid+<span class="number">1</span>,r);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 优化</span></span><br><span class="line"><span class="type">int</span> first;</span><br><span class="line"><span class="type">int</span> second;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">partition2</span><span class="params">(<span class="type">int</span> a1[],<span class="type">int</span> l,<span class="type">int</span> mid,<span class="type">int</span> r)</span></span>&#123;</span><br><span class="line">    first=l;</span><br><span class="line">    second=r;</span><br><span class="line">    <span class="type">int</span> temp=a1[mid];</span><br><span class="line">    <span class="type">int</span> i=l;</span><br><span class="line">    <span class="keyword">while</span>(i&lt;=second)&#123;</span><br><span class="line">        <span class="keyword">if</span>(a1[i]==temp)&#123;</span><br><span class="line">            i++;</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(a1[i]&lt;temp)&#123;</span><br><span class="line">            <span class="built_in">swap</span>(a1[first++],a1[i++]);</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="built_in">swap</span>(a1[i],a1[second--]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">qs2</span><span class="params">(<span class="type">int</span> a1[],<span class="type">int</span> l,<span class="type">int</span> r)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(l&gt;=r) <span class="keyword">return</span> ;</span><br><span class="line">    <span class="type">int</span> x=l+(<span class="built_in">rand</span>()%(r-l+<span class="number">1</span>));</span><br><span class="line">    <span class="built_in">partition2</span>(a1,l,x,r);</span><br><span class="line">    <span class="type">int</span> left=first;</span><br><span class="line">    <span class="type">int</span> right=second;</span><br><span class="line">    <span class="built_in">qs2</span>(a1,l,left<span class="number">-1</span>);</span><br><span class="line">    <span class="built_in">qs2</span>(a1,right+<span class="number">1</span>,r);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 随机选择第 tar 小的元素（0-based）</span></span><br><span class="line"><span class="comment">// 要求第k大的元素等同于求n - k小的元素</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">randomizedSelect</span><span class="params">(<span class="type">int</span> a1[], <span class="type">int</span> k, <span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> l = <span class="number">0</span>, r = n - <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (l &lt;= r) &#123;</span><br><span class="line">        <span class="type">int</span> x = l + <span class="built_in">rand</span>() % (r - l + <span class="number">1</span>); <span class="comment">// 随机选取枢纽值</span></span><br><span class="line">        <span class="built_in">partition2</span>(a1, l, x, r); <span class="comment">// 三路划分，结果通过 first 和 second 表示</span></span><br><span class="line">        <span class="keyword">if</span> (k &lt; first) &#123;</span><br><span class="line">            r = first - <span class="number">1</span>; <span class="comment">// 目标在左侧</span></span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (k &gt; second) &#123;</span><br><span class="line">            l = second + <span class="number">1</span>; <span class="comment">// 目标在右侧</span></span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> a1[k]; <span class="comment">// 命中：tar 位于等于区域内</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 若未找到（理论上不会出现），返回 -1 表示错误</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="阶乘与逆元">阶乘与逆元</h3>
-<p>乘以逆元等于除以某一个数再取模&gt; &gt; 1!,2!,3!…n!的逆元
+<p>乘以逆元等于除以某一个数再取模&gt; &gt; 1!,2!,3!...n!的逆元
 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> int long long</span></span><br><span class="line"><span class="keyword">constexpr</span> <span class="type">int</span> mod = <span class="number">998244353</span>;</span><br><span class="line"><span class="keyword">auto</span> power = [&amp;](<span class="type">int</span> x, <span class="type">int</span> n) -&gt; <span class="type">int</span> &#123;</span><br><span class="line">    <span class="type">int</span> ans = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span>(n)&#123;</span><br><span class="line">        <span class="keyword">if</span>(n &amp; <span class="number">1</span>)&#123;</span><br><span class="line">            ans = ans * x % mod;</span><br><span class="line">        &#125;</span><br><span class="line">        x = x * x % mod;</span><br><span class="line">        n &gt;&gt;= <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">fac</span><span class="params">(n + <span class="number">1</span>)</span></span>; <span class="comment">// 阶乘</span></span><br><span class="line">fac[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i ++)&#123;</span><br><span class="line">    fac[i] = fac[i - <span class="number">1</span>] * i % mod; </span><br><span class="line">&#125;</span><br><span class="line"><span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">inv</span><span class="params">(n + <span class="number">1</span>)</span></span>; <span class="comment">// 逆元</span></span><br><span class="line">inv[n] = <span class="built_in">power</span>(fac[n], mod - <span class="number">2</span>);</span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i = n - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i --)&#123;</span><br><span class="line">    inv[i] = inv[i + <span class="number">1</span>] * (i + <span class="number">1</span>) % mod;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">auto</span> C = [&amp;](<span class="type">int</span> n, <span class="type">int</span> m) -&gt; <span class="type">int</span> &#123; <span class="comment">// 组合数</span></span><br><span class="line">    <span class="keyword">if</span>(m &gt; n)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> fac[n] * inv[m] % mod * inv[n - m] % mod;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
 <h3 id="线性递推逆元">线性递推逆元</h3>
 <blockquote>
-<p>1,2,3….n的逆元 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">// p 必须为质数</span></span><br><span class="line">inv2[<span class="number">1</span>] = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">2</span>; i &lt;= n; i ++)&#123;</span><br><span class="line">	inv2[i] = (p - p / i) * inv2[p % i] % p;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>1,2,3....n的逆元 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">// p 必须为质数</span></span><br><span class="line">inv2[<span class="number">1</span>] = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">2</span>; i &lt;= n; i ++)&#123;</span><br><span class="line">	inv2[i] = (p - p / i) * inv2[p % i] % p;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 </blockquote>
 <h3 id="矩阵快速幂">矩阵快速幂</h3>
 <p>加速矩阵计算</p>
@@ -1793,7 +1793,7 @@ a[i] = u+v,\quad a[i+mid] = u-v
 </ol>
 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">// https://ac.nowcoder.com/acm/contest/108305/J</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="meta">#<span class="keyword">define</span> int long long </span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> fr first</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> sc second</span></span><br><span class="line"><span class="keyword">constexpr</span> <span class="type">int</span> N = <span class="number">3e5</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">double</span> PI = <span class="built_in">acos</span>(<span class="number">-1</span>);</span><br><span class="line"><span class="comment">// 简单复数结构，支持 +,-,*</span></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">Complex</span>&#123;</span><br><span class="line">    <span class="type">double</span> x, y;</span><br><span class="line">    Complex <span class="keyword">operator</span> +(<span class="type">const</span> Complex &amp;t) <span class="type">const</span> &#123; <span class="keyword">return</span> &#123;x + t.x, y + t.y&#125;; &#125;</span><br><span class="line">    Complex <span class="keyword">operator</span> -(<span class="type">const</span> Complex &amp;t) <span class="type">const</span> &#123; <span class="keyword">return</span> &#123;x - t.x, y - t.y&#125;; &#125;</span><br><span class="line">    Complex <span class="keyword">operator</span> *(<span class="type">const</span> Complex &amp;t) <span class="type">const</span> &#123; <span class="keyword">return</span> &#123;x * t.x - y * t.y, x * t.y + y * t.x&#125;; &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// 工作数组</span></span><br><span class="line"><span class="function">vector&lt;Complex&gt; <span class="title">a</span><span class="params">(N + <span class="number">1</span>)</span>, <span class="title">b</span><span class="params">(N + <span class="number">1</span>)</span></span>;</span><br><span class="line"><span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">rev</span><span class="params">(N + <span class="number">1</span>)</span>, <span class="title">res</span><span class="params">(N &lt;&lt; <span class="number">1</span> | <span class="number">1</span>)</span></span>;</span><br><span class="line"><span class="type">int</span> bit, tot; <span class="comment">// FFT 长度信息</span></span><br><span class="line"><span class="function"><span class="type">signed</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    cin.<span class="built_in">tie</span>(<span class="literal">nullptr</span>)-&gt;ios_base::<span class="built_in">sync_with_stdio</span>(<span class="literal">false</span>);</span><br><span class="line">    <span class="type">int</span> t = <span class="number">1</span>;</span><br><span class="line">    cin &gt;&gt; t;</span><br><span class="line">    <span class="comment">// FFT：inv=1 正变换, inv=-1 逆变换</span></span><br><span class="line">    <span class="keyword">auto</span> FFT = [&amp;](vector&lt;Complex&gt; &amp; v, <span class="type">int</span> inv) &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; tot; i ++) <span class="keyword">if</span>(i &lt; rev[i]) <span class="built_in">swap</span>(v[i], v[rev[i]]);</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> mid = <span class="number">1</span>; mid &lt; tot; mid &lt;&lt;= <span class="number">1</span>) &#123;</span><br><span class="line">            Complex w1 = &#123;<span class="built_in">cos</span>(PI / mid), inv * <span class="built_in">sin</span>(PI / mid)&#125;;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; tot; i += (mid &lt;&lt; <span class="number">1</span>)) &#123;</span><br><span class="line">                Complex wk = &#123;<span class="number">1</span>, <span class="number">0</span>&#125;;</span><br><span class="line">                <span class="keyword">for</span>(<span class="type">int</span> j = <span class="number">0</span>; j &lt; mid; j ++, wk = wk * w1) &#123;</span><br><span class="line">                    Complex x = v[i + j], y = wk * v[i + j + mid];</span><br><span class="line">                    v[i + j] = x + y;</span><br><span class="line">                    v[i + j + mid] = x - y;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">while</span>(t --) &#123; </span><br><span class="line">        string s1, s2;</span><br><span class="line">        cin &gt;&gt; s1 &gt;&gt; s2;</span><br><span class="line">        <span class="type">int</span> n1 = s1.<span class="built_in">size</span>(), n2 = s2.<span class="built_in">size</span>();</span><br><span class="line">        <span class="comment">// 低位在前存储</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; n1; i ++) a[i] = &#123;<span class="built_in">double</span>(s1[n1 - i - <span class="number">1</span>] - <span class="string">&#x27;0&#x27;</span>), <span class="number">0</span>&#125;;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; n2; i ++) b[i] = &#123;<span class="built_in">double</span>(s2[n2 - i - <span class="number">1</span>] - <span class="string">&#x27;0&#x27;</span>), <span class="number">0</span>&#125;;</span><br><span class="line">        <span class="comment">// 取最近 2 次幂长度</span></span><br><span class="line">        bit = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>((<span class="number">1</span> &lt;&lt; bit) &lt; n1 + n2 - <span class="number">1</span>) bit ++;</span><br><span class="line">        tot = <span class="number">1</span> &lt;&lt; bit;</span><br><span class="line">        <span class="comment">// 补 0</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = n1; i &lt; tot; i ++) a[i] = &#123;<span class="number">0</span>, <span class="number">0</span>&#125;;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = n2; i &lt; tot; i ++) b[i] = &#123;<span class="number">0</span>, <span class="number">0</span>&#125;;</span><br><span class="line">        <span class="comment">// 位逆序表</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; tot; i ++)</span><br><span class="line">            rev[i] = (rev[i &gt;&gt; <span class="number">1</span>] &gt;&gt; <span class="number">1</span>) | ((i &amp; <span class="number">1</span>) &lt;&lt; (bit - <span class="number">1</span>));</span><br><span class="line">        <span class="comment">// FFT → 逐点相乘 → IFFT</span></span><br><span class="line">        <span class="built_in">FFT</span>(a, <span class="number">1</span>), <span class="built_in">FFT</span>(b, <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; tot; i ++) a[i] = a[i] * b[i];</span><br><span class="line">        <span class="built_in">FFT</span>(a, <span class="number">-1</span>);</span><br><span class="line">        <span class="comment">// 卷积结果（未进位）</span></span><br><span class="line">        <span class="type">int</span> len = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n1 + n2 - <span class="number">1</span>; ++i)</span><br><span class="line">            res[i] = (<span class="type">int</span>)(a[i].x / tot + <span class="number">0.5</span>);</span><br><span class="line">        <span class="comment">// √-2 进制进位归约</span></span><br><span class="line">        <span class="keyword">for</span>(len = <span class="number">0</span>; len &lt; n1 + n2 - <span class="number">1</span> || res[len + <span class="number">1</span>] || res[len]; len ++) &#123;</span><br><span class="line">            <span class="keyword">if</span>(res[len] &lt; <span class="number">0</span>) &#123;</span><br><span class="line">                res[len] = -res[len];</span><br><span class="line">                res[len + <span class="number">2</span>] += res[len];</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(res[len] &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                res[len + <span class="number">2</span>] -= res[len] &gt;&gt; <span class="number">1</span>;</span><br><span class="line">                res[len] %= <span class="number">2</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 去掉前导 0</span></span><br><span class="line">        <span class="keyword">while</span>(len &gt; <span class="number">1</span> &amp;&amp; !res[len - <span class="number">1</span>]) len --;</span><br><span class="line">        <span class="comment">// 输出（高位在前）</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = len - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i --) cout &lt;&lt; <span class="built_in">char</span>(<span class="string">&#x27;0&#x27;</span> + res[i]);</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;\n&quot;</span>;</span><br><span class="line">        <span class="comment">// 清理</span></span><br><span class="line">        <span class="built_in">fill</span>(res.<span class="built_in">begin</span>(), res.<span class="built_in">begin</span>() + len + <span class="number">1</span>, <span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="卡特兰数">卡特兰数</h3>
-<p>对于依次压栈随意出栈，规范括号（（）（））…，斜方矩阵从左上角到右下角方案数，其答案数均为卡特兰数：
+<p>对于依次压栈随意出栈，规范括号（（）（））...，斜方矩阵从左上角到右下角方案数，其答案数均为卡特兰数：
 <span class="math display">\[
 f(n) = \frac{(2n)!}{n!(n +1)!}
 \]</span></p>
@@ -2808,7 +2808,7 @@ CSDN</a></p>
 <p>iGPSORT CAD70 踏频传感器 <span class="price" data-price="0"></span>
 <span class="math inline">\(+ \infty\)</span> ￥</p>
 <blockquote>
-<p><strong>总价</strong>: <span id="total-price">计算中…</span></p>
+<p><strong>总价</strong>: <span id="total-price">计算中...</span></p>
 </blockquote>
 <h2 id="总行程">总行程</h2>
 <div id="ride-dashboard-root">
@@ -2858,7 +2858,7 @@ CSDN</a></p>
 <p>2025-08-13 <span class="distance" data-date="2025-08-13" data-distance="50">50 km</span></p>
 <p>2025-08-25 <span class="distance" data-date="2025-08-25" data-distance="50">50 km</span></p>
 <p>2025-08-29 <span class="distance" data-date="2025-08-29" data-distance="40">40 km</span></p>
-<p>雨骑的魅力在于，越骑越冷…</p>
+<p>雨骑的魅力在于，越骑越冷...</p>
 <p>2025-08-31 <span class="distance" data-date="2025-08-31" data-distance="40">40 km</span></p>
 <p>2025-09-09 <span class="distance" data-date="2025-09-09" data-distance="40">40 km</span></p>
 <p>2025-09-13 <span class="distance" data-date="2025-09-13" data-distance="40">40 km</span></p>
@@ -2886,18 +2886,18 @@ CSDN</a></p>
 <p>2026-06-29 <span class="distance" data-date="2026-06-29" data-distance="48.08">48.08 km</span> (ad300)</p>
 <p>2026-07-18 <span class="distance" data-date="2026-07-18" data-distance="30.05">30.05 km</span> (ad300)</p>
 <blockquote>
-<p><strong>总行程</strong>: <span id="total-distance">计算中…</span></p>
+<p><strong>总行程</strong>: <span id="total-distance">计算中...</span></p>
 </blockquote>
 <h2 id="车-1">车</h2>
 <p>2025-04-21 第一次扎胎，扎到落叶里生命的余韵了🔥</p>
 <p>2025-06-29
 第一次拆车并装车，一定要经常松动一些关键部位的螺丝，不然生锈了会卡死，拆下来的前轮要放在飞盘的另一侧，轮轴差不多对准放竖杯架的地方。</p>
 <blockquote>
-<p>一个月后顺利装车返校…</p>
+<p>一个月后顺利装车返校...</p>
 </blockquote>
 <p>2025-08-13 洗车，上油</p>
 <p>2026-02-26
-成都-和盛镇-天乡路三段的路沿有一个贼大的下水道坑，车子冲过去直接冲爆胎了，入坑货拉拉…</p>
+成都-和盛镇-天乡路三段的路沿有一个贼大的下水道坑，车子冲过去直接冲爆胎了，入坑货拉拉...</p>
 <p>2026-05-16 青城山摔车（重伤）</p>
 <figure>
 <img src="/cycle/drop.jpg" alt="left_elbow">
@@ -3415,10 +3415,10 @@ VScdoe 的弹窗提示来就行</p>
 software products.</p>
 <h2 id="frequent-synchronizations-and-periodic-stabilizations">Frequent
 Synchronizations and Periodic Stabilizations</h2>
-<p>The main idea is <strong>synch-and-stabilize</strong>:“Continually
+<p>The main idea is <strong>synch-and-stabilize</strong>:"Continually
 synchronize what people are doing as individuals and as members of
 parallel teams, and periodically stabilize the product in increments as
-a project proceeds, rather than once at the end of a project.”</p>
+a project proceeds, rather than once at the end of a project."</p>
 <p>Microsoft follow a process that iterates among design, building
 components, and testing and also overlaps these phases and contains more
 interactions with customers during development.</p>
@@ -3473,7 +3473,7 @@ precise rules and controls.</p>
 <p>A common site and common language and tools help teams communicate,
 debate design ideas, and resolve problems face to face.</p>
 <blockquote>
-<p>Synch-and-stabilize vs. sequential development</p>
+<p>Synch-and-stabilize vs. sequential development</p>
 <table>
 <colgroup>
 <col style="width: 50%">
@@ -3492,7 +3492,7 @@ debate design ideas, and resolve problems face to face.</p>
 </tr>
 <tr class="even">
 <td>Vision statement and evolving specification</td>
-<td>Complete “frozen” specification and detailed design before building
+<td>Complete "frozen" specification and detailed design before building
 the product</td>
 </tr>
 <tr class="odd">
@@ -3503,11 +3503,11 @@ the product</td>
 <td>Frequent synchronizations (daily builds) and intermediate
 stabilizations (milestones)</td>
 <td>One late and large integration and system test phase at the
-project’s end</td>
+project's end</td>
 </tr>
 <tr class="odd">
-<td>“Fixed” release and ship dates and multiple release cycles</td>
-<td>Aiming for feature and product “perfection” in each project
+<td>"Fixed" release and ship dates and multiple release cycles</td>
+<td>Aiming for feature and product "perfection" in each project
 cycle</td>
 </tr>
 <tr class="even">
@@ -4550,7 +4550,7 @@ y)\)</span></p>
 </ul>
 <p>而是会逐步变成：</p>
 <ul>
-<li>(模态 A × 模态 B) × (模态 A × 模态 B) × …</li>
+<li>(模态 A × 模态 B) × (模态 A × 模态 B) × ...</li>
 </ul>
 <p>于是得到更高阶的组合表达。</p>
 <ol start="3" type="1">
@@ -4793,7 +4793,7 @@ install-tl-unx.tar.gz</p>
 </blockquote>
 <p>进入解压目录后执行安装脚本</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo perl ./install-tl --no-interaction</span><br></pre></td></tr></table></figure>
-<p>….a few moments later</p>
+<p>....a few moments later</p>
 <p>配置环境变量</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vim ~/.zshrc</span><br><span class="line"><span class="comment"># 根据自己的shell来</span></span><br></pre></td></tr></table></figure>
 <p>加入以下内容（注意一下年份的匹配）</p>
@@ -4869,10 +4869,10 @@ yes同意协议，然后按 Enter 接受默认安装位置
 <blockquote>
 <p>Do you wish to update your shell profile to automatically initialize
 conda? This will activate conda on startup and change the command prompt
-when activated. If you’d prefer that conda’s base environment not be
+when activated. If you'd prefer that conda's base environment not be
 activated on startup, run the following command when conda is
 activated:</p>
-<p>conda config –set auto_activate_base false</p>
+<p>conda config --set auto_activate_base false</p>
 <p>You can undo this by running
 <code>conda init --reverse $SHELL</code>? [yes|no] [no] &gt;&gt;&gt;</p>
 </blockquote>
@@ -4881,11 +4881,11 @@ activated:</p>
 <p>随之而来的是自己完成初始化</p>
 <blockquote>
 <p>You have chosen to not have conda modify your shell scripts at all.
-To activate conda’s base environment in your current shell session:</p>
+To activate conda's base environment in your current shell session:</p>
 <p><strong>eval
-“$(/home/<code>&lt;username&gt;</code>/anaconda3/bin/conda
-shell.YOUR_SHELL_NAME hook)”</strong></p>
-<p>To install conda’s shell functions for easier access, first activate,
+"$(/home/<code>&lt;username&gt;</code>/anaconda3/bin/conda
+shell.YOUR_SHELL_NAME hook)"</strong></p>
+<p>To install conda's shell functions for easier access, first activate,
 then:</p>
 <p><strong>conda init</strong></p>
 <p>Thank you for installing Anaconda3!</p>
@@ -5372,23 +5372,24 @@ Git 的这些显著优势正是我们学习和使用它的重要原因。</p>
 <h2 id="常用指令">常用指令</h2>
 <h3 id="建站前">建站前</h3>
 <p>在gitbase中cd到博客文件夹</p>
-<p>下载hexo框架 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure> —
-初始化博客项目（若已经在下一级文件夹中可不加folder） <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo init [folder] </span><br></pre></td></tr></table></figure> —-
+<p>下载hexo框架 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure> ---
+初始化博客项目（若已经在下一级文件夹中可不加folder） <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo init [folder] </span><br></pre></td></tr></table></figure> ----
 进入folder</p>
-<p>安装依赖项 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install</span><br></pre></td></tr></table></figure> — 下载部署器 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure> —
+<p>安装依赖项 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install</span><br></pre></td></tr></table></figure> --- 下载部署器 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure> ---
 之后可随时部署到Github上 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo d</span><br></pre></td></tr></table></figure> ### 建站后</p>
 <p>new 新建一篇文章</p>
 <p>-p 自定义文章路径</p>
 <p>-r 如果存在则替换</p>
-<p>-s 文章别名 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo new [layout] &lt;title&gt;</span><br></pre></td></tr></table></figure> — clean 清除缓存文件 (db.json)
-和已生成的静态文件 (public) <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo cl</span><br></pre></td></tr></table></figure> — generate 生成静态文件
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo g</span><br></pre></td></tr></table></figure> — publish 发布草稿 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo publish [layout] &lt;filename&gt;</span><br></pre></td></tr></table></figure> — server 启动服务器</p>
+<p>-s 文章别名 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo new [layout] &lt;title&gt;</span><br></pre></td></tr></table></figure> --- clean 清除缓存文件 (db.json)
+和已生成的静态文件 (public) <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo cl</span><br></pre></td></tr></table></figure> --- generate 生成静态文件
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo g</span><br></pre></td></tr></table></figure> --- publish 发布草稿 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo publish [layout] &lt;filename&gt;</span><br></pre></td></tr></table></figure> --- server
+启动服务器</p>
 <p>-p 重设端口</p>
 <p>-s 只使用静态文件</p>
-<p>-l 启用日志 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure> — deploy 部署网站 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo d</span><br></pre></td></tr></table></figure> — render
-渲染文件 -o output destination <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo render &lt;file1&gt; [file2] ...</span><br></pre></td></tr></table></figure> — migrate
-从其他博客系统迁移内容 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo migrate&lt;type&gt;</span><br></pre></td></tr></table></figure> — list 列出所有路由 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo list &lt;type&gt;</span><br></pre></td></tr></table></figure>
-— version 显示版本信息 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo version</span><br></pre></td></tr></table></figure> — config
+<p>-l 启用日志 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure> --- deploy 部署网站 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo d</span><br></pre></td></tr></table></figure> ---
+render 渲染文件 -o output destination <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo render &lt;file1&gt; [file2] ...</span><br></pre></td></tr></table></figure> --- migrate
+从其他博客系统迁移内容 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo migrate&lt;type&gt;</span><br></pre></td></tr></table></figure> --- list 列出所有路由
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo list &lt;type&gt;</span><br></pre></td></tr></table></figure> --- version 显示版本信息 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo version</span><br></pre></td></tr></table></figure> --- config
 列出网站的配置（_config.yml）。 如果指定了 key，则只展示配置中对应 key
 的值；如果同时指定了 key 和 value，则将配置中对应的 key 的值修改为
 value。 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo config [key] [value]</span><br></pre></td></tr></table></figure></p>
@@ -5510,7 +5511,7 @@ value。 <figure class="highlight plaintext"><table><tr><td class="code"><pre><s
 <ul>
 <li>reset 版本回退</li>
 </ul>
-<p>–hard会回退到上个版本的已提交状态，而–soft会回退到上个版本的未提交状态，–mixed会回退到上个版本已添加但未提交的状态.</p>
+<p>--hard会回退到上个版本的已提交状态，而--soft会回退到上个版本的未提交状态，--mixed会回退到上个版本已添加但未提交的状态.</p>
 <p><code>$ git reset --hard HEAD~&lt;num&gt;</code>
 <code>$ git reset --hard &lt;version&gt;</code></p>
 <ul>
