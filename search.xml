@@ -2716,6 +2716,28 @@ CSDN</a></p>
   outline-offset: 1px;
 }
 
+a.ride-cell {
+  display: block;
+  border-bottom: 0;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+a.ride-cell:focus-visible {
+  outline: 2px solid #0969da;
+  outline-offset: 2px;
+}
+
+.distance[data-date] {
+  scroll-margin-top: 80px;
+}
+
+.distance[data-date]:target {
+  padding: 2px 4px;
+  border-radius: 4px;
+  background: #fff3b0;
+}
+
 .ride-cell.level-0,
 .ride-legend-box.level-0 {
   background: #ebedf0;
@@ -2945,12 +2967,19 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   const rideMap = new Map();
+  const rideTargets = new Map();
 
   document.querySelectorAll(".distance[data-date]").forEach(item => {
     const date = item.dataset.date;
     const distance = Number(item.dataset.distance);
 
     if (!date || Number.isNaN(distance)) return;
+
+    if (!rideTargets.has(date)) {
+      const targetId = `ride-${date}`;
+      item.id = targetId;
+      rideTargets.set(date, targetId);
+    }
     
     rideMap.set(date, (rideMap.get(date) || 0) + distance);
   });
@@ -3134,7 +3163,8 @@ document.addEventListener("DOMContentLoaded", function () {
       const distance = rideMap.get(dateStr) || 0;
       const level = getLevel(distance);
     
-      const cell = document.createElement("div");
+      const hasRide = distance > 0 && rideTargets.has(dateStr);
+      const cell = document.createElement(hasRide ? "a" : "div");
       cell.className = `ride-cell level-${level}`;
     
       if (current.getFullYear() !== Number(year)) {
@@ -3142,8 +3172,13 @@ document.addEventListener("DOMContentLoaded", function () {
         cell.title = "";
       } else {
         cell.title = distance
-          ? `${dateStr}: ${distance.toFixed(2)} km`
+          ? `${dateStr}: ${distance.toFixed(2)} km，点击查看记录`
           : `${dateStr}: No ride`;
+
+        if (hasRide) {
+          cell.href = `#${rideTargets.get(dateStr)}`;
+          cell.setAttribute("aria-label", `${dateStr} 骑行 ${distance.toFixed(2)} km，点击查看记录`);
+        }
       }
     
       heatmap.appendChild(cell);
