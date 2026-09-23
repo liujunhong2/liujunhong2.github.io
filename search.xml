@@ -5202,6 +5202,10 @@ X₃）或重组，为下一轮输入。</li>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">echo $SHELL</span><br></pre></td></tr></table></figure>
 <p>安装zsh</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo apt update</span><br><span class="line">sudo apt install zsh</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>也可以用 conda 安装（无 sudo 情况下）</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">conda install -n base conda-forge::zsh</span><br><span class="line">conda init zsh</span><br></pre></td></tr></table></figure>
+</blockquote>
 <p>设置默认shell</p>
 <ul>
 <li>为sudo用户设置</li>
