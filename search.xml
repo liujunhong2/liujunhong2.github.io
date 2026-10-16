@@ -110,7 +110,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="一页应急速查">一页应急速查</h2>
+<h2 id="速查">速查</h2>
 <h3 id="系统与身份">系统与身份</h3>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">whoami                         # 当前用户名</span><br><span class="line">id                             # UID、GID、所属组</span><br><span class="line">hostnamectl                    # 主机名、系统与内核摘要</span><br><span class="line">cat /etc/os-release            # 发行版信息</span><br><span class="line">uname -a                       # 内核与架构</span><br><span class="line">date; uptime                   # 时间、运行时长、负载</span><br><span class="line">env | sort                     # 环境变量</span><br></pre></td></tr></table></figure>
 <h3 id="资源与故障入口">资源与故障入口</h3>
@@ -573,11 +573,12 @@ directory、<code>v</code> verbose、<code>a</code> auto-compress。</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">nice -n 10 COMMAND                  # 以较低调度优先级启动</span><br><span class="line">renice -n 10 -p PID                 # 调整运行中进程</span><br></pre></td></tr></table></figure>
 <p>nice 值通常为
 <code>-20..19</code>，值越大优先级越低；提高优先级通常需要权限。</p>
-<h3 id="nohup-与-tmux">nohup 与 tmux</h3>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">nohup COMMAND &gt;app.log 2&gt;&amp;1 &amp;       # 简单非交互临时任务</span><br><span class="line">echo $! &gt; app.pid                   # 保存最近后台 PID</span><br><span class="line"></span><br><span class="line">tmux new -s work                    # 新建命名会话</span><br><span class="line">tmux ls                             # 列出会话</span><br><span class="line">tmux attach -t work                 # 恢复会话</span><br><span class="line">tmux kill-session -t work           # 结束会话</span><br></pre></td></tr></table></figure>
-<p>tmux 默认前缀 <code>Ctrl+B</code>：<code>d</code>
-脱离、<code>c</code> 新窗口、<code>%</code> 左右分屏、<code>"</code>
-上下分屏、方向键切换面板、<code>z</code> 面板缩放。</p>
+<h3 id="tmux">tmux</h3>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">tmux new -s work                    # 新建命名会话</span><br><span class="line">tmux ls                             # 列出会话</span><br><span class="line">tmux a -t work                      # 恢复会话</span><br><span class="line">tmux kill-session -t work           # 结束会话</span><br><span class="line"></span><br><span class="line">Ctrl+B → c 新建标签页</span><br><span class="line">		 n 切换到下一个标签页</span><br><span class="line">		 p 切换到上一个标签页</span><br><span class="line">		 d 脱离，但保留所有现场</span><br><span class="line"><span class="meta prompt_">		 % </span><span class="language-bash">左右分屏</span></span><br><span class="line">		 &quot; 上下分屏</span><br><span class="line">		 [方向键] 切换面板</span><br><span class="line">		 z 面板缩放</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>这里新建的一个 session 类似于打开了一个新的 chrome 窗口，而 c
+建立的新窗口类似与多了一个标签页，而正常的分屏是指在一个标签页内的分屏</p>
+</blockquote>
 <h2 id="systemd-服务与日志">systemd 服务与日志</h2>
 <h3 id="管理服务">管理服务</h3>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">systemctl status SERVICE --no-pager -l</span><br><span class="line">sudo systemctl start SERVICE</span><br><span class="line">sudo systemctl stop SERVICE</span><br><span class="line">sudo systemctl restart SERVICE</span><br><span class="line">sudo systemctl reload SERVICE           # 服务支持时，仅重载配置</span><br><span class="line">sudo systemctl enable SERVICE           # 设置开机启动，不立即启动</span><br><span class="line">sudo systemctl enable --now SERVICE     # 设置并立即启动</span><br><span class="line">sudo systemctl disable --now SERVICE</span><br><span class="line">systemctl is-active SERVICE</span><br><span class="line">systemctl is-enabled SERVICE</span><br><span class="line">systemctl --failed</span><br><span class="line">sudo systemctl daemon-reload             # unit 文件变化后执行</span><br></pre></td></tr></table></figure>
