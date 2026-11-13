@@ -5227,6 +5227,9 @@ X₃）或重组，为下一轮输入。</li>
 <li>为特定用户</li>
 </ul>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo chsh -s /bin/zsh &lt;username&gt;</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">&lt;username&gt; 替换为实际用户名</span></span><br></pre></td></tr></table></figure>
+<p>无 sudo 时设置为 SSH 登陆自动进入 zsh</p>
+<p>在 .bashrc 中编辑(这里 zsh 的地址要随机应变)</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Automatically start Zsh in interactive Bash sessions</span></span><br><span class="line"><span class="keyword">if</span> [[ $- == *i* ]] &amp;&amp; \</span><br><span class="line">   [[ -z <span class="string">&quot;<span class="variable">$&#123;ZSH_VERSION:-&#125;</span>&quot;</span> ]] &amp;&amp; \</span><br><span class="line">   [[ -x <span class="string">&quot;/data/jhliu/miniconda3/bin/zsh&quot;</span> ]]; <span class="keyword">then</span></span><br><span class="line">    <span class="built_in">exec</span> /data/jhliu/miniconda3/bin/zsh</span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure>
 <h1 id="oh_my_zsh">oh_my_zsh</h1>
 <p>安装git</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo apt update</span><br><span class="line">sudo apt install git</span><br></pre></td></tr></table></figure>
